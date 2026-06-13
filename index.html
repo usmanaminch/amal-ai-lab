@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amal’s AI Workshop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+    <nav class="nav">
+      <div class="logo">Amal’s AI Workshop</div>
+
+      <div class="tabs" role="tablist" aria-label="Website sections">
+        <button class="tab-button active" data-tab="home" type="button">Home</button>
+        <button class="tab-button" data-tab="projects" type="button">Projects</button>
+        <button class="tab-button" data-tab="rocket-lab" type="button">Rocket Lab</button>
+        <button class="tab-button" data-tab="journal" type="button">Journal</button>
+      </div>
+    </nav>
+
+    <section id="home" class="tab-panel active">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">Young Builder Portfolio</p>
+          <h1>AI, rockets, and experiments by Amal.</h1>
+          <p class="hero-description">
+            I’m learning how technology works by building useful tools, testing ideas,
+            and documenting what I learn along the way.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="button primary tab-link" data-tab="projects" type="button">See Projects</button>
+            <button class="button secondary tab-link" data-tab="rocket-lab" type="button">Visit Rocket Lab</button>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <p class="card-label">Current Mission</p>
+          <h2>Build the workshop</h2>
+          <p>
+            Create a public home for AI tools, experiments, rocket projects, and learning notes.
+          </p>
+          <div class="mission-list">
+            <span>Website</span>
+            <span>AI Tools</span>
+            <span>Rocketry</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card intro">
+        <p class="eyebrow">About</p>
+        <h2>This is my builder workshop.</h2>
+        <p>
+          This site will collect my projects as I learn about AI, websites, data,
+          hardware, and rocketry. Every project should be useful, not just random.
+        </p>
+        <p>
+          For each project, I will explain what I built, who it helps, what I learned,
+          and what I want to improve next.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" class="tab-panel">
+      <div class="content-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Project Gallery</p>
+            <h2>Useful AI Projects</h2>
+          </div>
+          <p class="section-note">Each project will include a demo, GitHub link, and short explanation.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <p class="project-tag">Day 1</p>
+            <h3>Amal’s AI Workshop Website</h3>
+            <p>
+              My first project is this website. It is the home base for everything
+              I build this summer.
+            </p>
+            <ul>
+              <li>Useful because it organizes my projects</li>
+              <li>Teaches HTML, CSS, GitHub, and publishing</li>
+              <li>Next: make it more interactive</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Coming Soon</p>
+            <h3>Study Quiz Maker</h3>
+            <p>A tool that helps turn school topics into practice questions.</p>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Coming Soon</p>
+            <h3>Rocket Launch Checklist</h3>
+            <p>A checklist for safe and organized rocket experiments.</p>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Coming Soon</p>
+            <h3>Reading Buddy</h3>
+            <p>A helper for summarizing chapters and creating discussion questions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rocket-lab" class="tab-panel">
+      <div class="content-card rocket-section">
+        <div>
+          <p class="eyebrow">Rocket Lab</p>
+          <h2>From idea to launch.</h2>
+          <p>
+            This section will track rocket designs, launch checklists, experiments,
+            measurements, and lessons learned from testing.
+          </p>
+        </div>
+
+        <div class="rocket-stats">
+          <div>
+            <strong>01</strong>
+            <span>Design</span>
+          </div>
+          <div>
+            <strong>02</strong>
+            <span>Test</span>
+          </div>
+          <div>
+            <strong>03</strong>
+            <span>Measure</span>
+          </div>
+          <div>
+            <strong>04</strong>
+            <span>Improve</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <p class="eyebrow">Future Rocket Projects</p>
+        <h2>Experiments I can build later</h2>
+        <div class="mini-list">
+          <div>🚀 Rocket launch checklist</div>
+          <div>📏 Paper rocket distance tracker</div>
+          <div>🧪 Fin shape experiment</div>
+          <div>📊 Launch data dashboard</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journal" class="tab-panel">
+      <div class="content-card journal">
+        <p class="eyebrow">Learning Journal</p>
+        <h2>Day 1 — Starting the Workshop</h2>
+        <p>
+          Today I created the first version of my AI project website. I learned
+          that HTML gives a webpage structure, CSS changes how it looks, and GitHub
+          saves code like a project notebook.
+        </p>
+
+        <div class="questions">
+          <h3>Today’s 5 Concept Questions</h3>
+          <ol>
+            <li>What is the purpose of Amal’s AI Workshop?</li>
+            <li>What does HTML help us put on a webpage?</li>
+            <li>What does CSS change about a webpage?</li>
+            <li>Why do we save projects in GitHub?</li>
+            <li>Why should a public website avoid private information?</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Built by Amal with parent supervision · AI, rockets, and useful experiments</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

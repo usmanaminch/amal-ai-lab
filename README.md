@@ -6,12 +6,17 @@ A parent-supervised personal website for Amal.
 
 This website is Amal’s public project and learning portfolio. It can include:
 
+- Favorite Things
 - AI Workshop
 - Rocket Lab
 - Classes and learning notes
 - Recipes
 - Builder resume
 - Learning journal
+
+## Day 2 Update
+
+Moved Favorite Things into its own tab and updated the color palette with brighter pop colors.
 
 ## Safety Note
 

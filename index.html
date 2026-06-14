@@ -15,6 +15,7 @@
 
       <div class="tabs" role="tablist" aria-label="Website sections">
         <button class="tab-button active" data-tab="home" type="button">Home</button>
+        <button class="tab-button" data-tab="favorites" type="button">Favorite Things</button>
         <button class="tab-button" data-tab="ai-workshop" type="button">AI Workshop</button>
         <button class="tab-button" data-tab="rocket-lab" type="button">Rocket Lab</button>
         <button class="tab-button" data-tab="classes" type="button">Classes</button>
@@ -35,8 +36,9 @@
           </p>
 
           <div class="hero-buttons">
-            <button class="button primary tab-link" data-tab="ai-workshop" type="button">Visit AI Workshop</button>
-            <button class="button secondary tab-link" data-tab="rocket-lab" type="button">See Rocket Lab</button>
+            <button class="button primary tab-link" data-tab="favorites" type="button">See Favorite Things</button>
+            <button class="button secondary tab-link" data-tab="ai-workshop" type="button">Visit AI Workshop</button>
+            <button class="button third tab-link" data-tab="rocket-lab" type="button">See Rocket Lab</button>
           </div>
         </div>
 
@@ -68,6 +70,66 @@
         <p>
           Every public section should be parent-reviewed and should share my work,
           not private information.
+        </p>
+      </div>
+    </section>
+
+    <section id="favorites" class="tab-panel">
+      <div class="content-card favorite-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Favorite Things</p>
+            <h2>A few things I’m into right now</h2>
+          </div>
+          <p class="section-note">
+            This tab makes the site feel personal while still keeping private information safe.
+          </p>
+        </div>
+
+        <div class="favorite-grid">
+          <div class="favorite-tile teal">
+            <span>🚀</span>
+            <h3>Rocketry</h3>
+            <p>Testing ideas, launches, and experiments.</p>
+          </div>
+
+          <div class="favorite-tile coral">
+            <span>🤖</span>
+            <h3>AI Tools</h3>
+            <p>Building useful helpers, not random projects.</p>
+          </div>
+
+          <div class="favorite-tile yellow">
+            <span>📚</span>
+            <h3>Learning</h3>
+            <p>Classes, reading, science, and new skills.</p>
+          </div>
+
+          <div class="favorite-tile blue">
+            <span>🎨</span>
+            <h3>Creative Projects</h3>
+            <p>Designing, writing, and making things look good.</p>
+          </div>
+
+          <div class="favorite-tile mint">
+            <span>🍳</span>
+            <h3>Recipes</h3>
+            <p>Saving food ideas and things I want to try.</p>
+          </div>
+
+          <div class="favorite-tile purple">
+            <span>✨</span>
+            <h3>Big Ideas</h3>
+            <p>Keeping track of things I want to build later.</p>
+          </div>
+        </div>
+
+        <button id="favorite-message-button" class="message-button" type="button">
+          Click for today’s builder reminder
+        </button>
+
+        <p id="favorite-message" class="hidden-message">
+          Builder reminder: make one small thing better today.
         </p>
       </div>
     </section>
@@ -255,14 +317,21 @@
           I also learned that GitHub saves code like a project notebook.
         </p>
 
+        <h2>Day 2 — Adding a Favorite Things tab</h2>
+        <p>
+          Today I changed Favorite Things from a card into its own tab. I also
+          learned that HTML creates the tab and content, CSS controls the colors
+          and layout, and JavaScript makes the tabs and reminder button work.
+        </p>
+
         <div class="questions">
           <h3>Today’s 5 Concept Questions</h3>
           <ol>
-            <li>Why is this now a personal website instead of only an AI website?</li>
-            <li>What is the AI Workshop tab for?</li>
-            <li>What other sections could I add later?</li>
-            <li>Why should a public website avoid private information?</li>
-            <li>What is one thing I want people to learn about me from this site?</li>
+            <li>Which file adds the Favorite Things tab button and tab section?</li>
+            <li>Which file controls the new brighter colors and card layout?</li>
+            <li>Which file makes the tabs switch when you click them?</li>
+            <li>Why is a button different from regular text on a website?</li>
+            <li>Why is it safer to share interests than private information?</li>
           </ol>
         </div>
       </div>

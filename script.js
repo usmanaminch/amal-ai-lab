@@ -23,3 +23,12 @@ tabLinks.forEach((link) => {
     showTab(link.dataset.tab);
   });
 });
+
+const favoriteMessageButton = document.querySelector("#favorite-message-button");
+const favoriteMessage = document.querySelector("#favorite-message");
+
+if (favoriteMessageButton && favoriteMessage) {
+  favoriteMessageButton.addEventListener("click", () => {
+    favoriteMessage.classList.toggle("show");
+  });
+}

@@ -15,13 +15,21 @@
 
       <div class="tabs" role="tablist" aria-label="Website sections">
         <button class="tab-button active" data-tab="home" type="button">Home</button>
+        <button class="tab-button" data-tab="projects" type="button">Projects</button>
         <button class="tab-button" data-tab="favorites" type="button">Favorite Things</button>
-        <button class="tab-button" data-tab="ai-workshop" type="button">AI Workshop</button>
-        <button class="tab-button" data-tab="rocket-lab" type="button">Rocket Lab</button>
-        <button class="tab-button" data-tab="classes" type="button">Classes</button>
-        <button class="tab-button" data-tab="recipes" type="button">Recipes</button>
         <button class="tab-button" data-tab="resume" type="button">Resume</button>
         <button class="tab-button" data-tab="journal" type="button">Journal</button>
+
+        <div class="more-wrap">
+          <button class="more-button" type="button" aria-label="More sections">
+            More ▾
+          </button>
+
+          <div class="more-menu">
+            <button class="tab-button more-item" data-tab="classes" type="button">Classes</button>
+            <button class="tab-button more-item" data-tab="recipes" type="button">Recipes</button>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -36,23 +44,23 @@
           </p>
 
           <div class="hero-buttons">
-            <button class="button primary tab-link" data-tab="favorites" type="button">See Favorite Things</button>
-            <button class="button secondary tab-link" data-tab="ai-workshop" type="button">Visit AI Workshop</button>
-            <button class="button third tab-link" data-tab="rocket-lab" type="button">See Rocket Lab</button>
+            <button class="button primary tab-link" data-tab="projects" type="button">See My Projects</button>
+            <button class="button secondary tab-link" data-tab="journal" type="button">Read My Journal</button>
+            <button class="button third tab-link" data-tab="favorites" type="button">Favorite Things</button>
           </div>
         </div>
 
         <div class="hero-card">
           <p class="card-label">Current Mission</p>
-          <h2>Build my personal site</h2>
+          <h2>Build useful projects</h2>
           <p>
-            Create a public home for my projects, classes, recipes, hobbies,
-            experiments, and learning notes.
+            Create projects that help me learn AI, science, surgery, rockets,
+            recipes, and creative problem-solving.
           </p>
           <div class="mission-list">
-            <span>Projects</span>
             <span>AI</span>
             <span>Rocketry</span>
+            <span>Surgeon Lab</span>
             <span>Recipes</span>
           </div>
         </div>
@@ -62,15 +70,82 @@
         <p class="eyebrow">About This Site</p>
         <h2>My digital home base.</h2>
         <p>
-          This website is where I can organize what I am learning and building.
-          The AI Workshop is one important part, but this site can also grow into
-          a place for classes, recipes, activities, writing, experiments, and my
-          builder resume.
+          This website is where I organize what I am learning and building. The
+          website is my portfolio, and each project teaches me something new.
         </p>
         <p>
           Every public section should be parent-reviewed and should share my work,
           not private information.
         </p>
+      </div>
+    </section>
+
+    <section id="projects" class="tab-panel">
+      <div class="content-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Projects</p>
+            <h2>Things I am building</h2>
+          </div>
+          <p class="section-note">
+            My projects are organized into tracks: AI Builder, Rocket Lab, and Future Surgeon Lab.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <p class="project-tag">Day 3 Project</p>
+            <h3>Human Body Explorer</h3>
+            <p>
+              An interactive Future Surgeon Lab project that explains body parts
+              like the brain, heart, lungs, bones, muscles, skin, teeth, and jaw.
+            </p>
+            <ul>
+              <li>Useful because it helps me learn anatomy</li>
+              <li>Concepts: HTML cards, CSS styles, JavaScript buttons and filters</li>
+              <li>Safety: educational only, not medical advice</li>
+            </ul>
+            <a class="button primary" href="projects/human-body-explorer/index.html">Open Project</a>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">AI Builder</p>
+            <h3>AI Workshop</h3>
+            <p>
+              Useful AI projects like study helpers, reading buddies, kindness
+              message helpers, and project idea tools.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Rocket Lab</p>
+            <h3>Rocket Projects</h3>
+            <p>
+              Rocket designs, launch checklists, experiments, data tracking, and
+              testing ideas.
+            </p>
+          </article>
+
+          <article class="project-card">
+            <p class="project-tag">Future Surgeon Lab</p>
+            <h3>Surgeon Learning</h3>
+            <p>
+              Anatomy, what surgeons do, patient care, hand skills, and medical
+              science learning.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <p class="eyebrow">Coming Soon</p>
+        <h2>Project ideas I can build next</h2>
+        <div class="mini-list">
+          <div>🧠 What Do Surgeons Do?</div>
+          <div>🦷 Teeth, Jaw, and Smile Lab</div>
+          <div>🚀 Rocket launch checklist</div>
+          <div>📚 Study Quiz Maker</div>
+        </div>
       </div>
     </section>
 
@@ -82,7 +157,7 @@
             <h2>A few things I’m into right now</h2>
           </div>
           <p class="section-note">
-            This tab makes the site feel personal while still keeping private information safe.
+            This section makes the site feel personal while still keeping private information safe.
           </p>
         </div>
 
@@ -118,9 +193,9 @@
           </div>
 
           <div class="favorite-tile purple">
-            <span>✨</span>
-            <h3>Big Ideas</h3>
-            <p>Keeping track of things I want to build later.</p>
+            <span>🩺</span>
+            <h3>Future Surgeon Lab</h3>
+            <p>Learning the human body and what surgeons do.</p>
           </div>
         </div>
 
@@ -131,97 +206,6 @@
         <p id="favorite-message" class="hidden-message">
           Builder reminder: make one small thing better today.
         </p>
-      </div>
-    </section>
-
-    <section id="ai-workshop" class="tab-panel">
-      <div class="content-card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">AI Workshop</p>
-            <h2>Useful AI projects</h2>
-          </div>
-          <p class="section-note">
-            AI projects should help someone do something useful.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card featured">
-            <p class="project-tag">Day 1</p>
-            <h3>Personal Website</h3>
-            <p>
-              My first project is this website. It is the home base for everything
-              I build and learn.
-            </p>
-            <ul>
-              <li>Useful because it organizes my work</li>
-              <li>Teaches HTML, CSS, JavaScript, Git, and publishing</li>
-              <li>Next: add more personal sections</li>
-            </ul>
-          </article>
-
-          <article class="project-card">
-            <p class="project-tag">Coming Soon</p>
-            <h3>Study Quiz Maker</h3>
-            <p>A tool that helps turn school topics into practice questions.</p>
-          </article>
-
-          <article class="project-card">
-            <p class="project-tag">Coming Soon</p>
-            <h3>Reading Buddy</h3>
-            <p>A helper for summarizing chapters and creating discussion questions.</p>
-          </article>
-
-          <article class="project-card">
-            <p class="project-tag">Coming Soon</p>
-            <h3>Kindness Text Helper</h3>
-            <p>A tool for writing kind thank-you notes, invitations, and messages.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="rocket-lab" class="tab-panel">
-      <div class="content-card rocket-section">
-        <div>
-          <p class="eyebrow">Rocket Lab</p>
-          <h2>From idea to launch.</h2>
-          <p>
-            This section will track rocket designs, launch checklists, experiments,
-            measurements, and lessons learned from testing.
-          </p>
-        </div>
-
-        <div class="rocket-stats">
-          <div>
-            <strong>01</strong>
-            <span>Design</span>
-          </div>
-          <div>
-            <strong>02</strong>
-            <span>Test</span>
-          </div>
-          <div>
-            <strong>03</strong>
-            <span>Measure</span>
-          </div>
-          <div>
-            <strong>04</strong>
-            <span>Improve</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-card">
-        <p class="eyebrow">Future Rocket Projects</p>
-        <h2>Experiments I can build later</h2>
-        <div class="mini-list">
-          <div>🚀 Rocket launch checklist</div>
-          <div>📏 Paper rocket distance tracker</div>
-          <div>🧪 Fin shape experiment</div>
-          <div>📊 Launch data dashboard</div>
-        </div>
       </div>
     </section>
 
@@ -291,6 +275,7 @@
               <li>AI prompting</li>
               <li>Project documentation</li>
               <li>Science experiments</li>
+              <li>Anatomy learning</li>
             </ul>
           </div>
 
@@ -299,7 +284,7 @@
             <ul>
               <li>AI</li>
               <li>Rocketry</li>
-              <li>Reading</li>
+              <li>Future surgery</li>
               <li>Cooking and recipes</li>
             </ul>
           </div>
@@ -317,21 +302,29 @@
           I also learned that GitHub saves code like a project notebook.
         </p>
 
-        <h2>Day 2 — Adding a Favorite Things tab</h2>
+        <h2>Day 2 — Adding a Favorite Things section</h2>
         <p>
-          Today I changed Favorite Things from a card into its own tab. I also
-          learned that HTML creates the tab and content, CSS controls the colors
-          and layout, and JavaScript makes the tabs and reminder button work.
+          Today I added Favorite Things and learned that HTML creates content,
+          CSS controls colors and layout, and JavaScript makes tabs and buttons work.
+        </p>
+
+        <h2>Day 3 — Human Body Explorer</h2>
+        <p>
+          Today I built Human Body Explorer for my Future Surgeon Lab. It helps
+          me understand human body parts like the brain, heart, lungs, bones,
+          muscles, skin, teeth, and jaw. I learned that CSS controls the colors,
+          and JavaScript makes Explore buttons and filters work. I also learned
+          why safety notes matter: this is for learning, not medical advice.
         </p>
 
         <div class="questions">
-          <h3>Today’s 5 Concept Questions</h3>
+          <h3>Day 3 Concept Answers</h3>
           <ol>
-            <li>Which file adds the Favorite Things tab button and tab section?</li>
-            <li>Which file controls the new brighter colors and card layout?</li>
-            <li>Which file makes the tabs switch when you click them?</li>
-            <li>Why is a button different from regular text on a website?</li>
-            <li>Why is it safer to share interests than private information?</li>
+            <li>The project helps me understand the body parts of humans.</li>
+            <li>The brain was interesting because it helps us generate thoughts and control the body.</li>
+            <li>CSS controls the colors and darker style.</li>
+            <li>JavaScript makes the Explore buttons and filters work.</li>
+            <li>The safety note shows that I am not a real doctor and this is just for learning.</li>
           </ol>
         </div>
       </div>

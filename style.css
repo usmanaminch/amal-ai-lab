@@ -587,3 +587,81 @@ footer {
     justify-content: flex-start;
   }
 }
+
+/* LESS TABS NAV START */
+
+.more-wrap {
+  position: relative;
+}
+
+.more-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: rgba(255, 255, 255, 0.38);
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.more-button:hover {
+  color: var(--hot-pink);
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.more-button.active,
+.more-button.menu-open {
+  background: linear-gradient(135deg, var(--hot-pink), var(--lavender), var(--sky));
+  color: white;
+  box-shadow: 0 10px 22px rgba(255, 63, 159, 0.24);
+}
+
+.more-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 210px;
+  padding: 10px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 45px rgba(255, 143, 208, 0.22);
+  z-index: 20;
+}
+
+.more-menu.open {
+  display: grid;
+  gap: 8px;
+}
+
+.more-menu .tab-button {
+  width: 100%;
+  text-align: left;
+  background: rgba(255, 244, 251, 0.72);
+}
+
+.more-menu .tab-button.active {
+  background: linear-gradient(135deg, var(--hot-pink), var(--lavender));
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .more-wrap {
+    width: 100%;
+  }
+
+  .more-button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .more-menu {
+    position: static;
+    min-width: 100%;
+    margin-top: 8px;
+  }
+}
+
+/* LESS TABS NAV END */

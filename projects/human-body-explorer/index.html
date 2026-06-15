@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Human Body Explorer · Amal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Future Surgeon Lab</p>
+        <h1>Human Body Explorer</h1>
+        <p class="hero-text">
+          A colorful learning project about body parts, what they do, and how doctors
+          or surgeons may help people when something needs care.
+        </p>
+        <p class="safety-note">
+          Educational project only. This does not give medical advice.
+        </p>
+      </div>
+
+      <div class="mission-card">
+        <p class="card-label">Today’s Mission</p>
+        <h2>Learn like a future surgeon</h2>
+        <p>
+          Click a body card to explore what it does, why it matters, and one cool fact.
+        </p>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button class="filter-button active" data-filter="all" type="button">All</button>
+      <button class="filter-button" data-filter="movement" type="button">Movement</button>
+      <button class="filter-button" data-filter="breathing" type="button">Breathing</button>
+      <button class="filter-button" data-filter="thinking" type="button">Thinking</button>
+      <button class="filter-button" data-filter="surgeon" type="button">Surgeon Focus</button>
+    </section>
+
+    <section class="body-grid" aria-label="Human body cards">
+      <article class="body-card heart" data-category="surgeon">
+        <span class="emoji">❤️</span>
+        <h2>Heart</h2>
+        <p>The heart pumps blood around the body.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What it does:</strong> Moves blood so oxygen and nutrients can reach the body.</p>
+          <p><strong>Why it matters:</strong> Every cell needs blood flow to stay alive.</p>
+          <p><strong>Doctor connection:</strong> Heart surgeons can repair heart problems in specialized operations.</p>
+          <p><strong>Cool fact:</strong> Your heart beats all day and night without you telling it to.</p>
+        </div>
+      </article>
+
+      <article class="body-card lungs" data-category="breathing">
+        <span class="emoji">🫁</span>
+        <h2>Lungs</h2>
+        <p>The lungs help the body breathe.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What they do:</strong> Bring oxygen into the body and help remove carbon dioxide.</p>
+          <p><strong>Why they matter:</strong> Oxygen helps the body make energy.</p>
+          <p><strong>Doctor connection:</strong> Doctors check breathing with tools like stethoscopes and imaging.</p>
+          <p><strong>Cool fact:</strong> Your lungs expand like balloons when you breathe in.</p>
+        </div>
+      </article>
+
+      <article class="body-card brain" data-category="thinking">
+        <span class="emoji">🧠</span>
+        <h2>Brain</h2>
+        <p>The brain controls thinking, movement, and senses.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What it does:</strong> Helps you think, remember, move, feel, and make decisions.</p>
+          <p><strong>Why it matters:</strong> It is the body’s control center.</p>
+          <p><strong>Doctor connection:</strong> Brain surgeons need extremely careful planning and precision.</p>
+          <p><strong>Cool fact:</strong> Your brain is always working, even when you sleep.</p>
+        </div>
+      </article>
+
+      <article class="body-card bones" data-category="movement surgeon">
+        <span class="emoji">🦴</span>
+        <h2>Bones</h2>
+        <p>Bones give the body shape and protect organs.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What they do:</strong> Support the body and protect important organs.</p>
+          <p><strong>Why they matter:</strong> Bones help you stand, move, and stay protected.</p>
+          <p><strong>Doctor connection:</strong> Orthopedic surgeons help repair bones and joints.</p>
+          <p><strong>Cool fact:</strong> Bones are strong, but they are also living tissue.</p>
+        </div>
+      </article>
+
+      <article class="body-card muscles" data-category="movement">
+        <span class="emoji">💪</span>
+        <h2>Muscles</h2>
+        <p>Muscles help the body move.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What they do:</strong> Pull on bones so you can walk, jump, smile, and write.</p>
+          <p><strong>Why they matter:</strong> Muscles help with movement, posture, and strength.</p>
+          <p><strong>Doctor connection:</strong> Surgeons must understand muscles before operating near them.</p>
+          <p><strong>Cool fact:</strong> Smiling uses muscles in your face.</p>
+        </div>
+      </article>
+
+      <article class="body-card skin" data-category="surgeon">
+        <span class="emoji">🩹</span>
+        <h2>Skin</h2>
+        <p>Skin protects the body from the outside world.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What it does:</strong> Protects the body, helps sense touch, and helps control temperature.</p>
+          <p><strong>Why it matters:</strong> Skin is the body’s outer shield.</p>
+          <p><strong>Doctor connection:</strong> Plastic and reconstructive surgeons help repair skin after injuries or burns.</p>
+          <p><strong>Cool fact:</strong> Skin is the body’s largest organ.</p>
+        </div>
+      </article>
+
+      <article class="body-card teeth" data-category="surgeon">
+        <span class="emoji">🦷</span>
+        <h2>Teeth</h2>
+        <p>Teeth help you bite, chew, and speak clearly.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What they do:</strong> Break food into smaller pieces and help with speech.</p>
+          <p><strong>Why they matter:</strong> Teeth help with eating, smiling, and communication.</p>
+          <p><strong>Doctor connection:</strong> Oral surgeons may help with wisdom teeth, jaw issues, and mouth surgery.</p>
+          <p><strong>Cool fact:</strong> Teeth are covered by enamel, which is very hard.</p>
+        </div>
+      </article>
+
+      <article class="body-card jaw" data-category="movement surgeon">
+        <span class="emoji">🙂</span>
+        <h2>Jaw</h2>
+        <p>The jaw helps you chew, talk, and shape your smile.</p>
+        <button class="learn-button" type="button">Explore</button>
+
+        <div class="details">
+          <p><strong>What it does:</strong> Holds teeth and helps the mouth open and close.</p>
+          <p><strong>Why it matters:</strong> The jaw is important for chewing, speaking, and face structure.</p>
+          <p><strong>Doctor connection:</strong> Oral and maxillofacial surgeons work with teeth, jaws, and facial bones.</p>
+          <p><strong>Cool fact:</strong> Your jaw is one of the most-used moving parts of your body.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="reflection-card">
+      <p class="eyebrow">Day 3 Reflection</p>
+      <h2>What I learned</h2>
+      <ul>
+        <li>The body has different parts that work together.</li>
+        <li>Surgeons need anatomy knowledge, careful hands, and planning.</li>
+        <li>Interactive cards can make science easier to explore.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

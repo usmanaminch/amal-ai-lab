@@ -4,22 +4,11 @@
 
 :root {
   --pink-bg: #fff4fb;
-  --pink: #ff79c6;
   --deep-pink: #d83f8d;
-  --blue: #69c8ff;
   --deep-blue: #2d5bce;
-  --mint: #70f0bc;
-  --deep-teal: #157a72;
-  --yellow: #ffe66d;
-  --gold: #d4a62a;
-  --lavender: #a98bff;
   --deep-purple: #5c3ccf;
-  --peach: #ffb38a;
-  --coral: #ff6f91;
-  --deep-coral: #c44767;
   --text: #34213a;
   --muted: #725d78;
-  --card: rgba(255, 255, 255, 0.88);
   --border: rgba(255, 121, 198, 0.25);
   --shadow: 0 22px 60px rgba(117, 63, 136, 0.18);
 }
@@ -37,14 +26,14 @@ body {
 }
 
 .app-shell {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 34px 0 48px;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.25fr 0.75fr;
   gap: 24px;
   align-items: stretch;
   margin-bottom: 24px;
@@ -87,6 +76,9 @@ h1 {
 }
 
 .mission-card,
+.builder-note,
+.diagram-card,
+.info-card,
 .reflection-card {
   padding: 28px;
   border-radius: 34px;
@@ -110,6 +102,8 @@ h1 {
 }
 
 .mission-card h2,
+.diagram-card h2,
+.info-card h2,
 .reflection-card h2 {
   margin: 0 0 10px;
   font-size: 34px;
@@ -117,154 +111,171 @@ h1 {
 }
 
 .mission-card p,
-.reflection-card li {
+.builder-note p,
+.info-card p,
+.reflection-card li,
+.active-list {
   color: var(--muted);
 }
 
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 18px 0 24px;
+.builder-note {
+  margin-bottom: 24px;
+  padding: 18px 22px;
+  border-radius: 24px;
 }
 
-.filter-button {
-  border: 0;
-  border-radius: 999px;
-  padding: 11px 15px;
-  background: rgba(255, 255, 255, 0.82);
-  color: var(--muted);
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 10px 22px rgba(92, 60, 207, 0.10);
-}
-
-.filter-button.active {
-  background: linear-gradient(135deg, var(--deep-pink), var(--deep-purple), var(--deep-blue));
-  color: white;
-}
-
-.body-grid {
+.explorer-layout {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
 }
 
-.body-card {
-  min-height: 260px;
-  padding: 22px;
-  border-radius: 32px;
-  background: var(--card);
-  border: 2px solid var(--border);
-  box-shadow: var(--shadow);
-  position: relative;
-  overflow: hidden;
-}
-
-.body-card::after {
-  content: "♡";
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  font-size: 28px;
-  color: rgba(255, 255, 255, 0.84);
-}
-
-.body-card.hide {
-  display: none;
-}
-
-.emoji {
-  display: block;
-  font-size: 42px;
+.diagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
-.body-card h2 {
-  margin: 0 0 8px;
-  font-size: 28px;
-  letter-spacing: -0.03em;
-}
-
-.body-card p {
-  color: var(--muted);
-}
-
-.learn-button {
-  border: 0;
+.tiny-badge {
+  display: inline-block;
+  padding: 8px 12px;
   border-radius: 999px;
-  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--deep-pink), var(--deep-purple));
   color: white;
-  background: linear-gradient(135deg, var(--deep-pink), var(--deep-teal));
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.active-list {
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.68);
+  border: 1px solid rgba(216, 63, 141, 0.14);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.diagram-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+#body-svg {
+  width: min(100%, 440px);
+  height: auto;
+}
+
+.skin-shape {
+  fill: #ffd7dc;
+  stroke: rgba(196, 71, 103, 0.18);
+  stroke-width: 2;
+}
+
+.bone-shape {
+  stroke: #fffdf7;
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.muscle-shape {
+  fill: rgba(255, 111, 145, 0.28);
+}
+
+#brain-shape {
+  fill: #cab8ff;
+  stroke: rgba(92, 60, 207, 0.18);
+  stroke-width: 2;
+}
+
+.lung-shape {
+  fill: #bfe3ff;
+  stroke: rgba(45, 91, 206, 0.18);
+  stroke-width: 2;
+}
+
+.trachea {
+  stroke: rgba(45, 91, 206, 0.8);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+#heart-shape {
+  fill: #ff5e86;
+}
+
+.blood-line {
+  fill: none;
+  stroke: rgba(216, 63, 141, 0.78);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 8 10;
+  opacity: 0.12;
+}
+
+.breath-line {
+  fill: none;
+  stroke: rgba(45, 91, 206, 0.56);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 8 12;
+  opacity: 0.12;
+}
+
+.tooth-shape {
+  fill: #fff;
+  stroke: rgba(52, 33, 58, 0.15);
+  stroke-width: 1.5;
+}
+
+.jaw-shape {
+  fill: none;
+  stroke: #7aa0ff;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.organ-clickable,
+.organ-group {
   cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-.details {
-  display: none;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(52, 33, 58, 0.12);
+.organ-clickable:hover,
+.organ-group:hover {
+  filter: brightness(1.08) drop-shadow(0 0 10px rgba(92, 60, 207, 0.16));
 }
 
-.body-card.open .details {
-  display: block;
+.helper-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  fill: #6f5b77;
+  font-weight: 700;
 }
 
-.body-card.open .learn-button {
-  background: linear-gradient(135deg, var(--deep-purple), var(--deep-blue));
+.info-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
 }
 
-/* richer card colors */
-.heart {
-  background: linear-gradient(180deg, #ffe1ec, #ffc0d3);
-  border-color: rgba(216, 63, 141, 0.25);
+.fact-box {
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(216, 63, 141, 0.14);
 }
-.heart h2 { color: #a83260; }
 
-.lungs {
-  background: linear-gradient(180deg, #e1f4ff, #bfe3ff);
-  border-color: rgba(45, 91, 206, 0.22);
+.fact-box h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--deep-purple);
+  font-family: Arial, Helvetica, sans-serif;
 }
-.lungs h2 { color: #2753b7; }
-
-.brain {
-  background: linear-gradient(180deg, #eee6ff, #d7c7ff);
-  border-color: rgba(92, 60, 207, 0.24);
-}
-.brain h2 { color: #5635c4; }
-
-.bones {
-  background: linear-gradient(180deg, #fff4bd, #ffe37f);
-  border-color: rgba(212, 166, 42, 0.26);
-}
-.bones h2 { color: #a67912; }
-
-.muscles {
-  background: linear-gradient(180deg, #ffe1dc, #ffc6b8);
-  border-color: rgba(196, 71, 103, 0.24);
-}
-.muscles h2 { color: #b54467; }
-
-.skin {
-  background: linear-gradient(180deg, #fff0d9, #ffd6a8);
-  border-color: rgba(212, 166, 42, 0.20);
-}
-.skin h2 { color: #9d6a19; }
-
-.teeth {
-  background: linear-gradient(180deg, #e8fff8, #c5f6e7);
-  border-color: rgba(21, 122, 114, 0.22);
-}
-.teeth h2 { color: #156f67; }
-
-.jaw {
-  background: linear-gradient(180deg, #e7f0ff, #c7daff);
-  border-color: rgba(45, 91, 206, 0.22);
-}
-.jaw h2 { color: #2753b7; }
 
 .reflection-card {
   margin-top: 24px;
@@ -274,9 +285,128 @@ h1 {
   margin-bottom: 0;
 }
 
-@media (max-width: 950px) {
+.part-on#heart-shape,
+.part-on #heart-shape {
+  animation: heartBeat 1s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(216, 63, 141, 0.35));
+}
+
+.part-on#lung-left,
+.part-on#lung-right,
+.part-on .lung-shape {
+  transform-origin: center;
+  animation: lungsBreath 2s ease-in-out infinite;
+}
+
+.active-lungs-on .breath-line,
+.part-on#breath-left,
+.part-on#breath-right {
+  animation: breathFlow 1.2s linear infinite;
+  opacity: 1;
+}
+
+.active-heart-on .blood-line,
+.part-on#blood-left,
+.part-on#blood-right {
+  animation: bloodFlow 1s linear infinite;
+  opacity: 1;
+}
+
+.part-on#brain-shape,
+.part-on #brain-shape {
+  animation: brainGlow 1.2s ease-in-out infinite;
+}
+
+.part-on.bone-shape {
+  animation: boneShine 1.3s ease-in-out infinite;
+}
+
+.part-on.muscle-shape {
+  animation: muscleFlex 1.2s ease-in-out infinite;
+}
+
+.part-on.skin-shape {
+  animation: skinGlow 1.4s ease-in-out infinite;
+}
+
+.part-on.tooth-shape {
+  animation: toothSparkle 1s ease-in-out infinite;
+}
+
+.part-on.jaw-shape,
+.part-on#teeth-top {
+  transform-origin: center;
+  animation: jawMove 1s ease-in-out infinite;
+}
+
+.selected-stroke {
+  stroke: var(--deep-purple) !important;
+  stroke-width: 4 !important;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.08); }
+  45% { transform: scale(0.98); }
+  65% { transform: scale(1.1); }
+}
+
+@keyframes bloodFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -36; }
+}
+
+@keyframes lungsBreath {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes breathFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -40; }
+}
+
+@keyframes brainGlow {
+  0%,100% { filter: drop-shadow(0 0 0 rgba(92, 60, 207, 0)); }
+  50% { filter: drop-shadow(0 0 14px rgba(92, 60, 207, 0.48)); }
+}
+
+@keyframes boneShine {
+  0%,100% { opacity: 0.85; }
+  50% { opacity: 1; stroke: #fff; }
+}
+
+@keyframes muscleFlex {
+  0%,100% { fill: rgba(255, 111, 145, 0.28); }
+  50% { fill: rgba(255, 111, 145, 0.52); }
+}
+
+@keyframes skinGlow {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.08); }
+}
+
+@keyframes toothSparkle {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(1.25); }
+}
+
+@keyframes jawMove {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@media (max-width: 980px) {
   .hero,
-  .body-grid {
+  .explorer-layout {
     grid-template-columns: 1fr;
+  }
+
+  .diagram-header {
+    display: block;
+  }
+
+  .tiny-badge {
+    margin-top: 10px;
   }
 }

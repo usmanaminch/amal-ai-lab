@@ -3,164 +3,150 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Human Body Explorer · Amal</title>
+  <title>Human Body Explorer · Interactive Diagram</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <main class="app-shell">
     <section class="hero">
       <div>
-        <p class="eyebrow">Future Surgeon Lab</p>
+        <p class="eyebrow">Future Surgeon Lab · Day 4</p>
         <h1>Human Body Explorer</h1>
         <p class="hero-text">
-          A colorful learning project about body parts, what they do, and how doctors
-          or surgeons may help people when something needs care.
+          Today we upgraded Human Body Explorer into a more real interactive diagram.
+          Click the actual body parts to make them come alive and learn what they do.
         </p>
-        <p class="safety-note">
-          Educational project only. This does not give medical advice.
-        </p>
+        <p class="safety-note">Educational project only · not medical advice</p>
       </div>
 
       <div class="mission-card">
         <p class="card-label">Today’s Mission</p>
-        <h2>Learn like a future surgeon</h2>
+        <h2>Click the real body parts</h2>
         <p>
-          Click a body card to explore what it does, why it matters, and one cool fact.
+          Click the heart to start blood pumping. Click the lungs to start breathing.
+          You can turn on more than one body part at the same time.
         </p>
       </div>
     </section>
 
-    <section class="controls">
-      <button class="filter-button active" data-filter="all" type="button">All</button>
-      <button class="filter-button" data-filter="movement" type="button">Movement</button>
-      <button class="filter-button" data-filter="breathing" type="button">Breathing</button>
-      <button class="filter-button" data-filter="thinking" type="button">Thinking</button>
-      <button class="filter-button" data-filter="surgeon" type="button">Surgeon Focus</button>
+    <section class="builder-note">
+      <p><strong>How to use it:</strong> Click the actual heart, lungs, brain, bones, muscles, skin, teeth, or jaw in the diagram. The last thing you click updates the info panel, and multiple body parts can stay active together.</p>
     </section>
 
-    <section class="body-grid" aria-label="Human body cards">
-      <article class="body-card heart" data-category="surgeon">
-        <span class="emoji">❤️</span>
-        <h2>Heart</h2>
-        <p>The heart pumps blood around the body.</p>
-        <button class="learn-button" type="button">Explore</button>
-
-        <div class="details">
-          <p><strong>What it does:</strong> Moves blood so oxygen and nutrients can reach the body.</p>
-          <p><strong>Why it matters:</strong> Every cell needs blood flow to stay alive.</p>
-          <p><strong>Doctor connection:</strong> Heart surgeons can repair heart problems in specialized operations.</p>
-          <p><strong>Cool fact:</strong> Your heart beats all day and night without you telling it to.</p>
+    <section class="explorer-layout">
+      <div class="diagram-card">
+        <div class="diagram-header">
+          <div>
+            <p class="eyebrow">Interactive Diagram</p>
+            <h2>Click the body itself</h2>
+          </div>
+          <span class="tiny-badge" id="current-mode">Last clicked: Heart</span>
         </div>
-      </article>
 
-      <article class="body-card lungs" data-category="breathing">
-        <span class="emoji">🫁</span>
-        <h2>Lungs</h2>
-        <p>The lungs help the body breathe.</p>
-        <button class="learn-button" type="button">Explore</button>
-
-        <div class="details">
-          <p><strong>What they do:</strong> Bring oxygen into the body and help remove carbon dioxide.</p>
-          <p><strong>Why they matter:</strong> Oxygen helps the body make energy.</p>
-          <p><strong>Doctor connection:</strong> Doctors check breathing with tools like stethoscopes and imaging.</p>
-          <p><strong>Cool fact:</strong> Your lungs expand like balloons when you breathe in.</p>
+        <div class="active-list">
+          <strong>Active now:</strong>
+          <span id="active-parts-text">Heart</span>
         </div>
-      </article>
 
-      <article class="body-card brain" data-category="thinking">
-        <span class="emoji">🧠</span>
-        <h2>Brain</h2>
-        <p>The brain controls thinking, movement, and senses.</p>
-        <button class="learn-button" type="button">Explore</button>
+        <div class="diagram-wrap">
+          <svg id="body-svg" viewBox="0 0 340 560" aria-label="Interactive human body diagram">
+            <ellipse cx="170" cy="280" rx="144" ry="250" fill="rgba(255,255,255,0.55)" />
 
-        <div class="details">
-          <p><strong>What it does:</strong> Helps you think, remember, move, feel, and make decisions.</p>
-          <p><strong>Why it matters:</strong> It is the body’s control center.</p>
-          <p><strong>Doctor connection:</strong> Brain surgeons need extremely careful planning and precision.</p>
-          <p><strong>Cool fact:</strong> Your brain is always working, even when you sleep.</p>
+            <!-- Skin / body silhouette -->
+            <circle id="skin-head" class="skin-shape organ-clickable" data-part="skin" cx="170" cy="74" r="44" />
+            <path id="skin-torso" class="skin-shape organ-clickable" data-part="skin" d="M128,122 C117,150 108,175 110,207 L110,280 C110,340 127,375 136,415 L150,500 L166,500 L160,402 C159,380 161,356 170,338 C179,356 181,380 180,402 L174,500 L190,500 L204,415 C213,375 230,340 230,280 L230,207 C232,175 223,150 212,122 Z" />
+            <path id="arm-left" class="skin-shape organ-clickable" data-part="skin" d="M126,136 C94,174 80,206 80,248 C80,277 86,314 99,347 L115,340 C105,300 100,270 100,246 C100,209 111,183 136,148 Z"/>
+            <path id="arm-right" class="skin-shape organ-clickable" data-part="skin" d="M214,136 C246,174 260,206 260,248 C260,277 254,314 241,347 L225,340 C235,300 240,270 240,246 C240,209 229,183 204,148 Z"/>
+
+            <!-- Bones -->
+            <line id="spine" class="bone-shape organ-clickable" data-part="bones" x1="170" y1="150" x2="170" y2="312" />
+            <line id="bone-arm-left" class="bone-shape organ-clickable" data-part="bones" x1="129" y1="156" x2="92" y2="252" />
+            <line id="bone-arm-right" class="bone-shape organ-clickable" data-part="bones" x1="211" y1="156" x2="248" y2="252" />
+            <line id="bone-leg-left" class="bone-shape organ-clickable" data-part="bones" x1="158" y1="342" x2="154" y2="482" />
+            <line id="bone-leg-right" class="bone-shape organ-clickable" data-part="bones" x1="182" y1="342" x2="186" y2="482" />
+
+            <!-- Muscles -->
+            <path id="muscle-left" class="muscle-shape organ-clickable" data-part="muscles" d="M134,170 C126,194 124,224 126,258 C128,286 132,310 142,332 C148,304 150,276 150,248 C150,217 145,190 134,170 Z"/>
+            <path id="muscle-right" class="muscle-shape organ-clickable" data-part="muscles" d="M206,170 C214,194 216,224 214,258 C212,286 208,310 198,332 C192,304 190,276 190,248 C190,217 195,190 206,170 Z"/>
+
+            <!-- Brain -->
+            <g id="brain-group" class="organ-group organ-clickable" data-part="brain">
+              <path id="brain-shape" d="M151,58 C151,47 159,41 168,43 C172,36 184,36 189,45 C200,43 208,50 206,61 C214,66 214,80 204,85 C204,94 196,100 186,98 C180,104 168,103 162,96 C152,97 144,90 145,81 C138,74 141,63 151,58 Z" />
+            </g>
+
+            <!-- Lungs -->
+            <g id="lungs-group" class="organ-group organ-clickable" data-part="lungs">
+              <ellipse id="lung-left" class="lung-shape" cx="152" cy="200" rx="30" ry="44" />
+              <ellipse id="lung-right" class="lung-shape" cx="188" cy="200" rx="30" ry="44" />
+              <line class="trachea" x1="170" y1="132" x2="170" y2="164" />
+            </g>
+
+            <!-- Breathing lines -->
+            <path id="breath-left" class="breath-line" d="M128,171 C115,180 111,194 113,212" />
+            <path id="breath-right" class="breath-line" d="M212,171 C225,180 229,194 227,212" />
+
+            <!-- Heart -->
+            <g id="heart-group" class="organ-group organ-clickable" data-part="heart">
+              <path id="heart-shape" d="M170,232 C170,232 152,217 152,203 C152,193 159,187 167,191 C171,183 184,183 187,193 C193,189 201,194 201,204 C201,218 170,232 170,232 Z" />
+            </g>
+
+            <!-- Blood flow -->
+            <path id="blood-left" class="blood-line" d="M166,234 C156,254 151,276 151,302" />
+            <path id="blood-right" class="blood-line" d="M174,234 C184,254 189,276 189,302" />
+
+            <!-- Teeth + jaw -->
+            <g id="mouth-group">
+              <rect id="teeth-top" class="tooth-shape organ-clickable" data-part="teeth" x="152" y="92" width="36" height="10" rx="4" />
+              <path id="jaw-shape" class="jaw-shape organ-clickable" data-part="jaw" d="M142,100 C148,116 158,124 170,126 C182,124 192,116 198,100" />
+            </g>
+
+            <!-- Helper labels -->
+            <text class="helper-label" x="214" y="86">Brain</text>
+            <text class="helper-label" x="232" y="200">Lungs</text>
+            <text class="helper-label" x="214" y="236">Heart</text>
+            <text class="helper-label" x="230" y="320">Bones</text>
+            <text class="helper-label" x="84" y="248">Muscles</text>
+            <text class="helper-label" x="84" y="124">Skin</text>
+            <text class="helper-label" x="122" y="90">Teeth</text>
+            <text class="helper-label" x="120" y="126">Jaw</text>
+          </svg>
         </div>
-      </article>
+      </div>
 
-      <article class="body-card bones" data-category="movement surgeon">
-        <span class="emoji">🦴</span>
-        <h2>Bones</h2>
-        <p>Bones give the body shape and protect organs.</p>
-        <button class="learn-button" type="button">Explore</button>
+      <aside class="info-card">
+        <p class="eyebrow">Info Panel</p>
+        <h2 id="part-title">Heart</h2>
+        <p id="part-summary">The heart pumps blood around the body.</p>
 
-        <div class="details">
-          <p><strong>What they do:</strong> Support the body and protect important organs.</p>
-          <p><strong>Why they matter:</strong> Bones help you stand, move, and stay protected.</p>
-          <p><strong>Doctor connection:</strong> Orthopedic surgeons help repair bones and joints.</p>
-          <p><strong>Cool fact:</strong> Bones are strong, but they are also living tissue.</p>
+        <div class="fact-box">
+          <h3>What it does</h3>
+          <p id="part-does">Moves blood so oxygen and nutrients can reach the body.</p>
         </div>
-      </article>
 
-      <article class="body-card muscles" data-category="movement">
-        <span class="emoji">💪</span>
-        <h2>Muscles</h2>
-        <p>Muscles help the body move.</p>
-        <button class="learn-button" type="button">Explore</button>
-
-        <div class="details">
-          <p><strong>What they do:</strong> Pull on bones so you can walk, jump, smile, and write.</p>
-          <p><strong>Why they matter:</strong> Muscles help with movement, posture, and strength.</p>
-          <p><strong>Doctor connection:</strong> Surgeons must understand muscles before operating near them.</p>
-          <p><strong>Cool fact:</strong> Smiling uses muscles in your face.</p>
+        <div class="fact-box">
+          <h3>Why it matters</h3>
+          <p id="part-matters">Every cell needs blood flow to stay alive.</p>
         </div>
-      </article>
 
-      <article class="body-card skin" data-category="surgeon">
-        <span class="emoji">🩹</span>
-        <h2>Skin</h2>
-        <p>Skin protects the body from the outside world.</p>
-        <button class="learn-button" type="button">Explore</button>
-
-        <div class="details">
-          <p><strong>What it does:</strong> Protects the body, helps sense touch, and helps control temperature.</p>
-          <p><strong>Why it matters:</strong> Skin is the body’s outer shield.</p>
-          <p><strong>Doctor connection:</strong> Plastic and reconstructive surgeons help repair skin after injuries or burns.</p>
-          <p><strong>Cool fact:</strong> Skin is the body’s largest organ.</p>
+        <div class="fact-box">
+          <h3>Doctor connection</h3>
+          <p id="part-doctor">Heart surgeons can repair heart problems in specialized operations.</p>
         </div>
-      </article>
 
-      <article class="body-card teeth" data-category="surgeon">
-        <span class="emoji">🦷</span>
-        <h2>Teeth</h2>
-        <p>Teeth help you bite, chew, and speak clearly.</p>
-        <button class="learn-button" type="button">Explore</button>
-
-        <div class="details">
-          <p><strong>What they do:</strong> Break food into smaller pieces and help with speech.</p>
-          <p><strong>Why they matter:</strong> Teeth help with eating, smiling, and communication.</p>
-          <p><strong>Doctor connection:</strong> Oral surgeons may help with wisdom teeth, jaw issues, and mouth surgery.</p>
-          <p><strong>Cool fact:</strong> Teeth are covered by enamel, which is very hard.</p>
+        <div class="fact-box">
+          <h3>Cool fact</h3>
+          <p id="part-fact">Your heart beats all day and night without you telling it to.</p>
         </div>
-      </article>
-
-      <article class="body-card jaw" data-category="movement surgeon">
-        <span class="emoji">🙂</span>
-        <h2>Jaw</h2>
-        <p>The jaw helps you chew, talk, and shape your smile.</p>
-        <button class="learn-button" type="button">Explore</button>
-
-        <div class="details">
-          <p><strong>What it does:</strong> Holds teeth and helps the mouth open and close.</p>
-          <p><strong>Why it matters:</strong> The jaw is important for chewing, speaking, and face structure.</p>
-          <p><strong>Doctor connection:</strong> Oral and maxillofacial surgeons work with teeth, jaws, and facial bones.</p>
-          <p><strong>Cool fact:</strong> Your jaw is one of the most-used moving parts of your body.</p>
-        </div>
-      </article>
+      </aside>
     </section>
 
     <section class="reflection-card">
-      <p class="eyebrow">Day 3 Reflection</p>
-      <h2>What I learned</h2>
+      <p class="eyebrow">Day 4 Reflection</p>
+      <h2>What this upgrade teaches</h2>
       <ul>
-        <li>The body has different parts that work together.</li>
-        <li>Surgeons need anatomy knowledge, careful hands, and planning.</li>
-        <li>Interactive cards can make science easier to explore.</li>
+        <li>A diagram can be more interactive when the real parts are clickable.</li>
+        <li>JavaScript can track more than one active body system at a time.</li>
+        <li>Animations can help explain how the body works, not just decorate the page.</li>
       </ul>
     </section>
   </main>

@@ -1,37 +1,37 @@
-# Human Body Explorer
+# Human Body Explorer · Day 4 Diagram Upgrade v2
 
 A Future Surgeon Lab project by Amal.
 
-## What it does
+## What changed
 
-Human Body Explorer is an interactive learning project about body parts and systems.
+This version makes the diagram itself interactive.
 
-It includes cards for:
+Instead of clicking side buttons, the user clicks the actual body parts:
+- heart
+- lungs
+- brain
+- bones
+- muscles
+- skin
+- teeth
+- jaw
 
-- Heart
-- Lungs
-- Brain
-- Bones
-- Muscles
-- Skin
-- Teeth
-- Jaw
+## New behavior
 
-Each card explains:
+- click the heart → blood starts pumping
+- click the lungs → breathing starts
+- both can stay active at the same time
+- click again → turn that body part off
+- the info panel updates to the last body part clicked
 
-1. What it does
-2. Why it matters
-3. How doctors or surgeons may help
-4. One cool fact
+## Concepts practiced
+
+- interactive SVG / diagram layout
+- click targets on the actual shapes
+- JavaScript sets and toggles
+- multiple active animations
+- science learning through visuals
 
 ## Safety note
 
 This project is educational only. It does not give medical advice, diagnose anyone, or tell anyone what treatment they need.
-
-## Concepts practiced
-
-- HTML cards
-- CSS layout and colors
-- JavaScript click actions
-- Filtering content
-- Explaining science clearly

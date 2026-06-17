@@ -33,8 +33,24 @@ Project path:
 
 `projects/human-body-explorer/index.html`
 
+### Day 4: Clickable Human Body Diagram
+
+Upgraded Human Body Explorer with a clickable anatomy-style diagram. The heart pumps blood, lungs breathe, and more than one body part can stay active at the same time.
+
+### Day 5: Plant Care Helper
+
+Built an AI Builder project that lets a user upload a plant photo, preview it, choose observations, and generate plant care tips.
+
+Project path:
+
+`projects/plant-care-helper/index.html`
+
+Important note: Day 5 version uses selected observations, not true AI image diagnosis yet.
+
 ## Safety Note
 
 This project is parent-supervised. The website will not include private information like school name, address, phone number, private schedule, or personal contact details.
 
 Medical and surgeon-related projects are educational only. They do not provide medical advice, diagnosis, or treatment instructions.
+
+Plant care projects are educational only and do not provide professional plant diagnosis.

@@ -1,31 +1,16 @@
-# Plant Care Helper · Day 5
+# Plant Care Helper · Day 6 AI Vision Prep
 
-A project by Amal.
+This upgrade supports an AI-assisted plant care workflow.
 
-## What it does
+## What changed
 
-Plant Care Helper lets a user:
-
-- upload a plant photo
-- preview the plant image
-- choose plant observations
-- generate care tips
-- learn how water, light, soil, and symptoms connect
+1. Upload and preview a plant photo.
+2. Add observations about light, soil, and symptoms.
+3. Generate an AI vision prompt.
+4. Send the prompt and image to ChatGPT or Gemini.
+5. Paste the AI result back into the website.
+6. Make a cute customized care report.
 
 ## Important note
 
-This first version does not truly diagnose the plant from the photo. It previews the image and uses the user's selected observations to create care tips.
-
-A future AI version could use image recognition to look at the plant photo directly.
-
-## Concepts practiced
-
-- HTML file upload input
-- image preview in the browser
-- CSS cards and styling
-- JavaScript condition rules
-- turning user input into recommendations
-
-## Safety note
-
-This is an educational plant-care helper, not professional advice.
+This version does not call an AI API directly. That is intentional because a public GitHub Pages website should not expose API keys.

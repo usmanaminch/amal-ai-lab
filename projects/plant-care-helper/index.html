@@ -3,115 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plant Care Helper · Day 5</title>
+  <title>Plant Care Helper · AI Vision Prep</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app-shell">
     <section class="hero">
       <div>
-        <p class="eyebrow">AI Builder Lab · Day 5</p>
+        <p class="eyebrow">AI Builder Lab · Day 6 Upgrade</p>
         <h1>Plant Care Helper</h1>
-        <p class="hero-text">
-          Upload a picture of your plant, choose what you notice, and get a simple care plan
-          to help your plant stay healthy and thriving.
-        </p>
+        <p class="hero-text">Upload a plant photo, create an AI vision prompt, paste the AI result, and turn it into a customized plant care report.</p>
         <p class="safety-note">Educational project · not a professional plant diagnosis</p>
       </div>
-
       <div class="mission-card">
-        <p class="card-label">Today’s Mission</p>
-        <h2>Build a helpful plant coach</h2>
-        <p>
-          This project uses a photo preview, observation choices, and JavaScript rules
-          to suggest watering, sunlight, soil, and care tips.
-        </p>
+        <p class="card-label">Today’s Upgrade</p>
+        <h2>AI-assisted plant care</h2>
+        <p>The website still does not call AI by itself. It teaches the workflow: photo → AI prompt → pasted AI result → care report.</p>
       </div>
     </section>
 
     <section class="plant-layout">
       <section class="upload-card">
         <p class="eyebrow">Step 1</p>
-        <h2>Upload a plant picture</h2>
-        <p class="small-note">The image stays on this page. It is only used for preview in today’s version.</p>
-
-        <label class="upload-box" for="plant-photo">
-          <span class="upload-icon">🌿</span>
-          <strong>Choose plant photo</strong>
-          <span>PNG, JPG, or HEIC if your browser supports it</span>
-        </label>
+        <h2>Upload plant photo</h2>
+        <label class="upload-box" for="plant-photo"><span class="upload-icon">🌿</span><strong>Choose plant photo</strong><span>Use a clear photo of leaves, stem, and soil.</span></label>
         <input id="plant-photo" type="file" accept="image/*" />
-
-        <div class="preview-wrap">
-          <img id="plant-preview" alt="Plant preview will appear here" />
-          <p id="empty-preview">Your plant photo preview will appear here.</p>
-        </div>
+        <div class="preview-wrap"><img id="plant-preview" alt="Plant preview" /><p id="empty-preview">Your plant photo preview will appear here.</p></div>
       </section>
 
       <section class="questions-card">
         <p class="eyebrow">Step 2</p>
-        <h2>Tell the helper what you notice</h2>
-
-        <label for="plant-type">Plant type</label>
-        <select id="plant-type">
-          <option value="unknown">I am not sure</option>
-          <option value="houseplant">Houseplant</option>
-          <option value="succulent">Succulent or cactus</option>
-          <option value="flower">Flowering plant</option>
-          <option value="vegetable">Vegetable or herb</option>
-          <option value="tree">Small tree or fruit plant</option>
-        </select>
-
-        <label for="sunlight">How much light does it get?</label>
-        <select id="sunlight">
-          <option value="unknown">I am not sure</option>
-          <option value="low">Low light</option>
-          <option value="medium">Medium indirect light</option>
-          <option value="bright">Bright indirect light</option>
-          <option value="direct">Direct strong sun</option>
-        </select>
-
+        <h2>Add observations</h2>
+        <label for="plant-location">Where is the plant?</label>
+        <select id="plant-location"><option value="indoors">Indoors</option><option value="outdoors">Outdoors</option><option value="near a window">Near a window</option><option value="unknown">I am not sure</option></select>
+        <label for="sunlight">How much light?</label>
+        <select id="sunlight"><option value="unknown">I am not sure</option><option value="low light">Low light</option><option value="medium indirect light">Medium indirect light</option><option value="bright indirect light">Bright indirect light</option><option value="direct strong sun">Direct strong sun</option></select>
         <label for="soil">How does the soil feel?</label>
-        <select id="soil">
-          <option value="unknown">I am not sure</option>
-          <option value="dry">Dry</option>
-          <option value="damp">A little damp</option>
-          <option value="wet">Very wet or soggy</option>
-        </select>
-
+        <select id="soil"><option value="unknown">I am not sure</option><option value="dry">Dry</option><option value="a little damp">A little damp</option><option value="very wet or soggy">Very wet or soggy</option></select>
         <fieldset>
-          <legend>What symptoms do you see?</legend>
-          <label class="check-row"><input type="checkbox" value="yellow-leaves" /> Yellow leaves</label>
-          <label class="check-row"><input type="checkbox" value="brown-tips" /> Brown crispy tips</label>
-          <label class="check-row"><input type="checkbox" value="drooping" /> Drooping leaves</label>
-          <label class="check-row"><input type="checkbox" value="spots" /> Spots on leaves</label>
-          <label class="check-row"><input type="checkbox" value="bugs" /> Tiny bugs or sticky leaves</label>
-          <label class="check-row"><input type="checkbox" value="healthy" /> Looks mostly healthy</label>
+          <legend>What do you notice?</legend>
+          <label class="check-row"><input type="checkbox" value="yellow leaves" /> Yellow leaves</label>
+          <label class="check-row"><input type="checkbox" value="brown crispy tips" /> Brown crispy tips</label>
+          <label class="check-row"><input type="checkbox" value="drooping leaves" /> Drooping leaves</label>
+          <label class="check-row"><input type="checkbox" value="spots on leaves" /> Spots on leaves</label>
+          <label class="check-row"><input type="checkbox" value="tiny bugs or sticky leaves" /> Tiny bugs or sticky leaves</label>
+          <label class="check-row"><input type="checkbox" value="mostly healthy" /> Looks mostly healthy</label>
         </fieldset>
+        <button id="create-prompt" type="button">Create AI vision prompt</button>
+      </section>
 
-        <button id="generate-plan" type="button">Generate care plan</button>
+      <section class="ai-card">
+        <p class="eyebrow">Step 3</p>
+        <h2>AI vision prompt</h2>
+        <p class="small-note">Copy this prompt and send it with the plant photo to ChatGPT or Gemini. Then paste the answer below.</p>
+        <textarea id="ai-prompt" readonly placeholder="Click Create AI vision prompt first."></textarea>
+        <label for="ai-result">Paste AI result here</label>
+        <textarea id="ai-result" placeholder="Paste the AI's plant identification and advice here."></textarea>
+        <button id="make-report" type="button">Make cute care report</button>
       </section>
 
       <section class="results-card">
-        <p class="eyebrow">Step 3</p>
-        <h2>Your plant care plan</h2>
-        <div id="care-plan">
-          <p class="placeholder">Upload a plant photo and choose observations to get tips.</p>
-        </div>
+        <p class="eyebrow">Step 4</p>
+        <h2>Customized care report</h2>
+        <div id="care-report"><p class="placeholder">Create a prompt, paste the AI result, and make a report.</p></div>
       </section>
     </section>
 
     <section class="reflection-card">
-      <p class="eyebrow">Day 5 Reflection</p>
-      <h2>What this project teaches</h2>
-      <ul>
-        <li>Image upload lets a website show a photo without sending it anywhere.</li>
-        <li>JavaScript can turn choices into useful recommendations.</li>
-        <li>A future AI version could use vision to look at the plant photo directly.</li>
-      </ul>
+      <p class="eyebrow">Day 6 Reflection</p>
+      <h2>What this upgrade teaches</h2>
+      <ul><li>AI vision needs a model that can look at images.</li><li>A public website should not hide API keys inside JavaScript.</li><li>An AI-assisted workflow teaches the right steps before full automation.</li></ul>
     </section>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>

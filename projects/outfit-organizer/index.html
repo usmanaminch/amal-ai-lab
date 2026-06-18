@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outfit Organizer · Style Magazine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="magazine">
+    <section class="cover">
+      <div class="cover-copy">
+        <p class="issue">AI Builder Lab · Day 6 Issue</p>
+        <h1>Outfit Organizer</h1>
+        <p class="subtitle">
+          A closet-to-lookbook planner that turns your closet photo, personal style,
+          and week plans into 7 days of outfit ideas.
+        </p>
+        <p class="safety-note">Closet photos only · avoid faces, school names, addresses, or private details</p>
+      </div>
+
+      <div class="cover-badges">
+        <span>7-day looks</span>
+        <span>AI stylist prompt</span>
+        <span>closet photo</span>
+      </div>
+    </section>
+
+    <section class="magazine-grid">
+      <article class="closet-feature">
+        <div class="section-header">
+          <p class="eyebrow">Closet Snapshot</p>
+          <h2>Show the wardrobe</h2>
+        </div>
+
+        <p class="hint">
+          Upload a closet photo, or copy one, click the page, and press <strong>Command + V</strong>.
+        </p>
+
+        <p class="paste-status" id="paste-status">No closet image yet.</p>
+
+        <label class="upload-box" for="closet-photo">
+          <span class="upload-icon">📸</span>
+          <strong>Choose closet photo</strong>
+          <span>Try to show tops, bottoms, shoes, jackets, and accessories.</span>
+        </label>
+        <input id="closet-photo" type="file" accept="image/*" />
+
+        <div class="photo-frame">
+          <img id="closet-preview" alt="Closet preview will appear here" />
+          <p id="empty-preview">Closet photo preview</p>
+        </div>
+      </article>
+
+      <article class="style-interview">
+        <div class="section-header">
+          <p class="eyebrow">Style Interview</p>
+          <h2>Tell the stylist</h2>
+        </div>
+
+        <div class="question-stack">
+          <label for="style">What is your style?</label>
+          <select id="style">
+            <option value="comfy and casual">Comfy and casual</option>
+            <option value="sporty">Sporty</option>
+            <option value="cute and colorful">Cute and colorful</option>
+            <option value="simple and clean">Simple and clean</option>
+            <option value="fancy but comfortable">Fancy but comfortable</option>
+            <option value="modest and layered">Modest and layered</option>
+          </select>
+
+          <label for="week-type">What kind of week is it?</label>
+          <select id="week-type">
+            <option value="school week">School week</option>
+            <option value="summer vacation week">Summer vacation week</option>
+            <option value="mixed week">Mixed week</option>
+            <option value="family outings week">Family outings week</option>
+          </select>
+
+          <label for="weather">Weather this week</label>
+          <select id="weather">
+            <option value="mostly warm">Mostly warm</option>
+            <option value="mostly cold">Mostly cold</option>
+            <option value="mixed weather">Mixed weather</option>
+            <option value="rainy">Rainy</option>
+          </select>
+
+          <label for="comfort">Comfort level</label>
+          <select id="comfort">
+            <option value="very comfy">Very comfy</option>
+            <option value="cute but still comfy">Cute but still comfy</option>
+            <option value="dressier outfits are okay">Dressier outfits are okay</option>
+          </select>
+
+          <label for="favorite-colors">Favorite colors</label>
+          <input id="favorite-colors" type="text" placeholder="Example: pink, blue, white, purple" />
+
+          <label for="avoid">Avoid these items or colors</label>
+          <input id="avoid" type="text" placeholder="Example: itchy sweaters, neon colors, tight jeans" />
+
+          <label for="notes">Any special days?</label>
+          <textarea id="notes" placeholder="Example: Monday tennis, Wednesday family dinner, Friday party"></textarea>
+
+          <button id="create-prompt" type="button">Create AI stylist prompt</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="stylist-note">
+      <div class="note-title">
+        <p class="eyebrow">AI Stylist Note</p>
+        <h2>Prompt + AI answer</h2>
+      </div>
+
+      <div class="note-grid">
+        <div>
+          <label for="ai-prompt">Copy this prompt</label>
+          <textarea id="ai-prompt" readonly placeholder="Click Create AI stylist prompt first."></textarea>
+        </div>
+
+        <div>
+          <label for="ai-result">Paste AI result here</label>
+          <textarea id="ai-result" placeholder="Paste the 7-day outfit plan from ChatGPT or Gemini here."></textarea>
+          <button id="make-plan" type="button">Publish weekly lookbook</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="lookbook">
+      <div class="lookbook-heading">
+        <p class="eyebrow">Weekly Lookbook</p>
+        <h2>7 days of outfits</h2>
+        <p>Each day becomes a mini magazine card after you paste the AI plan.</p>
+      </div>
+
+      <div id="outfit-plan" class="lookbook-grid">
+        <article class="day-card placeholder-card"><h3>Monday</h3><p>Your first outfit will appear here.</p></article>
+        <article class="day-card placeholder-card"><h3>Tuesday</h3><p>Your second outfit will appear here.</p></article>
+        <article class="day-card placeholder-card"><h3>Wednesday</h3><p>Your third outfit will appear here.</p></article>
+        <article class="day-card placeholder-card"><h3>Thursday</h3><p>Your fourth outfit will appear here.</p></article>
+        <article class="day-card placeholder-card"><h3>Friday</h3><p>Your fifth outfit will appear here.</p></article>
+        <article class="day-card placeholder-card"><h3>Saturday</h3><p>Your sixth outfit will appear here.</p></article>
+        <article class="day-card placeholder-card"><h3>Sunday</h3><p>Your seventh outfit will appear here.</p></article>
+      </div>
+    </section>
+
+    <section class="reflection">
+      <p class="eyebrow">Day 6 Reflection</p>
+      <h2>What this project teaches</h2>
+      <ul>
+        <li>Good AI apps ask useful questions before giving advice.</li>
+        <li>Images plus preferences create better recommendations than images alone.</li>
+        <li>A website can turn an AI answer into a more useful and pretty experience.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

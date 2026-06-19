@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Selector · Library App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="floating-books" aria-hidden="true">
+    <span class="float-book b1">📚</span>
+    <span class="float-book b2">📖</span>
+    <span class="float-book b3">📘</span>
+    <span class="float-book b4">📕</span>
+    <span class="float-book b5">📚</span>
+    <span class="float-book b6">📗</span>
+    <span class="float-book b7">📙</span>
+    <span class="float-book b8">✨</span>
+  </div>
+  <main class="library-app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI Builder Lab · Day 7</p>
+        <h1>Book Selector</h1>
+      </div>
+      <div class="library-stamp">
+        <span>Your Library</span>
+        <strong>Reader Match</strong>
+      </div>
+      <div class="cozy-icons" aria-hidden="true">
+        <span>☕</span><span>🕯️</span><span>🎃</span><span>📚</span><span>🎀</span>
+      </div>
+    </header>
+
+    <section class="library-dashboard">
+      <aside class="reader-card">
+        <div class="card-top">
+          <p class="eyebrow">Library Card</p>
+          <h2>Reader Profile</h2>
+          <p class="card-number">CARD #007 · BOOK MATCHER</p>
+        </div>
+
+        <div class="form-grid">
+          <label for="mood">Reading mood</label>
+          <select id="mood">
+            <option value="fun and easy">Fun and easy</option>
+            <option value="mysterious and exciting">Mysterious and exciting</option>
+            <option value="funny and light">Funny and light</option>
+            <option value="emotional and meaningful">Emotional and meaningful</option>
+            <option value="smart and educational">Smart and educational</option>
+            <option value="magical or adventurous">Magical or adventurous</option>
+          </select>
+
+          <label for="genre">Genre shelf</label>
+          <select id="genre">
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystery</option>
+            <option value="realistic fiction">Realistic fiction</option>
+            <option value="graphic novel">Graphic novel</option>
+            <option value="science or medicine">Science or medicine</option>
+            <option value="history">History</option>
+            <option value="comedy">Comedy</option>
+            <option value="I am open to anything">Open to anything</option>
+          </select>
+
+          <label for="length">Book length</label>
+          <select id="length">
+            <option value="short">Short</option>
+            <option value="medium">Medium</option>
+            <option value="long">Long</option>
+            <option value="any length">Any length</option>
+          </select>
+
+          <label for="age">Reading level</label>
+          <select id="age">
+            <option value="middle grade, age appropriate">Middle grade, age appropriate</option>
+            <option value="young teen, age appropriate">Young teen, age appropriate</option>
+            <option value="advanced but still age appropriate">Advanced but still age appropriate</option>
+          </select>
+
+          <label for="series">Series preference</label>
+          <select id="series">
+            <option value="standalone book">Standalone book</option>
+            <option value="series is okay">Series is okay</option>
+            <option value="I want a series">I want a series</option>
+          </select>
+
+          <label for="favorite-books">Already liked</label>
+          <textarea id="favorite-books" placeholder="Example: Harry Potter, Percy Jackson, A Good Girl’s Guide to Murder, Enola Holmes"></textarea>
+
+          <label for="avoid">Avoid shelf</label>
+          <textarea id="avoid" placeholder="Example: too romantic, too sad, too scary, boring textbook style"></textarea>
+        </div>
+
+        <button id="create-prompt" type="button">Ask the AI librarian</button>
+      </aside>
+
+      <section class="librarian-desk">
+        <div class="desk-header">
+          <p class="eyebrow">Librarian Desk</p>
+          <h2>Recommendation Request</h2>
+          <p>
+            The app writes a librarian-style prompt. Send it to ChatGPT or Gemini,
+            then bring the answer back to build the shelf.
+          </p>
+        </div>
+
+        <div class="desk-panels">
+          <div class="paper-panel">
+            <label for="ai-prompt">Prompt slip</label>
+            <textarea id="ai-prompt" readonly placeholder="Click Ask the AI librarian first."></textarea>
+          </div>
+
+          <div class="paper-panel">
+            <label for="ai-result">Return slip</label>
+            <textarea id="ai-result" placeholder="Paste the book recommendations here."></textarea>
+            <button id="make-shelf" type="button">Add books to shelf</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="catalog-section">
+      <div class="catalog-title">
+        <p class="eyebrow">Card Catalog</p>
+        <h2>Reader Match Summary</h2>
+        <p>The app keeps the reader profile visible like an old-school library catalog card.</p>
+      </div>
+
+      <div id="catalog-summary" class="catalog-card">
+        <div><strong>Mood</strong><span>Not selected yet</span></div>
+        <div><strong>Genre</strong><span>Not selected yet</span></div>
+        <div><strong>Length</strong><span>Not selected yet</span></div>
+        <div><strong>Level</strong><span>Not selected yet</span></div>
+      </div>
+          <div class="catalog-decor" aria-hidden="true">
+        <span>📚</span>
+        <span>📖</span>
+        <span>🪴</span>
+      </div>
+    </section>
+
+    <section class="shelf-section">
+      <div class="shelf-heading">
+        <p class="eyebrow">Recommended Shelf</p>
+        <h2>Books to check out</h2>
+        <p>Each recommendation becomes a book spine and card on the shelf.</p>
+      </div>
+
+      <div class="shelf-decor" aria-hidden="true">
+        <div class="decor-stack decor-left">
+          <span>📚</span>
+          <span>✨</span>
+          <span>📖</span>
+          <span>🎀</span>
+        </div>
+        <div class="decor-stack decor-right">
+          <span>🎃</span>
+          <span>🕯️</span>
+          <span>📘</span>
+          <span>🌟</span>
+        </div>
+      </div>
+
+      <div class="wood-shelf">
+        <div id="book-shelf" class="book-shelf">
+          <article class="book-spine placeholder-book">
+            <h3>Book 1</h3>
+            <p>Your first recommendation will appear here.</p>
+          </article>
+          <article class="book-spine placeholder-book">
+            <h3>Book 2</h3>
+            <p>Your second recommendation will appear here.</p>
+          </article>
+          <article class="book-spine placeholder-book">
+            <h3>Book 3</h3>
+            <p>Your third recommendation will appear here.</p>
+          </article>
+          <article class="book-spine placeholder-book">
+            <h3>Book 4</h3>
+            <p>Your fourth recommendation will appear here.</p>
+          </article>
+          <article class="book-spine placeholder-book">
+            <h3>Book 5</h3>
+            <p>Your fifth recommendation will appear here.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflection-card">
+      <p class="eyebrow">Day 7 Reflection</p>
+      <h2>What this project teaches</h2>
+      <ul>
+        <li>Library apps use reader preferences to make better recommendations.</li>
+        <li>Prompt engineering helps the AI librarian give organized answers.</li>
+        <li>JavaScript can turn AI text into a digital bookshelf.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

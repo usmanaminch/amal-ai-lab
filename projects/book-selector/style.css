@@ -1,0 +1,814 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #2b1d13;
+  --muted: #786456;
+  --paper: #fffaf0;
+  --card: rgba(255, 250, 240, 0.94);
+  --wood: #9b5d2e;
+  --wood-dark: #6f3e1d;
+  --gold: #f5c66a;
+  --rose: #f29ab9;
+  --sage: #a9d9ad;
+  --sky: #a8d7ff;
+  --plum: #9c7cf0;
+  --line: rgba(91, 58, 36, 0.18);
+  --shadow: 0 26px 70px rgba(75, 45, 25, 0.18);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 10% 12%, rgba(245, 198, 106, 0.48), transparent 28%),
+    radial-gradient(circle at 90% 10%, rgba(168, 215, 255, 0.38), transparent 28%),
+    radial-gradient(circle at 18% 88%, rgba(242, 154, 185, 0.28), transparent 25%),
+    linear-gradient(135deg, #fff7df, #f8efe2 52%, #f4ecff);
+}
+
+.library-app {
+  width: min(1280px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 52px;
+}
+
+.topbar {
+  min-height: 260px;
+  padding: 34px;
+  border-radius: 38px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+  background:
+    linear-gradient(135deg, rgba(255,250,240,0.94), rgba(245,198,106,0.18)),
+    repeating-linear-gradient(0deg, rgba(91,58,36,0.06) 0 2px, transparent 2px 20px);
+  border: 1px solid rgba(255,255,255,0.72);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.topbar::after {
+  content: "LIBRARY";
+  position: absolute;
+  right: 26px;
+  bottom: -10px;
+  color: rgba(91, 58, 36, 0.09);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 950;
+  font-size: clamp(78px, 12vw, 170px);
+  letter-spacing: -0.08em;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #855322;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(64px, 11vw, 140px);
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+}
+
+.library-stamp {
+  z-index: 1;
+  min-width: 210px;
+  padding: 18px;
+  border: 3px double rgba(133, 83, 34, 0.45);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.65);
+  transform: rotate(3deg);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #855322;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.library-stamp strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.library-dashboard {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.reader-card,
+.librarian-desk,
+.catalog-section,
+.shelf-section,
+.reflection-card {
+  padding: 30px;
+  border-radius: 34px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,0.76);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.reader-card {
+  background:
+    linear-gradient(135deg, rgba(255,250,240,0.96), rgba(245,198,106,0.16)),
+    repeating-linear-gradient(0deg, transparent 0 31px, rgba(91,58,36,0.12) 31px 32px);
+}
+
+.card-top {
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 2px dashed rgba(91,58,36,0.18);
+}
+
+.card-number {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.7);
+  color: #855322;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 16px;
+}
+
+label {
+  display: block;
+  margin: 0 0 7px;
+  color: #855322;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 950;
+}
+
+select,
+textarea,
+input {
+  width: 100%;
+  border: 1px solid rgba(91,58,36,0.18);
+  border-radius: 16px;
+  padding: 12px 13px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 118px;
+  resize: vertical;
+}
+
+.form-grid label[for="favorite-books"],
+.form-grid label[for="avoid"],
+#favorite-books,
+#avoid {
+  grid-column: 1 / -1;
+}
+
+button {
+  margin-top: 18px;
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 15px 18px;
+  background: linear-gradient(135deg, var(--wood), var(--gold), var(--plum));
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(91,58,36,0.22);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.desk-header p,
+.catalog-title p,
+.shelf-heading p,
+.reflection-card li {
+  color: var(--muted);
+}
+
+.desk-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.paper-panel {
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.82), rgba(168,215,255,0.12)),
+    repeating-linear-gradient(0deg, transparent 0 29px, rgba(91,58,36,0.08) 29px 30px);
+  border: 1px solid rgba(91,58,36,0.12);
+}
+
+.paper-panel textarea {
+  min-height: 310px;
+}
+
+.catalog-section,
+.shelf-section,
+.reflection-card {
+  margin-top: 24px;
+}
+
+.catalog-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid rgba(91,58,36,0.14);
+  padding-bottom: 16px;
+  margin-bottom: 18px;
+}
+
+.catalog-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.catalog-card div {
+  min-height: 90px;
+  padding: 16px;
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.84), rgba(245,198,106,0.14));
+  border: 1px solid rgba(91,58,36,0.12);
+}
+
+.catalog-card strong {
+  display: block;
+  color: #855322;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.catalog-card span {
+  color: var(--muted);
+}
+
+.shelf-decor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0 14px;
+}
+
+.decor-stack {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(91,58,36,0.10);
+  box-shadow: 0 8px 18px rgba(75,45,25,0.08);
+  font-size: 22px;
+}
+
+.wood-shelf {
+  position: relative;
+  padding: 30px 20px 34px;
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.05) 0 10px,
+      rgba(0,0,0,0.04) 10px 20px,
+      rgba(255,255,255,0.03) 20px 30px
+    ),
+    linear-gradient(135deg, #7a431f, #9a5a2a 24%, #b9763c 50%, #8f5327 74%, #6f3d1d);
+  border: 1px solid rgba(91,58,36,0.30);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.18),
+    inset 0 -18px 24px rgba(60,35,18,0.22),
+    0 18px 36px rgba(75,45,25,0.18);
+}
+
+.wood-shelf::before,
+.wood-shelf::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  height: 14px;
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(0,0,0,0.10)),
+    linear-gradient(90deg, #6d3c1d, #a66532, #764322);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.15);
+}
+
+.wood-shelf::before {
+  top: 10px;
+}
+
+.wood-shelf::after {
+  bottom: 10px;
+}
+
+.book-shelf {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.book-spine {
+  min-height: 280px;
+  padding: 18px 14px 18px 24px;
+  border-radius: 16px 16px 8px 8px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.9), rgba(245,198,106,0.18)),
+    radial-gradient(circle at 84% 8%, rgba(242,154,185,0.24), transparent 34%);
+  border: 1px solid rgba(91,58,36,0.14);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 28px rgba(75,45,25,0.18);
+}
+
+.book-spine::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--rose), var(--gold), var(--sky));
+}
+
+.book-spine:nth-child(2n)::before {
+  background: linear-gradient(180deg, var(--plum), var(--sky), var(--sage));
+}
+
+.book-spine:nth-child(3n)::before {
+  background: linear-gradient(180deg, var(--wood), var(--gold), var(--rose));
+}
+
+.book-spine::after {
+  content: "📖";
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  opacity: 0.34;
+  font-size: 24px;
+}
+
+.book-spine h3 {
+  margin: 0 0 10px;
+  padding-right: 18px;
+  color: #855322;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.15;
+}
+
+.book-spine p {
+  margin: 0;
+  color: var(--muted);
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.placeholder-book {
+  opacity: 0.78;
+}
+
+@media (max-width: 1100px) {
+  .topbar,
+  .library-dashboard,
+  .desk-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-card,
+  .book-shelf {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .catalog-card,
+  .book-shelf {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .reader-card,
+  .librarian-desk,
+  .catalog-section,
+  .shelf-section,
+  .reflection-card {
+    padding: 22px;
+    border-radius: 26px;
+  }
+}
+
+
+.book-spine {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.92), rgba(245,198,106,0.20)),
+    radial-gradient(circle at 84% 8%, rgba(242,154,185,0.24), transparent 34%);
+}
+
+.book-spine h3 {
+  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.book-spine p {
+  font-size: 14px;
+}
+
+.shelf-section {
+  position: relative;
+}
+
+.shelf-section::before {
+  content: "📚";
+  position: absolute;
+  right: 22px;
+  top: 18px;
+  font-size: 42px;
+  opacity: 0.18;
+}
+
+@media (max-width: 650px) {
+  .shelf-decor {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}
+
+
+.floating-books {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float-book {
+  position: absolute;
+  font-size: 30px;
+  opacity: 0.18;
+  filter: drop-shadow(0 6px 8px rgba(75,45,25,0.12));
+}
+
+.b1 { top: 40px; left: 24px; transform: rotate(-14deg); }
+.b2 { top: 140px; right: 42px; transform: rotate(12deg); }
+.b3 { top: 360px; left: 18px; transform: rotate(-8deg); }
+.b4 { top: 540px; right: 24px; transform: rotate(10deg); }
+.b5 { top: 780px; left: 36px; transform: rotate(-10deg); }
+.b6 { top: 980px; right: 36px; transform: rotate(8deg); }
+.b7 { bottom: 120px; left: 42px; transform: rotate(-12deg); }
+.b8 { bottom: 180px; right: 56px; transform: rotate(8deg); }
+
+.library-app {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  min-height: 280px;
+  background:
+    linear-gradient(135deg, rgba(255,250,240,0.96), rgba(245,198,106,0.24)),
+    repeating-linear-gradient(0deg, rgba(91,58,36,0.06) 0 2px, transparent 2px 20px);
+}
+
+.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 26%, rgba(255,255,255,0.42), transparent 24%),
+    radial-gradient(circle at 72% 22%, rgba(255,255,255,0.28), transparent 20%);
+  pointer-events: none;
+}
+
+.cozy-icons {
+  z-index: 1;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-self: end;
+  align-self: end;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(91,58,36,0.10);
+  box-shadow: 0 10px 20px rgba(75,45,25,0.08);
+  font-size: 22px;
+}
+
+.reader-card,
+.librarian-desk,
+.catalog-section,
+.shelf-section,
+.reflection-card {
+  background:
+    linear-gradient(135deg, rgba(255,250,240,0.97), rgba(255,246,232,0.92));
+}
+
+.reader-card::after,
+.librarian-desk::after,
+.catalog-section::after,
+.reflection-card::after {
+  position: absolute;
+  right: 18px;
+  top: 16px;
+  font-size: 34px;
+  opacity: 0.14;
+}
+
+.reader-card::after { content: "📚"; }
+.librarian-desk::after { content: "☕"; }
+.catalog-section::after { content: "📖"; }
+.reflection-card::after { content: "🕯️"; }
+
+.catalog-decor {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.56);
+  border: 1px solid rgba(91,58,36,0.10);
+  box-shadow: 0 8px 18px rgba(75,45,25,0.08);
+  font-size: 22px;
+}
+
+.shelf-section::before {
+  content: "📚";
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  font-size: 40px;
+  opacity: 0.16;
+}
+
+.shelf-heading {
+  position: relative;
+}
+
+.shelf-heading::after {
+  content: "📘  📕  📗";
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  font-size: 22px;
+  opacity: 0.6;
+}
+
+.wood-shelf {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.05) 0 8px,
+      rgba(0,0,0,0.03) 8px 16px,
+      rgba(255,255,255,0.02) 16px 24px,
+      rgba(0,0,0,0.04) 24px 32px
+    ),
+    linear-gradient(135deg, #6c3b1a, #8b5226 18%, #b27138 45%, #9f5e2c 70%, #74401f);
+}
+
+.wood-shelf::before,
+.wood-shelf::after {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(0,0,0,0.10)),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.04) 0 10px,
+      rgba(0,0,0,0.03) 10px 20px
+    ),
+    linear-gradient(90deg, #6a391a, #9f612f, #74411f);
+}
+
+.book-spine {
+  border-radius: 14px 14px 8px 8px;
+  box-shadow: 0 18px 28px rgba(75,45,25,0.18), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.book-spine:nth-child(1) { transform: rotate(-1.5deg); }
+.book-spine:nth-child(2) { transform: rotate(1deg); }
+.book-spine:nth-child(3) { transform: rotate(-0.8deg); }
+.book-spine:nth-child(4) { transform: rotate(1.2deg); }
+.book-spine:nth-child(5) { transform: rotate(-1deg); }
+.book-spine:nth-child(6) { transform: rotate(0.8deg); }
+.book-spine:nth-child(7) { transform: rotate(-0.5deg); }
+
+.reflection-card {
+  position: relative;
+}
+
+.reflection-card .eyebrow + h2::after {
+  content: "  📚✨";
+  font-size: 24px;
+}
+
+@media (max-width: 900px) {
+  .shelf-heading::after {
+    position: static;
+    display: block;
+    margin-top: 8px;
+  }
+  .cozy-icons {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 650px) {
+  .float-book {
+    font-size: 24px;
+    opacity: 0.14;
+  }
+}
+
+
+:root {
+  --kawaii-pink: #ffd8ef;
+  --soft-lavender: #efe3ff;
+  --soft-peach: #ffe7d4;
+}
+
+.topbar,
+.reader-card,
+.librarian-desk,
+.catalog-section,
+.shelf-section,
+.reflection-card,
+.library-stamp,
+.decor-stack,
+.catalog-decor {
+  position: relative;
+}
+
+.topbar {
+  background:
+    radial-gradient(circle at 20% 24%, rgba(255, 216, 239, 0.45), transparent 22%),
+    radial-gradient(circle at 72% 18%, rgba(239, 227, 255, 0.38), transparent 22%),
+    linear-gradient(135deg, rgba(255,250,240,0.96), rgba(245,198,106,0.24)),
+    repeating-linear-gradient(0deg, rgba(91,58,36,0.06) 0 2px, transparent 2px 20px);
+}
+
+.topbar::before {
+  background:
+    radial-gradient(circle at 18% 26%, rgba(255,255,255,0.42), transparent 24%),
+    radial-gradient(circle at 72% 22%, rgba(255,255,255,0.28), transparent 20%),
+    radial-gradient(circle at 55% 70%, rgba(255, 216, 239, 0.22), transparent 18%);
+}
+
+.reader-card,
+.librarian-desk,
+.catalog-section,
+.shelf-section,
+.reflection-card {
+  background:
+    radial-gradient(circle at 85% 14%, rgba(255, 216, 239, 0.18), transparent 20%),
+    radial-gradient(circle at 12% 82%, rgba(239, 227, 255, 0.16), transparent 20%),
+    linear-gradient(135deg, rgba(255,250,240,0.97), rgba(255,246,232,0.92));
+}
+
+.library-stamp {
+  border-color: rgba(156, 124, 240, 0.35);
+  background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255, 216, 239, 0.35));
+  box-shadow: 0 10px 22px rgba(75,45,25,0.08);
+}
+
+.library-stamp::after {
+  content: "🎀";
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 18px;
+  opacity: 0.75;
+}
+
+.book-spine {
+  border-radius: 16px 16px 10px 10px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.94), rgba(255,216,239,0.18)),
+    radial-gradient(circle at 84% 8%, rgba(242,154,185,0.24), transparent 34%);
+}
+
+.book-spine::after {
+  content: "📖";
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  opacity: 0.42;
+  font-size: 24px;
+}
+
+.book-spine:nth-child(2n)::after {
+  content: "🌸";
+}
+
+.book-spine:nth-child(3n)::after {
+  content: "⭐";
+}
+
+button {
+  background: linear-gradient(135deg, #b96b2d, #f0b85d, #c89dff, #ff9fc5);
+}
+
+.decor-stack,
+.catalog-decor,
+.cozy-icons {
+  background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255, 216, 239, 0.30));
+}
+
+.floating-books .float-book {
+  opacity: 0.20;
+}
+
+.floating-books::after {
+  content: "🎃";
+  position: absolute;
+  left: 88px;
+  bottom: 120px;
+  font-size: 34px;
+  opacity: 0.24;
+  transform: rotate(-8deg);
+}
+
+.reader-card::before {
+  content: "🌸";
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  font-size: 24px;
+  opacity: 0.22;
+}
+
+.librarian-desk::before {
+  content: "🎀";
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  font-size: 24px;
+  opacity: 0.22;
+}
+
+.catalog-section::before {
+  content: "📚";
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  font-size: 24px;
+  opacity: 0.22;
+}
+
+.reflection-card::before {
+  content: "🎃";
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  font-size: 24px;
+  opacity: 0.22;
+}

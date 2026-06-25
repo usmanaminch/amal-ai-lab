@@ -8,59 +8,6 @@
   <link rel="stylesheet" href="style.css" />
 
 
-<style id="day7-project-link-styles">
-  .day7-project-links {
-    margin-top: 1.5rem;
-    padding: 1.25rem;
-    border-radius: 28px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(255,240,247,0.92), rgba(240,250,255,0.9));
-    border: 1px solid rgba(180, 120, 220, 0.18);
-    box-shadow: 0 18px 40px rgba(80, 50, 110, 0.10);
-  }
-
-  .day7-project-links .section-heading {
-    margin-bottom: 1rem;
-  }
-
-  .day7-project-links .eyebrow {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: #8e4bd1;
-    margin: 0 0 0.4rem;
-  }
-
-  .day7-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .day7-grid .project-card {
-    padding: 1rem;
-    border-radius: 22px;
-    background: rgba(255,255,255,0.82);
-    border: 1px solid rgba(180, 120, 220, 0.16);
-  }
-
-  .day7-grid .project-card h3 {
-    margin-top: 0;
-  }
-
-  .day7-grid .project-card a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-weight: 800;
-  }
-
-  @media (max-width: 850px) {
-    .day7-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
 </head>
 
 <body>
@@ -149,6 +96,36 @@
 
         <div class="project-grid">
           <article class="project-card featured">
+            <p class="project-tag">Day 7 Project</p>
+            <h3>Book Selector</h3>
+            <p>
+              A cozy library-style AI Builder project that asks about reading preferences,
+              creates an AI librarian prompt, and turns recommendations into book cards.
+            </p>
+            <ul>
+              <li>Useful because it helps readers find books that match their mood and interests</li>
+              <li>Concepts: preference quiz, prompt engineering, recommendation cards, and JavaScript parsing</li>
+              <li>Safety: age-appropriate books and parent review</li>
+            </ul>
+            <a class="button primary" href="projects/book-selector/index.html">Open Project</a>
+          </article>
+
+          <article class="project-card featured">
+            <p class="project-tag">Day 7 Project</p>
+            <h3>Snack Helper</h3>
+            <p>
+              A cozy chef's kitchen AI Builder project that uses snack mood,
+              pantry ingredients, time, and safety rules to create simple recipe cards.
+            </p>
+            <ul>
+              <li>Useful because it helps turn pantry items into quick snack ideas</li>
+              <li>Concepts: forms, safety constraints, prompt engineering, and recipe-card output</li>
+              <li>Safety: adult help for knives, stove, oven, blender, and allergy-risk foods</li>
+            </ul>
+            <a class="button primary" href="projects/snack-helper/index.html">Open Project</a>
+          </article>
+
+          <article class="project-card featured">
             <p class="project-tag">Day 6 Project</p>
             <h3>Outfit Organizer</h3>
             <p>
@@ -230,41 +207,11 @@
           <div>🦷 Teeth, Jaw, and Smile Lab</div>
           <div>🚀 Rocket launch checklist</div>
           <div>📚 Study Quiz Maker</div>
-          <div>🍪 Snack Helper</div>
           <div>🏠 Decor Helper</div>
           <div>👁️ Future upgrade: real AI vision for Plant Care Helper</div>
         </div>
       </div>
     
-
-<!-- Day 7 project cards added directly to Projects tab -->
-<div class="day7-project-links" id="day-7-project-links">
-  <div class="section-heading">
-    <p class="eyebrow">Day 7 Projects</p>
-    <h2>New AI Helpers</h2>
-    <p>Outfit planning, book matching, and snack ideas.</p>
-  </div>
-
-  <div class="project-grid day7-grid">
-    <article class="project-card">
-      <h3>Outfit Organizer</h3>
-      <p>Turn a closet photo and style choices into a 7-day written outfit lookbook.</p>
-      <a href="projects/outfit-organizer/index.html">Open Outfit Organizer</a>
-    </article>
-
-    <article class="project-card">
-      <h3>Book Selector</h3>
-      <p>A cozy library app that matches readers with age-appropriate book recommendations.</p>
-      <a href="projects/book-selector/index.html">Open Book Selector</a>
-    </article>
-
-    <article class="project-card">
-      <h3>Snack Helper</h3>
-      <p>A chef's kitchen snack helper that creates simple, safe snack recipe cards.</p>
-      <a href="projects/snack-helper/index.html">Open Snack Helper</a>
-    </article>
-  </div>
-</div>
 
 </section>
 

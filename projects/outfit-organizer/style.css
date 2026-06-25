@@ -10,9 +10,7 @@
   --purple: #8e6cff;
   --sky: #8bdcff;
   --mint: #9ff2d6;
-  --cream: #fff8ea;
-  --peach: #ffc49f;
-  --paper: rgba(255, 255, 255, 0.88);
+  --paper: rgba(255, 255, 255, 0.9);
   --line: rgba(142, 108, 255, 0.2);
   --shadow: 0 28px 70px rgba(67, 37, 91, 0.18);
 }
@@ -37,13 +35,13 @@ body {
 }
 
 .cover {
-  min-height: 430px;
+  min-height: 390px;
   padding: 38px;
   border-radius: 46px;
   border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow: var(--shadow);
   background:
-    linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,128,200,0.16)),
+    linear-gradient(135deg, rgba(255,255,255,0.94), rgba(255,128,200,0.16)),
     repeating-linear-gradient(90deg, rgba(142,108,255,0.08) 0 2px, transparent 2px 18px);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -132,7 +130,6 @@ h2 {
   grid-template-columns: 0.95fr 1.05fr;
   gap: 24px;
   margin-top: 24px;
-  align-items: stretch;
 }
 
 .closet-feature,
@@ -149,26 +146,8 @@ h2 {
   overflow: hidden;
 }
 
-.closet-feature::before {
-  content: "📸";
-  position: absolute;
-  right: 24px;
-  top: 22px;
-  font-size: 44px;
-  opacity: 0.38;
-}
-
-.style-interview::before {
-  content: "💄";
-  position: absolute;
-  right: 24px;
-  top: 22px;
-  font-size: 44px;
-  opacity: 0.34;
-}
-
 .hint,
-.reflection li,
+.reflection p,
 .lookbook-heading p {
   color: var(--muted);
 }
@@ -253,13 +232,6 @@ textarea {
   resize: vertical;
 }
 
-.question-stack label,
-.question-stack input,
-.question-stack select,
-.question-stack textarea {
-  grid-column: span 1;
-}
-
 .question-stack label[for="notes"],
 #notes,
 #create-prompt {
@@ -279,12 +251,9 @@ button {
   box-shadow: 0 14px 28px rgba(142,108,255,0.24);
 }
 
-button:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-}
-
-.stylist-note {
+.stylist-note,
+.lookbook,
+.reflection {
   margin-top: 24px;
 }
 
@@ -297,10 +266,6 @@ button:hover {
 .note-grid button {
   margin-top: 14px;
   width: 100%;
-}
-
-.lookbook {
-  margin-top: 24px;
 }
 
 .lookbook-heading {
@@ -320,7 +285,7 @@ button:hover {
 }
 
 .day-card {
-  min-height: 220px;
+  min-height: 240px;
   padding: 18px;
   border-radius: 28px;
   background:
@@ -362,14 +327,11 @@ button:hover {
   color: var(--muted);
   white-space: pre-wrap;
   line-height: 1.45;
+  font-size: 14px;
 }
 
 .placeholder-card {
   opacity: 0.72;
-}
-
-.reflection {
-  margin-top: 24px;
 }
 
 .paste-status.ready {

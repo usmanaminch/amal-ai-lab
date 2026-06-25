@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Outfit Organizer · Style Magazine</title>
+  <title>Outfit Organizer · Clean Lookbook</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="magazine">
     <section class="cover">
       <div class="cover-copy">
-        <p class="issue">AI Builder Lab · Day 6 Issue</p>
+        <p class="issue">AI Builder Lab · Day 7 Clean Version</p>
         <h1>Outfit Organizer</h1>
         <p class="subtitle">
           A closet-to-lookbook planner that turns your closet photo, personal style,
-          and week plans into 7 days of outfit ideas.
+          and weekly plans into 7 days of outfit ideas.
         </p>
         <p class="safety-note">Closet photos only · avoid faces, school names, addresses, or private details</p>
       </div>
 
       <div class="cover-badges">
-        <span>7-day looks</span>
-        <span>AI stylist prompt</span>
         <span>closet photo</span>
+        <span>style quiz</span>
+        <span>written lookbook</span>
       </div>
     </section>
 
@@ -63,7 +63,7 @@
           <select id="style">
             <option value="comfy and casual">Comfy and casual</option>
             <option value="sporty">Sporty</option>
-            <option value="cute and colorful">Cute and colorful</option>
+            <option value="cute and colorful" selected>Cute and colorful</option>
             <option value="simple and clean">Simple and clean</option>
             <option value="fancy but comfortable">Fancy but comfortable</option>
             <option value="modest and layered">Modest and layered</option>
@@ -72,14 +72,14 @@
           <label for="week-type">What kind of week is it?</label>
           <select id="week-type">
             <option value="school week">School week</option>
-            <option value="summer vacation week">Summer vacation week</option>
+            <option value="summer vacation week" selected>Summer vacation week</option>
             <option value="mixed week">Mixed week</option>
             <option value="family outings week">Family outings week</option>
           </select>
 
           <label for="weather">Weather this week</label>
           <select id="weather">
-            <option value="mostly warm">Mostly warm</option>
+            <option value="mostly warm" selected>Mostly warm</option>
             <option value="mostly cold">Mostly cold</option>
             <option value="mixed weather">Mixed weather</option>
             <option value="rainy">Rainy</option>
@@ -89,7 +89,7 @@
           <select id="comfort">
             <option value="very comfy">Very comfy</option>
             <option value="cute but still comfy">Cute but still comfy</option>
-            <option value="dressier outfits are okay">Dressier outfits are okay</option>
+            <option value="dressier outfits are okay" selected>Dressier outfits are okay</option>
           </select>
 
           <label for="favorite-colors">Favorite colors</label>
@@ -99,7 +99,7 @@
           <input id="avoid" type="text" placeholder="Example: itchy sweaters, neon colors, tight jeans" />
 
           <label for="notes">Any special days?</label>
-          <textarea id="notes" placeholder="Example: Monday tennis, Wednesday family dinner, Friday party"></textarea>
+          <textarea id="notes" placeholder="Example: Monday tennis, Wednesday family dinner, Friday concert"></textarea>
 
           <button id="create-prompt" type="button">Create AI stylist prompt</button>
         </div>
@@ -128,9 +128,11 @@
 
     <section class="lookbook">
       <div class="lookbook-heading">
-        <p class="eyebrow">Weekly Lookbook</p>
-        <h2>7 days of outfits</h2>
-        <p>Each day becomes a mini magazine card after you paste the AI plan.</p>
+        <div>
+          <p class="eyebrow">Weekly Lookbook</p>
+          <h2>7 days of outfits</h2>
+        </div>
+        <p>This version keeps the lookbook written-only until real AI pictures are connected later.</p>
       </div>
 
       <div id="outfit-plan" class="lookbook-grid">
@@ -145,13 +147,12 @@
     </section>
 
     <section class="reflection">
-      <p class="eyebrow">Day 6 Reflection</p>
-      <h2>What this project teaches</h2>
-      <ul>
-        <li>Good AI apps ask useful questions before giving advice.</li>
-        <li>Images plus preferences create better recommendations than images alone.</li>
-        <li>A website can turn an AI answer into a more useful and pretty experience.</li>
-      </ul>
+      <p class="eyebrow">Future Upgrade</p>
+      <h2>AI outfit pictures come later</h2>
+      <p>
+        Later, this website can connect to an AI image tool and create outfit pictures
+        automatically after the closet photo and style answers are used.
+      </p>
     </section>
   </main>
 

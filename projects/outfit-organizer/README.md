@@ -1,30 +1,19 @@
-# Outfit Organizer · Day 6 v3 Magazine Layout
+# Outfit Organizer · Clean Written Lookbook
 
-A fashion-magazine-inspired 7-day closet outfit planner.
+This version removes the AI-generated outfit pictures for now.
 
-## What changed in v3
-
-The layout is no longer the same step-by-step card layout as Plant Care Helper.
-
-It now has:
-
-- a magazine cover hero
-- a closet snapshot feature
-- a style interview section
-- an AI stylist note section
-- a weekly lookbook grid
-
-## What it does
-
-The user can:
+## Current flow
 
 1. Upload or paste a closet photo.
 2. Answer style questions.
-3. Generate an AI stylist prompt.
-4. Send the prompt and closet photo to ChatGPT or Gemini.
-5. Paste the AI result back into the website.
-6. Publish the weekly lookbook into 7 outfit cards.
+3. Create an AI stylist prompt.
+4. Paste the AI answer back into the website.
+5. Publish a clean written 7-day lookbook.
+
+## Future upgrade
+
+Later, when real AI image generation is connected to the website, the app can automatically create outfit pictures based on the closet photo and style answers.
 
 ## Safety
 
-Use closet/clothing photos only. Avoid faces, school names, addresses, home details, or private information in the background.
+Use clothing/closet photos only. Avoid faces, school names, addresses, and private details.

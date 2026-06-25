@@ -151,6 +151,7 @@ function makeSevenDayPlan() {
     addDayCard("AI Outfit Plan", result);
   }
 
+  addDayCard("Future Upgrade", "Later, this website can connect to AI image generation and make outfit pictures automatically.");
   addDayCard("Safety Note", "This is an educational style helper. Use clothing-only photos and avoid private photos.");
 }
 

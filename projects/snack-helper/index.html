@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snack Helper · Chef's Kitchen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="kitchen-app">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Builder Lab · Day 7</p>
+        <h1>Snack Helper</h1>
+        <p class="hero-text">
+          Step into a cozy snack kitchen where a friendly chef mentor helps you turn
+          simple ingredients into quick, kid-friendly snack ideas.
+        </p>
+        <p class="safety-note">Chef rule: ask an adult before knives, stove, oven, blender, or allergy-risk foods</p>
+      </div>
+
+      <div class="kitchen-window" aria-hidden="true">
+        <div class="shelf">
+          <span>🥣</span>
+          <span>🍓</span>
+          <span>🧂</span>
+          <span>🥨</span>
+        </div>
+        <div class="counter">
+          <span class="big-bowl">🍽️</span>
+          <span class="whisk">🥄</span>
+          <span class="snack">🍪</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="chef-note">
+      <p class="eyebrow">Chef's Welcome</p>
+      <h2>Before we cook</h2>
+      <p>
+        This app does not make fancy complicated meals. It helps you think like a tiny chef:
+        check the pantry, choose a snack mood, stay safe, and make something simple.
+      </p>
+    </section>
+
+    <section class="kitchen-layout">
+      <article class="pantry-card">
+        <div class="card-title">
+          <p class="eyebrow">Step 1</p>
+          <h2>Pantry check</h2>
+        </div>
+
+        <div class="form-grid">
+          <label for="mood">Snack mood</label>
+          <select id="mood">
+            <option value="sweet">Sweet</option>
+            <option value="salty">Salty</option>
+            <option value="crunchy">Crunchy</option>
+            <option value="fresh and fruity">Fresh and fruity</option>
+            <option value="cozy and warm">Cozy and warm</option>
+            <option value="surprise me">Surprise me</option>
+          </select>
+
+          <label for="snack-type">Snack type</label>
+          <select id="snack-type">
+            <option value="mostly healthy">Mostly healthy</option>
+            <option value="treat snack">Treat snack</option>
+            <option value="balanced snack">Balanced snack</option>
+            <option value="after-school snack">After-school snack</option>
+            <option value="movie snack">Movie snack</option>
+          </select>
+
+          <label for="time">Prep time</label>
+          <select id="time">
+            <option value="under 5 minutes">Under 5 minutes</option>
+            <option value="10 minutes">10 minutes</option>
+            <option value="15 minutes">15 minutes</option>
+            <option value="any amount of time">Any amount of time</option>
+          </select>
+
+          <label for="tools">Kitchen level</label>
+          <select id="tools">
+            <option value="no-cook only">No-cook only</option>
+            <option value="microwave is okay">Microwave is okay</option>
+            <option value="simple cooking with adult help">Simple cooking with adult help</option>
+          </select>
+
+          <label for="ingredients">What is in the pantry?</label>
+          <textarea id="ingredients" placeholder="Example: yogurt, strawberries, bananas, crackers, cheese, bread, chips"></textarea>
+
+          <label for="avoid">Do not use</label>
+          <textarea id="avoid" placeholder="Example: nuts, spicy food, eggs, dairy, too much sugar"></textarea>
+        </div>
+
+        <button id="create-prompt" type="button">Ask the snack chef</button>
+      </article>
+
+      <article class="chef-desk">
+        <div class="card-title">
+          <p class="eyebrow">Step 2</p>
+          <h2>Chef's recipe slip</h2>
+        </div>
+
+        <p class="small-note">
+          Copy this recipe slip into ChatGPT or Gemini. Then paste the chef's snack ideas back here.
+        </p>
+
+        <label for="ai-prompt">Recipe request</label>
+        <textarea id="ai-prompt" readonly placeholder="Click Ask the snack chef first."></textarea>
+
+        <label for="ai-result">Chef's answer</label>
+        <textarea id="ai-result" placeholder="Paste the snack ideas here."></textarea>
+
+        <button id="make-snacks" type="button">Put recipes on the counter</button>
+      </article>
+    </section>
+
+    <section class="counter-board">
+      <div class="board-heading">
+        <div>
+          <p class="eyebrow">Step 3</p>
+          <h2>Snack counter</h2>
+        </div>
+        <p>Each AI snack idea becomes a recipe card on the kitchen counter.</p>
+      </div>
+
+      <div id="snack-results" class="snack-results">
+        <article class="recipe-card placeholder-card">
+          <h3>Recipe Card 1</h3>
+          <p>Your first snack idea will appear here.</p>
+        </article>
+        <article class="recipe-card placeholder-card">
+          <h3>Recipe Card 2</h3>
+          <p>Your second snack idea will appear here.</p>
+        </article>
+        <article class="recipe-card placeholder-card">
+          <h3>Recipe Card 3</h3>
+          <p>Your third snack idea will appear here.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="reflection-card">
+      <p class="eyebrow">Day 7 Reflection</p>
+      <h2>What this project teaches</h2>
+      <ul>
+        <li>Good apps ask about ingredients and safety before giving suggestions.</li>
+        <li>Prompt engineering can make AI act like a helpful chef mentor.</li>
+        <li>JavaScript can turn AI text into organized recipe cards.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

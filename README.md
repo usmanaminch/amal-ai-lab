@@ -45,7 +45,25 @@ Project path:
 
 `projects/plant-care-helper/index.html`
 
-Important note: Day 5 version uses selected observations, not true AI image diagnosis yet.
+### Day 6: Plant Care Helper AI Vision Prep
+
+Upgraded Plant Care Helper so it supports an AI-assisted workflow:
+
+1. Upload or paste a plant photo.
+2. Generate an AI vision prompt.
+3. Send the prompt and image to ChatGPT or Gemini.
+4. Paste the AI result back into the website.
+5. Make a cute customized plant care report.
+
+### Day 6: Outfit Organizer
+
+Built a fashion magazine-style 7-day closet outfit planner.
+
+Project path:
+
+`projects/outfit-organizer/index.html`
+
+The user can upload or paste a closet photo, answer style questions, generate an AI stylist prompt, paste the AI result back into the website, and publish a weekly lookbook.
 
 ## Safety Note
 
@@ -54,3 +72,5 @@ This project is parent-supervised. The website will not include private informat
 Medical and surgeon-related projects are educational only. They do not provide medical advice, diagnosis, or treatment instructions.
 
 Plant care projects are educational only and do not provide professional plant diagnosis.
+
+Outfit and closet projects should use clothing-only photos and avoid faces, addresses, school names, or private details in the background.

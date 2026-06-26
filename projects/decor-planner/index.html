@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decor Planner · Store Showroom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="decor-store">
+    <section class="storefront">
+      <div class="awning">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="store-sign">
+        <p class="eyebrow">AI Builder Lab · Day 8</p>
+        <h1>Decor Planner</h1>
+        <p class="hero-text">
+          Walk into your own mini decor store: bring a room photo, visit the design counter,
+          pick a style, and build a room makeover board.
+        </p>
+        <p class="badge">Showroom entrance → design quiz → AI decorator → styled plan board</p>
+      </div>
+
+      <div class="window-display" aria-hidden="true">
+        <div class="display-shelf">
+          <span>🛋️</span>
+          <span>🪴</span>
+          <span>💡</span>
+        </div>
+        <div class="display-rug"></div>
+        <p>Today’s Showroom</p>
+      </div>
+    </section>
+
+    <section class="store-map">
+      <article>
+        <span>1</span>
+        <strong>Photo Drop-Off</strong>
+        <p>Bring the room picture.</p>
+      </article>
+      <article>
+        <span>2</span>
+        <strong>Design Counter</strong>
+        <p>Pick room, vibe, budget, and colors.</p>
+      </article>
+      <article>
+        <span>3</span>
+        <strong>AI Decorator</strong>
+        <p>Ask for a realistic makeover plan.</p>
+      </article>
+      <article>
+        <span>4</span>
+        <strong>Showroom Board</strong>
+        <p>Turn the answer into decor cards.</p>
+      </article>
+    </section>
+
+    <section class="showroom-layout">
+      <article class="store-card photo-card">
+        <div class="card-label">Photo Drop-Off</div>
+        <p class="eyebrow">Step 1</p>
+        <h2>Bring in your room</h2>
+        <p class="muted">
+          Upload a room photo, or copy a room image, click this page, and press
+          <strong>Command + V</strong>.
+        </p>
+
+        <p id="paste-status" class="status">No room photo yet.</p>
+
+        <label class="upload-box" for="room-photo">
+          <span>📸</span>
+          <strong>Choose room photo</strong>
+          <small>Show furniture, walls, windows, floor, lighting, and empty spaces.</small>
+        </label>
+        <input id="room-photo" type="file" accept="image/*" />
+
+        <div class="photo-frame">
+          <img id="room-preview" alt="Room preview will appear here" />
+          <p id="empty-preview">Room photo preview</p>
+        </div>
+      </article>
+
+      <article class="store-card quiz-card">
+        <div class="card-label">Design Counter</div>
+        <p class="eyebrow">Step 2</p>
+        <h2>Meet the decorator</h2>
+        <p class="muted">Choose the style like you are talking to someone at a decor store.</p>
+
+        <div class="form-grid">
+          <label for="room-type">Room type</label>
+          <select id="room-type">
+            <option value="bedroom">Bedroom</option>
+            <option value="study room">Study room</option>
+            <option value="living room">Living room</option>
+            <option value="playroom">Playroom</option>
+            <option value="basement room">Basement room</option>
+            <option value="office">Office</option>
+          </select>
+
+          <label for="style">Showroom vibe</label>
+          <select id="style">
+            <option value="calm study space">Calm study space</option>
+            <option value="cozy and warm">Cozy and warm</option>
+            <option value="kawaii and colorful">Kawaii and colorful</option>
+            <option value="clean and modern">Clean and modern</option>
+            <option value="boho and natural">Boho and natural</option>
+            <option value="luxury but comfortable">Luxury but comfortable</option>
+          </select>
+
+          <label for="budget">Budget shelf</label>
+          <select id="budget">
+            <option value="use what we already have">Use what we already have</option>
+            <option value="under $50">Under $50</option>
+            <option value="under $150">Under $150</option>
+            <option value="under $300">Under $300</option>
+            <option value="no budget yet, just ideas">No budget yet, just ideas</option>
+          </select>
+
+          <label for="priority">Main makeover goal</label>
+          <select id="priority">
+            <option value="make it better for studying">Make it better for studying</option>
+            <option value="make it prettier">Make it prettier</option>
+            <option value="make it more organized">Make it more organized</option>
+            <option value="make it cozy">Make it cozy</option>
+            <option value="make it look bigger">Make it look bigger</option>
+          </select>
+
+          <label for="colors">Color samples</label>
+          <input id="colors" type="text" placeholder="Example: blue, green, gold" />
+
+          <label for="keep">Pieces to keep</label>
+          <input id="keep" type="text" placeholder="Example: bed, desk, rug, couch" />
+
+          <label for="avoid">Store notes / cannot change</label>
+          <textarea id="avoid" placeholder="Example: do not paint walls, keep bed where it is, no drilling"></textarea>
+
+          <label for="notes">Dream room notes</label>
+          <textarea id="notes" placeholder="Example: I need a bookshelf, desk, cozy lamp, reading corner"></textarea>
+        </div>
+
+        <button id="create-prompt" type="button">Ask the AI decorator</button>
+      </article>
+    </section>
+
+    <section class="designer-row">
+      <article class="store-card prompt-card">
+        <div class="card-label">Decorator Desk</div>
+        <p class="eyebrow">Step 3</p>
+        <h2>AI decorator prompt</h2>
+        <p class="muted">
+          Copy this prompt into ChatGPT or Gemini with the room photo. Then paste the decorator answer back here.
+        </p>
+
+        <label for="ai-prompt">Copy this prompt</label>
+        <textarea id="ai-prompt" readonly placeholder="Click Ask the AI decorator first."></textarea>
+
+        <label for="ai-result">Paste decorator result here</label>
+        <textarea id="ai-result" placeholder="Paste the room makeover plan here."></textarea>
+
+        <button id="make-plan" type="button">Style the showroom board</button>
+      </article>
+
+      <aside class="store-card sample-wall">
+        <div class="card-label">Sample Wall</div>
+        <p class="eyebrow">Design Samples</p>
+        <h2>Store inspiration</h2>
+
+        <div class="swatches">
+          <span style="background:#9fcbe8"></span>
+          <span style="background:#9ebf9e"></span>
+          <span style="background:#f4d47b"></span>
+          <span style="background:#f8efe2"></span>
+        </div>
+
+        <div class="mini-display">
+          <article><span>📚</span><strong>Bookshelf</strong><p>Storage + style display</p></article>
+          <article><span>💡</span><strong>Desk Lamp</strong><p>Focused study lighting</p></article>
+          <article><span>🧺</span><strong>Baskets</strong><p>Hide clutter beautifully</p></article>
+        </div>
+
+        <p class="future-note">
+          Future upgrade: connect image generation to create a visual room makeover.
+        </p>
+      </aside>
+    </section>
+
+    <section class="plan-board">
+      <div class="board-heading">
+        <div>
+          <p class="eyebrow">Step 4</p>
+          <h2>Showroom plan board</h2>
+        </div>
+        <p>Each AI section becomes a styled display card, like walking past decor store sections.</p>
+      </div>
+
+      <div id="decor-results" class="decor-results">
+        <article class="decor-card placeholder"><span class="tag">Aisle 1</span><h3>Layout Ideas</h3><p>Your layout display will appear here.</p></article>
+        <article class="decor-card placeholder"><span class="tag">Aisle 2</span><h3>Color + Style</h3><p>Your color palette will appear here.</p></article>
+        <article class="decor-card placeholder"><span class="tag">Aisle 3</span><h3>Shopping / DIY</h3><p>Your decor picks will appear here.</p></article>
+      </div>
+    </section>
+
+    <section class="reflection-card">
+      <p class="eyebrow">Day 8 Reflection</p>
+      <h2>What this project teaches</h2>
+      <ul>
+        <li>Design apps need constraints like budget, room type, and what cannot change.</li>
+        <li>Good UI can make a tool feel like a real experience, such as a decor store.</li>
+        <li>JavaScript can turn a design plan into organized showroom cards.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

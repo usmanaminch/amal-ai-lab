@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Brain Gym · Grade Workout App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="phone-shell">
+    <section class="app-hero">
+      <div>
+        <p class="eyebrow">Day 8 · Brain Training App</p>
+        <h1>Study Brain Gym</h1>
+        <p class="hero-copy">
+          Pick your grade, train every subject, finish reps, earn game tokens,
+          and level up when your grade workout is mastered.
+        </p>
+      </div>
+      <div class="hero-meter">
+        <span>🧠</span>
+        <strong id="hero-grade">6th</strong>
+        <small>current grade level</small>
+      </div>
+    </section>
+
+    <nav class="bottom-tabs" aria-label="Study Brain Gym navigation">
+      <button class="tab-button active" data-tab="start">Start</button>
+      <button class="tab-button" data-tab="workout">Workout</button>
+      <button class="tab-button" data-tab="progress">Progress</button>
+      <button class="tab-button" data-tab="games">Games</button>
+      <button class="tab-button" data-tab="coach">Coach</button>
+    </nav>
+
+    <section id="start" class="tab-panel active">
+      <article class="grade-card">
+        <p class="eyebrow">First Step</p>
+        <h2>What grade are you in?</h2>
+        <p class="muted">
+          The app changes your questions based on this grade. Higher grades get harder reps.
+        </p>
+
+        <div class="grade-picker">
+          <select id="grade-select">
+            <option value="1">1st grade</option>
+            <option value="2">2nd grade</option>
+            <option value="3">3rd grade</option>
+            <option value="4">4th grade</option>
+            <option value="5">5th grade</option>
+            <option value="6" selected>6th grade</option>
+            <option value="7">7th grade</option>
+            <option value="8">8th grade</option>
+            <option value="9">9th grade</option>
+            <option value="10">10th grade</option>
+            <option value="11">11th grade</option>
+            <option value="12">12th grade</option>
+          </select>
+          <button id="save-grade" type="button">Save Grade</button>
+        </div>
+
+        <p id="grade-message" class="coach-note">
+          Current training level: 6th grade.
+        </p>
+      </article>
+
+      <article class="workout-guide">
+        <p class="eyebrow">How the Gym Works</p>
+        <h2>Your workout routine</h2>
+
+        <div class="guide-grid">
+          <div><span>1</span><strong>Pick grade</strong><p>Choose the level you are training at.</p></div>
+          <div><span>2</span><strong>Choose station</strong><p>Math, Reading, Writing, Science, Social Studies, Vocabulary, or Study Skills.</p></div>
+          <div><span>3</span><strong>Finish 5 reps</strong><p>Each question is one rep. Five reps completes one workout.</p></div>
+          <div><span>4</span><strong>Earn token</strong><p>One completed workout unlocks one game.</p></div>
+          <div><span>5</span><strong>Track strength</strong><p>The app finds your strongest and weakest subjects.</p></div>
+          <div><span>6</span><strong>Level up</strong><p>Master every subject to unlock the next grade.</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="workout" class="tab-panel">
+      <section class="today-card">
+        <div>
+          <p class="eyebrow">Today's Workout</p>
+          <h2 id="today-title">Choose a subject station</h2>
+          <p id="today-subtitle">Finish 5 reps to earn 1 game token.</p>
+        </div>
+        <div class="token-pill">
+          <span id="token-count">0</span>
+          <small>game tokens</small>
+        </div>
+      </section>
+
+      <section class="station-grid">
+        <button type="button" class="station-card" data-subject="math"><span>➗</span><strong>Math</strong><small>number strength</small></button>
+        <button type="button" class="station-card" data-subject="reading"><span>📖</span><strong>Reading</strong><small>comprehension</small></button>
+        <button type="button" class="station-card" data-subject="writing"><span>✏️</span><strong>Writing</strong><small>grammar + claims</small></button>
+        <button type="button" class="station-card" data-subject="science"><span>🔬</span><strong>Science</strong><small>data + variables</small></button>
+        <button type="button" class="station-card" data-subject="social"><span>🌎</span><strong>Social Studies</strong><small>maps + sources</small></button>
+        <button type="button" class="station-card" data-subject="vocab"><span>🗝️</span><strong>Vocabulary</strong><small>word power</small></button>
+        <button type="button" class="station-card" data-subject="study"><span>🗓️</span><strong>Study Skills</strong><small>focus + planning</small></button>
+      </section>
+
+      <section class="rep-screen">
+        <div class="rep-top">
+          <div>
+            <p class="eyebrow">Training Mat</p>
+            <h2 id="subject-title">No station selected</h2>
+          </div>
+          <div class="set-badge">
+            <span id="rep-count">0/5</span>
+            <small>reps</small>
+          </div>
+        </div>
+
+        <div class="rep-track">
+          <div id="rep-fill"></div>
+        </div>
+
+        <article class="question-card">
+          <p class="eyebrow">Current Rep</p>
+          <h3 id="question-text">Pick a subject station to start.</h3>
+          <div id="choices" class="choices"></div>
+
+          <div class="action-row">
+            <button id="check-answer" type="button">Check Rep</button>
+            <button id="next-question" type="button">Next Rep</button>
+          </div>
+
+          <p id="feedback" class="feedback"></p>
+          <p id="explanation" class="explanation"></p>
+        </article>
+      </section>
+    </section>
+
+    <section id="progress" class="tab-panel">
+      <section class="score-grid">
+        <article><p class="eyebrow">Brain XP</p><h2 id="xp-total">0</h2><span>earned from correct reps</span></article>
+        <article><p class="eyebrow">Strongest</p><h2 id="strongest-subject">None</h2><span>highest accuracy</span></article>
+        <article><p class="eyebrow">Weakest</p><h2 id="weakest-subject">None</h2><span>best next workout</span></article>
+      </section>
+
+      <article class="progress-card">
+        <p class="eyebrow">Strength Tracker</p>
+        <h2>Subject muscle chart</h2>
+        <div id="progress-list" class="progress-list"></div>
+      </article>
+
+      <article class="level-card">
+        <p class="eyebrow">Level Up Rule</p>
+        <h2 id="level-title">Master 6th grade</h2>
+        <p>
+          To unlock the next grade, complete at least <strong>5 reps in every subject</strong>
+          and score at least <strong>80%</strong> in every subject.
+        </p>
+        <button id="check-level-up" type="button">Check Level Up</button>
+        <button id="reset-progress" type="button">Reset Data</button>
+        <p id="level-message" class="coach-note"></p>
+      </article>
+    </section>
+
+    <section id="games" class="tab-panel">
+      <article class="game-card">
+        <p class="eyebrow">Reward Zone</p>
+        <h2>Brain Break Arcade</h2>
+        <p id="game-status">Finish a workout to earn a game token.</p>
+        <button id="start-game" type="button">Use 1 token to play Star Catch</button>
+      </article>
+
+      <article id="game-area" class="game-area locked">
+        <div class="game-header">
+          <div>
+            <p class="eyebrow">Game</p>
+            <h2>Star Catch</h2>
+          </div>
+          <p>Score: <strong id="game-score">0</strong> · Time: <strong id="game-time">20</strong>s</p>
+        </div>
+
+        <div id="star-field" class="star-field">
+          <button id="star" class="star" type="button">⭐</button>
+        </div>
+      </article>
+    </section>
+
+    <section id="coach" class="tab-panel">
+      <article class="coach-card">
+        <p class="eyebrow">AI Trainer</p>
+        <h2>Personal study coach prompt</h2>
+        <p class="muted">
+          The prompt uses your grade level and your weakest subject.
+        </p>
+
+        <label for="coach-style">Coach style</label>
+        <select id="coach-style">
+          <option value="kind and simple">Kind and simple</option>
+          <option value="game style with levels and XP">Game style with levels and XP</option>
+          <option value="step by step with hints first">Step by step with hints first</option>
+          <option value="quick lesson then quiz me">Quick lesson then quiz me</option>
+        </select>
+
+        <label for="coach-prompt">Copy this prompt</label>
+        <textarea id="coach-prompt" readonly></textarea>
+
+        <button id="make-coach-prompt" type="button">Refresh Coach Prompt</button>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

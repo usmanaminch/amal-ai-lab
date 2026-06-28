@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocket Model Lab · Mission Control Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="rocket-app">
+    <div class="space-decor" aria-hidden="true">
+      <div class="moon"></div>
+      <div class="planet planet-one"></div>
+      <div class="planet planet-two"></div>
+      <div class="planet planet-three"></div>
+      <div class="starfield">
+        <span class="star s1"></span>
+        <span class="star s2"></span>
+        <span class="star s3"></span>
+        <span class="star s4"></span>
+        <span class="star s5"></span>
+        <span class="star s6"></span>
+        <span class="star s7"></span>
+        <span class="star s8"></span>
+        <span class="star s9"></span>
+        <span class="star s10"></span>
+        <span class="star s11"></span>
+        <span class="star s12"></span>
+      </div>
+    </div>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Builder Lab · Day 9</p>
+        <h1>Welcome to Rocket Model</h1>
+        <p class="hero-text">
+          Step into Mission Control, choose your rocket kit, open the assembly bay,
+          follow the picture manual, and drag each part into place like a real build team.
+        </p>
+        <div class="hero-chips">
+          <span>Mission Control</span>
+          <span>Assembly Bay</span>
+          <span>Systems Check</span>
+          <span>Launch Pad</span>
+        </div>
+        <p class="safety-pill">Safe digital simulator · no real engine-building instructions</p>
+      </div>
+
+      <div class="hero-display" aria-hidden="true">
+        <div class="display-window">
+          <div class="window-rocket">
+            <div class="window-part nose"></div>
+            <div class="window-part body"></div>
+            <div class="window-part fins"></div>
+            <div class="window-part flame"></div>
+          </div>
+        </div>
+        <div class="display-consoles">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="silhouettes" aria-hidden="true">
+          <div class="silhouette engineer"></div>
+          <div class="silhouette astronaut"></div>
+        </div>
+        <p>Mission Control Lobby</p>
+      </div>
+    </section>
+
+    <nav class="stage-nav" aria-label="Rocket project stages">
+      <button class="stage-tab active" data-stage="choose">1 · Kit Selection</button>
+      <button class="stage-tab" data-stage="build">2 · Assembly Bay</button>
+      <button class="stage-tab" data-stage="summary">3 · Systems Briefing</button>
+      <button class="stage-tab" data-stage="launch">4 · Launch Control</button>
+    </nav>
+
+    <section class="mission-strip">
+      <article><span>01</span><strong>Kit Selection</strong><p>Choose your rocket hardware.</p></article>
+      <article><span>02</span><strong>Assembly Bay</strong><p>Drag pieces into the build frame.</p></article>
+      <article><span>03</span><strong>Systems Briefing</strong><p>Learn what each system does.</p></article>
+      <article><span>04</span><strong>Launch Control</strong><p>Run the flight simulation.</p></article>
+    </section>
+
+    <section class="control-wall" aria-hidden="true">
+      <article class="screen screen-a">
+        <div class="screen-top"><div class="screen-title">Guidance Screen</div><div class="control-lights"><i></i><i></i><i></i></div></div>
+        <div class="screen-lines"><span></span><span></span><span></span></div>
+      </article>
+      <article class="screen screen-b">
+        <div class="screen-top"><div class="screen-title">Telemetry Screen</div><div class="control-lights"><i></i><i></i><i></i></div></div>
+        <div class="bars"><b></b><b></b><b></b><b></b></div>
+      </article>
+      <article class="screen screen-c">
+        <div class="screen-top"><div class="screen-title">Orbit Screen</div><div class="control-lights"><i></i><i></i><i></i></div></div>
+        <div class="orbit-diagram"><i></i><i></i><i></i></div>
+      </article>
+    </section>
+
+    <section id="choose" class="stage-panel active">
+      <div class="stage-heading">
+        <p class="eyebrow">Mission Control · Kit Selection</p>
+        <h2>Choose pieces for your model rocket</h2>
+        <p>
+          Engineers first select the right hardware. Pick the parts you want in your kit,
+          then move into the assembly bay.
+        </p>
+      </div>
+
+      <div class="choose-layout">
+        <article class="panel parts-shop">
+          <div class="panel-top">
+            <span class="section-badge">Hardware Shelf</span>
+          </div>
+          <div id="parts-grid" class="parts-grid"></div>
+        </article>
+
+        <aside class="panel kit-box">
+          <div class="panel-top">
+            <span class="section-badge">Selected Kit</span>
+          </div>
+          <p class="eyebrow">Kit Box</p>
+          <h2>Your selected pieces</h2>
+          <div id="selected-list" class="selected-list">
+            <p class="empty">No pieces selected yet.</p>
+          </div>
+
+          <div class="score-box">
+            <div>
+              <span id="readiness-score">0</span>
+              <small>flight score</small>
+            </div>
+            <p id="readiness-message">Pick pieces to start your kit.</p>
+          </div>
+
+          <div class="button-stack">
+            <button id="open-builder" type="button">Enter assembly bay</button>
+            <button id="select-starter-kit" class="secondary" type="button">Load starter mission kit</button>
+            <button id="clear-kit" class="secondary" type="button">Clear kit</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="build" class="stage-panel">
+      <div class="stage-heading">
+        <p class="eyebrow">Mission Control · Assembly Bay</p>
+        <h2>Build the rocket yourself</h2>
+        <p>
+          Read the picture instructions, then drag the highlighted rocket part from the builder tray
+          to the glowing frame on the rocket stand.
+        </p>
+      </div>
+
+      <div class="builder-layout">
+        <aside class="panel instruction-book">
+          <div class="panel-top">
+            <span class="section-badge">Build Manual</span>
+          </div>
+          <div class="book-top">
+            <p class="eyebrow">Picture Instruction Book</p>
+            <span id="book-page-number">Page 0/0</span>
+          </div>
+
+          <div id="book-picture" class="book-picture">
+            <p class="empty">Open the assembly bay first.</p>
+          </div>
+
+          <h2 id="book-title">No step yet</h2>
+          <p id="book-words">Choose pieces and enter the assembly bay.</p>
+
+          <div class="book-buttons">
+            <button id="prev-step" class="secondary" type="button">Back</button>
+            <button id="next-step" class="secondary" type="button">Next</button>
+          </div>
+
+          <div class="step-meter">
+            <span id="step-count">0/0 placed</span>
+            <div><b id="step-fill"></b></div>
+          </div>
+        </aside>
+
+        <article class="panel builder-tray">
+          <div class="panel-top">
+            <span class="section-badge">Builder Tray</span>
+          </div>
+          <div class="tray-label">Loose pieces</div>
+          <div id="loose-parts" class="loose-parts">
+            <p class="empty">Your loose pieces will appear here.</p>
+          </div>
+        </article>
+
+        <article class="panel build-board">
+          <div class="panel-top">
+            <span class="section-badge">Rocket Stand</span>
+          </div>
+          <div class="board-label">Drop pieces here</div>
+          <div id="drop-board" class="drop-board"></div>
+        </article>
+      </div>
+
+      <div class="builder-actions">
+        <p id="builder-status" class="status-note">Enter the assembly bay to begin.</p>
+        <button id="reset-build" class="secondary" type="button">Reset build</button>
+      </div>
+    </section>
+
+    <section id="summary" class="stage-panel">
+      <div class="stage-heading">
+        <p class="eyebrow">Mission Control · Systems Briefing</p>
+        <h2>What your rocket systems do</h2>
+        <p>This unlocks after you drag every selected piece into place.</p>
+      </div>
+
+      <div id="summary-grid" class="summary-grid">
+        <article class="summary-card placeholder">
+          <h3>Locked</h3>
+          <p>Build your rocket in the Assembly Bay first.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="launch" class="stage-panel">
+      <div class="stage-heading">
+        <p class="eyebrow">Mission Control · Launch Control</p>
+        <h2>Launch your built rocket</h2>
+        <p>The launch simulation uses the exact rocket you dragged together in the assembly bay.</p>
+      </div>
+
+      <div class="launch-layout">
+        <article class="panel launch-card">
+          <div class="panel-top">
+            <span class="section-badge">Launch Pad</span>
+          </div>
+          <button id="launch-rocket" type="button">Launch rocket</button>
+          <div class="launch-window">
+            <div id="launch-smoke" class="launch-smoke" aria-hidden="true">
+              <span class="smoke s1"></span>
+              <span class="smoke s2"></span>
+              <span class="smoke s3"></span>
+              <span class="smoke s4"></span>
+              <span class="smoke s5"></span>
+              <span class="smoke s6"></span>
+            </div>
+            <div id="launch-rocket-model" class="launch-rocket-model"></div>
+            <div class="launch-ground"></div>
+          </div>
+          <p id="launch-result" class="launch-result">Build your rocket before launch.</p>
+        </article>
+
+        <aside class="panel countdown-card">
+          <div class="panel-top">
+            <span class="section-badge">Countdown</span>
+          </div>
+          <p class="eyebrow">Launch Countdown</p>
+          <h2>T minus sequence</h2>
+          <div class="countdown-stack">
+            <div class="count-item"><strong>T-30</strong><span>Final systems check</span></div>
+            <div class="count-item"><strong>T-20</strong><span>Guidance ready</span></div>
+            <div class="count-item"><strong>T-10</strong><span>Launch pad clear</span></div>
+            <div class="count-item blast"><strong>0</strong><span>Ignition in simulator</span></div>
+          </div>
+        </aside>
+
+        <aside class="panel flight-card">
+          <div class="panel-top">
+            <span class="section-badge">Systems Check</span>
+          </div>
+          <p class="eyebrow">Flight Check</p>
+          <h2>Design checks</h2>
+          <div id="flight-checks" class="flight-checks">
+            <p class="empty">Build your rocket to unlock flight checks.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="panel reflection-card">
+      <p class="eyebrow">Day 9 Reflection</p>
+      <h2>What this project teaches</h2>
+      <ul>
+        <li>App design can feel immersive, like walking into a space center.</li>
+        <li>Rocket projects involve selection, assembly, systems knowledge, and flight checks.</li>
+        <li>Simulations let students explore rocket ideas safely.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

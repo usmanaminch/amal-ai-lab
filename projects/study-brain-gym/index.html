@@ -13,8 +13,8 @@
         <p class="eyebrow">Day 8 · Brain Training App</p>
         <h1>Study Brain Gym</h1>
         <p class="hero-copy">
-          Pick your grade, train every subject, finish reps, earn game tokens,
-          and level up when your grade workout is mastered.
+          Pick your grade, train every subject, finish 10-question workouts, earn game tokens,
+          and level up only when your grade is mastered.
         </p>
       </div>
       <div class="hero-meter">
@@ -37,7 +37,7 @@
         <p class="eyebrow">First Step</p>
         <h2>What grade are you in?</h2>
         <p class="muted">
-          The app changes your questions based on this grade. Higher grades get harder reps.
+          The app uses a separate question bank for every grade from 1st through 12th.
         </p>
 
         <div class="grade-picker">
@@ -70,7 +70,7 @@
         <div class="guide-grid">
           <div><span>1</span><strong>Pick grade</strong><p>Choose the level you are training at.</p></div>
           <div><span>2</span><strong>Choose station</strong><p>Math, Reading, Writing, Science, Social Studies, Vocabulary, or Study Skills.</p></div>
-          <div><span>3</span><strong>Finish 5 reps</strong><p>Each question is one rep. Five reps completes one workout.</p></div>
+          <div><span>3</span><strong>Finish 10 questions</strong><p>Each question is one rep. Ten reps completes one subject workout.</p></div>
           <div><span>4</span><strong>Earn token</strong><p>One completed workout unlocks one game.</p></div>
           <div><span>5</span><strong>Track strength</strong><p>The app finds your strongest and weakest subjects.</p></div>
           <div><span>6</span><strong>Level up</strong><p>Master every subject to unlock the next grade.</p></div>
@@ -83,7 +83,7 @@
         <div>
           <p class="eyebrow">Today's Workout</p>
           <h2 id="today-title">Choose a subject station</h2>
-          <p id="today-subtitle">Finish 5 reps to earn 1 game token.</p>
+          <p id="today-subtitle">Finish 10 grade-level questions to earn 1 game token.</p>
         </div>
         <div class="token-pill">
           <span id="token-count">0</span>
@@ -108,7 +108,7 @@
             <h2 id="subject-title">No station selected</h2>
           </div>
           <div class="set-badge">
-            <span id="rep-count">0/5</span>
+            <span id="rep-count">0/10</span>
             <small>reps</small>
           </div>
         </div>
@@ -150,8 +150,8 @@
         <p class="eyebrow">Level Up Rule</p>
         <h2 id="level-title">Master 6th grade</h2>
         <p>
-          To unlock the next grade, complete at least <strong>5 reps in every subject</strong>
-          and score at least <strong>80%</strong> in every subject.
+          To unlock the next grade, complete at least <strong>10 questions in every subject</strong>
+          and score at least <strong>80%</strong> in every subject. This checks whether you are ready for the next grade before moving up.
         </p>
         <button id="check-level-up" type="button">Check Level Up</button>
         <button id="reset-progress" type="button">Reset Data</button>

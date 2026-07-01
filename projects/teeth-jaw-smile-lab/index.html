@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teeth, Jaw, and Smile Lab · Day 11</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">AI Builder Lab · Day 11</p>
+      <h1>Teeth, Jaw, and Smile Lab</h1>
+      <p>Use a scaler, choose toothpaste flavor, brush teeth, drag rainbow braces, and feed the jaw model so you can watch chewing in action.</p>
+      <span class="pill">Educational only · Not dental advice</span>
+    </div>
+    <div class="hero-art">
+      <div class="big-tooth"></div>
+      <div class="wire"></div>
+      <span>✦</span><span>✦</span>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="clean">Clean Teeth</button>
+    <button class="tab" data-tab="braces">Braces Builder</button>
+    <button class="tab" data-tab="jaw">Jaw + Smile</button>
+    <button class="tab" data-tab="quiz">Lab Check</button>
+  </nav>
+
+  <section id="clean" class="panel active">
+    <div class="heading">
+      <p class="eyebrow">Cleaning Station</p>
+      <h2>Scale first, then brush</h2>
+      <p>Drag the scaler anywhere on a tooth to remove plaque. Then pick a toothpaste flavor and drag the toothbrush over the teeth.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="stage-strip">
+          <span id="scale-step" class="stage active">1 · Scale Plaque</span>
+          <span id="flavor-step" class="stage locked">2 · Pick Flavor</span>
+          <span id="brush-step" class="stage locked">3 · Brush Teeth</span>
+        </div>
+
+        <div class="mouth clean-mouth" id="clean-mouth">
+          <div class="gum top"></div>
+          <div class="teeth-row" id="clean-top"></div>
+          <div class="smile-line"></div>
+          <div class="teeth-row bottom-row" id="clean-bottom"></div>
+          <div class="gum bottom"></div>
+          <div id="foam-layer" class="foam-layer"></div>
+        </div>
+
+        <div class="tool-tray">
+          <div id="scaler-tool" class="drag-tool scaler-tool" data-tool="scaler">
+            <div class="scaler-art"><span class="scaler-handle"></span><span class="scaler-neck"></span><span class="scaler-hook"></span></div>
+            <strong>Scaler</strong>
+            <small>Drag onto any tooth</small>
+          </div>
+
+          <div id="toothbrush-tool" class="drag-tool toothbrush-tool disabled" data-tool="toothbrush">
+            <div class="toothbrush-art"><span class="brush-handle"></span><span class="brush-neck"></span><span class="brush-head"></span><span class="bristles"></span></div>
+            <strong>Toothbrush</strong>
+            <small id="toothbrush-label">Pick flavor first</small>
+          </div>
+        </div>
+
+        <div class="flavor-bar">
+          <p class="eyebrow">Toothpaste Flavor</p>
+          <button class="flavor" data-flavor="Mint" data-foam="#a7f4d0">Mint</button>
+          <button class="flavor" data-flavor="Bubblegum" data-foam="#ff9ad5">Bubblegum</button>
+          <button class="flavor" data-flavor="Strawberry" data-foam="#ff7b8d">Strawberry</button>
+          <button class="flavor" data-flavor="Blueberry" data-foam="#8fdcff">Blueberry</button>
+          <button class="flavor" data-flavor="Watermelon" data-foam="#84f08e">Watermelon</button>
+        </div>
+
+        <button id="scale-all">Scale All Plaque</button>
+        <button id="reset-clean" class="secondary">Reset Cleaning</button>
+      </article>
+
+      <aside class="card info">
+        <p class="eyebrow">Cleaning Score</p>
+        <h2 id="clean-title">0% Complete</h2>
+        <div class="meter"><div id="clean-fill"></div></div>
+        <p id="clean-message">Drag the scaler to yellow plaque spots first.</p>
+        <div class="note">
+          <strong>Lab note:</strong>
+          A scaler is used by dental professionals. In this game, it teaches that plaque should be removed carefully before brushing.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="braces" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Orthodontic Builder</p>
+      <h2>Drag brackets onto teeth</h2>
+      <p>Pick a rainbow color, then drag a bracket from the tray onto a tooth. Every tooth can have its own color.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="mouth braces-mouth" id="braces-mouth">
+          <div class="gum top"></div>
+          <div class="teeth-row" id="braces-top"></div>
+          <div class="brace-wire top-wire"></div>
+          <div class="brace-wire bottom-wire"></div>
+          <div class="teeth-row bottom-row" id="braces-bottom"></div>
+          <div class="gum bottom"></div>
+        </div>
+
+        <div class="rainbow-bar color-wheel-box">
+          <p class="eyebrow">Brace Color Wheel</p>
+          <div class="color-wheel-layout">
+            <div class="wheel-wrap">
+              <div id="brace-color-wheel" class="brace-color-wheel" role="button" aria-label="Brace color wheel">
+                <span id="wheel-selector" class="wheel-selector"></span>
+              </div>
+            </div>
+            <div class="picker-readout">
+              <span class="mini-label">Selected Color</span>
+              <span id="brace-color-hex">#FF4D6D</span>
+              <span class="bracket-preview"></span>
+            </div>
+          </div>
+          <p class="wheel-tip">Tap or click the rainbow wheel to choose a braces color, then drag a bracket onto a tooth.</p>
+        </div>
+
+        <div class="bracket-tray">
+          <div id="bracket-tool" class="drag-tool bracket-tool" data-tool="bracket">
+            <span class="bracket-preview"></span>
+            <strong>Bracket</strong>
+            <small>Drag to a tooth</small>
+          </div>
+        </div>
+
+        <button id="rainbow-all">Rainbow Full Braces</button>
+        <button id="reset-braces" class="secondary">Remove Braces</button>
+      </article>
+
+      <aside class="card info">
+        <p class="eyebrow">Braces Builder</p>
+        <h2 id="braces-title">0 Brackets Added</h2>
+        <p id="braces-message">Choose a color, then drag a bracket onto a tooth.</p>
+        <div class="mini-cards">
+          <div><h3>Bracket</h3><p>A small piece placed on a tooth in this learning model.</p></div>
+          <div><h3>Wire</h3><p>A wire connects brackets and helps guide teeth over time.</p></div>
+          <div><h3>Color Bands</h3><p>Each tooth can have a different rainbow color.</p></div>
+        </div>
+        <div class="note">
+          <strong>Safety note:</strong>
+          Real braces should only be placed by orthodontists or dentists.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="jaw" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Jaw + Smile Station</p>
+      <h2>Feed the mouth and watch chewing</h2>
+      <p>Drag a food item into the mouth. Then press Chew Motion to see how the jaw moves while chewing.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="jaw-model" id="jaw-model">
+          <div class="head"></div>
+          <div class="upper-mini"></div>
+          <div class="food-drop-hint">Drop food here</div>
+          <div id="food-stage" class="food-stage"></div>
+          <div id="crumb-layer" class="crumb-layer"></div>
+          <div id="lower-jaw" class="lower-jaw"><div class="lower-mini"></div><div class="chin"></div></div>
+        </div>
+        <div class="food-tray">
+          <div class="drag-tool food-tool" data-tool="food" data-food="apple"><span class="food-apple"></span><strong>Apple Slice</strong></div>
+          <div class="drag-tool food-tool" data-tool="food" data-food="carrot"><span class="food-carrot"></span><strong>Carrot Stick</strong></div>
+          <div class="drag-tool food-tool" data-tool="food" data-food="cracker"><span class="food-cracker"></span><strong>Cracker</strong></div>
+        </div>
+        <button id="open-jaw">Open Jaw</button>
+        <button id="close-jaw" class="secondary">Close Jaw</button>
+        <button id="chew-jaw">Chew Motion</button>
+      </article>
+      <aside class="card info">
+        <p class="eyebrow">Jaw Science</p>
+        <h2 id="jaw-title">Closed Bite</h2>
+        <p id="jaw-info">When the jaw is closed, upper and lower teeth come near each other.</p>
+        <div class="mini-cards">
+          <div><h3>Chewing</h3><p>The teeth and jaw work together to break food into smaller pieces.</p></div>
+          <div><h3>Talking</h3><p>The jaw, tongue, lips, and teeth help shape sounds.</p></div>
+          <div><h3>Smile</h3><p>The jaw supports the teeth and helps shape the face.</p></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Lab Check</p>
+      <h2>Test what you learned</h2>
+      <p>Answer 5 quick questions.</p>
+    </div>
+    <article class="card quiz">
+      <p class="eyebrow">Question <span id="quiz-num">1</span>/5</p>
+      <h2 id="quiz-q">Loading...</h2>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback" class="feedback"></p>
+      <button id="next-q">Next Question</button>
+    </article>
+  </section>
+
+  <section class="reflection card">
+    <p class="eyebrow">Day 11 Reflection</p>
+    <h2>What this project teaches</h2>
+    <ul>
+      <li>Plaque removal and brushing are different steps in this model.</li>
+      <li>Toothpaste flavor is a design choice that makes the simulator more fun.</li>
+      <li>Braces use brackets, wires, and color bands to guide teeth over time.</li>
+      <li>The jaw helps chew food by moving food between upper and lower teeth.</li>
+    </ul>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

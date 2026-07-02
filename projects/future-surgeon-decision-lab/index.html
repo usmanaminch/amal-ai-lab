@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Surgeon Procedure Lab · Day 12 v3</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="shell">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Starlight Children's Hospital · Day 12</p>
+      <h1>Future Surgeon Procedure Lab</h1>
+      <p>Walk into a neon hospital, choose a pretend patient case, follow clear procedure steps, drag the right tools onto the model, and unlock the quiz after helping the case.</p>
+      <span class="pill">Educational simulation · Not medical advice</span>
+    </div>
+    <div class="hero-art">
+      <div class="hospital-sign">Starlight Children's Hospital</div>
+      <div class="neon-cross"></div>
+      <div class="neon-er-sign">ER →</div>
+      <div class="neon-pharmacy-sign">PHARMACY</div>
+      <div class="neon-heart-sign">HEART CARE</div>
+      <div class="ceiling-light one"></div>
+      <div class="ceiling-light two"></div>
+      <div class="window-panel one"></div>
+      <div class="window-panel two"></div>
+      <div class="mini-monitor one"><span></span><span></span><span></span></div>
+      <div class="mini-monitor two"><span></span><span></span><span></span></div>
+      <div class="plant plant-left"></div>
+      <div class="plant plant-right"></div>
+      <div class="reception-desk"></div>
+      <div class="front-counter-glow"></div>
+      <div class="doctor"><div class="head"></div><div class="coat"><span class="badge">MD</span></div></div>
+      <div class="monitor"><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="cases">Reception Desk</button>
+    <button class="tab" data-tab="procedure">Treatment Wing</button>
+    <button class="tab" data-tab="learn">Specialist Hall</button>
+    <button class="tab" data-tab="quiz">Quiz Checkup</button>
+  </nav>
+
+  <section class="hospital-decor-strip">
+    <div class="decor-pill">✦ Neon Reception</div>
+    <div class="decor-pill">♥ Pediatric Care</div>
+    <div class="decor-pill">✚ Bright Treatment Wing</div>
+    <div class="decor-pill">★ Safe Learning Hospital</div>
+  </section>
+
+  <section id="cases" class="panel active">
+    <div class="heading">
+      <p class="eyebrow">Reception Desk</p>
+      <h2>Choose a case to help</h2>
+      <p>Pick a pretend patient case. Then go to the Procedure Room and follow the steps in order.</p>
+    </div>
+    <div id="case-grid" class="case-grid"></div>
+  </section>
+
+  <section id="procedure" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Treatment Wing</p>
+      <h2 id="procedure-title">Pick a case first</h2>
+      <p id="procedure-summary">Choose a patient from the Case Board to begin.</p>
+    </div>
+
+    <div class="procedure-layout">
+      <article class="card">
+        <div class="chart">
+          <div id="patient-icon" class="patient-icon">🩺</div>
+          <div>
+            <p class="eyebrow">Patient Chart</p>
+            <h3 id="patient-name">No case selected</h3>
+            <p id="patient-chart">Choose a case from the Case Board.</p>
+          </div>
+        </div>
+
+        <div class="step-board">
+          <p class="eyebrow">Procedure Directions</p>
+          <h2 id="current-step-title">Step 0</h2>
+          <p id="current-step-direction">Pick a case to see the steps.</p>
+          <div id="step-list" class="step-list"></div>
+        </div>
+
+        <div class="work-zone">
+          <div id="body-model" class="body-model empty">
+            <div id="model-label" class="model-label">No model loaded</div>
+            <div id="model-visual" class="model-visual"></div>
+            <div id="model-effect" class="model-effect"></div>
+          </div>
+
+          <aside>
+            <p class="eyebrow">Tool Tray</p>
+            <div id="tool-tray" class="tool-tray"></div>
+            <button id="reset-procedure" class="secondary">Reset Case</button>
+          </aside>
+        </div>
+      </article>
+
+      <aside class="card score-card">
+        <p class="eyebrow">Procedure Progress</p>
+        <h2 id="progress-title">0%</h2>
+        <div class="meter"><div id="progress-fill"></div></div>
+        <p id="procedure-feedback">Pick a case and follow the directions.</p>
+
+        <div class="mini-note">
+          <strong>Safety rule:</strong>
+          This is a simplified educational game. Real care requires trained doctors and real hospitals.
+        </div>
+
+        <button id="go-quiz" class="locked">Finish a Case to Unlock Quiz</button>
+      </aside>
+    </div>
+  </section>
+
+  <section id="learn" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Specialist Hall</p>
+      <h2>Who helps with what?</h2>
+      <p>Different surgeons focus on different body systems and problems.</p>
+    </div>
+    <div class="match-grid">
+      <article class="match"><div>🦴</div><h3>Orthopedic Surgeon</h3><p>Helps with bones, joints, fractures, and movement problems.</p></article>
+      <article class="match"><div>🦷</div><h3>Oral & Maxillofacial Surgeon</h3><p>Helps with jaw, face, mouth injuries, and complex dental surgery needs.</p></article>
+      <article class="match"><div>🧵</div><h3>Plastic / Reconstructive Surgeon</h3><p>Helps repair skin, soft tissue, scars, burns, and injuries.</p></article>
+      <article class="match"><div>🏥</div><h3>General Surgeon</h3><p>Helps with abdominal and emergency surgical problems after careful evaluation.</p></article>
+    </div>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Quiz Checkup</p>
+      <h2 id="quiz-lock-title">Finish a case to unlock the quiz</h2>
+      <p id="quiz-lock-copy">Complete one procedure in the Procedure Room first.</p>
+    </div>
+    <article id="quiz-card" class="quiz card locked-card">
+      <p class="eyebrow">Question <span id="quiz-number">1</span>/5</p>
+      <h2 id="quiz-question">Locked</h2>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback" class="quiz-feedback"></p>
+      <button id="next-question">Next Question</button>
+    </article>
+  </section>
+
+  <section class="reflection card">
+    <p class="eyebrow">Day 12 Reflection</p>
+    <h2>What this project teaches</h2>
+    <ul>
+      <li>Procedure steps should happen in a safe order.</li>
+      <li>The correct tool depends on the patient case.</li>
+      <li>Different surgeons help with different body systems.</li>
+      <li>Medical apps should teach carefully and avoid pretending to diagnose real people.</li>
+    </ul>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

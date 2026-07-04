@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bone Fracture Repair Lab · Day 13</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="shell">
+  <div class="cute-med-decor" aria-hidden="true">
+    <span class="decor decor-bone">🦴</span>
+    <span class="decor decor-cross">✚</span>
+    <span class="decor decor-heart">💖</span>
+    <span class="decor decor-bandage">🩹</span>
+    <span class="decor decor-sparkle">✦</span>
+    <span class="decor decor-star">★</span>
+  </div>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Junior Medical School · Day 13</p>
+      <h1>Bone Fracture Repair Lab</h1>
+      <p>Go deeper into real biology: bone anatomy, pretend X-rays, fracture types, care steps, and how bones heal.</p>
+      <span class="pill">Educational simulation · Not medical advice</span>
+      <div class="hero-mini-lab">Cute Medical Lab Mode</div>
+    </div>
+    <div class="hero-art">
+      <div class="xray-card"><div class="xray-bone"></div><div class="xray-break"></div></div>
+      <div class="cell osteoblast">Osteoblast = builds bone</div>
+      <div class="cell osteoclast">Osteoclast = remodels bone</div>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="anatomy">1. Anatomy Desk</button>
+    <button class="tab" data-tab="xray">2. X-ray Room</button>
+    <button class="tab" data-tab="care">3. Fracture Care</button>
+    <button class="tab" data-tab="healing">4. Healing Timeline</button>
+    <button class="tab" data-tab="quiz">5. Quiz</button>
+  </nav>
+
+
+  <section id="anatomy" class="panel active">
+    <div class="heading">
+      <p class="eyebrow">Bone Anatomy</p>
+      <h2>What is inside a long bone?</h2>
+      <p><strong>What to do:</strong> Click each vocabulary button on the right. Then look at the bone diagram and match the words to the parts.</p>
+    </div>
+    <div class="two-col">
+      <article class="card">
+        <div class="bone-diagram">
+          <div class="label l1">Periosteum</div>
+          <div class="label l2">Compact bone</div>
+          <div class="label l3">Spongy bone</div>
+          <div class="label l4">Bone marrow</div>
+          <div class="long-bone">
+            <div class="end left"></div>
+            <div class="shaft"></div>
+            <div class="end right"></div>
+            <div class="marrow"></div>
+          </div>
+        </div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Medical Vocabulary</p>
+        <div class="mini-direction">Click these buttons first.</div>
+        <h3 id="vocab-title">Click a term</h3>
+        <p id="vocab-copy">Choose a term to learn what it means.</p>
+        <div class="button-grid">
+          <button data-term="periosteum">Periosteum</button>
+          <button data-term="compact">Compact Bone</button>
+          <button data-term="spongy">Spongy Bone</button>
+          <button data-term="marrow">Bone Marrow</button>
+          <button data-term="osteoblast">Osteoblast</button>
+          <button data-term="osteoclast">Osteoclast</button>
+        </div>
+      </aside>
+    </div>
+    <button class="next-room" data-next="xray">Go to X-ray Room →</button>
+  </section>
+
+  <section id="xray" class="panel">
+    <div class="heading">
+      <p class="eyebrow">X-ray Room</p>
+      <h2>Compare fracture types</h2>
+      <p><strong>What to do:</strong> Click each fracture type under the X-ray. Watch how the pink fracture mark changes, then read the explanation on the right.</p>
+    </div>
+    <div class="two-col">
+      <article class="card">
+        <div id="xray-view" class="xray-view greenstick">
+          <div class="xray-title">Pretend Wrist X-ray</div>
+          <div class="radius"></div>
+          <div class="ulna"></div>
+          <div class="fracture-mark"></div>
+        </div>
+        <div class="mini-direction">Click each fracture type below.</div>
+        <div id="fracture-buttons" class="button-grid"></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Diagnosis Thinking</p>
+        <h3 id="fracture-title">Greenstick fracture</h3>
+        <p id="fracture-copy">One side of the bone bends and cracks. This is more common in children because their bones are more flexible.</p>
+        <div class="note">
+          <strong>Surgeon question:</strong>
+          <span id="fracture-question">Is the bone bent and cracked on one side?</span>
+        </div>
+      </aside>
+    </div>
+    <button class="next-room" data-next="care">Go to Fracture Care →</button>
+  </section>
+
+  <section id="care" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Fracture Care</p>
+      <h2>Drag tools in the correct order</h2>
+      <p><strong>What to do:</strong> Read the current step, drag the matching tool from the Tool Tray onto the wrist model, and repeat until progress reaches 100%.</p>
+    </div>
+    <div class="two-col wide-left">
+      <article class="card">
+        <div class="step-box">
+          <p class="eyebrow">Current Step</p>
+          <h2 id="step-title">Step 1: Check circulation</h2>
+          <p id="step-copy">Drag Pulse Check to the wrist. Doctors check blood flow, feeling, and movement.</p>
+          <div id="step-list" class="step-list"></div>
+        </div>
+        <div class="work-area">
+          <div id="wrist-model" class="wrist-model">
+            <div class="wrist-label">Wrist Injury Model</div>
+            <div class="swelling"></div>
+            <div class="arm"></div>
+            <div class="hand"></div>
+            <div class="bone-one"></div>
+            <div class="bone-two"></div>
+            <div id="effect" class="effect"></div>
+          </div>
+          <aside>
+            <p class="eyebrow">Tool Tray</p>
+            <div class="mini-direction">Drag the tool marked “Use now.”</div>
+            <div id="tool-tray" class="tool-tray"></div>
+            <button id="reset-care" class="secondary">Reset Care</button>
+          </aside>
+        </div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Progress</p>
+        <h2 id="progress-title">0%</h2>
+        <div class="meter"><div id="progress-fill"></div></div>
+        <p id="care-feedback">Start with circulation and nerve checks.</p>
+        <div class="note">
+          <strong>Real medical thinking:</strong>
+          Doctors check pulse, sensation, movement, imaging, swelling, support, and follow-up.
+        </div>
+      </aside>
+    </div>
+    <button class="next-room" data-next="healing">Go to Healing Timeline →</button>
+  </section>
+
+  <section id="healing" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Bone Healing Timeline</p>
+      <h2>How does a bone heal?</h2>
+      <p><strong>What to do:</strong> Click each healing stage button. Watch the model change and read which cells help during that stage.</p>
+    </div>
+    <div class="two-col">
+      <article class="card">
+        <div id="healing-art" class="healing-art stage0">
+          <div class="heal-bone left"></div>
+          <div class="gap"></div>
+          <div class="heal-bone right"></div>
+          <div class="cells"></div>
+        </div>
+        <div class="mini-direction">Click each stage in order.</div>
+        <div id="timeline-buttons" class="button-grid"></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Healing Stage</p>
+        <h3 id="stage-title">1. Inflammation</h3>
+        <p id="stage-copy">Blood and immune cells arrive. Swelling is part of the early repair response.</p>
+        <div class="note">
+          <strong>Cells to know:</strong>
+          <span id="stage-note">Immune cells help clean the injury area.</span>
+        </div>
+      </aside>
+    </div>
+    <button class="next-room" data-next="quiz">Go to Quiz →</button>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="heading">
+      <p class="eyebrow">Day 13 Quiz</p>
+      <h2>Check your bone biology knowledge</h2>
+      <p><strong>What to do:</strong> Answer each question. Use what you learned from the four rooms before this.</p>
+    </div>
+    <article class="quiz card">
+      <p class="eyebrow">Question <span id="quiz-number">1</span>/6</p>
+      <h2 id="quiz-question">Loading...</h2>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback"></p>
+      <button id="next-question">Next Question</button>
+    </article>
+  </section>
+
+  <section class="reflection card">
+    <p class="eyebrow">Day 13 Reflection</p>
+    <h2>Medical ideas you learned</h2>
+    <ul>
+      <li>Bones are living tissue with layers, blood supply, marrow, and repair cells.</li>
+      <li>X-rays help doctors see the fracture pattern before choosing support.</li>
+      <li>Osteoblasts build bone, while osteoclasts remodel bone.</li>
+      <li>Bone healing has stages: inflammation, soft callus, hard callus, and remodeling.</li>
+    </ul>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Wound Healing and Suturing Lab · Day 14</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+  <div class="room-decor" aria-hidden="true">
+    <div class="ceiling-lights">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="hospital-sign">PEDIATRIC HEALING ROOM</div>
+    <div class="window-panel">
+      <span class="sun"></span>
+      <span class="cloud c1"></span>
+      <span class="cloud c2"></span>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-top">Patient Monitor</div>
+      <div class="monitor-line"></div>
+      <div class="monitor-dots"><span></span><span></span><span></span></div>
+    </div>
+    <div class="supply-cart">
+      <div class="cart-title">Supply Cart</div>
+      <div class="cart-shelf"></div>
+      <div class="cart-shelf"></div>
+      <div class="cart-wheel w1"></div>
+      <div class="cart-wheel w2"></div>
+    </div>
+  </div>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Junior Medical School · Day 14</p>
+      <h1>Wound Healing and Suturing Lab</h1>
+      <p>Learn skin layers, bleeding, platelets, clots, clean repair, sutures, collagen, and how wounds heal.</p>
+      <span class="pill">Educational simulation · Not medical advice</span>
+      <span class="pill alt">Pastel rainbow hospital room</span>
+    </div>
+    <div class="hero-art">
+      <div class="skin-card">
+        <div class="skin-top"></div><div class="skin-mid"></div><div class="skin-fat"></div>
+        <div class="cut"></div><div class="stitches"></div>
+      </div>
+      <div class="float f1">🩸 Platelets</div>
+      <div class="float f2">🧵 Collagen</div>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="skin">1. Skin Layers</button>
+    <button class="tab" data-tab="wound">2. Wound Check</button>
+    <button class="tab" data-tab="repair">3. Clean + Close</button>
+    <button class="tab" data-tab="healing">4. Healing</button>
+    <button class="tab" data-tab="quiz">5. Quiz</button>
+  </nav>
+
+  <section id="skin" class="panel active">
+    <div class="heading"><p class="eyebrow">Skin Anatomy</p><h2>What layers protect the body?</h2><p><b>What to do:</b> Click each vocabulary term and match it to the skin diagram.</p></div>
+    <div class="grid">
+      <article class="card">
+        <div class="skin-diagram">
+          <span class="tag t1">Epidermis</span><span class="tag t2">Dermis</span><span class="tag t3">Hypodermis</span>
+          <div class="stack"><div class="ep"></div><div class="de"><span class="vessel"></span><span class="nerve"></span></div><div class="hy"></div></div>
+        </div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Medical Vocabulary</p><p class="hint">Click these first.</p>
+        <h3 id="vocab-title">Click a term</h3><p id="vocab-copy">Choose a term to learn what it means.</p>
+        <div class="buttons">
+          <button data-term="epidermis">Epidermis</button><button data-term="dermis">Dermis</button>
+          <button data-term="hypodermis">Hypodermis</button><button data-term="platelets">Platelets</button>
+          <button data-term="fibroblast">Fibroblast</button><button data-term="collagen">Collagen</button>
+        </div>
+      </aside>
+    </div>
+    <button class="next" data-next="wound">Go to Wound Check →</button>
+  </section>
+
+  <section id="wound" class="panel">
+    <div class="heading"><p class="eyebrow">Wound Check</p><h2>Compare wound types</h2><p><b>What to do:</b> Click each wound type, watch the model change, and read the surgeon question.</p></div>
+    <div class="grid">
+      <article class="card">
+        <div id="wound-view" class="wound-view scrape"><span class="model-title">Pretend Skin Model</span><div class="skin-base"></div><div class="wound-mark"></div><div class="drops"></div></div>
+        <p class="hint">Click each wound type.</p><div id="wound-buttons" class="buttons"></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Clinical Thinking</p><h3 id="wound-title">Scrape / abrasion</h3>
+        <p id="wound-copy">A shallow surface injury. The outer skin layer is damaged, but deeper layers may be okay.</p>
+        <div class="note"><b>Surgeon question:</b><span id="wound-question">Is this shallow, deep, bleeding, dirty, or at risk for infection?</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="repair">Go to Clean + Close →</button>
+  </section>
+
+  <section id="repair" class="panel">
+    <div class="heading"><p class="eyebrow">Clean + Close</p><h2>Drag tools in order</h2><p><b>What to do:</b> Read the current step, then drag the tool marked “Use now” onto the wound model.</p></div>
+    <div class="grid wide">
+      <article class="card">
+        <div class="step-box"><p class="eyebrow">Current Step</p><h2 id="step-title">Step 1: Sterile gloves</h2><p id="step-copy">Drag Sterile Gloves to the model.</p><div id="step-list" class="step-list"></div></div>
+        <div class="work">
+          <div id="repair-model" class="repair-model"><span class="model-title">Skin Repair Model</span><div class="repair-skin"></div><div class="repair-cut"></div><div class="repair-blood"></div><div id="effect"></div></div>
+          <aside><p class="eyebrow">Tool Tray</p><p class="hint">Drag the “Use now” tool.</p><div id="tool-tray" class="tool-tray"></div><button id="reset" class="secondary">Reset Repair</button></aside>
+        </div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Repair Progress</p><h2 id="progress-title">0%</h2><div class="meter"><div id="progress-fill"></div></div><p id="feedback">Start with sterile gloves.</p>
+        <div class="note"><b>Real medical thinking:</b><span> Cleanliness, bleeding control, irrigation, closure decisions, protection, and follow-up all matter.</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="healing">Go to Healing Timeline →</button>
+  </section>
+
+  <section id="healing" class="panel">
+    <div class="heading"><p class="eyebrow">Healing Timeline</p><h2>How does skin heal?</h2><p><b>What to do:</b> Click each healing stage and learn which cells help.</p></div>
+    <div class="grid">
+      <article class="card">
+        <div id="healing-art" class="healing-art stage0"><div class="heal-skin"></div><div class="heal-wound"></div><div class="heal-cells"></div></div>
+        <p class="hint">Click each stage in order.</p><div id="timeline-buttons" class="buttons"></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Healing Stage</p><h3 id="stage-title">1. Hemostasis</h3><p id="stage-copy">Platelets help form a clot to slow bleeding.</p>
+        <div class="note"><b>Cells/materials:</b><span id="stage-note">Platelets and clotting proteins help make a temporary seal.</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="quiz">Go to Quiz →</button>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="heading"><p class="eyebrow">Day 14 Quiz</p><h2>Check your wound-healing biology</h2><p><b>What to do:</b> Answer each question using what you learned.</p></div>
+    <article class="quiz card">
+      <p class="eyebrow">Question <span id="quiz-number">1</span>/6</p><h2 id="quiz-question">Loading...</h2>
+      <div id="quiz-choices" class="quiz-choices"></div><p id="quiz-feedback"></p><button id="next-question">Next Question</button>
+    </article>
+  </section>
+
+  <section class="reflection card">
+    <p class="eyebrow">Day 14 Reflection</p><h2>Medical ideas you learned</h2>
+    <ul><li>Skin has layers: epidermis, dermis, and hypodermis.</li><li>Platelets help stop bleeding by forming a clot.</li><li>Fibroblasts make collagen to strengthen repair tissue.</li><li>Clean technique matters because germs can cause infection.</li><li>Sutures help hold wound edges together in this simplified model.</li></ul>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

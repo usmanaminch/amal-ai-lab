@@ -1,0 +1,527 @@
+*{box-sizing:border-box}:root{--aqua:#6ad9df;--cyan:#5df3ff;--blue:#6fa7ff;--pink:#ff78cf;--lilac:#ae8bff;--ink:#1d2540;--muted:#56657f;--line:rgba(103,216,219,.36);--skin:#ffd2b8;--deep:#f3a77f;--fat:#ffd97d;--blood:#d94d68;--shadow:0 24px 64px rgba(33,111,131,.14);--glow:0 0 18px rgba(93,243,255,.45),0 0 34px rgba(93,243,255,.20)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 10% 8%,rgba(106,217,223,.36),transparent 24%),radial-gradient(circle at 86% 14%,rgba(93,243,255,.25),transparent 24%),radial-gradient(circle at 20% 86%,rgba(255,120,207,.15),transparent 24%),linear-gradient(145deg,#efffff,#eafcfd 38%,#f2fbff 68%,#fff3fb)}
+.shell{width:min(1240px,calc(100% - 32px));margin:auto;padding:34px 0 56px}.hero,.panel,.card{background:rgba(255,255,255,.96);border:1px solid rgba(103,216,219,.28);border-radius:34px;box-shadow:var(--shadow)}
+.hero{min-height:365px;padding:38px;display:grid;grid-template-columns:1fr 350px;gap:24px;align-items:center;position:relative;overflow:hidden;background:linear-gradient(125deg,rgba(255,255,255,.97),rgba(106,217,223,.24),rgba(93,243,255,.18),rgba(255,255,255,.94))}.hero:before{content:"";position:absolute;left:22px;right:22px;top:18px;height:8px;border-radius:999px;background:linear-gradient(90deg,var(--aqua),var(--cyan),var(--blue),var(--pink));box-shadow:0 0 12px rgba(93,243,255,.35)}.hero:after{content:"WOUND\A LAB";white-space:pre;position:absolute;right:20px;bottom:18px;font-size:clamp(58px,10vw,126px);line-height:.78;font-weight:1000;letter-spacing:-.08em;color:rgba(52,195,200,.12)}.hero>*{position:relative;z-index:1}
+.eyebrow{margin:0 0 12px;color:#258a9d;font-size:12px;font-weight:950;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;font-size:clamp(46px,7.8vw,96px);line-height:.88;letter-spacing:-.065em}h2{margin:0 0 10px;font-size:clamp(30px,4vw,46px);line-height:1;letter-spacing:-.045em}h3{margin:0 0 8px;color:#258a9d}.hero p,.heading p,.card p,.reflection li,#quiz-feedback{color:var(--muted);line-height:1.6}.hero p{font-size:20px;max-width:760px}.pill{display:inline-block;padding:10px 14px;margin:8px 8px 0 0;border-radius:999px;background:white;border:1px solid rgba(106,217,223,.36);color:#20a6b6;font-weight:1000;box-shadow:var(--glow)}.pill.alt{box-shadow:0 0 18px rgba(255,120,207,.22)}
+.hero-art{height:285px;position:relative;display:grid;place-items:center}.skin-card{width:240px;height:250px;border-radius:32px;background:#fff;border:8px solid #dffcff;box-shadow:0 24px 44px rgba(33,111,131,.18),var(--glow);position:relative;overflow:hidden}.skin-top,.skin-mid,.skin-fat{position:absolute;left:26px;right:26px;border-radius:24px}.skin-top{top:54px;height:42px;background:#ffc3a8}.skin-mid{top:96px;height:82px;background:#f4a57c}.skin-fat{top:178px;height:54px;background:#ffd96d}.cut{position:absolute;left:92px;top:58px;width:72px;height:66px;background:linear-gradient(160deg,transparent 35%,var(--blood) 36% 52%,transparent 53%)}.stitches{position:absolute;left:88px;top:78px;width:80px;height:28px;border-top:5px dashed white;transform:rotate(-18deg)}.float{position:absolute;border-radius:999px;padding:10px 12px;color:white;font-weight:1000;font-size:13px}.f1{left:0;bottom:28px;background:linear-gradient(135deg,var(--pink),var(--lilac))}.f2{right:0;top:26px;background:linear-gradient(135deg,var(--aqua),var(--blue))}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:18px 0 22px;padding:12px;border-radius:28px;background:rgba(255,255,255,.82);border:1px solid rgba(106,217,223,.34);box-shadow:0 18px 32px rgba(33,111,131,.09)}.tab{border:1px solid rgba(106,217,223,.42);border-radius:22px;padding:15px 10px;background:linear-gradient(180deg,#fff,#f0ffff);color:#1ea0b2;font-weight:1000;cursor:pointer}.tab.active{background:linear-gradient(135deg,var(--aqua),var(--cyan),var(--blue),var(--pink));color:white;box-shadow:var(--glow)}
+.panel{display:none;padding:30px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(240,255,255,.95))}.panel.active{display:block}.heading{margin-bottom:20px;padding-left:16px;border-left:6px solid var(--cyan)}.heading b{color:#258a9d}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}.wide{grid-template-columns:1.3fr .7fr}.card{padding:28px;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.985),rgba(242,255,255,.96))}.card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:8px;border-radius:0 0 16px 16px;background:linear-gradient(90deg,var(--aqua),var(--cyan),var(--blue),var(--pink));box-shadow:0 0 10px rgba(93,243,255,.22)}.card>*{position:relative;z-index:1}
+.skin-diagram,.wound-view,.healing-art,.repair-model{min-height:420px;border:2px dashed rgba(103,216,219,.34);border-radius:30px;background:linear-gradient(180deg,#fff,#f1ffff);position:relative;overflow:hidden}.stack{width:78%;height:250px;border-radius:34px;overflow:hidden;border:6px solid white;box-shadow:0 16px 30px rgba(33,111,131,.10);position:absolute;left:11%;top:92px}.ep{height:55px;background:#ffc3a8}.de{height:120px;background:#f4a57c;position:relative}.hy{height:75px;background:#ffd96d}.vessel{position:absolute;left:40px;right:40px;top:54px;height:12px;border-radius:999px;background:#d94d68}.nerve{position:absolute;left:90px;right:90px;top:82px;height:8px;border-radius:999px;background:#ffe27a}.tag{position:absolute;background:#fff;border:1px solid var(--line);color:#258a9d;font-weight:1000;border-radius:999px;padding:8px 12px}.t1{left:40px;top:58px}.t2{right:42px;top:160px}.t3{left:64px;bottom:68px}
+.buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}button{border:0;border-radius:18px;padding:14px 18px;background:linear-gradient(135deg,var(--aqua),var(--cyan),var(--blue));color:white;font-size:15px;font-weight:1000;cursor:pointer;box-shadow:0 14px 28px rgba(52,195,200,.22),var(--glow);margin:0}.secondary,.choice,.quiz-choice,.timeline-button{background:linear-gradient(180deg,#fff,#f4ffff);color:#1ea0b2;border:1px solid rgba(106,217,223,.38);box-shadow:none;text-align:left}.choice.active,.quiz-choice.selected,.timeline-button.active{background:linear-gradient(135deg,var(--aqua),var(--cyan),var(--blue));color:white;box-shadow:var(--glow)}.hint{display:inline-block;margin:2px 0 12px;padding:8px 12px;border-radius:999px;background:linear-gradient(180deg,rgba(93,243,255,.12),rgba(255,120,207,.08));border:1px solid rgba(106,217,223,.34);color:#1e9daf;font-weight:1000;font-size:13px}
+.model-title{position:absolute;left:18px;top:18px;background:white;color:#258a9d;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:1000;z-index:4;box-shadow:var(--glow)}.skin-base,.repair-skin,.heal-skin{position:absolute;left:90px;right:90px;top:165px;height:135px;background:linear-gradient(180deg,#ffc3a8,#f4a57c);border:5px solid white;border-radius:34px;box-shadow:0 18px 34px rgba(33,111,131,.08)}.wound-mark,.repair-cut,.heal-wound{position:absolute;left:50%;top:214px;width:92px;height:18px;background:var(--blood);border-radius:999px;transform:translateX(-50%) rotate(-16deg);box-shadow:0 0 14px rgba(217,77,104,.35)}.drops:before,.drops:after,.repair-blood:before,.repair-blood:after{content:"";position:absolute;border-radius:50%;background:#d94d68;width:16px;height:22px}.drops:before,.repair-blood:before{left:260px;top:244px}.drops:after,.repair-blood:after{left:300px;top:222px}.laceration .wound-mark{height:24px;width:132px}.puncture .wound-mark{width:32px;height:38px;border-radius:50%}.dirty .wound-mark{width:118px}.dirty .skin-base:after{content:"";position:absolute;left:34px;top:22px;width:14px;height:14px;background:#7d5b38;border-radius:50%;box-shadow:42px 20px 0 #7d5b38,88px 48px 0 #7d5b38}
+.note{margin-top:18px;border:1px solid rgba(106,217,223,.34);background:linear-gradient(180deg,rgba(93,243,255,.10),rgba(255,120,207,.05));border-radius:22px;padding:16px}.note b{display:block;color:#258a9d;margin-bottom:6px}.step-box{padding:18px;border:1px solid rgba(103,216,219,.34);background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(93,243,255,.12));border-radius:26px}.step-list{display:grid;gap:8px;margin-top:14px}.care-step{border:1px solid rgba(106,217,219,.38);background:#fff;border-radius:16px;padding:10px 12px;color:var(--muted);font-weight:900}.care-step.active{background:linear-gradient(135deg,var(--aqua),var(--blue));color:white}.care-step.done{background:linear-gradient(135deg,#cfffff,#e7fff6);color:#13765b}.work{display:grid;grid-template-columns:1fr 230px;gap:18px;margin-top:22px}.repair-model.ready{outline:6px solid rgba(93,243,255,.28)}.gloved:after{content:"STERILE GLOVES ✓";position:absolute;left:52px;top:86px;background:#17667a;color:#e8ffff;padding:9px 12px;border-radius:999px;font-weight:1000}.cleaned .repair-skin{box-shadow:0 0 0 14px rgba(93,243,255,.16)}.gauze .repair-blood{opacity:.15}.sutured .repair-cut{background:repeating-linear-gradient(90deg,#d94d68 0 8px,#fff 8px 12px);height:12px}.bandaged .repair-cut{background:#fff5cf;width:140px;height:48px;border:4px solid #e7d38a;border-radius:16px}.followup .repair-skin{box-shadow:0 0 0 14px rgba(131,243,198,.22)}
+.tool-tray{display:grid;gap:12px}.tool{border:2px dashed rgba(106,217,223,.38);background:white;border-radius:22px;padding:12px;min-height:92px;display:grid;place-items:center;color:#1ea0b2;font-weight:1000;cursor:grab;touch-action:none}.tool small{color:var(--muted)}.tool-icon{font-size:30px}.tool.inactive{opacity:.45}.tool.dragging{position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%) scale(1.05);box-shadow:0 24px 44px rgba(33,111,131,.22),var(--glow)}#effect{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:4}.success{font-size:74px;color:#16b978;animation:pop .7s ease forwards}.wrong{animation:shake .35s ease}@keyframes pop{0%{transform:scale(.2);opacity:0}50%{opacity:1}100%{transform:scale(1.2);opacity:0}}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}.meter{height:16px;border-radius:999px;background:rgba(103,216,219,.18);overflow:hidden;margin:18px 0}#progress-fill{width:0%;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--aqua),var(--cyan),var(--blue),var(--pink));transition:.25s}
+.heal-skin{top:185px}.heal-wound{top:235px}.heal-cells{position:absolute;left:50%;top:104px;transform:translateX(-50%);width:180px;height:130px}.heal-cells:before,.heal-cells:after{content:"";position:absolute;border-radius:50%;background:var(--pink);box-shadow:38px 18px 0 var(--blue),76px 42px 0 var(--aqua),20px 70px 0 #ffe27a,102px 82px 0 var(--lilac);width:28px;height:28px}.stage1 .heal-wound{background:#8a4ee8}.stage2 .heal-wound{background:#ff9ecf;width:120px}.stage3 .heal-wound{background:#f0fff9;width:70px;opacity:.8}.stage3 .heal-cells:before,.stage3 .heal-cells:after{opacity:.28}.quiz{max-width:850px;margin:auto}.quiz-choices{display:grid;gap:10px}#quiz-feedback.correct{color:#138a63;font-weight:900}#quiz-feedback.wrong{color:#d94d68;font-weight:900}.reflection{margin-top:24px}.next{margin-top:22px}
+@media(max-width:1050px){.hero,.grid,.work{grid-template-columns:1fr}.hero-art{display:none}.tabs{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.shell{width:min(100% - 22px,1240px);padding-top:18px}.hero,.panel,.card{border-radius:26px;padding:22px}h1{font-size:42px}.tabs,.buttons{grid-template-columns:1fr}}
+
+
+/* v2 pastel rainbow hospital room refresh */
+:root{
+  --aqua:#9ee7e7;
+  --cyan:#bcefff;
+  --blue:#bfd5ff;
+  --pink:#ffc1df;
+  --lilac:#dcc7ff;
+  --peach:#ffd7bf;
+  --mint:#ccf6df;
+  --lemon:#fff1b8;
+  --line:rgba(179, 208, 255, .38);
+  --shadow:0 22px 56px rgba(120, 156, 202, .14);
+  --glow:0 0 16px rgba(188,239,255,.38), 0 0 28px rgba(255,193,223,.18);
+}
+body{
+  background:
+    linear-gradient(180deg, #f9fdff 0%, #f4fbff 30%, #f9f7ff 62%, #fff9fc 100%);
+}
+.shell{
+  position:relative;
+  padding-top:148px;
+}
+.room-decor{
+  position:absolute;
+  inset:0 0 auto 0;
+  height:132px;
+  pointer-events:none;
+}
+.ceiling-lights{
+  position:absolute;
+  left:0; right:0; top:8px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+.ceiling-lights span{
+  width:86px; height:18px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#fff,#f8ffff,#fff7fb);
+  box-shadow:0 6px 18px rgba(190, 220, 255, .28);
+  border:1px solid rgba(210,230,255,.75);
+}
+.hospital-sign{
+  position:absolute;
+  left:14px; top:36px;
+  padding:12px 18px;
+  border-radius:18px;
+  background:linear-gradient(135deg, var(--mint), var(--cyan), #ffffff);
+  border:1px solid rgba(181,220,255,.7);
+  color:#5a8bb0;
+  font-weight:1000;
+  letter-spacing:.12em;
+  font-size:12px;
+  box-shadow:var(--shadow);
+}
+.window-panel{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:24px;
+  width:180px; height:84px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#ecf9ff,#dff5ff);
+  border:8px solid #ffffff;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.window-panel::before,
+.window-panel::after{
+  content:"";
+  position:absolute;
+  background:rgba(255,255,255,.8);
+}
+.window-panel::before{top:0; bottom:0; left:50%; width:6px; transform:translateX(-50%)}
+.window-panel::after{left:0; right:0; top:50%; height:6px; transform:translateY(-50%)}
+.sun{
+  position:absolute;
+  right:18px; top:12px;
+  width:18px; height:18px; border-radius:50%;
+  background:#ffe796;
+  box-shadow:0 0 14px rgba(255,231,150,.8);
+}
+.cloud{
+  position:absolute;
+  background:white;
+  border-radius:999px;
+  box-shadow:18px 0 0 white, 8px -8px 0 white;
+}
+.cloud.c1{left:22px; top:22px; width:24px; height:16px}
+.cloud.c2{left:80px; top:44px; width:26px; height:16px}
+.monitor-card{
+  position:absolute;
+  right:130px; top:26px;
+  width:170px; height:94px;
+  border-radius:22px;
+  background:linear-gradient(180deg,#ffffff,#f6fbff);
+  border:1px solid rgba(200,220,255,.8);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.monitor-top{
+  padding:10px 14px 6px;
+  color:#7a90ba;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.monitor-line{
+  position:absolute;
+  left:14px; right:14px; top:42px; height:24px;
+  background:
+    linear-gradient(transparent 45%, rgba(165,230,196,.22) 45%, rgba(165,230,196,.22) 55%, transparent 55%);
+}
+.monitor-line::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  clip-path:polygon(0 55%, 12% 55%, 20% 25%, 28% 75%, 40% 18%, 52% 70%, 64% 50%, 76% 52%, 88% 36%, 100% 36%, 100% 58%, 0 58%);
+  background:linear-gradient(90deg,#8deab6,#8ce9ff,#d6b9ff);
+}
+.monitor-dots{
+  position:absolute; right:14px; bottom:10px;
+  display:flex; gap:6px;
+}
+.monitor-dots span{
+  width:8px;height:8px;border-radius:50%;
+  background:#ffd3e8;
+}
+.supply-cart{
+  position:absolute;
+  right:10px; top:24px;
+  width:96px; height:100px;
+  border-radius:18px;
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  border:1px solid rgba(204,223,255,.85);
+  box-shadow:var(--shadow);
+}
+.cart-title{
+  padding:8px 10px 4px;
+  color:#7a90ba;
+  font-size:11px;
+  font-weight:1000;
+}
+.cart-shelf{
+  margin:6px 10px;
+  height:18px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--mint),var(--cyan),var(--pink));
+  opacity:.65;
+}
+.cart-wheel{
+  position:absolute;
+  bottom:-6px;
+  width:16px; height:16px;
+  border-radius:50%;
+  background:#9ab7d9;
+}
+.cart-wheel.w1{left:16px}
+.cart-wheel.w2{right:16px}
+
+.hero,.panel,.card{
+  border-color:rgba(197,216,255,.62);
+  box-shadow:var(--shadow);
+}
+.hero{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(204,246,223,.50), rgba(188,239,255,.40), rgba(255,193,223,.30), rgba(255,255,255,.96));
+}
+.hero:before{
+  background:linear-gradient(90deg,var(--mint),var(--cyan),var(--lilac),var(--pink),var(--peach));
+  box-shadow:none;
+}
+.hero:after{
+  content:"PATIENT\A ROOM";
+  color:rgba(167, 182, 230, .16);
+}
+.pill{
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
+  color:#6a90b3;
+  border-color:rgba(190,214,255,.72);
+}
+.pill.alt{
+  background:linear-gradient(135deg,var(--mint),var(--cyan),rgba(255,255,255,.85));
+  color:#7d76b8;
+}
+.tabs{
+  background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(246,250,255,.96));
+  border-color:rgba(197,216,255,.72);
+}
+.tab{
+  background:linear-gradient(180deg,#ffffff,#f8fcff);
+  color:#6991b4;
+  border-color:rgba(197,216,255,.76);
+}
+.tab.active{
+  background:linear-gradient(135deg,var(--mint),var(--cyan),var(--lilac),var(--pink));
+  color:#ffffff;
+  text-shadow:0 1px 0 rgba(0,0,0,.08);
+}
+.panel{
+  background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(248,252,255,.97));
+}
+.heading{
+  border-left-color:#97dcdd;
+}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.99), rgba(251,252,255,.97));
+}
+.card:before{
+  background:linear-gradient(90deg,var(--mint),var(--cyan),var(--lilac),var(--pink),var(--peach));
+}
+.eyebrow,h3,.heading b,.tag,.model-title{
+  color:#6c91b6;
+}
+.hint{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(204,246,223,.45), rgba(255,255,255,.92));
+  border:1px solid rgba(197,216,255,.56);
+  color:#7c88b5;
+  font-weight:900;
+}
+button{
+  background:linear-gradient(135deg,var(--mint),var(--cyan),var(--lilac),var(--pink));
+  color:#ffffff;
+  box-shadow:0 12px 24px rgba(180, 197, 243, .18);
+}
+.secondary,.choice,.quiz-choice,.timeline-button{
+  background:linear-gradient(180deg,#fff,#f9fcff);
+  color:#6b90b4;
+  border-color:rgba(197,216,255,.76);
+}
+.choice.active,.quiz-choice.selected,.timeline-button.active{
+  background:linear-gradient(135deg,var(--mint),var(--cyan),var(--lilac),var(--pink));
+  color:#fff;
+}
+.skin-diagram,.wound-view,.healing-art,.repair-model{
+  background:linear-gradient(180deg,#ffffff,#f7fbff);
+  border-color:rgba(197,216,255,.5);
+}
+.note,.step-box{
+  border-color:rgba(197,216,255,.58);
+  background:linear-gradient(180deg, rgba(204,246,223,.25), rgba(255,255,255,.96));
+}
+.meter{
+  background:rgba(210,225,255,.45);
+}
+#progress-fill{
+  background:linear-gradient(90deg,var(--mint),var(--cyan),var(--lilac),var(--pink),var(--peach));
+}
+.reflection{
+  background:linear-gradient(135deg, rgba(255,255,255,.99), rgba(204,246,223,.22), rgba(255,193,223,.16));
+}
+
+@media(max-width:1050px){
+  .shell{padding-top:172px}
+  .monitor-card{right:16px; top:132px}
+  .supply-cart{display:none}
+}
+@media(max-width:680px){
+  .shell{padding-top:146px}
+  .hospital-sign{
+    left:8px; top:44px; font-size:10px; padding:10px 12px;
+  }
+  .window-panel{
+    width:132px; height:68px; top:32px;
+  }
+  .monitor-card{
+    display:none;
+  }
+}
+
+
+/* v3 more yellow */
+:root{
+  --lemon:#fff3a8;
+  --soft-gold:#ffe58f;
+  --butter:#fff7cf;
+}
+body{
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 241, 184, .38), transparent 22%),
+    radial-gradient(circle at 84% 10%, rgba(255, 229, 143, .22), transparent 20%),
+    linear-gradient(180deg, #fffef8 0%, #fffaf0 14%, #f4fbff 40%, #f9f7ff 68%, #fff9fc 100%);
+}
+.hero{
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.98), rgba(255,243,168,.28), rgba(204,246,223,.34), rgba(188,239,255,.26), rgba(255,193,223,.22), rgba(255,255,255,.96));
+}
+.hero:before,
+.card:before{
+  background:linear-gradient(90deg,var(--lemon),var(--mint),var(--cyan),var(--lilac),var(--pink),var(--peach));
+}
+.hospital-sign{
+  background:linear-gradient(135deg, var(--lemon), var(--mint), #ffffff);
+}
+.window-panel{
+  background:linear-gradient(180deg,#fff8cf,#ecf9ff);
+}
+.monitor-card{
+  background:linear-gradient(180deg,#fffdf4,#f6fbff);
+}
+.supply-cart{
+  background:linear-gradient(180deg,#fffdf4,#f8fbff);
+}
+.cart-shelf{
+  background:linear-gradient(90deg,var(--lemon),var(--mint),var(--cyan),var(--pink));
+}
+.pill.alt{
+  background:linear-gradient(135deg,var(--lemon),var(--mint),rgba(255,255,255,.92));
+}
+.tabs{
+  background:linear-gradient(180deg,rgba(255,252,239,.96),rgba(246,250,255,.96));
+}
+.tab.active,
+button,
+.choice.active,.quiz-choice.selected,.timeline-button.active{
+  background:linear-gradient(135deg,var(--lemon),var(--mint),var(--cyan),var(--lilac),var(--pink));
+}
+.hint,
+.note,
+.step-box{
+  background:linear-gradient(180deg, rgba(255,243,168,.22), rgba(204,246,223,.22), rgba(255,255,255,.96));
+}
+#progress-fill{
+  background:linear-gradient(90deg,var(--lemon),var(--mint),var(--cyan),var(--lilac),var(--pink),var(--peach));
+}
+.reflection{
+  background:linear-gradient(135deg, rgba(255,255,255,.99), rgba(255,243,168,.18), rgba(204,246,223,.16), rgba(255,193,223,.14));
+}
+
+
+/* v4 more orange and red */
+:root{
+  --peach:#ffc7a8;
+  --soft-orange:#ffbe8d;
+  --coral:#ff9d93;
+  --soft-red:#ff8da0;
+}
+body{
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 190, 141, .28), transparent 22%),
+    radial-gradient(circle at 86% 14%, rgba(255, 141, 160, .18), transparent 18%),
+    linear-gradient(180deg, #fffdf8 0%, #fff7ee 14%, #fff4f6 24%, #f4fbff 48%, #f9f7ff 70%, #fff9fc 100%);
+}
+.hero{
+  background:
+    linear-gradient(135deg,
+      rgba(255,255,255,.98),
+      rgba(255,243,168,.22),
+      rgba(255,190,141,.26),
+      rgba(255,157,147,.20),
+      rgba(204,246,223,.24),
+      rgba(188,239,255,.22),
+      rgba(255,193,223,.18),
+      rgba(255,255,255,.96));
+}
+.hero:before,
+.card:before{
+  background:linear-gradient(90deg,var(--lemon),var(--soft-orange),var(--coral),var(--mint),var(--cyan),var(--lilac),var(--pink));
+}
+.hospital-sign{
+  background:linear-gradient(135deg, var(--lemon), var(--soft-orange), #ffffff);
+}
+.window-panel{
+  background:linear-gradient(180deg,#fff3c7,#ffe8dc,#ecf9ff);
+}
+.monitor-dots span:nth-child(1){background:#ffd3a8}
+.monitor-dots span:nth-child(2){background:#ffb5bf}
+.monitor-dots span:nth-child(3){background:#ffdceb}
+.cart-shelf{
+  background:linear-gradient(90deg,var(--lemon),var(--soft-orange),var(--coral),var(--mint),var(--cyan));
+}
+.pill.alt{
+  background:linear-gradient(135deg,var(--lemon),var(--soft-orange),rgba(255,255,255,.92));
+}
+.tab.active,
+button,
+.choice.active,.quiz-choice.selected,.timeline-button.active{
+  background:linear-gradient(135deg,var(--lemon),var(--soft-orange),var(--coral),var(--mint),var(--cyan),var(--lilac),var(--pink));
+}
+.hint,
+.note,
+.step-box{
+  background:linear-gradient(180deg, rgba(255,243,168,.20), rgba(255,190,141,.16), rgba(255,141,160,.10), rgba(255,255,255,.96));
+}
+#progress-fill{
+  background:linear-gradient(90deg,var(--lemon),var(--soft-orange),var(--coral),var(--soft-red),var(--mint),var(--cyan),var(--lilac),var(--pink));
+}
+.reflection{
+  background:linear-gradient(135deg, rgba(255,255,255,.99), rgba(255,243,168,.16), rgba(255,190,141,.16), rgba(255,141,160,.10), rgba(204,246,223,.14), rgba(255,193,223,.12));
+}
+
+
+/* v5 rainbow order: red orange yellow green blue purple pink */
+.hero:before,
+.card:before{
+  background: linear-gradient(90deg,
+    var(--soft-red),
+    var(--soft-orange),
+    var(--lemon),
+    var(--mint),
+    var(--cyan),
+    var(--lilac),
+    var(--pink)
+  );
+}
+
+.cart-shelf{
+  background: linear-gradient(90deg,
+    var(--soft-red),
+    var(--soft-orange),
+    var(--lemon),
+    var(--mint),
+    var(--cyan),
+    var(--lilac),
+    var(--pink)
+  );
+}
+
+.tab.active,
+button,
+.choice.active,.quiz-choice.selected,.timeline-button.active{
+  background: linear-gradient(135deg,
+    var(--soft-red),
+    var(--soft-orange),
+    var(--lemon),
+    var(--mint),
+    var(--cyan),
+    var(--lilac),
+    var(--pink)
+  );
+}
+
+#progress-fill{
+  background: linear-gradient(90deg,
+    var(--soft-red),
+    var(--soft-orange),
+    var(--lemon),
+    var(--mint),
+    var(--cyan),
+    var(--lilac),
+    var(--pink)
+  );
+}
+
+
+/* v6 brighter */
+:root{
+  --aqua:#7fe9ee;
+  --cyan:#99ecff;
+  --blue:#a9cfff;
+  --pink:#ff9fd4;
+  --lilac:#c7a5ff;
+  --peach:#ffcfb4;
+  --mint:#b8f5cd;
+  --lemon:#fff08f;
+  --soft-orange:#ffb574;
+  --coral:#ff8f84;
+  --soft-red:#ff7f97;
+  --shadow:0 22px 56px rgba(120, 156, 202, .12);
+  --glow:0 0 20px rgba(153,236,255,.42), 0 0 34px rgba(255,159,212,.18);
+}
+body{
+  background:
+    radial-gradient(circle at 14% 12%, rgba(255, 240, 143, .42), transparent 22%),
+    radial-gradient(circle at 86% 14%, rgba(255, 159, 212, .16), transparent 18%),
+    linear-gradient(180deg, #fffef9 0%, #fffaf0 14%, #fff6f8 24%, #f5fcff 48%, #faf8ff 70%, #fffafe 100%);
+}
+.hero{
+  background:linear-gradient(135deg,
+      rgba(255,255,255,.985),
+      rgba(255,240,143,.26),
+      rgba(255,181,116,.22),
+      rgba(255,143,132,.14),
+      rgba(184,245,205,.24),
+      rgba(153,236,255,.20),
+      rgba(255,159,212,.16),
+      rgba(255,255,255,.97));
+}
+.hero,.panel,.card{
+  border-color:rgba(188,210,255,.82);
+}
+.pill,
+.tabs,
+.card,
+.panel,
+.monitor-card,
+.supply-cart,
+.window-panel{
+  box-shadow:0 18px 34px rgba(168, 194, 235, .12);
+}
+.pill.alt{
+  color:#826ebd;
+}
+.hospital-sign{
+  color:#6f8db4;
+  box-shadow:0 14px 28px rgba(190,210,245,.16);
+}
+.tab.active,
+button,
+.choice.active,.quiz-choice.selected,.timeline-button.active{
+  box-shadow:0 14px 28px rgba(190,210,245,.16);
+  text-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+.hint{
+  background:linear-gradient(180deg, rgba(255,240,143,.26), rgba(255,255,255,.94));
+}

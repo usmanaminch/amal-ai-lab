@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Muscle and Tendon Repair Lab · Day 15</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+  <div class="room-decor" aria-hidden="true">
+    <div class="sports-sign">PHYSICAL THERAPY STUDIO</div>
+    <div class="therapy-board"><span>PT Recovery Plan</span><div></div><div></div><div></div></div>
+    <div class="mini-monitor"><span>Rehab Tracker</span><div class="pulse"></div></div>
+    <div class="exercise-ball ball-a"></div>
+    <div class="exercise-ball ball-b"></div>
+    <div class="therapy-mat"></div>
+    <div class="resistance-band band-a"></div>
+    <div class="resistance-band band-b"></div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Junior Medical School · Day 15</p>
+      <h1>Muscle and Tendon Repair Lab</h1>
+      <p>Learn how muscles and tendons work, what rehab teams look for after an injury, and how recovery plans help people get stronger again.</p>
+      <span class="pill">Educational simulation · Not medical advice</span>
+      <span class="pill bright">Physical therapy theme</span>
+    </div>
+    <div class="hero-art">
+      <div class="pt-room-label">Treatment Zone</div>
+      <div class="arm-model"><div class="bone bone-a"></div><div class="bone bone-b"></div><div class="muscle"></div><div class="tendon tendon-a"></div><div class="tendon tendon-b torn"></div><div class="tear-label">tendon tear</div></div>
+    </div>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="anatomy">1. Anatomy</button>
+    <button class="tab" data-tab="compare">2. Tendon vs Ligament</button>
+    <button class="tab" data-tab="injury">3. Injury Scan</button>
+    <button class="tab" data-tab="repair">4. Repair Plan</button>
+    <button class="tab" data-tab="rehab">5. Healing + Rehab</button>
+    <button class="tab" data-tab="quiz">6. Quiz</button>
+  </nav>
+
+  <section id="anatomy" class="panel active">
+    <div class="heading"><p class="eyebrow">Muscle Anatomy</p><h2>How do muscles move bones?</h2><p><b>What to do:</b> Click each term and press the contract button.</p></div>
+    <div class="grid">
+      <article class="card">
+        <div id="anatomy-picture" class="anatomy-picture muscle-picture">
+          <span class="picture-title" id="picture-title">Muscle</span>
+          <p class="picture-caption" id="picture-caption">A muscle contracts and pulls on bones to create movement.</p>
+
+          <div class="picture-scene">
+            <div class="pic pic-muscle active">
+              <div class="pic-bone left"></div>
+              <div class="pic-bone right"></div>
+              <div id="moving-muscle" class="pic-muscle-shape"></div>
+              <div class="pic-tendon t-left"></div>
+              <div class="pic-tendon t-right"></div>
+              <button id="contract-btn" class="model-button">Contract Muscle</button>
+            </div>
+
+            <div class="pic pic-fiber">
+              <div class="fiber-bundle">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="fiber-zoom">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="pic pic-tendon-view">
+              <div class="tendon-muscle"></div>
+              <div class="tendon-cord"></div>
+              <div class="tendon-bone"></div>
+              <div class="force-arrow">pull force →</div>
+            </div>
+
+            <div class="pic pic-bone-view">
+              <div class="bone-long"></div>
+              <div class="bone-end a"></div>
+              <div class="bone-end b"></div>
+              <div class="bone-center"></div>
+              <div class="bone-label compact">compact bone</div>
+              <div class="bone-label marrow">marrow</div>
+            </div>
+
+            <div class="pic pic-collagen">
+              <div class="collagen-rope r1"></div>
+              <div class="collagen-rope r2"></div>
+              <div class="collagen-rope r3"></div>
+              <div class="collagen-dots"><span></span><span></span><span></span><span></span></div>
+            </div>
+
+            <div class="pic pic-inflammation">
+              <div class="inflamed-tissue"></div>
+              <div class="swelling-glow"></div>
+              <div class="immune-cell c1"></div>
+              <div class="immune-cell c2"></div>
+              <div class="immune-cell c3"></div>
+              <div class="heat-lines"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Medical Vocabulary</p><p class="hint">Click these first.</p>
+        <h3 id="vocab-title">Click a term</h3><p id="vocab-copy">Choose a term to learn what it means.</p>
+        <div class="buttons">
+          <button data-term="muscle">Muscle</button><button data-term="fiber">Muscle Fiber</button>
+          <button data-term="tendon">Tendon</button><button data-term="bone">Bone</button>
+          <button data-term="collagen">Collagen</button><button data-term="inflammation">Inflammation</button>
+        </div>
+      </aside>
+    </div>
+    <button class="next" data-next="compare">Go to Tendon vs Ligament →</button>
+  </section>
+
+  <section id="compare" class="panel">
+    <div class="heading"><p class="eyebrow">Tendon vs Ligament</p><h2>They sound similar, but they are not the same</h2><p><b>What to do:</b> Click each structure to compare what it connects.</p></div>
+    <div class="grid">
+      <article class="card compare-stage">
+        <div id="compare-picture" class="compare-picture">
+          <span class="picture-title" id="compare-picture-title">Tendon</span>
+          <p class="picture-caption" id="compare-picture-caption">A tendon connects muscle to bone.</p>
+          <div class="compare-scene">
+            <div class="compare-view compare-view-tendon active">
+              <div class="compare-muscle-shape"></div>
+              <div class="compare-tendon-shape"></div>
+              <div class="compare-bone-shape"></div>
+              <div class="compare-arrow tendon-arrow">pulls bone</div>
+            </div>
+            <div class="compare-view compare-view-ligament">
+              <div class="lig-bone left"></div>
+              <div class="lig-bone right"></div>
+              <div class="lig-band"></div>
+              <div class="compare-arrow ligament-arrow">holds joint steady</div>
+            </div>
+            <div class="compare-view compare-view-muscle">
+              <div id="compare-moving-muscle" class="muscle-only-shape"></div>
+              <div class="muscle-fiber-lines"></div>
+              <button id="compare-contract-btn" class="model-button compare-contract">Contract</button>
+            </div>
+          </div>
+        </div>
+        <div class="buttons"><button class="choice active" data-compare="tendon">Tendon</button><button class="choice" data-compare="ligament">Ligament</button><button class="choice" data-compare="muscle">Muscle</button></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Compare</p><h3 id="compare-title">Tendon</h3>
+        <p id="compare-copy">A tendon connects muscle to bone. It helps transfer muscle force so the bone can move.</p>
+        <div class="note"><b>Memory trick:</b><span id="compare-note">Tendon = muscle to bone.</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="injury">Go to Injury Scan →</button>
+  </section>
+
+  <section id="injury" class="panel">
+    <div class="heading"><p class="eyebrow">Injury Scan</p><h2>What happens when a tendon is injured?</h2><p><b>What to do:</b> Click the injury types and read what doctors think about.</p></div>
+    <div class="grid">
+      <article class="card">
+        <div id="scan-model" class="scan-model strain"><span class="scan-title">Pretend Ultrasound / MRI View</span><div class="scan-muscle"></div><div class="scan-tendon"></div><div class="scan-bone"></div><div class="scan-injury"></div></div>
+        <p class="hint">Click each injury type.</p><div id="injury-buttons" class="buttons"></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Doctor Thinking</p><h3 id="injury-title">Muscle strain</h3>
+        <p id="injury-copy">A muscle strain means muscle fibers are stretched or partly torn.</p>
+        <div class="note"><b>Question doctors ask:</b><span id="injury-question">Is the injury mild, partial, complete, or affecting movement?</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="repair">Go to Repair Plan →</button>
+  </section>
+
+  <section id="repair" class="panel">
+    <div class="heading"><p class="eyebrow">Repair Plan</p><h2>Build a safe treatment plan</h2><p><b>What to do:</b> Drag the current tool onto the repair board in order. This is a simplified learning model.</p></div>
+    <div class="grid wide">
+      <article class="card">
+        <div class="step-box"><p class="eyebrow">Current Step</p><h2 id="step-title">Step 1: Exam</h2><p id="step-copy">Start with an exam to check pain, swelling, movement, and strength.</p><div id="step-list" class="step-list"></div></div>
+        <div class="work">
+          <div id="repair-board" class="repair-board"><span class="scan-title">Sports Medicine Repair Board</span><div class="repair-bone"></div><div class="repair-muscle"></div><div class="repair-tendon"></div><div id="repair-effect"></div></div>
+          <aside><p class="eyebrow">Tool Tray</p><p class="hint">Drag the “Use now” tool.</p><div id="tool-tray" class="tool-tray"></div><button id="reset" class="secondary">Reset Plan</button></aside>
+        </div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Plan Progress</p><h2 id="progress-title">0%</h2><div class="meter"><div id="progress-fill"></div></div><p id="feedback">Start with the exam.</p>
+        <div class="note"><b>Safety note:</b><span> Real injuries need trained medical professionals. This project teaches the thinking pattern only.</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="rehab">Go to Healing + Rehab →</button>
+  </section>
+
+  <section id="rehab" class="panel">
+    <div class="heading"><p class="eyebrow">Healing + Rehab</p><h2>How does a tendon get stronger again?</h2><p><b>What to do:</b> Click each recovery stage and see what changes.</p></div>
+    <div class="grid">
+      <article class="card">
+        <div id="rehab-model" class="rehab-model stage0"><div class="rehab-muscle"></div><div class="rehab-tendon"></div><div class="rehab-collagen"></div></div>
+        <p class="hint">Click each stage in order.</p><div id="stage-buttons" class="buttons"></div>
+      </article>
+      <aside class="card">
+        <p class="eyebrow">Recovery Stage</p><h3 id="stage-title">1. Inflammation</h3><p id="stage-copy">The body sends fluid and immune cells to start cleanup and protection.</p>
+        <div class="note"><b>Key idea:</b><span id="stage-note">Swelling is part of early healing, but doctors watch it carefully.</span></div>
+      </aside>
+    </div>
+    <button class="next" data-next="quiz">Go to Quiz →</button>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="heading"><p class="eyebrow">Day 15 Quiz</p><h2>Check your muscle and tendon knowledge</h2><p><b>What to do:</b> Answer each question using what you learned.</p></div>
+    <article class="quiz card"><p class="eyebrow">Question <span id="quiz-number">1</span>/6</p><h2 id="quiz-question">Loading...</h2><div id="quiz-choices" class="quiz-choices"></div><p id="quiz-feedback"></p><button id="next-question">Next Question</button></article>
+  </section>
+
+  <section class="reflection card">
+    <p class="eyebrow">Day 15 Reflection</p><h2>Medical ideas you learned</h2>
+    <ul><li>Muscles contract and pull on bones.</li><li>Tendons connect muscle to bone.</li><li>Ligaments connect bone to bone.</li><li>Tendon healing depends on collagen repair and remodeling.</li><li>Rehab is usually gradual because healing tissue needs time to get stronger.</li></ul>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

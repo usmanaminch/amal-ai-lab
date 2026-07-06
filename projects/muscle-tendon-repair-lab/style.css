@@ -1,0 +1,404 @@
+*{box-sizing:border-box}
+:root{--navy:#13213f;--deep:#1e2b58;--teal:#22d3c5;--mint:#8cffc1;--lime:#d8ff5f;--coral:#ff6f61;--orange:#ff9d4d;--purple:#8b6dff;--pink:#ff6fb1;--paper:rgba(255,255,255,.96);--ink:#162039;--muted:#5c6680;--line:rgba(34,211,197,.32);--shadow:0 24px 60px rgba(12,29,64,.18)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;background:radial-gradient(circle at 10% 10%,rgba(34,211,197,.22),transparent 24%),radial-gradient(circle at 88% 14%,rgba(255,111,97,.18),transparent 22%),radial-gradient(circle at 22% 88%,rgba(139,109,255,.18),transparent 24%),linear-gradient(145deg,#eefdf8 0%,#f6fbff 34%,#fff8f0 68%,#f7f3ff 100%)}
+.shell{width:min(1240px,calc(100% - 32px));margin:auto;padding:148px 0 56px;position:relative}.room-decor{position:absolute;inset:0 0 auto 0;height:132px;pointer-events:none}.sports-sign{position:absolute;left:22px;top:58px;background:linear-gradient(135deg,var(--navy),var(--deep));color:white;border-radius:20px;padding:14px 18px;font-weight:1000;letter-spacing:.12em;font-size:12px;box-shadow:var(--shadow)}.therapy-board{position:absolute;left:50%;top:26px;transform:translateX(-50%);width:220px;height:92px;border-radius:24px;background:white;border:1px solid rgba(30,43,88,.14);box-shadow:var(--shadow);padding:14px}.therapy-board span{font-size:12px;color:var(--deep);font-weight:1000;text-transform:uppercase;letter-spacing:.1em}.therapy-board div{height:8px;border-radius:999px;margin-top:10px;background:linear-gradient(90deg,var(--teal),var(--lime))}.therapy-board div:nth-child(3){background:linear-gradient(90deg,var(--coral),var(--orange))}.therapy-board div:nth-child(4){background:linear-gradient(90deg,var(--purple),var(--pink))}.mini-monitor{position:absolute;right:22px;top:54px;width:190px;height:72px;border-radius:20px;background:var(--navy);color:white;box-shadow:var(--shadow);padding:12px}.mini-monitor span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:1000;color:#a7fff2}.pulse{height:32px;margin-top:8px;background:linear-gradient(transparent 45%,rgba(34,211,197,.18) 45% 55%,transparent 55%);position:relative}.pulse:after{content:"";position:absolute;inset:0;clip-path:polygon(0 55%,15% 55%,22% 18%,30% 78%,42% 28%,50% 55%,65% 55%,76% 32%,84% 70%,100% 70%,100% 58%,0 58%);background:linear-gradient(90deg,var(--teal),var(--lime),var(--coral))}
+.hero,.panel,.card{background:var(--paper);border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow)}.hero{min-height:370px;padding:38px;display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(34,211,197,.16),rgba(216,255,95,.12),rgba(255,111,97,.10),rgba(139,109,255,.10),rgba(255,255,255,.96))}.hero:before{content:"";position:absolute;left:22px;right:22px;top:18px;height:8px;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--lime),var(--coral),var(--orange),var(--purple),var(--pink))}.hero:after{content:"SPORTS\A MED";white-space:pre;position:absolute;right:16px;bottom:18px;font-size:clamp(62px,10vw,130px);line-height:.78;font-weight:1000;letter-spacing:-.08em;color:rgba(30,43,88,.08)}.hero>*{position:relative;z-index:1}.eyebrow{margin:0 0 12px;color:#12988e;font-size:12px;font-weight:950;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;font-size:clamp(46px,7.6vw,96px);line-height:.88;letter-spacing:-.065em;color:var(--navy)}h2{margin:0 0 10px;font-size:clamp(30px,4vw,46px);line-height:1;letter-spacing:-.045em;color:var(--navy)}h3{margin:0 0 8px;color:#12988e}.hero p,.heading p,.card p,.reflection li,#quiz-feedback{color:var(--muted);line-height:1.6}.hero p{font-size:20px;max-width:780px}.pill{display:inline-block;padding:10px 14px;margin:8px 8px 0 0;border-radius:999px;background:white;border:1px solid rgba(34,211,197,.28);color:#12988e;font-weight:1000}.pill.bright{background:linear-gradient(135deg,var(--teal),var(--lime));color:var(--navy)}
+.hero-art{height:300px;display:grid;place-items:center;position:relative}.arm-model{width:290px;height:250px;border-radius:34px;background:linear-gradient(180deg,#fff,#effffb);border:8px solid white;box-shadow:0 24px 44px rgba(12,29,64,.16);position:relative;overflow:hidden}.bone{position:absolute;height:28px;background:#f0ead6;border-radius:999px;border:3px solid #fff3c0;box-shadow:0 8px 18px rgba(12,29,64,.08)}.bone-a{left:28px;top:116px;width:116px;transform:rotate(-12deg)}.bone-b{right:30px;top:118px;width:116px;transform:rotate(12deg)}.muscle{position:absolute;left:62px;top:73px;width:142px;height:82px;border-radius:60px;background:linear-gradient(135deg,var(--coral),var(--orange),var(--pink));box-shadow:0 0 28px rgba(255,111,97,.24)}.tendon{position:absolute;height:16px;background:#f8f1da;border:3px solid white;border-radius:999px}.tendon-a{left:42px;top:111px;width:58px;transform:rotate(-14deg)}.tendon-b{right:58px;top:118px;width:76px;transform:rotate(16deg)}.torn:after{content:"";position:absolute;left:34px;top:-12px;width:20px;height:38px;background:linear-gradient(135deg,transparent 40%,var(--navy) 42% 55%,transparent 57%);transform:rotate(16deg)}.tear-label{position:absolute;right:18px;bottom:24px;background:var(--navy);color:white;padding:8px 10px;border-radius:999px;font-size:12px;font-weight:1000}
+.tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:18px 0 22px;padding:12px;border-radius:28px;background:rgba(255,255,255,.88);border:1px solid rgba(34,211,197,.22);box-shadow:0 18px 32px rgba(12,29,64,.08)}.tab{border:1px solid rgba(34,211,197,.26);border-radius:20px;padding:14px 8px;background:linear-gradient(180deg,#fff,#f2fffc);color:#12988e;font-weight:1000;cursor:pointer}.tab.active{background:linear-gradient(135deg,var(--navy),var(--teal));color:white}.panel{display:none;padding:30px;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(244,255,251,.96))}.panel.active{display:block}.heading{margin-bottom:20px;padding-left:16px;border-left:6px solid var(--teal)}.heading b{color:#12988e}.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}.wide{grid-template-columns:1.3fr .7fr}.card{padding:28px;position:relative;background:linear-gradient(180deg,rgba(255,255,255,.99),rgba(247,255,253,.97))}.card:before{content:"";position:absolute;left:18px;right:18px;top:0;height:8px;border-radius:0 0 16px 16px;background:linear-gradient(90deg,var(--teal),var(--lime),var(--coral),var(--purple))}.card>*{position:relative;z-index:1}
+.anatomy-model,.compare-stage,.scan-model,.repair-board,.rehab-model{min-height:430px;border:2px dashed rgba(34,211,197,.34);border-radius:30px;background:linear-gradient(180deg,#ffffff,#f0fffb);position:relative;overflow:hidden}.joint{position:absolute;left:50%;top:230px;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#fff4d6,#f0ead6);border:6px solid white;transform:translate(-50%,-50%);box-shadow:0 12px 24px rgba(12,29,64,.10)}.long-a,.long-b{top:218px;width:170px;height:28px}.long-a{left:112px;transform:rotate(-14deg)}.long-b{right:112px;transform:rotate(14deg)}.big-muscle{position:absolute;left:50%;top:118px;width:250px;height:100px;border-radius:70px;background:repeating-linear-gradient(90deg,var(--coral) 0 18px,var(--orange) 18px 26px,var(--pink) 26px 42px);transform:translateX(-50%);box-shadow:0 20px 34px rgba(255,111,97,.18);transition:.35s}.big-muscle.contract{width:210px;height:116px;top:108px}.attach{position:absolute;top:188px;width:74px;height:18px;border-radius:999px;background:#f8f1da;border:3px solid white}.one{left:246px;transform:rotate(18deg)}.two{right:246px;transform:rotate(-18deg)}.model-button{position:absolute;left:50%;bottom:24px;transform:translateX(-50%)}
+.buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}button{border:0;border-radius:18px;padding:14px 18px;background:linear-gradient(135deg,var(--teal),var(--lime));color:var(--navy);font-size:15px;font-weight:1000;cursor:pointer;box-shadow:0 14px 28px rgba(34,211,197,.16);margin:0}.secondary,.choice,.quiz-choice,.timeline-button{background:linear-gradient(180deg,#fff,#f6fffd);color:#12988e;border:1px solid rgba(34,211,197,.28);box-shadow:none;text-align:left}.choice.active,.quiz-choice.selected,.timeline-button.active{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff}.hint{display:inline-block;margin:2px 0 12px;padding:8px 12px;border-radius:999px;background:linear-gradient(180deg,rgba(34,211,197,.10),rgba(216,255,95,.12));border:1px solid rgba(34,211,197,.26);color:#12988e;font-weight:1000;font-size:13px}.note{margin-top:18px;border:1px solid rgba(34,211,197,.24);background:linear-gradient(180deg,rgba(34,211,197,.08),rgba(216,255,95,.08));border-radius:22px;padding:16px}.note b{display:block;color:#12988e;margin-bottom:6px}
+.compare-body{height:332px;position:relative}.compare-bone{position:absolute;top:170px;width:150px;height:34px;border-radius:999px;background:#f0ead6;border:4px solid #fff3c0}.b1{left:120px;transform:rotate(-12deg)}.b2{right:120px;transform:rotate(12deg)}.compare-muscle{position:absolute;left:150px;top:86px;width:200px;height:90px;border-radius:70px;background:linear-gradient(135deg,var(--coral),var(--pink))}.compare-tendon{position:absolute;left:295px;top:148px;width:105px;height:18px;border-radius:999px;background:#f8f1da;border:3px solid white;transform:rotate(18deg)}.compare-ligament{position:absolute;left:50%;top:185px;width:70px;height:16px;border-radius:999px;background:var(--purple);transform:translateX(-50%);box-shadow:0 0 18px rgba(139,109,255,.22)}
+.scan-title{position:absolute;left:18px;top:18px;background:var(--navy);color:white;border-radius:999px;padding:8px 12px;font-weight:1000;font-size:12px;z-index:3}.scan-muscle,.repair-muscle,.rehab-muscle{position:absolute;left:86px;right:160px;top:150px;height:96px;border-radius:70px;background:linear-gradient(135deg,var(--coral),var(--orange),var(--pink));box-shadow:0 18px 34px rgba(255,111,97,.16)}.scan-tendon,.repair-tendon,.rehab-tendon{position:absolute;left:330px;top:185px;width:140px;height:20px;border-radius:999px;background:#f8f1da;border:4px solid white}.scan-bone,.repair-bone{position:absolute;right:80px;top:180px;width:150px;height:36px;border-radius:999px;background:#f0ead6;border:4px solid #fff3c0}.scan-injury{position:absolute;left:372px;top:172px;width:34px;height:50px;background:linear-gradient(135deg,transparent 40%,var(--navy) 42% 56%,transparent 58%);transform:rotate(12deg)}.partial .scan-injury{width:18px}.complete .scan-tendon{background:linear-gradient(90deg,#f8f1da 0 45%,transparent 45% 60%,#f8f1da 60%)}.swelling .scan-injury{background:radial-gradient(circle,rgba(255,111,97,.42),transparent 70%);width:120px;height:92px;left:324px;top:142px;border-radius:50%}
+.step-box{padding:18px;border:1px solid rgba(34,211,197,.24);background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(34,211,197,.08));border-radius:26px}.step-list{display:grid;gap:8px;margin-top:14px}.care-step{border:1px solid rgba(34,211,197,.24);background:#fff;border-radius:16px;padding:10px 12px;color:var(--muted);font-weight:900}.care-step.active{background:linear-gradient(135deg,var(--navy),var(--teal));color:white}.care-step.done{background:linear-gradient(135deg,rgba(140,255,193,.32),rgba(216,255,95,.22));color:#087a72}.work{display:grid;grid-template-columns:1fr 230px;gap:18px;margin-top:22px}.repair-board.ready{outline:6px solid rgba(34,211,197,.18)}.tool-tray{display:grid;gap:12px}.tool{border:2px dashed rgba(34,211,197,.32);background:white;border-radius:22px;padding:12px;min-height:92px;display:grid;place-items:center;color:#12988e;font-weight:1000;cursor:grab;touch-action:none}.tool small{color:var(--muted)}.tool-icon{font-size:30px}.tool.inactive{opacity:.45}.tool.dragging{position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%) scale(1.05);box-shadow:0 24px 44px rgba(12,29,64,.18)}.exam:after,.scan:after,.support:after,.repair-sim:after,.rehab-plan:after{position:absolute;right:28px;bottom:28px;background:var(--navy);color:white;padding:10px 14px;border-radius:999px;font-weight:1000}.exam:after{content:"Exam ✓"}.scan:after{content:"Imaging ✓"}.support:after{content:"Support ✓"}.repair-sim:after{content:"Repair Plan ✓"}.rehab-plan:after{content:"Rehab Plan ✓"}#repair-effect{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:4}.success{font-size:74px;color:#13a66d;animation:pop .7s ease forwards}.wrong{animation:shake .35s ease}@keyframes pop{0%{transform:scale(.2);opacity:0}50%{opacity:1}100%{transform:scale(1.2);opacity:0}}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}.meter{height:16px;border-radius:999px;background:rgba(30,43,88,.10);overflow:hidden;margin:18px 0}#progress-fill{width:0%;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--lime),var(--coral),var(--purple));transition:.25s}
+.rehab-tendon{left:220px;top:220px;width:260px}.rehab-muscle{left:100px;right:auto;top:175px;width:180px}.rehab-collagen{position:absolute;left:238px;top:205px;width:230px;height:78px;border-radius:999px;background:repeating-linear-gradient(120deg,transparent 0 12px,var(--teal) 12px 17px,transparent 17px 29px,var(--purple) 29px 34px);opacity:.28}.stage1 .rehab-collagen{opacity:.45}.stage2 .rehab-collagen{opacity:.75}.stage3 .rehab-collagen{opacity:1}.quiz{max-width:850px;margin:auto}.quiz-choices{display:grid;gap:10px}#quiz-feedback.correct{color:#138a63;font-weight:900}#quiz-feedback.wrong{color:#d94d68;font-weight:900}.reflection{margin-top:24px;background:linear-gradient(135deg,rgba(255,255,255,.99),rgba(34,211,197,.10),rgba(216,255,95,.08),rgba(139,109,255,.06))}.next{margin-top:22px}
+@media(max-width:1100px){.hero,.grid,.work{grid-template-columns:1fr}.hero-art{display:none}.tabs{grid-template-columns:repeat(2,1fr)}.mini-monitor{display:none}.therapy-board{right:22px;left:auto;transform:none}}@media(max-width:680px){.shell{width:min(100% - 22px,1240px);padding-top:138px}.hero,.panel,.card{border-radius:26px;padding:22px}h1{font-size:42px}.tabs,.buttons{grid-template-columns:1fr}.therapy-board{display:none}.sports-sign{font-size:10px;left:12px}}
+
+
+/* v2 clickable anatomy pictures */
+.anatomy-picture{
+  min-height:430px;
+  border:2px dashed rgba(34,211,197,.34);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 24% 18%,rgba(216,255,95,.12),transparent 28%),
+    radial-gradient(circle at 78% 28%,rgba(255,111,97,.10),transparent 28%),
+    linear-gradient(180deg,#ffffff,#f0fffb);
+  position:relative;
+  overflow:hidden;
+}
+.picture-title{
+  position:absolute;
+  left:18px;
+  top:18px;
+  background:var(--navy);
+  color:white;
+  border-radius:999px;
+  padding:9px 14px;
+  font-weight:1000;
+  font-size:13px;
+  z-index:5;
+}
+.picture-caption{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  margin:0;
+  padding:12px 14px;
+  border-radius:18px;
+  background:rgba(255,255,255,.86);
+  border:1px solid rgba(34,211,197,.22);
+  font-weight:900;
+  z-index:5;
+}
+.picture-scene{
+  position:absolute;
+  inset:72px 24px 84px;
+  border-radius:28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.34));
+}
+.pic{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:scale(.96);
+  transition:.25s ease;
+  pointer-events:none;
+}
+.pic.active{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+
+/* Muscle picture */
+.pic-muscle .pic-bone{
+  position:absolute;
+  top:52%;
+  width:180px;
+  height:30px;
+  border-radius:999px;
+  background:#f0ead6;
+  border:4px solid #fff3c0;
+  box-shadow:0 10px 20px rgba(12,29,64,.08);
+}
+.pic-muscle .pic-bone.left{left:48px;transform:rotate(-14deg)}
+.pic-muscle .pic-bone.right{right:48px;transform:rotate(14deg)}
+.pic-muscle-shape{
+  position:absolute;
+  left:50%;
+  top:30%;
+  width:270px;
+  height:112px;
+  border-radius:80px;
+  transform:translateX(-50%);
+  background:repeating-linear-gradient(90deg,var(--coral) 0 18px,var(--orange) 18px 28px,var(--pink) 28px 46px);
+  border:5px solid rgba(255,255,255,.9);
+  box-shadow:0 24px 38px rgba(255,111,97,.20);
+  transition:.35s;
+}
+.pic-muscle-shape.contract{
+  width:220px;
+  height:130px;
+  top:25%;
+}
+.pic-tendon{
+  position:absolute;
+  top:48%;
+  width:90px;
+  height:22px;
+  border-radius:999px;
+  background:#f8f1da;
+  border:4px solid white;
+  z-index:3;
+}
+.pic-tendon.t-left{left:182px;transform:rotate(18deg)}
+.pic-tendon.t-right{right:182px;transform:rotate(-18deg)}
+
+/* Muscle fiber picture */
+.fiber-bundle{
+  position:absolute;
+  left:50%;
+  top:28%;
+  width:330px;
+  height:130px;
+  transform:translateX(-50%);
+  border-radius:80px;
+  background:linear-gradient(135deg,rgba(255,111,97,.18),rgba(255,111,177,.10));
+  border:5px solid rgba(255,255,255,.9);
+  box-shadow:0 24px 38px rgba(255,111,97,.14);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+.fiber-bundle span{
+  width:42px;
+  height:104px;
+  border-radius:999px;
+  background:repeating-linear-gradient(180deg,var(--coral) 0 12px,var(--orange) 12px 18px,var(--pink) 18px 30px);
+  border:3px solid white;
+}
+.fiber-zoom{
+  position:absolute;
+  right:44px;
+  top:48px;
+  width:142px;
+  height:142px;
+  border-radius:50%;
+  background:white;
+  border:6px solid var(--teal);
+  box-shadow:0 16px 30px rgba(12,29,64,.10);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.fiber-zoom span{
+  width:18px;
+  height:92px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--coral),var(--pink));
+}
+
+/* Tendon picture */
+.tendon-muscle{
+  position:absolute;
+  left:60px;
+  top:108px;
+  width:210px;
+  height:104px;
+  border-radius:80px;
+  background:linear-gradient(135deg,var(--coral),var(--orange),var(--pink));
+  border:5px solid white;
+}
+.tendon-cord{
+  position:absolute;
+  left:260px;
+  top:148px;
+  width:190px;
+  height:30px;
+  border-radius:999px;
+  background:repeating-linear-gradient(90deg,#fff5df 0 18px,#efe2bf 18px 28px);
+  border:5px solid white;
+  box-shadow:0 14px 24px rgba(12,29,64,.09);
+}
+.tendon-bone{
+  position:absolute;
+  right:62px;
+  top:132px;
+  width:170px;
+  height:62px;
+  border-radius:999px;
+  background:#f0ead6;
+  border:5px solid #fff3c0;
+}
+.force-arrow{
+  position:absolute;
+  left:290px;
+  top:204px;
+  color:var(--navy);
+  font-weight:1000;
+  background:white;
+  padding:8px 12px;
+  border-radius:999px;
+}
+
+/* Bone picture */
+.bone-long{
+  position:absolute;
+  left:50%;
+  top:124px;
+  width:360px;
+  height:78px;
+  transform:translateX(-50%);
+  border-radius:80px;
+  background:#f0ead6;
+  border:6px solid #fff3c0;
+  box-shadow:0 20px 34px rgba(12,29,64,.10);
+}
+.bone-end{
+  position:absolute;
+  top:105px;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  background:#f0ead6;
+  border:6px solid #fff3c0;
+}
+.bone-end.a{left:142px}
+.bone-end.b{right:142px}
+.bone-center{
+  position:absolute;
+  left:50%;
+  top:145px;
+  width:180px;
+  height:36px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:#ffe9a8;
+}
+.bone-label{
+  position:absolute;
+  background:var(--navy);
+  color:white;
+  border-radius:999px;
+  padding:8px 12px;
+  font-weight:1000;
+  font-size:12px;
+}
+.bone-label.compact{left:88px;top:72px}
+.bone-label.marrow{right:118px;bottom:60px}
+
+/* Collagen picture */
+.collagen-rope{
+  position:absolute;
+  left:50%;
+  width:370px;
+  height:34px;
+  border-radius:999px;
+  transform-origin:center;
+  background:repeating-linear-gradient(90deg,var(--teal) 0 16px,var(--lime) 16px 28px,var(--purple) 28px 44px,var(--pink) 44px 58px);
+  border:4px solid white;
+  box-shadow:0 18px 28px rgba(12,29,64,.10);
+}
+.collagen-rope.r1{top:94px;transform:translateX(-50%) rotate(-18deg)}
+.collagen-rope.r2{top:148px;transform:translateX(-50%) rotate(0deg)}
+.collagen-rope.r3{top:202px;transform:translateX(-50%) rotate(18deg)}
+.collagen-dots span{
+  position:absolute;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--lime));
+  border:4px solid white;
+}
+.collagen-dots span:nth-child(1){left:130px;top:74px}
+.collagen-dots span:nth-child(2){right:130px;top:86px;background:linear-gradient(135deg,var(--purple),var(--pink))}
+.collagen-dots span:nth-child(3){left:170px;bottom:62px;background:linear-gradient(135deg,var(--coral),var(--orange))}
+.collagen-dots span:nth-child(4){right:180px;bottom:54px}
+
+/* Inflammation picture */
+.inflamed-tissue{
+  position:absolute;
+  left:50%;
+  top:112px;
+  width:360px;
+  height:112px;
+  transform:translateX(-50%);
+  border-radius:80px;
+  background:linear-gradient(135deg,#ff9b8e,var(--coral),#ff5e7d);
+  border:5px solid white;
+  box-shadow:0 0 44px rgba(255,111,97,.28);
+}
+.swelling-glow{
+  position:absolute;
+  left:50%;
+  top:72px;
+  width:280px;
+  height:210px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,111,97,.32),transparent 68%);
+}
+.immune-cell{
+  position:absolute;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--mint));
+  border:5px solid white;
+  box-shadow:0 12px 24px rgba(12,29,64,.10);
+}
+.immune-cell.c1{left:130px;top:82px}
+.immune-cell.c2{right:150px;top:88px;background:linear-gradient(135deg,var(--lime),var(--teal))}
+.immune-cell.c3{left:50%;bottom:62px;transform:translateX(-50%);background:linear-gradient(135deg,var(--purple),var(--pink))}
+.heat-lines span{
+  position:absolute;
+  width:18px;
+  height:70px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--orange),transparent);
+}
+.heat-lines span:nth-child(1){left:220px;top:42px;transform:rotate(-16deg)}
+.heat-lines span:nth-child(2){left:50%;top:30px}
+.heat-lines span:nth-child(3){right:220px;top:44px;transform:rotate(16deg)}
+
+
+/* v3 purple redesign + clickable compare pictures */
+:root{--navy:#2d174d;--deep:#45206f;--teal:#7f5cff;--mint:#b18cff;--lime:#d8c4ff;--coral:#a06cff;--orange:#c183ff;--purple:#8b5cf6;--pink:#e38cff;--paper:rgba(255,255,255,.97);--ink:#2c1748;--muted:#6a5c83;--line:rgba(127,92,255,.28);--shadow:0 24px 60px rgba(69,32,111,.16)}
+body{background:radial-gradient(circle at 10% 10%,rgba(139,92,246,.16),transparent 24%),radial-gradient(circle at 88% 14%,rgba(227,140,255,.14),transparent 22%),radial-gradient(circle at 22% 88%,rgba(177,140,255,.16),transparent 24%),linear-gradient(145deg,#f8f3ff 0%,#f6f0ff 34%,#fbf7ff 68%,#f3edff 100%)}
+.sports-sign,.picture-title,.scan-title,.bone-label,.force-arrow,.compare-arrow{background:linear-gradient(135deg,var(--deep),var(--purple));color:white}
+.therapy-board{background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(216,196,255,.88));border:1px solid rgba(127,92,255,.18)}
+.therapy-board div{background:linear-gradient(90deg,var(--purple),var(--pink));opacity:.35}
+.mini-monitor{background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(239,231,255,.92));border:1px solid rgba(127,92,255,.18)}
+.mini-monitor .pulse{background:linear-gradient(90deg,var(--purple),var(--pink));box-shadow:0 0 0 10px rgba(139,92,246,.10)}
+.hero{background:linear-gradient(135deg,rgba(255,255,255,.99),rgba(216,196,255,.22),rgba(227,140,255,.10),rgba(139,92,246,.10),rgba(255,255,255,.96))}
+.pill{background:rgba(255,255,255,.84);border:1px solid rgba(127,92,255,.22);color:var(--deep)}
+.pill.bright{background:linear-gradient(135deg,rgba(177,140,255,.28),rgba(227,140,255,.22));color:var(--deep)}
+.tabs{border:1px solid rgba(127,92,255,.20)}
+.tab{border:1px solid rgba(127,92,255,.24);background:linear-gradient(180deg,#fff,#faf7ff);color:var(--purple)}
+.tab.active, .choice.active{background:linear-gradient(135deg,var(--deep),var(--purple),var(--pink));color:white}
+button{background:linear-gradient(135deg,var(--purple),var(--pink),var(--mint));color:white}
+.secondary,.choice,.quiz-choice,.timeline-button{background:linear-gradient(180deg,#fff,#faf7ff);color:var(--purple);border:1px solid rgba(127,92,255,.24)}
+.anatomy-picture,.scan-model,.repair-board,.rehab-model,.compare-picture{border:2px dashed rgba(177,140,255,.42);background:linear-gradient(180deg,#ffffff,#faf7ff)}
+.note,.step-box{border-color:rgba(127,92,255,.20);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(227,140,255,.08))}
+.model-button{background:linear-gradient(135deg,var(--purple),var(--pink),var(--mint));color:white}
+#progress-fill{background:linear-gradient(90deg,var(--purple),var(--pink),var(--mint))}
+.care-step{border-color:rgba(127,92,255,.18)}
+.care-step.active{background:linear-gradient(135deg,var(--deep),var(--purple),var(--pink));color:white}
+.care-step.done{background:linear-gradient(135deg,rgba(216,196,255,.40),rgba(227,140,255,.28));color:var(--deep)}
+.tool-card{background:linear-gradient(135deg,#fff,#faf7ff);border:1px solid rgba(127,92,255,.24)}
+.tool-card.current{border-color:rgba(139,92,246,.42);box-shadow:0 16px 30px rgba(139,92,246,.12)}
+.success{background:linear-gradient(135deg,var(--purple),var(--pink));color:white}
+.quiz-choice.selected{border-color:rgba(139,92,246,.54);background:linear-gradient(135deg,rgba(216,196,255,.26),rgba(227,140,255,.14))}
+#quiz-feedback.correct{color:#6c4ce6}#quiz-feedback.incorrect{color:#a84cff}
+
+.compare-picture{min-height:430px;position:relative;overflow:hidden;border-radius:30px}
+.compare-scene{position:absolute;inset:72px 24px 84px;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(255,255,255,.34))}
+.compare-view{position:absolute;inset:0;opacity:0;transform:scale(.96);transition:.25s ease;pointer-events:none}
+.compare-view.active{opacity:1;transform:scale(1);pointer-events:auto}
+.compare-muscle-shape{position:absolute;left:68px;top:106px;width:220px;height:104px;border-radius:80px;background:repeating-linear-gradient(90deg,#a06cff 0 22px,#c183ff 22px 32px,#e38cff 32px 50px);border:5px solid rgba(255,255,255,.95);box-shadow:0 18px 30px rgba(139,92,246,.16)}
+.compare-tendon-shape{position:absolute;left:250px;top:146px;width:170px;height:28px;border-radius:999px;background:repeating-linear-gradient(90deg,#f6edff 0 18px,#eadcff 18px 30px);border:4px solid white;box-shadow:0 12px 22px rgba(69,32,111,.08)}
+.compare-bone-shape{position:absolute;right:74px;top:126px;width:180px;height:68px;border-radius:999px;background:#f2e8ff;border:5px solid #fff9d9}
+.compare-arrow{position:absolute;right:72px;top:220px;border-radius:999px;padding:8px 12px;font-weight:1000;font-size:12px}
+.lig-bone{position:absolute;top:145px;width:170px;height:74px;border-radius:999px;background:#f2e8ff;border:5px solid #fff9d9}.lig-bone.left{left:78px;transform:rotate(-12deg)}.lig-bone.right{right:78px;transform:rotate(12deg)}
+.lig-band{position:absolute;left:50%;top:168px;width:90px;height:22px;transform:translateX(-50%);border-radius:999px;background:linear-gradient(90deg,var(--deep),var(--purple),var(--pink));box-shadow:0 0 18px rgba(139,92,246,.22)}
+.muscle-only-shape{position:absolute;left:50%;top:105px;width:300px;height:120px;transform:translateX(-50%);border-radius:88px;background:repeating-linear-gradient(90deg,#a06cff 0 24px,#c183ff 24px 36px,#e38cff 36px 56px);border:5px solid rgba(255,255,255,.95);box-shadow:0 22px 34px rgba(139,92,246,.18);transition:.35s}
+.muscle-only-shape.contract{width:248px;height:138px;top:95px}
+.muscle-fiber-lines{position:absolute;left:50%;top:125px;width:240px;height:80px;transform:translateX(-50%);border-radius:70px;background:repeating-linear-gradient(180deg,transparent 0 10px,rgba(255,255,255,.42) 10px 15px,transparent 15px 25px)}
+.compare-contract{position:absolute;left:50%;bottom:28px;transform:translateX(-50%)}
+.ligament-arrow{left:50%;top:236px;transform:translateX(-50%)}
+.tendon-arrow{right:64px}
+
+
+/* v4 physical therapy layout */
+body{background:radial-gradient(circle at 8% 12%,rgba(139,92,246,.16),transparent 24%),radial-gradient(circle at 86% 18%,rgba(127,92,255,.14),transparent 22%),radial-gradient(circle at 18% 84%,rgba(227,140,255,.14),transparent 24%),linear-gradient(145deg,#faf6ff 0%,#f7f2ff 32%,#ffffff 68%,#f4efff 100%)}
+.shell{padding-top:162px}
+.room-decor{height:146px}
+.sports-sign{top:54px;left:18px;padding:16px 20px;border-radius:22px;letter-spacing:.14em;background:linear-gradient(135deg,#4b2577,#8b5cf6,#c183ff)}
+.therapy-board{top:22px;width:260px;height:102px;border-radius:22px;box-shadow:0 18px 38px rgba(69,32,111,.12)}
+.therapy-board span{font-size:12px;letter-spacing:.16em;color:#5e3d8a}
+.mini-monitor{right:18px;top:48px;width:190px;height:84px;border-radius:22px;box-shadow:0 18px 38px rgba(69,32,111,.12)}
+.mini-monitor span{font-size:12px;letter-spacing:.14em;color:#6b4ea1}
+.exercise-ball{position:absolute;border-radius:50%;box-shadow:0 14px 28px rgba(69,32,111,.12);border:6px solid rgba(255,255,255,.92)}
+.ball-a{right:228px;top:82px;width:54px;height:54px;background:linear-gradient(135deg,#b18cff,#e38cff)}
+.ball-b{right:286px;top:96px;width:38px;height:38px;background:linear-gradient(135deg,#8b5cf6,#c183ff)}
+.therapy-mat{position:absolute;left:126px;top:110px;width:120px;height:20px;border-radius:999px;background:linear-gradient(90deg,#d8c4ff,#f0e8ff);box-shadow:0 10px 20px rgba(69,32,111,.08)}
+.resistance-band{position:absolute;border:5px solid rgba(139,92,246,.55);border-radius:999px;opacity:.9}
+.band-a{right:102px;top:18px;width:70px;height:34px;border-color:rgba(177,140,255,.75)}
+.band-b{right:36px;top:16px;width:54px;height:54px;border-color:rgba(127,92,255,.65)}
+.hero{grid-template-columns:1.08fr .92fr;min-height:390px;border-radius:36px;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.99),rgba(216,196,255,.22),rgba(240,232,255,.86),rgba(177,140,255,.14),rgba(255,255,255,.96))}
+.hero:after{content:"";position:absolute;right:36px;bottom:26px;width:220px;height:16px;border-radius:999px;background:linear-gradient(90deg,rgba(216,196,255,.55),rgba(139,92,246,.45));filter:blur(1px)}
+.hero-art{position:relative;min-height:300px;border-radius:32px;background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(247,241,255,.96));border:1px solid rgba(139,92,246,.16);padding:16px;box-shadow:inset 0 0 0 8px rgba(255,255,255,.55)}
+.pt-room-label{position:absolute;left:18px;top:18px;background:linear-gradient(135deg,#8b5cf6,#e38cff);color:white;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:1000;letter-spacing:.08em;z-index:5}
+.arm-model{width:100%;max-width:320px;height:248px;margin-top:30px;border-radius:34px;background:linear-gradient(180deg,#fff,#f7f3ff);border:8px solid white;box-shadow:0 24px 44px rgba(69,32,111,.12);position:relative;overflow:hidden}
+.arm-model:before{content:"";position:absolute;left:22px;bottom:18px;width:180px;height:18px;border-radius:999px;background:linear-gradient(90deg,rgba(216,196,255,.70),rgba(139,92,246,.45))}
+.arm-model:after{content:"";position:absolute;right:28px;top:34px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,rgba(177,140,255,.9));opacity:.75}
+.tabs{background:rgba(255,255,255,.92);border-radius:30px}
+.tab.active,.choice.active{background:linear-gradient(135deg,#6f45c8,#9a67ff,#d08cff)}
+button,.model-button,.next{background:linear-gradient(135deg,#7f5cff,#a678ff,#dd97ff)}
+.next{color:white}
+.card,.panel{border-radius:32px}
+.reflection{background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(242,235,255,.96))}
+@media(max-width:1100px){.ball-a,.ball-b,.therapy-mat,.band-a,.band-b{display:none}}

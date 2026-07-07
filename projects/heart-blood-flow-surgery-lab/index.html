@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Heart and Blood Flow Learning Clinic · Day 16</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Junior Medical School · Day 16</p>
+      <h1>Heart and Blood Flow Learning Clinic</h1>
+      <p class="hero-text">
+        A more educational learning module about body organs, the heart, blood flow, oxygen exchange,
+        and how the cardiovascular system works with the lungs and the rest of the body.
+      </p>
+      <div class="safety-pill">Educational simulation only · Not medical advice</div>
+    </div>
+    <aside class="hero-side">
+      <div class="monitor-card">
+        <p class="eyebrow">Heart monitor concept</p>
+        <div class="ekg"></div>
+        <p>The heartbeat is controlled by electrical signals that help the heart squeeze in rhythm.</p>
+      </div>
+    </aside>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="overview">1. Overview</button>
+    <button class="tab" data-tab="organs">2. Body Organ Map</button>
+    <button class="tab" data-tab="anatomy">3. Heart Anatomy</button>
+    <button class="tab" data-tab="flow">4. Blood Flow</button>
+    <button class="tab" data-tab="oxygen">5. Oxygen + Lungs</button>
+    <button class="tab" data-tab="quiz">6. Study Check</button>
+  </nav>
+
+  <section id="overview" class="panel active">
+    <div class="panel-header">
+      <p class="eyebrow">Overview</p>
+      <h2>Big idea</h2>
+      <p>The body’s organs all need oxygen and nutrients. The heart helps deliver them by pumping blood.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <h3>System summary</h3>
+        <ul class="study-list">
+          <li><strong>Heart:</strong> pumps blood.</li>
+          <li><strong>Lungs:</strong> add oxygen and remove carbon dioxide.</li>
+          <li><strong>Blood vessels:</strong> carry blood through the body.</li>
+          <li><strong>Organs:</strong> use oxygen-rich blood to do their jobs.</li>
+          <li><strong>Coronary arteries:</strong> feed the heart muscle itself.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Quick memory line</h3>
+        <div class="memory-line">
+          Body → Right Heart → Lungs → Left Heart → Body
+        </div>
+        <p class="soft-copy">
+          In diagrams, oxygen-poor blood is often shown blue and oxygen-rich blood is shown red,
+          even though real blood is always red.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section id="organs" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Clickable educational organ map</p>
+      <h2>Body Organ Map</h2>
+      <p>Click an organ on the body or press one of the organ buttons to study what it does.</p>
+    </div>
+
+    <div class="grid-two organ-grid">
+      <article class="card organ-map-card">
+        <div class="organ-map-wrap">
+          <div class="body-preview-map" aria-label="Clickable human body organ map">
+            <img src="assets/body-organ-map.png" alt="Textbook-style human body organ diagram with organ labels"/>
+            <button class="organ-hotspot brain" data-organ="brain" aria-label="Brain"></button>
+            <button class="organ-hotspot lungs" data-organ="lungs" aria-label="Lungs"></button>
+            <button class="organ-hotspot heart" data-organ="heart" aria-label="Heart"></button>
+            <button class="organ-hotspot liver" data-organ="liver" aria-label="Liver"></button>
+            <button class="organ-hotspot stomach" data-organ="stomach" aria-label="Stomach"></button>
+            <button class="organ-hotspot kidneys" data-organ="kidneys" aria-label="Kidneys"></button>
+            <button class="organ-hotspot intestines" data-organ="intestines" aria-label="Intestines"></button>
+            <button class="organ-hotspot bladder" data-organ="bladder" aria-label="Bladder"></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card organ-notes">
+        <h3 id="organ-title">Brain</h3>
+        <p id="organ-text">
+          The brain is the control center of the body. It helps manage thinking, movement, senses, and body signals.
+        </p>
+        <ul id="organ-bullets" class="study-list">
+          <li>It sends messages through nerves.</li>
+          <li>It helps control breathing and heartbeat too.</li>
+          <li>The heart sends blood to the brain for oxygen.</li>
+        </ul>
+
+        <div class="organ-buttons">
+          <button class="organ-button active" data-target="brain">Brain</button>
+          <button class="organ-button" data-target="lungs">Lungs</button>
+          <button class="organ-button" data-target="heart">Heart</button>
+          <button class="organ-button" data-target="liver">Liver</button>
+          <button class="organ-button" data-target="stomach">Stomach</button>
+          <button class="organ-button" data-target="kidneys">Kidneys</button>
+          <button class="organ-button" data-target="intestines">Intestines</button>
+          <button class="organ-button" data-target="bladder">Bladder</button>
+        </div>
+
+        <div class="note-box">
+          <strong>Study tip:</strong>
+          <span id="organ-tip">Notice how the heart and lungs work closely together.</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="anatomy" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Heart anatomy</p>
+      <h2>Parts of the heart</h2>
+      <p>Click each term to read a short explanation.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <div id="heart-picture" class="heart-picture chambers">
+          <span class="picture-pill" id="heart-picture-label">Heart Chambers</span>
+          <div class="heart-shape">
+            <div class="chamber ra">Right Atrium</div>
+            <div class="chamber la">Left Atrium</div>
+            <div class="chamber rv">Right Ventricle</div>
+            <div class="chamber lv">Left Ventricle</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 id="heart-title">Heart Chambers</h3>
+        <p id="heart-copy">The heart has four chambers. The atria receive blood, and the ventricles pump blood out.</p>
+        <div class="organ-buttons">
+          <button class="heart-button active" data-heart="chambers">Chambers</button>
+          <button class="heart-button" data-heart="valves">Valves</button>
+          <button class="heart-button" data-heart="arteries">Arteries</button>
+          <button class="heart-button" data-heart="veins">Veins</button>
+          <button class="heart-button" data-heart="coronary">Coronary Arteries</button>
+          <button class="heart-button" data-heart="muscle">Heart Muscle</button>
+        </div>
+        <div class="note-box">
+          <strong>Memory clue:</strong>
+          <span id="heart-clue">Atria receive. Ventricles pump.</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="flow" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Blood flow lesson</p>
+      <h2>Follow the path of blood</h2>
+      <p>Read the steps in order.</p>
+    </div>
+
+    <div class="flow-grid">
+      <article class="flow-card blue"><span>1</span><h3>Body → Right Heart</h3><p>Blood returns from the body with less oxygen.</p></article>
+      <article class="flow-card blue"><span>2</span><h3>Right Heart → Lungs</h3><p>The right ventricle sends oxygen-poor blood to the lungs.</p></article>
+      <article class="flow-card mix"><span>3</span><h3>Lungs Add Oxygen</h3><p>Oxygen enters the blood in the lungs.</p></article>
+      <article class="flow-card red"><span>4</span><h3>Lungs → Left Heart</h3><p>Oxygen-rich blood returns to the left side of the heart.</p></article>
+      <article class="flow-card red"><span>5</span><h3>Left Heart → Body</h3><p>The left ventricle pumps oxygen-rich blood to the body.</p></article>
+    </div>
+
+    <div class="note-box">
+      <strong>Simple version:</strong> Body → Right Heart → Lungs → Left Heart → Body
+    </div>
+  </section>
+
+  <section id="oxygen" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Lungs + oxygen</p>
+      <h2>Why the lungs matter</h2>
+      <p>The lungs help blood pick up oxygen and get rid of carbon dioxide.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <div class="lungs-lesson">
+          <div class="lung left"></div>
+          <div class="lung right"></div>
+          <div class="blood before">before lungs</div>
+          <div class="blood after">after lungs</div>
+          <div class="o2-group"><span>O₂</span><span>O₂</span><span>O₂</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Gas exchange</h3>
+        <ul class="study-list">
+          <li><strong>Before the lungs:</strong> blood has less oxygen.</li>
+          <li><strong>Inside the lungs:</strong> oxygen moves into the blood.</li>
+          <li><strong>After the lungs:</strong> blood has more oxygen and travels to the left heart.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Study check</p>
+      <h2>Quick review</h2>
+      <p>This is a learning check, not a game score.</p>
+    </div>
+
+    <article class="card quiz-card">
+      <p class="eyebrow">Question <span id="quiz-number">1</span>/6</p>
+      <h3 id="quiz-question">Loading...</h3>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback"></p>
+      <button id="next-question">Next Question</button>
+    </article>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -368,16 +368,3 @@ button{
 #quiz-feedback.wrong{
   color:#2B74A8 !important;
 }
-
-/* Day 17 blue cleanup */
-.panel-header{
-  border-left: 6px solid #3AA7FF !important;
-}
-
-.sensory span,
-.center span,
-.motor span,
-.step span{
-  background: linear-gradient(135deg, #173B67, #3AA7FF, #72E5F4) !important;
-  color: white !important;
-}

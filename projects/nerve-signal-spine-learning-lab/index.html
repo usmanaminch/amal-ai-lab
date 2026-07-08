@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Nerve Signal and Spine Learning Lab · Day 17</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Junior Medical School · Day 17</p>
+      <h1>Nerve Signal and Spine Learning Lab</h1>
+      <p class="hero-text">
+        Learn how the brain, spinal cord, nerves, and neuron parts work together to send messages through the body.
+      </p>
+      <div class="pill">Educational simulation only · Not medical advice</div>
+    </div>
+
+    <aside class="hero-card">
+      <p class="eyebrow">Signal monitor</p>
+      <div class="signal-line"></div>
+      <p>Nerve signals help the body sense, move, react, balance, and protect itself.</p>
+    </aside>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="overview">1. Overview</button>
+    <button class="tab" data-tab="map">2. Nervous System Map</button>
+    <button class="tab" data-tab="neuron">3. Neuron Anatomy</button>
+    <button class="tab" data-tab="path">4. Signal Path</button>
+    <button class="tab" data-tab="reflex">5. Reflex Arc</button>
+    <button class="tab" data-tab="quiz">6. Study Check</button>
+  </nav>
+
+  <section id="overview" class="panel active">
+    <div class="panel-header">
+      <p class="eyebrow">Overview</p>
+      <h2>What does the nervous system do?</h2>
+      <p>The nervous system helps the body send messages. It lets you feel, move, think, balance, and respond quickly to danger.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <h3>Big ideas</h3>
+        <ul class="study-list">
+          <li><strong>Brain:</strong> control center that processes information.</li>
+          <li><strong>Spinal cord:</strong> main message highway between brain and body.</li>
+          <li><strong>Peripheral nerves:</strong> branching pathways that carry messages.</li>
+          <li><strong>Neurons:</strong> special cells that send nerve signals.</li>
+          <li><strong>Reflexes:</strong> fast protective responses.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Memory line</h3>
+        <div class="memory-line">Sense → Spinal Cord → Brain → Response</div>
+        <p>Some signals go all the way to the brain. Reflex signals can use a shorter spinal pathway for quick protection.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="map" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Nervous system map</p>
+      <h2>Body diagram of the nervous system</h2>
+      <p>Click a button to highlight each nervous-system part on the diagram.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <div class="body-map body-map-day16">
+          <div class="ns-figure" id="ns-figure">
+            <div class="ns-head"></div>
+            <div class="ns-neck"></div>
+            <div class="ns-torso"></div>
+            <div class="ns-arm left"></div>
+            <div class="ns-arm right"></div>
+            <div class="ns-leg left"></div>
+            <div class="ns-leg right"></div>
+
+            <div class="ns-brain map-layer active"></div>
+            <div class="ns-spinal-cord map-layer"></div>
+
+            <div class="ns-nerve left-shoulder map-layer"></div>
+            <div class="ns-nerve right-shoulder map-layer"></div>
+            <div class="ns-nerve left-arm-upper map-layer"></div>
+            <div class="ns-nerve right-arm-upper map-layer"></div>
+            <div class="ns-nerve left-arm-lower map-layer"></div>
+            <div class="ns-nerve right-arm-lower map-layer"></div>
+            <div class="ns-nerve left-rib map-layer"></div>
+            <div class="ns-nerve right-rib map-layer"></div>
+            <div class="ns-nerve left-hip map-layer"></div>
+            <div class="ns-nerve right-hip map-layer"></div>
+            <div class="ns-nerve left-leg map-layer"></div>
+            <div class="ns-nerve right-leg map-layer"></div>
+
+            <div class="ns-node n1 map-layer"></div>
+            <div class="ns-node n2 map-layer"></div>
+            <div class="ns-node n3 map-layer"></div>
+            <div class="ns-node n4 map-layer"></div>
+            <div class="ns-node n5 map-layer"></div>
+            <div class="ns-node n6 map-layer"></div>
+
+            <div class="callout brain-callout"><span class="dot brain-dot"></span><span class="line"></span><span class="label"><span class="label-icon">🧠</span>Brain</span></div>
+            <div class="callout spinal-callout"><span class="dot spinal-dot"></span><span class="line"></span><span class="label"><span class="label-icon">🦴</span>Spinal cord</span></div>
+            <div class="callout peripheral-callout"><span class="dot nerve-dot"></span><span class="line"></span><span class="label"><span class="label-icon">🌐</span>Peripheral nerves</span></div>
+            <div class="callout sensory-callout"><span class="dot sensory-dot"></span><span class="line"></span><span class="label"><span class="label-icon">✋</span>Sensory path</span></div>
+            <div class="callout motor-callout"><span class="dot motor-dot"></span><span class="line"></span><span class="label"><span class="label-icon">💪</span>Motor path</span></div>
+            <div class="callout spine-callout"><span class="dot spine-dot"></span><span class="line"></span><span class="label"><span class="label-icon">🩻</span>Spine</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 id="map-title">Brain</h3>
+        <p id="map-copy">The brain processes information, helps you think, and sends instructions to the body.</p>
+        <div class="button-grid">
+          <button class="map-button active" data-map="brain">Brain</button>
+          <button class="map-button" data-map="spinal">Spinal Cord</button>
+          <button class="map-button" data-map="nerves">Peripheral Nerves</button>
+          <button class="map-button" data-map="sensory">Sensory Nerves</button>
+          <button class="map-button" data-map="motor">Motor Nerves</button>
+          <button class="map-button" data-map="spine">Spine</button>
+        </div>
+        <div class="note"><strong>Study tip:</strong> <span id="map-tip">The brain and spinal cord make up the central nervous system.</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="neuron" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Neuron anatomy</p>
+      <h2>Study one neuron part at a time</h2>
+      <p>Press a button and the learning display will show just that one part.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <div class="single-part-view" id="single-part-view">
+          <div class="focus-part show" id="part-dendrites">
+            <div class="focus-shape dendrites-shape"></div>
+            <h3>Dendrites</h3>
+            <p>Branching parts that receive messages from other neurons.</p>
+          </div>
+
+          <div class="focus-part" id="part-cellbody">
+            <div class="focus-shape cellbody-shape"></div>
+            <h3>Cell Body</h3>
+            <p>The main part of the neuron that contains the nucleus and helps keep the cell alive.</p>
+          </div>
+
+          <div class="focus-part" id="part-axon">
+            <div class="focus-shape axon-shape"></div>
+            <h3>Axon</h3>
+            <p>A long pathway that carries the nerve signal away from the cell body.</p>
+          </div>
+
+          <div class="focus-part" id="part-myelin">
+            <div class="focus-shape myelin-shape"></div>
+            <h3>Myelin</h3>
+            <p>A protective covering around parts of the axon that helps signals move faster.</p>
+          </div>
+
+          <div class="focus-part" id="part-terminals">
+            <div class="focus-shape terminals-shape"></div>
+            <h3>Axon Terminals</h3>
+            <p>The ending branches that pass the message to another neuron, muscle, or gland.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3 id="neuron-title">Dendrites</h3>
+        <p id="neuron-copy">Dendrites receive messages from other neurons and carry them toward the cell body.</p>
+
+        <div class="button-grid">
+          <button class="neuron-button active" data-neuron="dendrites">Dendrites</button>
+          <button class="neuron-button" data-neuron="cellbody">Cell Body</button>
+          <button class="neuron-button" data-neuron="axon">Axon</button>
+          <button class="neuron-button" data-neuron="myelin">Myelin</button>
+          <button class="neuron-button" data-neuron="terminals">Axon Terminals</button>
+        </div>
+
+        <div class="note">
+          <strong>Direction:</strong>
+          <span id="neuron-tip">A signal usually moves from dendrites → cell body → axon → terminals.</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="path" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Signal path</p>
+      <h2>How a nerve message travels</h2>
+      <p>This shows a simple path from a body sensation to a body response.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step sensory"><span>1</span><h3>Sensory receptor</h3><p>A receptor notices heat, pressure, pain, or touch.</p></article>
+      <article class="step sensory"><span>2</span><h3>Sensory nerve</h3><p>A sensory nerve carries the message toward the spinal cord and brain.</p></article>
+      <article class="step center"><span>3</span><h3>Spinal cord / brain</h3><p>The central nervous system processes the information.</p></article>
+      <article class="step motor"><span>4</span><h3>Motor nerve</h3><p>A motor nerve carries instructions to a muscle.</p></article>
+      <article class="step motor"><span>5</span><h3>Muscle response</h3><p>The muscle moves or reacts based on the message.</p></article>
+    </div>
+
+    <div class="note"><strong>Simple version:</strong> Receptor → Sensory nerve → Spinal cord / brain → Motor nerve → Muscle</div>
+  </section>
+
+  <section id="reflex" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Reflex arc</p>
+      <h2>Why reflexes are fast</h2>
+      <p>A reflex is a quick protective response. It can use the spinal cord before the brain fully thinks about it.</p>
+    </div>
+
+    <div class="grid-two">
+      <article class="card">
+        <div class="reflex-diagram">
+          <div class="skin-zone">Hot surface</div>
+          <div class="sensory-path">sensory nerve</div>
+          <div class="spinal-zone">spinal cord</div>
+          <div class="motor-path">motor nerve</div>
+          <div class="muscle-zone">muscle pulls away</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Reflex example</h3>
+        <p>If you touch something hot, sensory nerves quickly carry a warning message to the spinal cord. The spinal cord can send a fast motor signal to muscles to pull your hand away.</p>
+        <ul class="study-list">
+          <li><strong>Sensory nerve:</strong> carries information toward the spinal cord.</li>
+          <li><strong>Spinal cord:</strong> helps coordinate the fast response.</li>
+          <li><strong>Motor nerve:</strong> tells muscles to move.</li>
+          <li><strong>Brain:</strong> becomes aware and helps you understand what happened.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="quiz" class="panel">
+    <div class="panel-header">
+      <p class="eyebrow">Study check</p>
+      <h2>Quick review</h2>
+      <p>This is a learning check, not a game score.</p>
+    </div>
+
+    <article class="card quiz-card">
+      <p class="eyebrow">Question <span id="quiz-number">1</span>/6</p>
+      <h3 id="quiz-question">Loading...</h3>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback"></p>
+      <button id="next-question">Next Question</button>
+    </article>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

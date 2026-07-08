@@ -1,0 +1,383 @@
+*{box-sizing:border-box}
+:root{
+  --lav:#D8C7FF;
+  --pur:#8B6DFF;
+  --deep:#3E315C;
+  --ink:#352944;
+  --muted:#6F627A;
+  --blue:#8ED8FF;
+  --aqua:#96F0E5;
+  --pink:#FFB3D7;
+  --paper:rgba(255,255,255,.96);
+  --line:rgba(139,109,255,.24);
+  --shadow:0 24px 60px rgba(62,49,92,.14);
+  --skin:#efc9b8;
+  --skin-border:#f6e9e4;
+  --organ:#b88be9;
+  --nerve:#75c8ff;
+  --spine:#8068ea;
+  --call:#7a6885;
+}
+body{
+  margin:0;min-height:100vh;color:var(--ink);
+  font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(216,199,255,.36),transparent 24%),
+    radial-gradient(circle at 86% 14%,rgba(142,216,255,.28),transparent 22%),
+    radial-gradient(circle at 22% 82%,rgba(255,179,215,.22),transparent 24%),
+    linear-gradient(145deg,#fbf8ff 0%,#f7fbff 44%,#fff7fc 100%)
+}
+.shell{width:min(1260px,calc(100% - 30px));margin:auto;padding:30px 0 54px}
+.hero,.card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:34px;box-shadow:var(--shadow)}
+.hero{
+  display:grid;grid-template-columns:1fr 330px;gap:24px;padding:34px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(216,199,255,.24),rgba(142,216,255,.12),rgba(255,179,215,.14))
+}
+.hero:before,.card:before{content:"";position:absolute;left:22px;right:22px;top:0;height:8px;border-radius:0 0 16px 16px;background:linear-gradient(90deg,var(--lav),var(--pur),var(--blue),var(--pink))}
+.hero:after{content:"NERVE\A SIGNAL";white-space:pre;position:absolute;right:24px;bottom:14px;color:rgba(62,49,92,.06);font-size:clamp(52px,8vw,110px);line-height:.8;letter-spacing:-.08em;font-weight:1000}
+.hero-copy,.hero-card{position:relative;z-index:1}
+.eyebrow{margin:0 0 12px;color:#6F55D8;font-size:12px;font-weight:1000;letter-spacing:.18em;text-transform:uppercase}
+h1{margin:0;font-size:clamp(46px,7vw,84px);line-height:.92;letter-spacing:-.06em;color:var(--ink)}
+h2{margin:0 0 10px;font-size:clamp(30px,4vw,48px);line-height:1;letter-spacing:-.04em}
+h3{margin:0 0 12px;color:#6F55D8;font-size:24px}
+p,li{font-size:17px;color:var(--muted);line-height:1.6}
+.hero-text{font-size:20px;max-width:820px}
+.pill,.memory-line,.note{display:inline-block;padding:10px 16px;border-radius:999px;background:white;border:1px solid rgba(139,109,255,.24);font-weight:1000;color:#6F55D8}
+.hero-card{padding:22px;border-radius:26px;background:rgba(255,255,255,.72);border:1px solid rgba(139,109,255,.20)}
+.signal-line{margin:10px 0 12px;height:92px;border-radius:18px;background:linear-gradient(transparent 48%,rgba(139,109,255,.14) 48% 53%,transparent 53%);position:relative}
+.signal-line:after{content:"";position:absolute;inset:18px 8px;clip-path:polygon(0 55%,16% 55%,22% 24%,30% 78%,40% 36%,50% 55%,64% 55%,70% 24%,78% 78%,88% 55%,100% 55%,100% 64%,0 64%);background:linear-gradient(90deg,var(--pur),var(--blue),var(--pink))}
+.tabs{margin:18px 0 22px;padding:12px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;border-radius:28px;background:rgba(255,255,255,.84);border:1px solid rgba(139,109,255,.18)}
+.tab{border-radius:18px;border:1px solid rgba(139,109,255,.22);padding:14px 10px;background:linear-gradient(180deg,#fff,#faf7ff);color:#6F55D8;font-weight:1000;cursor:pointer}
+.tab.active{color:white;background:linear-gradient(135deg,var(--deep),var(--pur),var(--blue))}
+.panel{display:none;padding:30px;position:relative}.panel.active{display:block}
+.panel-header{margin-bottom:22px;padding-left:16px;border-left:6px solid var(--pur)}
+.grid-two{display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+.card{padding:26px;position:relative}.card>*{position:relative;z-index:1}
+.study-list{margin:0;padding-left:20px}.study-list li{margin:10px 0}
+.button-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+button{border:0;border-radius:18px;padding:14px 16px;background:linear-gradient(135deg,var(--lav),var(--blue));color:var(--deep);font-weight:1000;cursor:pointer}
+.map-button.active,.neuron-button.active,.quiz-choice.selected{color:white;background:linear-gradient(135deg,var(--deep),var(--pur))}
+.note{display:block;margin-top:18px;border-radius:22px}
+.body-map,.reflex-diagram,.single-part-view{min-height:440px;border:2px dashed rgba(139,109,255,.26);border-radius:28px;background:linear-gradient(180deg,#fff,#fbf8ff);position:relative;overflow:hidden}
+.body-map-day16{padding:10px}
+
+/* Day 16 style nervous system figure */
+.ns-figure{position:relative;width:100%;min-height:600px}
+.ns-head,.ns-neck,.ns-torso,.ns-arm,.ns-leg{position:absolute;background:var(--skin);border:6px solid var(--skin-border);box-shadow:0 4px 16px rgba(80,50,90,.06)}
+.ns-head{left:50%;top:32px;transform:translateX(-50%);width:110px;height:130px;border-radius:58px}
+.ns-neck{left:50%;top:148px;transform:translateX(-50%);width:44px;height:44px;border-radius:0 0 18px 18px}
+.ns-torso{left:50%;top:178px;transform:translateX(-50%);width:205px;height:286px;border-radius:56px 56px 88px 88px}
+.ns-arm{width:62px;height:290px;border-radius:999px;top:202px}
+.ns-arm.left{left:124px;transform:rotate(16deg)}
+.ns-arm.right{right:124px;transform:rotate(-16deg)}
+.ns-leg{width:68px;height:252px;top:422px;border-radius:999px}
+.ns-leg.left{left:50%;transform:translateX(-78px)}
+.ns-leg.right{left:50%;transform:translateX(10px)}
+
+.map-layer{position:absolute;opacity:.38;transition:all .22s ease;filter:saturate(.86)}
+.map-layer.active{opacity:1;filter:saturate(1.18);box-shadow:0 0 0 8px rgba(139,109,255,.08),0 0 18px rgba(126,181,255,.24)}
+.ns-brain{left:50%;top:55px;transform:translateX(-50%);width:70px;height:46px;border-radius:28px;background:linear-gradient(135deg,#8f73ff,#d4a3df);border:4px solid white}
+.ns-spinal-cord{left:50%;top:175px;transform:translateX(-50%);width:22px;height:252px;border-radius:999px;background:linear-gradient(180deg,#7861f4,#9bcfff);border:4px solid white}
+.ns-nerve{height:12px;border-radius:999px;background:linear-gradient(90deg,#7cbdf4,#a7e8ff 38%,#72c9ff 68%,#c6f6ff 100%);border:2px solid rgba(255,255,255,.84);box-shadow:0 0 0 2px rgba(123,190,244,.08),0 0 12px rgba(116,201,255,.22),inset 0 0 6px rgba(255,255,255,.46)}
+.ns-nerve:before,.ns-nerve:after{content:"";position:absolute;top:50%;height:5px;border-radius:999px;background:linear-gradient(90deg,rgba(125,196,247,.92),rgba(199,245,255,.9));transform:translateY(-50%);opacity:.9}
+.ns-nerve:before{left:12%;width:26%}
+.ns-nerve:after{right:10%;width:22%}
+.ns-nerve.left-shoulder{left:310px;top:236px;width:88px;transform:rotate(-18deg)}
+.ns-nerve.right-shoulder{right:310px;top:236px;width:88px;transform:rotate(18deg)}
+.ns-nerve.left-arm-upper{left:252px;top:290px;width:118px;transform:rotate(102deg)}
+.ns-nerve.right-arm-upper{right:252px;top:290px;width:118px;transform:rotate(78deg)}
+.ns-nerve.left-arm-lower{left:196px;top:412px;width:128px;transform:rotate(108deg)}
+.ns-nerve.right-arm-lower{right:196px;top:412px;width:128px;transform:rotate(72deg)}
+.ns-nerve.left-rib{left:350px;top:312px;width:78px;transform:rotate(-24deg)}
+.ns-nerve.right-rib{right:350px;top:312px;width:78px;transform:rotate(24deg)}
+.ns-nerve.left-hip{left:347px;top:438px;width:76px;transform:rotate(28deg)}
+.ns-nerve.right-hip{right:347px;top:438px;width:76px;transform:rotate(-28deg)}
+.ns-nerve.left-leg{left:364px;top:520px;width:126px;transform:rotate(102deg)}
+.ns-nerve.right-leg{right:364px;top:520px;width:126px;transform:rotate(78deg)}
+
+.ns-node{position:absolute;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f7ffff 0 18%,#81caf6 28%,#76dcff 68%,#5faef3 100%);border:3px solid white;box-shadow:0 8px 16px rgba(90,166,235,.18)}
+.ns-node.n1{left:389px;top:233px}.ns-node.n2{right:389px;top:233px}.ns-node.n3{left:384px;top:436px}.ns-node.n4{right:384px;top:436px}.ns-node.n5{left:428px;top:307px}.ns-node.n6{right:428px;top:307px}
+
+.callout{position:absolute;display:flex;align-items:center;gap:10px;color:var(--call);font-weight:1000}
+.callout .dot{width:58px;height:58px;border-radius:50%;border:5px solid white;box-shadow:0 6px 18px rgba(70,50,80,.08)}
+.callout .line{height:5px;background:#7f6d88;border-radius:999px}
+.callout .label{display:inline-flex;align-items:center;gap:8px;font-size:17px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(127,109,136,.15);box-shadow:0 6px 14px rgba(90,70,100,.06)}
+.callout .label-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#f1ebff,#d8efff);font-size:15px;box-shadow:inset 0 0 0 1px rgba(127,109,136,.12)}
+.brain-callout{left:16px;top:78px}.brain-callout .dot{background:#d88fb9}.brain-callout .line{width:110px}
+.spinal-callout{right:12px;top:172px;flex-direction:row-reverse}.spinal-callout .dot{background:#9f8cf7}.spinal-callout .line{width:104px}
+.peripheral-callout{left:16px;top:324px}.peripheral-callout .dot{background:#88d7f7}.peripheral-callout .line{width:98px}
+.sensory-callout{right:10px;top:314px;flex-direction:row-reverse}.sensory-callout .dot{background:#c3ecff}.sensory-callout .line{width:104px}
+.motor-callout{left:8px;top:490px}.motor-callout .dot{background:#9ed3ff}.motor-callout .line{width:118px}
+.spine-callout{right:10px;top:498px;flex-direction:row-reverse}.spine-callout .dot{background:#7e67ea}.spine-callout .line{width:114px}
+
+.single-part-view{display:grid;place-items:center;padding:24px}
+.focus-part{display:none;text-align:center;max-width:460px}.focus-part.show{display:block}
+.focus-shape{margin:0 auto 18px;position:relative}
+.dendrites-shape{width:220px;height:220px;background:linear-gradient(135deg,#e9c2f0,#c8b4ff);clip-path:polygon(100% 48%,66% 38%,56% 0,42% 34%,12% 12%,30% 50%,0 74%,38% 72%,48% 100%,62% 68%);filter:drop-shadow(0 16px 22px rgba(139,109,255,.18))}
+.cellbody-shape{width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,#8B6DFF,#D8A7D8);box-shadow:inset 0 0 0 16px rgba(255,255,255,.15),0 18px 24px rgba(139,109,255,.16)}
+.axon-shape{width:320px;height:36px;border-radius:999px;background:linear-gradient(90deg,#7a6af8,#73b2ff);box-shadow:0 16px 20px rgba(139,109,255,.12)}
+.myelin-shape{width:320px;height:72px;border-radius:999px;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.94) 0 18px, transparent 18px 100%),linear-gradient(90deg,#6f63f6 0 22%,#d7d1f9 22% 45%,#7cc9ff 45% 68%,#d7d1f9 68% 100%);box-shadow:0 16px 20px rgba(139,109,255,.12)}
+.terminals-shape{width:260px;height:230px;background:linear-gradient(135deg,#8be2ee,#8fb2ff);clip-path:polygon(14% 70%,34% 52%,22% 28%,50% 46%,74% 22%,62% 48%,100% 46%,72% 60%,88% 84%,58% 70%,42% 100%,38% 72%);filter:drop-shadow(0 16px 22px rgba(139,109,255,.16))}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.step{min-height:250px;padding:22px;border-radius:26px;background:white;border:1px solid rgba(139,109,255,.20);box-shadow:var(--shadow)}
+.step span{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;color:white;font-size:22px;font-weight:1000;margin-bottom:14px}
+.sensory span{background:linear-gradient(135deg,var(--blue),var(--aqua))}.center span{background:linear-gradient(135deg,var(--deep),var(--pur))}.motor span{background:linear-gradient(135deg,var(--pink),var(--pur))}
+.reflex-diagram{display:grid;place-items:center}
+.skin-zone,.spinal-zone,.muscle-zone{position:absolute;width:150px;height:90px;border-radius:24px;display:grid;place-items:center;color:white;font-weight:1000;text-align:center;border:5px solid white}
+.skin-zone{left:48px;top:178px;background:linear-gradient(135deg,var(--pink),#ff8fbd)}
+.spinal-zone{left:50%;top:172px;transform:translateX(-50%);background:linear-gradient(135deg,var(--deep),var(--pur))}
+.muscle-zone{right:48px;top:178px;background:linear-gradient(135deg,var(--blue),var(--aqua))}
+.sensory-path,.motor-path{position:absolute;height:10px;border-radius:999px;color:var(--deep);font-weight:1000;padding-top:14px}
+.sensory-path{left:190px;right:50%;top:214px;background:linear-gradient(90deg,var(--pink),var(--pur))}
+.motor-path{left:50%;right:190px;top:214px;background:linear-gradient(90deg,var(--pur),var(--blue));text-align:right}
+.quiz-card{max-width:840px;margin:auto}.quiz-choices{display:grid;gap:10px;margin:16px 0}.quiz-choice{text-align:left;background:#fbf8ff;border:1px solid rgba(139,109,255,.22)}
+#quiz-feedback.correct{color:#6F55D8;font-weight:1000}#quiz-feedback.wrong{color:#B2607D;font-weight:1000}
+
+@media(max-width:1100px){.hero,.grid-two{grid-template-columns:1fr}.tabs{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .ns-figure{min-height:540px;transform:scale(.9);transform-origin:top center}
+}
+@media(max-width:700px){
+  .shell{width:min(100% - 20px,1260px);padding-top:18px}
+  .hero,.panel,.card{border-radius:26px;padding:22px}
+  .tabs,.button-grid{grid-template-columns:1fr}
+  h1{font-size:40px}
+  .focus-shape{transform:scale(.88)}
+  .ns-figure{min-height:480px;transform:scale(.72);transform-origin:top center}
+}
+
+
+/* v5 blue medical theme */
+:root{
+  --blue-ice:#EAF8FF;
+  --blue-soft:#CDEEFF;
+  --blue-sky:#8ED8FF;
+  --blue-aqua:#72E5F4;
+  --blue-mid:#3AA7FF;
+  --blue-deep:#245D9C;
+  --blue-navy:#173B67;
+  --blue-ink:#143252;
+}
+
+/* full page blue background */
+body{
+  background:
+    radial-gradient(circle at 10% 10%,rgba(142,216,255,.38),transparent 24%),
+    radial-gradient(circle at 86% 14%,rgba(114,229,244,.30),transparent 22%),
+    radial-gradient(circle at 22% 82%,rgba(205,238,255,.34),transparent 24%),
+    linear-gradient(145deg,#f4fbff 0%,#eef9ff 42%,#f8fdff 100%) !important;
+  color:var(--blue-ink) !important;
+}
+
+/* blue cards and hero */
+.hero{
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.98),rgba(205,238,255,.38),rgba(142,216,255,.18),rgba(114,229,244,.14)) !important;
+  border-color:rgba(58,167,255,.24) !important;
+}
+
+.panel,
+.card{
+  border-color:rgba(58,167,255,.24) !important;
+}
+
+.hero:before,
+.card:before{
+  background:linear-gradient(90deg,var(--blue-soft),var(--blue-sky),var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.hero:after{
+  color:rgba(23,59,103,.055) !important;
+}
+
+.eyebrow,
+h3,
+.pill,
+.memory-line,
+.note,
+.tab,
+#quiz-feedback.correct{
+  color:var(--blue-deep) !important;
+}
+
+h1,
+h2{
+  color:var(--blue-ink) !important;
+}
+
+p,
+li{
+  color:#55718B !important;
+}
+
+/* tabs and buttons */
+.tabs{
+  background:rgba(255,255,255,.88) !important;
+  border-color:rgba(58,167,255,.22) !important;
+}
+
+.tab{
+  background:linear-gradient(180deg,#ffffff,var(--blue-ice)) !important;
+  border-color:rgba(58,167,255,.26) !important;
+}
+
+.tab.active,
+.map-button.active,
+.neuron-button.active,
+.quiz-choice.selected{
+  background:linear-gradient(135deg,var(--blue-navy),var(--blue-mid),var(--blue-aqua)) !important;
+  color:white !important;
+}
+
+button{
+  background:linear-gradient(135deg,var(--blue-soft),var(--blue-sky),var(--blue-aqua)) !important;
+  color:var(--blue-navy) !important;
+  border:1px solid rgba(58,167,255,.20) !important;
+}
+
+/* blue notes */
+.pill,
+.memory-line,
+.note{
+  background:linear-gradient(135deg,#ffffff,var(--blue-ice),rgba(205,238,255,.55)) !important;
+  border-color:rgba(58,167,255,.24) !important;
+}
+
+/* blue signal monitor */
+.signal-line{
+  background:linear-gradient(transparent 48%,rgba(58,167,255,.18) 48% 53%,transparent 53%) !important;
+}
+
+.signal-line:after{
+  background:linear-gradient(90deg,var(--blue-navy),var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.hero-card{
+  border-color:rgba(58,167,255,.20) !important;
+  background:rgba(255,255,255,.76) !important;
+}
+
+/* nervous system diagram */
+.body-map,
+.reflex-diagram,
+.single-part-view{
+  background:linear-gradient(180deg,#ffffff,var(--blue-ice)) !important;
+  border-color:rgba(58,167,255,.24) !important;
+}
+
+.ns-brain{
+  background:linear-gradient(135deg,var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.ns-spinal-cord{
+  background:linear-gradient(180deg,var(--blue-navy),var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.ns-nerve{
+  background:linear-gradient(90deg,var(--blue-mid),#B7F3FF 38%,var(--blue-aqua) 68%,#E9FCFF 100%) !important;
+  box-shadow:
+    0 0 0 2px rgba(58,167,255,.08),
+    0 0 14px rgba(58,167,255,.24),
+    inset 0 0 6px rgba(255,255,255,.52) !important;
+}
+
+.ns-nerve:before,
+.ns-nerve:after{
+  background:linear-gradient(90deg,rgba(58,167,255,.92),rgba(207,247,255,.9)) !important;
+}
+
+.ns-node{
+  background:radial-gradient(circle at 35% 35%,#ffffff 0 18%,#9FE8FF 28%,#50CFFF 68%,#2889D9 100%) !important;
+}
+
+/* callout icons and labels in blue */
+.callout .label{
+  color:var(--blue-navy) !important;
+  background:rgba(255,255,255,.94) !important;
+  border-color:rgba(58,167,255,.18) !important;
+}
+
+.callout .label-icon{
+  background:linear-gradient(135deg,var(--blue-ice),var(--blue-soft)) !important;
+}
+
+.callout .line{
+  background:#4E83AD !important;
+}
+
+.brain-callout .dot,
+.spinal-callout .dot,
+.peripheral-callout .dot,
+.sensory-callout .dot,
+.motor-callout .dot,
+.spine-callout .dot{
+  background:linear-gradient(135deg,var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+/* neuron individual parts in blue */
+.dendrites-shape{
+  background:linear-gradient(135deg,var(--blue-soft),var(--blue-aqua)) !important;
+}
+
+.cellbody-shape{
+  background:linear-gradient(135deg,var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.axon-shape{
+  background:linear-gradient(90deg,var(--blue-navy),var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.myelin-shape{
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.96) 0 18px, transparent 18px 100%),
+    linear-gradient(90deg,var(--blue-navy) 0 22%,var(--blue-soft) 22% 45%,var(--blue-mid) 45% 68%,var(--blue-soft) 68% 100%) !important;
+}
+
+.terminals-shape{
+  background:linear-gradient(135deg,var(--blue-aqua),var(--blue-mid)) !important;
+}
+
+/* reflex section */
+.skin-zone{
+  background:linear-gradient(135deg,var(--blue-soft),var(--blue-sky)) !important;
+  color:var(--blue-navy) !important;
+}
+
+.spinal-zone{
+  background:linear-gradient(135deg,var(--blue-navy),var(--blue-mid)) !important;
+}
+
+.muscle-zone{
+  background:linear-gradient(135deg,var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+.sensory-path{
+  background:linear-gradient(90deg,var(--blue-soft),var(--blue-mid)) !important;
+}
+
+.motor-path{
+  background:linear-gradient(90deg,var(--blue-mid),var(--blue-aqua)) !important;
+}
+
+/* quiz */
+.quiz-choice{
+  background:#f6fcff !important;
+  border-color:rgba(58,167,255,.22) !important;
+}
+
+#quiz-feedback.wrong{
+  color:#2B74A8 !important;
+}
+
+/* Day 17 blue cleanup */
+.panel-header{
+  border-left: 6px solid #3AA7FF !important;
+}
+
+.sensory span,
+.center span,
+.motor span,
+.step span{
+  background: linear-gradient(135deg, #173B67, #3AA7FF, #72E5F4) !important;
+  color: white !important;
+}

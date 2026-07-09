@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Operating Room Sterile Technique Lab · Day 18</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+<header class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">Junior Medical School · Day 18</p>
+    <h1>Operating Room Sterile Technique Lab</h1>
+    <p class="hero-text">Learn how operating rooms stay clean, what a sterile field is, why PPE matters, and how surgical teams reduce the risk of germs and infection.</p>
+    <div class="pill">Educational simulation only · Not medical advice</div>
+  </div>
+  <aside class="hero-card">
+    <p class="eyebrow">OR cleanliness concept</p>
+    <div class="sterile-monitor"><span class="pulse"></span><span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span></div>
+    <p>A sterile environment helps protect patients during procedures.</p>
+  </aside>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="overview">1. Overview</button>
+  <button class="tab" data-tab="ormap">2. OR Map</button>
+  <button class="tab" data-tab="sterile">3. Sterile Field</button>
+  <button class="tab" data-tab="ppe">4. PPE + Scrub</button>
+  <button class="tab" data-tab="infection">5. Infection Prevention</button>
+  <button class="tab" data-tab="quiz">6. Study Check</button>
+</nav>
+
+<section id="overview" class="panel active">
+  <div class="panel-header">
+    <p class="eyebrow">Overview</p>
+    <h2>Why sterile technique matters</h2>
+    <p>Sterile technique means using careful habits to keep germs away from areas, tools, and materials that need to stay clean during medical procedures.</p>
+  </div>
+  <div class="grid-two">
+    <article class="card">
+      <h3>Big ideas</h3>
+      <ul class="study-list">
+        <li><strong>Sterile:</strong> kept free from germs as much as possible.</li>
+        <li><strong>Non-sterile:</strong> not clean enough to touch sterile items.</li>
+        <li><strong>Sterile field:</strong> the protected clean area for sterile tools and supplies.</li>
+        <li><strong>PPE:</strong> protective equipment like masks, gowns, and gloves.</li>
+        <li><strong>Infection prevention:</strong> steps that lower the chance of germs entering the body.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Memory line</h3>
+      <div class="memory-line">Clean hands → PPE → Sterile field → Safe procedure</div>
+      <p>Real operating rooms use trained teams, strict protocols, and careful monitoring. This project is just a learning model.</p>
+    </article>
+  </div>
+</section>
+
+<section id="ormap" class="panel">
+  <div class="panel-header">
+    <p class="eyebrow">Operating room map</p>
+    <h2>Important OR zones</h2>
+    <p>Click each button to highlight a part of the operating room and learn what it does.</p>
+  </div>
+  <div class="grid-two">
+    <article class="card">
+      <div class="or-map or-single-view">
+        <div class="or-focus show" id="or-lights">
+          <div class="or-focus-shape lights-shape">
+            <span class="light-beam b1"></span>
+            <span class="light-beam b2"></span>
+            <span class="light-beam b3"></span>
+          </div>
+          <h3>OR Lights</h3>
+          <p>Bright surgical lights help the team see clearly while working in an organized operating room.</p>
+        </div>
+
+        <div class="or-focus" id="or-table">
+          <div class="or-focus-shape table-shape">
+            <span class="table-pad"></span>
+            <span class="table-base"></span>
+          </div>
+          <h3>Procedure Table</h3>
+          <p>The procedure table is where the patient is positioned and protected by the trained care team.</p>
+        </div>
+
+        <div class="or-focus" id="or-tray">
+          <div class="or-focus-shape tray-shape">
+            <span class="mini-tool forceps-tool">forceps</span>
+            <span class="mini-tool gauze-tool">gauze</span>
+            <span class="mini-tool drape-tool">drape</span>
+          </div>
+          <h3>Sterile Tray</h3>
+          <p>The sterile tray holds tools and supplies that must stay protected from contamination.</p>
+        </div>
+
+        <div class="or-focus" id="or-sink">
+          <div class="or-focus-shape sink-shape">
+            <span class="faucet"></span>
+            <span class="water-drop d1"></span>
+            <span class="water-drop d2"></span>
+            <span class="water-drop d3"></span>
+          </div>
+          <h3>Scrub Sink</h3>
+          <p>The scrub sink is used for careful hand and arm cleaning before sterile work.</p>
+        </div>
+
+        <div class="or-focus" id="or-ppe">
+          <div class="or-focus-shape ppe-shape">
+            <span class="ppe-icon mask-icon">mask</span>
+            <span class="ppe-icon gown-icon">gown</span>
+            <span class="ppe-icon glove-icon">gloves</span>
+          </div>
+          <h3>PPE Station</h3>
+          <p>The PPE station holds protective equipment like masks, caps, gowns, and gloves.</p>
+        </div>
+
+        <div class="or-focus" id="or-monitor">
+          <div class="or-focus-shape monitor-shape">
+            <span class="monitor-line"></span>
+          </div>
+          <h3>Monitor</h3>
+          <p>Monitors help the team watch important patient information during care.</p>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <h3 id="zone-title">OR Lights</h3>
+      <p id="zone-copy">OR lights help the surgical team see clearly while keeping the room organized.</p>
+      <div class="button-grid">
+        <button class="zone-button active" data-zone="lights">OR Lights</button>
+        <button class="zone-button" data-zone="table">Procedure Table</button>
+        <button class="zone-button" data-zone="tray">Sterile Tray</button>
+        <button class="zone-button" data-zone="sink">Scrub Sink</button>
+        <button class="zone-button" data-zone="ppe">PPE Station</button>
+        <button class="zone-button" data-zone="monitor">Monitor</button>
+      </div>
+      <div class="note"><strong>Study tip:</strong> <span id="zone-tip">The OR is arranged so clean and sterile areas are protected.</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="sterile" class="panel">
+  <div class="panel-header">
+    <p class="eyebrow">Sterile field</p>
+    <h2>Sterile vs non-sterile</h2>
+    <p>Click a concept to see the difference.</p>
+  </div>
+  <div class="grid-two">
+    <article class="card">
+      <div class="sterile-field-view sterile-single-view">
+        <div class="field-focus show" id="field-sterile">
+          <div class="field-focus-shape sterile-field-shape">
+            <span class="sterile-tool ft1">forceps</span>
+            <span class="sterile-tool ft2">gauze</span>
+            <span class="sterile-tool ft3">drape</span>
+          </div>
+          <h3>Sterile Field</h3>
+          <p>A protected clean area where sterile tools and supplies are placed.</p>
+        </div>
+
+        <div class="field-focus" id="field-nonsterile">
+          <div class="field-focus-shape nonsterile-shape">
+            <span class="nonsterile-item">door handle</span>
+            <span class="nonsterile-item">floor</span>
+            <span class="nonsterile-item">outside area</span>
+          </div>
+          <h3>Non-Sterile Area</h3>
+          <p>An area that is not clean enough to touch sterile tools or supplies.</p>
+        </div>
+
+        <div class="field-focus" id="field-boundary">
+          <div class="field-focus-shape boundary-shape">
+            <span class="boundary-box"></span>
+            <span class="boundary-label">sterile boundary</span>
+          </div>
+          <h3>Sterile Boundary</h3>
+          <p>The edge that reminds the team where the protected clean area begins and ends.</p>
+        </div>
+
+        <div class="field-focus" id="field-contamination">
+          <div class="field-focus-shape contamination-shape">
+            <span class="clean-area">sterile</span>
+            <span class="contam-touch">non-sterile touch</span>
+            <span class="warning-mark">!</span>
+          </div>
+          <h3>Contamination</h3>
+          <p>When something sterile may have touched something non-sterile or unclean.</p>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <h3 id="field-title">Sterile Field</h3>
+      <p id="field-copy">The sterile field is a protected clean area where sterile tools and supplies are placed.</p>
+      <div class="button-grid">
+        <button class="field-button active" data-field="sterile">Sterile Field</button>
+        <button class="field-button" data-field="nonsterile">Non-Sterile Area</button>
+        <button class="field-button" data-field="boundary">Sterile Boundary</button>
+        <button class="field-button" data-field="contamination">Contamination</button>
+      </div>
+      <div class="note"><strong>Key rule:</strong> <span id="field-tip">Sterile items should only touch other sterile items.</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="ppe" class="panel">
+  <div class="panel-header">
+    <p class="eyebrow">PPE + scrub</p>
+    <h2>Protective equipment</h2>
+    <p>Click each item to learn how it helps protect the patient and the healthcare team.</p>
+  </div>
+  <div class="grid-two">
+    <article class="card">
+      <div class="ppe-person">
+        <div class="person-head"></div>
+        <div class="cap ppe-part" data-ppe="cap">Cap</div>
+        <div class="mask ppe-part active" data-ppe="mask">Mask</div>
+        <div class="gown ppe-part" data-ppe="gown">Gown</div>
+        <div class="glove left ppe-part" data-ppe="gloves">Glove</div>
+        <div class="glove right ppe-part" data-ppe="gloves">Glove</div>
+        <div class="scrub-clock">Hand hygiene first</div>
+      </div>
+    </article>
+    <article class="card">
+      <h3 id="ppe-title">Mask</h3>
+      <p id="ppe-copy">A mask helps reduce droplets from the mouth and nose from spreading into the clean area.</p>
+      <div class="button-grid">
+        <button class="ppe-button active" data-ppe="mask">Mask</button>
+        <button class="ppe-button" data-ppe="cap">Cap</button>
+        <button class="ppe-button" data-ppe="gown">Gown</button>
+        <button class="ppe-button" data-ppe="gloves">Sterile Gloves</button>
+        <button class="ppe-button" data-ppe="hands">Hand Hygiene</button>
+      </div>
+      <div class="note"><strong>Important:</strong> <span id="ppe-tip">PPE works best when used with careful technique and training.</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="infection" class="panel">
+  <div class="panel-header">
+    <p class="eyebrow">Infection prevention</p>
+    <h2>How teams lower risk</h2>
+    <p>This is a high-level learning sequence, not real medical instructions.</p>
+  </div>
+  <div class="steps">
+    <article class="step"><span>1</span><h3>Clean hands</h3><p>Hand hygiene helps reduce germs before touching clean supplies.</p></article>
+    <article class="step"><span>2</span><h3>Use PPE</h3><p>Masks, caps, gowns, and gloves create protective barriers.</p></article>
+    <article class="step"><span>3</span><h3>Protect the field</h3><p>Sterile tools stay in a protected clean area.</p></article>
+    <article class="step"><span>4</span><h3>Watch boundaries</h3><p>Teams avoid mixing sterile and non-sterile areas.</p></article>
+    <article class="step"><span>5</span><h3>Speak up</h3><p>If something becomes unclean, the team communicates and fixes it safely.</p></article>
+  </div>
+  <div class="note"><strong>Simple version:</strong> Clean → Cover → Protect → Watch → Communicate</div>
+</section>
+
+<section id="quiz" class="panel">
+  <div class="panel-header">
+    <p class="eyebrow">Study check</p>
+    <h2>Quick review</h2>
+    <p>This is a learning check, not a game score.</p>
+  </div>
+  <article class="card quiz-card">
+    <p class="eyebrow">Question <span id="quiz-number">1</span>/6</p>
+    <h3 id="quiz-question">Loading...</h3>
+    <div id="quiz-choices" class="quiz-choices"></div>
+    <p id="quiz-feedback"></p>
+    <button id="next-question">Next Question</button>
+  </article>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

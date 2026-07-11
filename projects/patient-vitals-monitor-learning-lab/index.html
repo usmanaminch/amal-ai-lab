@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Patient Vitals Monitor Learning Lab · Day 19</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Junior Medical School · Day 19</p>
+      <h1>Patient Vitals Monitor Learning Lab</h1>
+      <p>
+        Learn how care teams watch important body signals like heart rate,
+        oxygen level, breathing, blood pressure, and temperature.
+      </p>
+      <div class="notice">Educational simulation only · Not medical advice</div>
+    </div>
+
+    <div class="hero-monitor">
+      <div class="monitor-top">
+        <span>LIVE LEARNING MONITOR</span>
+        <i></i>
+      </div>
+      <div class="heartbeat-line"></div>
+      <div class="mini-readings">
+        <strong>HR 82</strong>
+        <strong>O₂ 98%</strong>
+        <strong>BP 110/70</strong>
+      </div>
+    </div>
+  </header>
+
+  <nav class="side-nav" aria-label="Day 19 sections">
+    <button class="nav-button active" data-section="overview">Overview</button>
+    <button class="nav-button" data-section="monitor">Vitals Monitor</button>
+    <button class="nav-button" data-section="vitals">Vital Signs</button>
+    <button class="nav-button" data-section="team">Safety Team</button>
+    <button class="nav-button" data-section="quiz">Study Check</button>
+  </nav>
+
+  <section class="panel active" id="overview">
+    <div class="panel-header">
+      <p class="eyebrow">Start here</p>
+      <h2>What are patient vitals?</h2>
+      <p>
+        Vitals are body signals that help trained medical teams understand how a
+        patient is doing. This project explains the big ideas in a safe, kid-friendly way.
+      </p>
+    </div>
+
+    <div class="overview-grid">
+      <article class="info-card red">
+        <span>❤️</span>
+        <h3>Heart Rate</h3>
+        <p>How many times the heart beats in one minute.</p>
+      </article>
+      <article class="info-card blue">
+        <span>🫁</span>
+        <h3>Oxygen</h3>
+        <p>How much oxygen is being carried in the blood.</p>
+      </article>
+      <article class="info-card green">
+        <span>🌬️</span>
+        <h3>Breathing</h3>
+        <p>How often the patient breathes in one minute.</p>
+      </article>
+      <article class="info-card gold">
+        <span>🌡️</span>
+        <h3>Temperature</h3>
+        <p>How warm the body is.</p>
+      </article>
+    </div>
+
+    <div class="memory-box">
+      <strong>Memory line:</strong>
+      <span>Vitals are clues. The care team watches the clues to help keep the patient safe.</span>
+    </div>
+  </section>
+
+  <section class="panel" id="monitor">
+    <div class="panel-header">
+      <p class="eyebrow">Interactive dashboard</p>
+      <h2>Vitals monitor</h2>
+      <p>Click a reading to focus on one body signal at a time.</p>
+    </div>
+
+    <div class="monitor-layout">
+      <article class="big-monitor">
+        <div class="screen-header">
+          <span>Patient Learning Monitor</span>
+          <span class="safe-dot">stable learning mode</span>
+        </div>
+
+        <div class="wave-screen">
+          <svg viewBox="0 0 900 230" role="img" aria-label="heartbeat wave">
+            <path class="grid-line" d="M0 45 H900 M0 92 H900 M0 138 H900 M0 184 H900"/>
+            <path class="wave" d="M0 136 L80 136 L105 84 L132 178 L160 136 L250 136 L275 90 L305 176 L335 136 L425 136 L455 72 L488 186 L520 136 L610 136 L640 96 L672 170 L704 136 L800 136 L828 80 L860 184 L900 136"/>
+          </svg>
+        </div>
+
+        <div class="reading-grid">
+          <button class="reading-card active" data-vital="heart">
+            <span>❤️</span><strong>Heart Rate</strong><em>82 bpm</em>
+          </button>
+          <button class="reading-card" data-vital="oxygen">
+            <span>🫁</span><strong>Oxygen</strong><em>98%</em>
+          </button>
+          <button class="reading-card" data-vital="blood">
+            <span>🩸</span><strong>Blood Pressure</strong><em>110/70</em>
+          </button>
+          <button class="reading-card" data-vital="breathing">
+            <span>🌬️</span><strong>Breathing Rate</strong><em>16/min</em>
+          </button>
+          <button class="reading-card" data-vital="temp">
+            <span>🌡️</span><strong>Temperature</strong><em>98.6°F</em>
+          </button>
+        </div>
+      </article>
+
+      <aside class="focus-panel">
+        <div class="focus-icon" id="focus-icon">❤️</div>
+        <h3 id="focus-title">Heart Rate</h3>
+        <p id="focus-copy">Heart rate tells how many times the heart beats in one minute.</p>
+        <div class="why-card">
+          <strong>Why it matters:</strong>
+          <span id="focus-why">It helps the team understand how hard the heart is working.</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="panel" id="vitals">
+    <div class="panel-header">
+      <p class="eyebrow">One at a time</p>
+      <h2>Vital signs study cards</h2>
+      <p>Pick one vital sign and study its meaning.</p>
+    </div>
+
+    <div class="study-layout">
+      <aside class="study-buttons">
+        <button class="study-button active" data-vital="heart">Heart Rate</button>
+        <button class="study-button" data-vital="oxygen">Oxygen Level</button>
+        <button class="study-button" data-vital="blood">Blood Pressure</button>
+        <button class="study-button" data-vital="breathing">Breathing Rate</button>
+        <button class="study-button" data-vital="temp">Temperature</button>
+      </aside>
+
+      <article class="study-card">
+        <div class="study-icon" id="study-icon">❤️</div>
+        <h3 id="study-title">Heart Rate</h3>
+        <p id="study-copy">Heart rate tells how many times the heart beats in one minute.</p>
+        <ul id="study-list">
+          <li>The heart pumps blood through the body.</li>
+          <li>A monitor can show the heartbeat pattern.</li>
+          <li>Trained teams look for changes over time.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel" id="team">
+    <div class="panel-header">
+      <p class="eyebrow">Teamwork</p>
+      <h2>Who watches vitals?</h2>
+      <p>In real care, trained professionals work together and follow safety rules.</p>
+    </div>
+
+    <div class="team-map">
+      <article class="team-card">
+        <span>🩺</span>
+        <h3>Doctor / Surgeon</h3>
+        <p>Focuses on the medical plan and patient safety.</p>
+      </article>
+      <article class="team-card">
+        <span>😷</span>
+        <h3>Anesthesia Team</h3>
+        <p>Specially trained professionals who watch breathing, comfort, and safety.</p>
+      </article>
+      <article class="team-card">
+        <span>👩‍⚕️</span>
+        <h3>Nurse</h3>
+        <p>Helps prepare, observe, communicate, and support safe care.</p>
+      </article>
+      <article class="team-card">
+        <span>🖥️</span>
+        <h3>Monitor</h3>
+        <p>Shows readings that help the team notice changes.</p>
+      </article>
+    </div>
+
+    <div class="memory-box">
+      <strong>Safety idea:</strong>
+      <span>No one person watches everything alone. Patient safety is teamwork.</span>
+    </div>
+  </section>
+
+  <section class="panel" id="quiz">
+    <div class="panel-header">
+      <p class="eyebrow">Study check</p>
+      <h2>Day 19 quiz</h2>
+      <p>Answer the questions to review what you learned.</p>
+    </div>
+
+    <article class="quiz-card">
+      <p class="quiz-count">Question <span id="quiz-number">1</span>/6</p>
+      <h3 id="quiz-question">Loading...</h3>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback"></p>
+      <button id="next-question">Next Question</button>
+    </article>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

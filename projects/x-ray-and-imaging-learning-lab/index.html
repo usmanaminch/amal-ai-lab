@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>X-Ray and Imaging Learning Lab · Day 20</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="shell">
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Junior Medical School · Day 20</p>
+      <h1>X-Ray and Imaging Learning Lab</h1>
+      <p>
+        Explore how doctors use medical imaging to look inside the body in safe,
+        helpful, and non-invasive ways.
+      </p>
+      <div class="notice">Educational simulation only · Not medical advice · Not diagnosis</div>
+    </div>
+
+    <div class="hero-scan">
+      <div class="scan-screen">
+        <div class="scan-grid"></div>
+        <div class="body-outline">
+          <span class="head"></span>
+          <span class="spine"></span>
+          <span class="ribs"></span>
+          <span class="pelvis"></span>
+        </div>
+        <div class="scan-line"></div>
+      </div>
+      <div class="scan-labels">
+        <strong>X-RAY</strong>
+        <strong>MRI</strong>
+        <strong>CT</strong>
+        <strong>ULTRASOUND</strong>
+      </div>
+    </div>
+  </header>
+
+  <nav class="side-nav" aria-label="Day 20 sections">
+    <button class="nav-button active" data-section="overview">Overview</button>
+    <button class="nav-button" data-section="scanner">Imaging Scanner</button>
+    <button class="nav-button" data-section="types">Scan Types</button>
+    <button class="nav-button" data-section="match">Match Lab</button>
+    <button class="nav-button" data-section="safety">Safety</button>
+    <button class="nav-button" data-section="quiz">Study Check</button>
+  </nav>
+
+  <section class="panel active" id="overview">
+    <div class="panel-header">
+      <p class="eyebrow">Start here</p>
+      <h2>What is medical imaging?</h2>
+      <p>
+        Medical imaging helps trained doctors and medical teams see inside the body.
+        Different scans show different clues, like bones, soft tissues, organs, or movement.
+      </p>
+    </div>
+
+    <div class="overview-grid">
+      <article class="info-card xray">
+        <span>🦴</span>
+        <h3>X-Ray</h3>
+        <p>Great for seeing bones, fractures, teeth, and chest clues.</p>
+      </article>
+      <article class="info-card mri">
+        <span>🧠</span>
+        <h3>MRI</h3>
+        <p>Great for soft tissues like the brain, muscles, joints, and spine.</p>
+      </article>
+      <article class="info-card ct">
+        <span>🌀</span>
+        <h3>CT Scan</h3>
+        <p>Uses many X-ray pictures to make detailed slice views.</p>
+      </article>
+      <article class="info-card ultra">
+        <span>👶</span>
+        <h3>Ultrasound</h3>
+        <p>Uses sound waves to see organs, blood flow, and babies before birth.</p>
+      </article>
+    </div>
+
+    <div class="memory-box">
+      <strong>Memory line:</strong>
+      <span>Each scan has a superpower. Doctors pick the scan that best answers the question.</span>
+    </div>
+  </section>
+
+  <section class="panel" id="scanner">
+    <div class="panel-header">
+      <p class="eyebrow">Interactive scan station</p>
+      <h2>Imaging scanner</h2>
+      <p>Click a scan type to see one imaging idea at a time.</p>
+    </div>
+
+    <div class="scanner-layout">
+      <article class="scanner-machine">
+        <div class="machine-top">
+          <span id="machine-mode">X-Ray Mode</span>
+          <i></i>
+        </div>
+
+        <div class="scan-window" id="scan-window">
+          <div class="xray-body">
+            <span class="skull"></span>
+            <span class="ribcage"></span>
+            <span class="spine-bone"></span>
+            <span class="arm left"></span>
+            <span class="arm right"></span>
+          </div>
+          <div class="moving-scan"></div>
+        </div>
+
+        <div class="scan-buttons">
+          <button class="scan-button active" data-scan="xray">X-Ray</button>
+          <button class="scan-button" data-scan="mri">MRI</button>
+          <button class="scan-button" data-scan="ct">CT</button>
+          <button class="scan-button" data-scan="ultrasound">Ultrasound</button>
+        </div>
+      </article>
+
+      <aside class="focus-panel">
+        <div class="focus-icon" id="focus-icon">🦴</div>
+        <h3 id="focus-title">X-Ray</h3>
+        <p id="focus-copy">X-rays are often used to look at bones and chest images.</p>
+        <div class="why-card">
+          <strong>Best clue:</strong>
+          <span id="focus-why">Bones show up clearly, so X-rays can help find fractures.</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="panel" id="types">
+    <div class="panel-header">
+      <p class="eyebrow">One scan at a time</p>
+      <h2>Study the scan types</h2>
+      <p>Pick one imaging type and learn what makes it different.</p>
+    </div>
+
+    <div class="study-layout">
+      <aside class="study-buttons">
+        <button class="study-button active" data-scan="xray">X-Ray</button>
+        <button class="study-button" data-scan="mri">MRI</button>
+        <button class="study-button" data-scan="ct">CT Scan</button>
+        <button class="study-button" data-scan="ultrasound">Ultrasound</button>
+      </aside>
+
+      <article class="study-card">
+        <div class="study-icon" id="study-icon">🦴</div>
+        <h3 id="study-title">X-Ray</h3>
+        <p id="study-copy">X-rays are often used to look at bones and chest images.</p>
+        <ul id="study-list">
+          <li>Often used for bone injuries.</li>
+          <li>Can help doctors see chest clues.</li>
+          <li>Uses a small amount of radiation, so trained teams follow safety rules.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel" id="match">
+    <div class="panel-header">
+      <p class="eyebrow">Match lab</p>
+      <h2>Which scan might help?</h2>
+      <p>This is a simple learning match. Real medical decisions are made by trained professionals.</p>
+    </div>
+
+    <div class="match-layout">
+      <article class="case-card">
+        <p class="case-label">Learning case</p>
+        <h3 id="case-title">A possible broken wrist</h3>
+        <p id="case-copy">A patient fell and the doctor wants to check the bones in the wrist.</p>
+        <div class="case-icon" id="case-icon">🦴</div>
+      </article>
+
+      <aside class="match-choices">
+        <button class="match-button" data-answer="xray">X-Ray</button>
+        <button class="match-button" data-answer="mri">MRI</button>
+        <button class="match-button" data-answer="ct">CT Scan</button>
+        <button class="match-button" data-answer="ultrasound">Ultrasound</button>
+        <p id="match-feedback"></p>
+        <button id="next-case">Next Case</button>
+      </aside>
+    </div>
+  </section>
+
+  <section class="panel" id="safety">
+    <div class="panel-header">
+      <p class="eyebrow">Safety thinking</p>
+      <h2>Imaging safety basics</h2>
+      <p>Medical imaging is helpful, but trained teams choose the right scan and follow safety rules.</p>
+    </div>
+
+    <div class="safety-grid">
+      <article class="safety-card">
+        <span>🛡️</span>
+        <h3>Right scan</h3>
+        <p>Doctors choose the scan that best answers the medical question.</p>
+      </article>
+      <article class="safety-card">
+        <span>👩‍⚕️</span>
+        <h3>Trained team</h3>
+        <p>Radiology technologists and doctors are trained to use imaging safely.</p>
+      </article>
+      <article class="safety-card">
+        <span>📋</span>
+        <h3>Patient details</h3>
+        <p>The team checks important details before imaging, like age, symptoms, and safety needs.</p>
+      </article>
+      <article class="safety-card">
+        <span>❌</span>
+        <h3>No self-diagnosis</h3>
+        <p>Images need expert reading. This project is only for learning the basics.</p>
+      </article>
+    </div>
+
+    <div class="memory-box">
+      <strong>Safety idea:</strong>
+      <span>Pictures are clues, not final answers. Doctors combine images with the full patient story.</span>
+    </div>
+  </section>
+
+  <section class="panel" id="quiz">
+    <div class="panel-header">
+      <p class="eyebrow">Study check</p>
+      <h2>Day 20 quiz</h2>
+      <p>Answer the questions to review what you learned.</p>
+    </div>
+
+    <article class="quiz-card">
+      <p class="quiz-count">Question <span id="quiz-number">1</span>/6</p>
+      <h3 id="quiz-question">Loading...</h3>
+      <div id="quiz-choices" class="quiz-choices"></div>
+      <p id="quiz-feedback"></p>
+      <button id="next-question">Next Question</button>
+    </article>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

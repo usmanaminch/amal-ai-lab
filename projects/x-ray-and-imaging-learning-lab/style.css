@@ -1,0 +1,884 @@
+*{box-sizing:border-box}
+:root{
+  --ink:#1a2440; --muted:#647089; --paper:#ffffff; --cloud:#f4f8ff;
+  --dark:#17213d; --blue:#73b8ff; --sky:#dff2ff; --lav:#d9d8ff;
+  --purple:#8d8cff; --teal:#7be2dc; --mint:#e9fff8; --rose:#ffe9f1;
+  --pink:#ef77a3; --gold:#ffd87a; --line:#dce7fb;
+  --shadow:0 24px 58px rgba(26,36,64,.12);
+}
+body{margin:0;font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 8%,rgba(115,184,255,.22),transparent 24%),radial-gradient(circle at 88% 18%,rgba(141,140,255,.17),transparent 24%),radial-gradient(circle at 55% 100%,rgba(123,226,220,.16),transparent 30%),linear-gradient(135deg,#f2f8ff,#ffffff 48%,#f7f5ff)}
+.shell{width:min(1320px,calc(100% - 32px));margin:0 auto;padding:28px 0 60px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:22px;align-items:start}
+.hero{grid-column:1/-1;display:grid;grid-template-columns:1fr 430px;gap:24px;align-items:center;background:linear-gradient(135deg,#ffffff,#f3f9ff 55%,#f6f2ff);border:1px solid var(--line);border-radius:32px;padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0 auto 0 0;width:13px;background:linear-gradient(180deg,var(--purple),var(--blue),var(--teal),var(--pink))}
+.eyebrow{margin:0 0 10px;color:var(--purple);text-transform:uppercase;font-size:12px;letter-spacing:.18em;font-weight:1000}
+h1{margin:0;color:var(--dark);font-size:clamp(40px,5.6vw,66px);line-height:.94;letter-spacing:-.05em}
+h2{margin:0;color:var(--dark);font-size:38px;letter-spacing:-.03em}
+h3{margin:0 0 10px;color:var(--dark);font-size:25px}
+p,li{color:var(--muted);line-height:1.55;font-size:17px}.notice{display:inline-block;margin-top:8px;padding:10px 14px;border-radius:999px;background:var(--rose);color:#bb4c75;font-weight:1000}
+.hero-scan{background:linear-gradient(180deg,#17213d,#10182d);border-radius:28px;padding:18px;border:7px solid white;box-shadow:0 20px 42px rgba(26,36,64,.22)}
+.scan-screen{height:300px;border-radius:22px;background:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px),radial-gradient(circle at 50% 42%,rgba(115,184,255,.22),transparent 34%),#111a32;background-size:30px 30px,30px 30px,100% 100%,100% 100%;position:relative;overflow:hidden}
+.body-outline{position:absolute;left:50%;top:26px;transform:translateX(-50%);width:160px;height:238px;opacity:.95}.head{position:absolute;left:50%;top:0;transform:translateX(-50%);width:58px;height:58px;border-radius:50%;border:5px solid #dff2ff;box-shadow:0 0 18px rgba(115,184,255,.45)}.spine{position:absolute;left:50%;top:62px;transform:translateX(-50%);width:10px;height:128px;border-radius:999px;background:#dff2ff;box-shadow:0 0 18px rgba(115,184,255,.45)}.ribs{position:absolute;left:50%;top:78px;transform:translateX(-50%);width:130px;height:90px;border:5px solid #dff2ff;border-left-width:9px;border-right-width:9px;border-radius:45px}.pelvis{position:absolute;left:50%;bottom:6px;transform:translateX(-50%);width:100px;height:44px;border:5px solid #dff2ff;border-top:0;border-radius:0 0 45px 45px}
+.scan-line{position:absolute;left:0;right:0;height:12px;top:38px;background:linear-gradient(90deg,transparent,var(--teal),transparent);box-shadow:0 0 24px var(--teal);animation:scanMove 3.2s infinite ease-in-out}@keyframes scanMove{0%,100%{transform:translateY(0)}50%{transform:translateY(210px)}}
+.scan-labels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}.scan-labels strong{color:#eff8ff;text-align:center;padding:10px 6px;border-radius:14px;background:rgba(255,255,255,.09);font-size:12px;letter-spacing:.06em}
+.side-nav{position:sticky;top:20px;background:#ffffff;border:1px solid var(--line);border-radius:28px;padding:16px;display:grid;gap:12px;box-shadow:var(--shadow)}.nav-button{text-align:left;border:1px solid var(--line);background:#fff;color:var(--dark);padding:16px 17px;border-radius:18px;font-weight:1000;cursor:pointer}.nav-button.active{background:linear-gradient(135deg,var(--dark),var(--purple),var(--blue));color:white;box-shadow:0 14px 24px rgba(141,140,255,.22)}
+.panel{display:none;background:#ffffff;border:1px solid var(--line);border-radius:30px;padding:28px;box-shadow:var(--shadow)}.panel.active{display:block}.panel-header{padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:22px;position:relative}.panel-header:after{content:"";position:absolute;left:0;bottom:-2px;width:150px;height:5px;border-radius:999px;background:linear-gradient(90deg,var(--purple),var(--blue),var(--teal),var(--pink))}
+.overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.info-card,.safety-card,.quiz-card,.study-card,.study-buttons,.focus-panel,.scanner-machine,.case-card,.match-choices{border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 18px 40px rgba(26,36,64,.08)}.info-card,.safety-card{padding:22px}.info-card span,.safety-card span{font-size:52px;display:block;margin-bottom:12px}.info-card.xray{border-top:7px solid var(--blue)}.info-card.mri{border-top:7px solid var(--purple)}.info-card.ct{border-top:7px solid var(--teal)}.info-card.ultra{border-top:7px solid var(--pink)}
+.memory-box{margin-top:20px;padding:18px;display:flex;gap:10px;align-items:center;border-radius:20px;background:linear-gradient(135deg,var(--sky),#fff);border:1px solid #c9e7ff}.memory-box strong{color:var(--purple)}
+.scanner-layout{display:grid;grid-template-columns:1.45fr .75fr;gap:20px}.scanner-machine{padding:22px}.machine-top{display:flex;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:18px;background:var(--dark);color:white;font-weight:1000}.machine-top i{width:12px;height:12px;border-radius:50%;background:var(--teal);box-shadow:0 0 18px var(--teal)}
+.scan-window{margin:18px 0;min-height:360px;position:relative;border-radius:24px;overflow:hidden;border:8px solid #eef5ff;background:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px),radial-gradient(circle at 50% 42%,rgba(115,184,255,.20),transparent 35%),#111a32;background-size:32px 32px,32px 32px,100% 100%,100% 100%}.xray-body{position:absolute;left:50%;top:44px;transform:translateX(-50%);width:230px;height:250px}.skull{position:absolute;left:50%;top:0;transform:translateX(-50%);width:76px;height:76px;border:6px solid #dff2ff;border-radius:50%;box-shadow:0 0 18px rgba(115,184,255,.55)}.ribcage{position:absolute;left:50%;top:82px;transform:translateX(-50%);width:160px;height:98px;border:6px solid #dff2ff;border-radius:48px}.spine-bone{position:absolute;left:50%;top:75px;transform:translateX(-50%);width:12px;height:150px;border-radius:999px;background:#dff2ff}.arm{position:absolute;top:96px;width:34px;height:138px;border:6px solid #dff2ff;border-radius:999px}.arm.left{left:0;transform:rotate(14deg)}.arm.right{right:0;transform:rotate(-14deg)}.moving-scan{position:absolute;left:0;right:0;top:40px;height:12px;background:linear-gradient(90deg,transparent,var(--teal),transparent);box-shadow:0 0 22px var(--teal);animation:scanMove 3s infinite ease-in-out}
+.scan-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.scan-button,.study-button,.match-button,#next-case,#next-question{border:1px solid var(--line);background:#fff;color:var(--dark);padding:15px;border-radius:17px;font-weight:1000;cursor:pointer}.scan-button.active,.study-button.active,.match-button.selected{background:linear-gradient(135deg,var(--purple),var(--blue));color:white}.focus-panel{padding:24px;display:grid;align-content:center;text-align:center}.focus-icon{width:120px;height:120px;border-radius:32px;display:grid;place-items:center;margin:0 auto 18px;font-size:66px;background:linear-gradient(135deg,#ffffff,var(--cloud));border:1px solid var(--line)}.why-card{margin-top:20px;padding:16px;border-radius:18px;background:var(--cloud);text-align:left}.why-card strong{display:block;color:var(--purple);margin-bottom:6px}.why-card span{color:var(--muted)}
+.study-layout,.match-layout{display:grid;grid-template-columns:310px 1fr;gap:20px}.study-buttons,.match-choices{padding:18px;display:grid;gap:12px}.study-card,.case-card{padding:30px;min-height:430px}.study-icon,.case-icon{width:140px;height:140px;display:grid;place-items:center;border-radius:34px;background:linear-gradient(135deg,#ffffff,var(--cloud));font-size:78px;margin-bottom:20px;border:1px solid var(--line)}.case-label{margin:0 0 8px;color:var(--purple);font-weight:1000;text-transform:uppercase;letter-spacing:.13em;font-size:13px}#match-feedback.correct{color:#2c9b86;font-weight:1000}#match-feedback.wrong{color:#cc5076;font-weight:1000}#next-case,#next-question{background:linear-gradient(135deg,var(--dark),var(--purple),var(--blue));color:white}
+.safety-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.quiz-card{padding:28px;max-width:850px}.quiz-count{color:var(--purple);text-transform:uppercase;letter-spacing:.13em;font-weight:1000;font-size:13px}.quiz-choices{display:grid;gap:12px;margin:18px 0}.quiz-choice{text-align:left;border:1px solid var(--line);padding:16px;border-radius:17px;background:#fff;color:var(--dark);font-weight:1000;cursor:pointer}.quiz-choice.selected{background:linear-gradient(135deg,var(--purple),var(--blue));color:white}#quiz-feedback.correct{color:#2c9b86;font-weight:1000}#quiz-feedback.wrong{color:#cc5076;font-weight:1000}
+@media(max-width:1150px){.shell{display:block}.side-nav{position:static;margin:20px 0}.hero,.scanner-layout,.study-layout,.match-layout,.overview-grid,.safety-grid{grid-template-columns:1fr}.scan-buttons{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.shell{width:min(100% - 20px,1320px)}.panel,.hero{padding:20px}h1{font-size:38px}h2{font-size:30px}.scan-buttons{grid-template-columns:1fr}}
+
+
+/* Day 20 v2: each imaging button shows its own scan style */
+.scan-window{
+  display:grid;
+  place-items:center;
+}
+
+.scan-visual{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.scan-visual:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size:32px 32px;
+  opacity:.9;
+  pointer-events:none;
+}
+
+.scan-title-badge{
+  position:absolute;
+  left:18px;
+  top:16px;
+  z-index:8;
+  padding:9px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.12);
+  color:#eaf7ff;
+  font-weight:1000;
+  letter-spacing:.12em;
+  font-size:12px;
+  border:1px solid rgba(255,255,255,.18);
+}
+
+/* X-RAY: bone/skeleton style */
+.xray-visual{
+  background:
+    radial-gradient(circle at 50% 42%,rgba(115,184,255,.20),transparent 35%),
+    #111a32;
+}
+.xray-skeleton{
+  position:absolute;
+  left:50%;
+  top:38px;
+  transform:translateX(-50%);
+  width:260px;
+  height:275px;
+}
+.xray-skull{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  border:7px solid #dff2ff;
+  box-shadow:0 0 20px rgba(115,184,255,.55);
+}
+.xray-spine{
+  position:absolute;
+  left:50%;
+  top:80px;
+  transform:translateX(-50%);
+  width:12px;
+  height:170px;
+  border-radius:999px;
+  background:#dff2ff;
+  box-shadow:0 0 18px rgba(115,184,255,.42);
+}
+.xray-ribs{
+  position:absolute;
+  left:50%;
+  top:82px;
+  transform:translateX(-50%);
+  width:175px;
+  height:105px;
+  border:7px solid #dff2ff;
+  border-radius:52px;
+  box-shadow:0 0 18px rgba(115,184,255,.30);
+}
+.xray-ribs:before,
+.xray-ribs:after{
+  content:"";
+  position:absolute;
+  top:16px;
+  width:60px;
+  height:70px;
+  border-top:5px solid #dff2ff;
+  border-bottom:5px solid #dff2ff;
+  opacity:.85;
+}
+.xray-ribs:before{left:14px;border-radius:50% 0 0 50%}
+.xray-ribs:after{right:14px;border-radius:0 50% 50% 0}
+.xray-arm{
+  position:absolute;
+  top:105px;
+  width:38px;
+  height:145px;
+  border:7px solid #dff2ff;
+  border-radius:999px;
+  box-shadow:0 0 16px rgba(115,184,255,.32);
+}
+.xray-arm.left{left:2px;transform:rotate(13deg)}
+.xray-arm.right{right:2px;transform:rotate(-13deg)}
+.xray-scan-line,
+.mri-scan-line,
+.ct-scan-line,
+.ultra-scan-line{
+  position:absolute;
+  left:0;
+  right:0;
+  height:12px;
+  top:40px;
+  background:linear-gradient(90deg,transparent,var(--teal),transparent);
+  box-shadow:0 0 22px var(--teal);
+  animation:scanMove 3s infinite ease-in-out;
+  z-index:7;
+}
+
+/* MRI: brain soft-tissue style */
+.mri-visual{
+  background:
+    radial-gradient(circle at 50% 45%,rgba(217,216,255,.18),transparent 38%),
+    #151629;
+}
+.mri-brain{
+  position:absolute;
+  left:50%;
+  top:58px;
+  transform:translateX(-50%);
+  width:310px;
+  height:230px;
+  border-radius:52% 48% 45% 55%;
+  border:8px solid rgba(228,229,255,.94);
+  background:
+    radial-gradient(ellipse at 35% 42%,rgba(255,255,255,.24),transparent 32%),
+    radial-gradient(ellipse at 65% 42%,rgba(255,255,255,.22),transparent 32%),
+    radial-gradient(ellipse at 50% 67%,rgba(141,140,255,.28),transparent 36%),
+    rgba(141,140,255,.11);
+  box-shadow:0 0 34px rgba(141,140,255,.34);
+}
+.mri-brain:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:20px;
+  bottom:20px;
+  width:6px;
+  transform:translateX(-50%);
+  border-radius:999px;
+  background:rgba(228,229,255,.70);
+}
+.mri-fold{
+  position:absolute;
+  height:7px;
+  border-radius:999px;
+  background:rgba(228,229,255,.78);
+  box-shadow:0 0 10px rgba(217,216,255,.25);
+}
+.mri-fold.f1{left:38px;top:58px;width:92px;transform:rotate(-16deg)}
+.mri-fold.f2{right:40px;top:62px;width:100px;transform:rotate(14deg)}
+.mri-fold.f3{left:48px;top:116px;width:92px;transform:rotate(13deg)}
+.mri-fold.f4{right:48px;top:118px;width:92px;transform:rotate(-12deg)}
+.mri-fold.f5{left:95px;bottom:46px;width:120px}
+.mri-labels{
+  position:absolute;
+  left:50%;
+  bottom:28px;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+}
+.mri-labels span{
+  padding:8px 12px;
+  border-radius:999px;
+  color:#eff0ff;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.16);
+  font-size:12px;
+  font-weight:1000;
+}
+
+/* CT: circular slice style */
+.ct-visual{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(123,226,220,.16),transparent 38%),
+    #101b2e;
+}
+.ct-ring{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:265px;
+  height:265px;
+  border-radius:50%;
+  border:18px solid rgba(223,242,255,.90);
+  box-shadow:
+    0 0 34px rgba(123,226,220,.32),
+    inset 0 0 28px rgba(123,226,220,.18);
+}
+.ct-ring:before{
+  content:"";
+  position:absolute;
+  inset:32px;
+  border-radius:50%;
+  border:4px dashed rgba(123,226,220,.68);
+}
+.ct-slice{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:145px;
+  height:145px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 42% 40%,rgba(255,255,255,.65),transparent 16%),
+    radial-gradient(circle at 62% 58%,rgba(255,255,255,.38),transparent 14%),
+    radial-gradient(circle at 50% 50%,rgba(115,184,255,.32),transparent 45%),
+    rgba(223,242,255,.20);
+  border:5px solid rgba(223,242,255,.90);
+}
+.ct-spokes{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:310px;
+  height:310px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+    conic-gradient(from 0deg, transparent 0 12deg, rgba(123,226,220,.28) 12deg 17deg, transparent 17deg 44deg, rgba(123,226,220,.24) 44deg 49deg, transparent 49deg 360deg);
+  animation:ctSpin 9s linear infinite;
+}
+@keyframes ctSpin{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+.ct-scan-line{
+  top:50%;
+  animation:none;
+  background:linear-gradient(90deg,transparent,#7be2dc,transparent);
+}
+
+/* ULTRASOUND: grainy sonogram style */
+.ultrasound-visual{
+  background:
+    radial-gradient(ellipse at 50% 50%,rgba(140,220,210,.14),transparent 48%),
+    #111827;
+}
+.ultrasound-noise{
+  position:absolute;
+  inset:0;
+  opacity:.23;
+  background-image:
+    radial-gradient(circle at 10% 20%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 30% 80%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 70% 35%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 90% 65%,#fff 0 1px,transparent 2px);
+  background-size:23px 29px,31px 37px,27px 33px,35px 41px;
+}
+.ultrasound-cone{
+  position:absolute;
+  left:50%;
+  top:45px;
+  transform:translateX(-50%);
+  width:330px;
+  height:260px;
+  background:radial-gradient(ellipse at 50% 68%,rgba(223,242,255,.34),transparent 62%);
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+  filter:blur(.1px);
+}
+.ultrasound-baby{
+  position:absolute;
+  left:50%;
+  top:142px;
+  transform:translateX(-50%) rotate(-8deg);
+  width:170px;
+  height:105px;
+  border-radius:55% 45% 48% 52%;
+  border:8px solid rgba(235,250,255,.82);
+  box-shadow:0 0 20px rgba(223,242,255,.25);
+}
+.ultrasound-baby:before{
+  content:"";
+  position:absolute;
+  right:-18px;
+  top:-28px;
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  border:7px solid rgba(235,250,255,.78);
+}
+.ultrasound-baby:after{
+  content:"";
+  position:absolute;
+  left:22px;
+  top:40px;
+  width:78px;
+  height:28px;
+  border-radius:999px;
+  border-top:7px solid rgba(235,250,255,.70);
+  transform:rotate(-12deg);
+}
+.ultra-scan-line{
+  background:linear-gradient(90deg,transparent,rgba(223,242,255,.82),transparent);
+  box-shadow:0 0 18px rgba(223,242,255,.45);
+}
+
+.scan-window.mri-mode,
+.scan-window.ct-mode,
+.scan-window.ultrasound-mode,
+.scan-window.xray-mode{
+  background:#111a32;
+}
+
+
+/* Day 20 v3: more realistic medical imaging visuals */
+.scan-window{
+  background:#0b1020 !important;
+}
+
+.real-scan{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  font-family:"Trebuchet MS","Segoe UI",Arial,sans-serif;
+}
+
+.real-scan::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:34px 34px;
+  mix-blend-mode:screen;
+  opacity:.45;
+}
+
+.real-badge{
+  position:absolute;
+  left:18px;
+  top:16px;
+  z-index:10;
+  padding:8px 12px;
+  border-radius:8px;
+  background:rgba(7,13,28,.70);
+  color:#ddecff;
+  border:1px solid rgba(221,236,255,.26);
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:.12em;
+}
+
+.real-data{
+  position:absolute;
+  right:18px;
+  top:16px;
+  z-index:10;
+  display:grid;
+  gap:4px;
+  text-align:right;
+  color:rgba(221,236,255,.82);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+
+/* More realistic X-ray chest */
+.real-xray{
+  background:
+    radial-gradient(ellipse at 50% 45%,rgba(160,205,255,.18),transparent 42%),
+    radial-gradient(circle at 22% 70%,rgba(90,146,210,.12),transparent 22%),
+    radial-gradient(circle at 78% 70%,rgba(90,146,210,.12),transparent 22%),
+    #11192e;
+}
+.real-xray .xray-chest{
+  position:absolute;
+  left:50%;
+  top:42px;
+  transform:translateX(-50%);
+  width:360px;
+  height:285px;
+  filter:drop-shadow(0 0 15px rgba(190,225,255,.30));
+}
+.real-xray .neck{
+  position:absolute;
+  left:50%;
+  top:0;
+  transform:translateX(-50%);
+  width:54px;
+  height:70px;
+  border-left:10px solid rgba(222,241,255,.86);
+  border-right:10px solid rgba(222,241,255,.86);
+  border-radius:0 0 22px 22px;
+}
+.real-xray .clavicle{
+  position:absolute;
+  top:58px;
+  width:128px;
+  height:26px;
+  border-top:7px solid rgba(222,241,255,.80);
+  opacity:.88;
+}
+.real-xray .clavicle.left{left:42px;border-radius:100% 0 0 0;transform:rotate(12deg)}
+.real-xray .clavicle.right{right:42px;border-radius:0 100% 0 0;transform:rotate(-12deg)}
+.real-xray .lung{
+  position:absolute;
+  top:84px;
+  width:128px;
+  height:165px;
+  background:
+    radial-gradient(ellipse at 45% 35%,rgba(0,0,0,.42),transparent 46%),
+    radial-gradient(ellipse at 50% 66%,rgba(0,0,0,.26),transparent 48%),
+    rgba(210,235,255,.16);
+  border:7px solid rgba(222,241,255,.78);
+  box-shadow:inset 0 0 28px rgba(0,0,0,.38);
+}
+.real-xray .lung.left{left:48px;border-radius:62% 38% 48% 52%;transform:rotate(6deg)}
+.real-xray .lung.right{right:48px;border-radius:38% 62% 52% 48%;transform:rotate(-6deg)}
+.real-xray .spine-real{
+  position:absolute;
+  left:50%;
+  top:58px;
+  transform:translateX(-50%);
+  width:18px;
+  height:205px;
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(235,247,255,.92),rgba(170,210,244,.76));
+  box-shadow:0 0 16px rgba(222,241,255,.32);
+}
+.real-xray .spine-real::after{
+  content:"";
+  position:absolute;
+  left:-10px;
+  right:-10px;
+  top:18px;
+  height:160px;
+  background:repeating-linear-gradient(180deg,transparent 0 13px,rgba(15,30,55,.65) 13px 17px);
+}
+.real-xray .rib-line{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:270px;
+  height:26px;
+  border-top:5px solid rgba(222,241,255,.58);
+  border-radius:50%;
+}
+.real-xray .rib-line.r1{top:100px;width:240px}
+.real-xray .rib-line.r2{top:127px;width:270px}
+.real-xray .rib-line.r3{top:154px;width:292px}
+.real-xray .rib-line.r4{top:181px;width:285px}
+.real-xray .rib-line.r5{top:208px;width:248px}
+.real-xray .heart-shadow{
+  position:absolute;
+  left:50%;
+  top:152px;
+  transform:translateX(-18%) rotate(-8deg);
+  width:74px;
+  height:92px;
+  border-radius:48% 52% 52% 48%;
+  background:rgba(8,16,30,.48);
+  filter:blur(.4px);
+}
+
+/* More realistic MRI grayscale brain scan */
+.real-mri{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.08),transparent 45%),
+    #0c0f18;
+}
+.real-mri .mri-frame{
+  position:absolute;
+  left:50%;
+  top:44px;
+  transform:translateX(-50%);
+  width:350px;
+  height:270px;
+  border-radius:18px;
+  background:#05070c;
+  border:3px solid rgba(230,236,255,.18);
+  box-shadow:inset 0 0 34px rgba(255,255,255,.05),0 0 28px rgba(141,140,255,.16);
+}
+.real-mri .brain-slice{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:255px;
+  height:205px;
+  border-radius:52% 48% 46% 54%;
+  background:
+    radial-gradient(ellipse at 32% 42%,rgba(255,255,255,.38),transparent 21%),
+    radial-gradient(ellipse at 68% 42%,rgba(255,255,255,.36),transparent 21%),
+    radial-gradient(ellipse at 51% 58%,rgba(255,255,255,.32),transparent 19%),
+    radial-gradient(ellipse at 36% 64%,rgba(130,130,145,.34),transparent 22%),
+    radial-gradient(ellipse at 64% 64%,rgba(130,130,145,.34),transparent 22%),
+    radial-gradient(ellipse at 50% 50%,rgba(210,215,232,.60),rgba(90,96,114,.45) 55%,rgba(35,38,50,.70) 72%,transparent 73%);
+  border:7px solid rgba(235,238,250,.75);
+  box-shadow:0 0 24px rgba(235,238,250,.18);
+}
+.real-mri .brain-slice::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:18px;
+  bottom:18px;
+  width:5px;
+  transform:translateX(-50%);
+  background:rgba(20,22,32,.55);
+  border-radius:999px;
+}
+.real-mri .ventricle{
+  position:absolute;
+  top:94px;
+  width:34px;
+  height:26px;
+  border-radius:50%;
+  background:rgba(18,20,30,.65);
+}
+.real-mri .ventricle.left{left:98px}
+.real-mri .ventricle.right{right:98px}
+.real-mri .fold-real{
+  position:absolute;
+  height:5px;
+  border-radius:999px;
+  background:rgba(30,34,48,.62);
+}
+.real-mri .fold-real.f1{left:54px;top:58px;width:84px;transform:rotate(-18deg)}
+.real-mri .fold-real.f2{right:54px;top:58px;width:84px;transform:rotate(18deg)}
+.real-mri .fold-real.f3{left:48px;top:142px;width:86px;transform:rotate(16deg)}
+.real-mri .fold-real.f4{right:48px;top:142px;width:86px;transform:rotate(-16deg)}
+.real-mri .fold-real.f5{left:104px;bottom:44px;width:48px;transform:rotate(10deg)}
+.real-mri .fold-real.f6{right:104px;bottom:44px;width:48px;transform:rotate(-10deg)}
+
+/* More realistic CT axial slice */
+.real-ct{
+  background:
+    radial-gradient(circle at 50% 50%,rgba(135,225,255,.10),transparent 44%),
+    #0a1121;
+}
+.real-ct .ct-table-ring{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:315px;
+  height:315px;
+  border-radius:50%;
+  border:18px solid rgba(226,239,255,.68);
+  box-shadow:0 0 34px rgba(115,184,255,.22),inset 0 0 32px rgba(115,184,255,.10);
+}
+.real-ct .ct-body-slice{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:222px;
+  height:172px;
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 50% 50%,rgba(20,28,40,.38),transparent 23%),
+    radial-gradient(circle at 38% 48%,rgba(245,248,255,.62),transparent 9%),
+    radial-gradient(circle at 62% 48%,rgba(245,248,255,.62),transparent 9%),
+    radial-gradient(circle at 48% 63%,rgba(170,178,196,.44),transparent 12%),
+    radial-gradient(ellipse at 50% 50%,rgba(218,226,240,.74),rgba(92,102,121,.52) 58%,rgba(28,35,51,.78) 78%,transparent 79%);
+  border:5px solid rgba(236,243,255,.82);
+  box-shadow:0 0 24px rgba(236,243,255,.16);
+}
+.real-ct .ct-spine-dot{
+  position:absolute;
+  left:50%;
+  top:54%;
+  transform:translate(-50%,-50%);
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:rgba(246,249,255,.76);
+  box-shadow:0 0 14px rgba(246,249,255,.24);
+}
+.real-ct .ct-crosshair{
+  position:absolute;
+  inset:48px;
+  border-radius:50%;
+  border:2px dashed rgba(123,226,220,.34);
+}
+.real-ct .ct-crosshair::before,
+.real-ct .ct-crosshair::after{
+  content:"";
+  position:absolute;
+  background:rgba(123,226,220,.24);
+}
+.real-ct .ct-crosshair::before{left:50%;top:0;bottom:0;width:2px}
+.real-ct .ct-crosshair::after{top:50%;left:0;right:0;height:2px}
+
+/* More realistic ultrasound */
+.real-ultrasound{
+  background:#05070a;
+}
+.real-ultrasound .ultra-depth{
+  position:absolute;
+  right:18px;
+  top:58px;
+  bottom:28px;
+  width:34px;
+  border-left:2px solid rgba(255,255,255,.24);
+  color:rgba(255,255,255,.62);
+  font-size:10px;
+}
+.real-ultrasound .ultra-depth span{
+  display:block;
+  margin:18px 0 0 8px;
+}
+.real-ultrasound .speckle{
+  position:absolute;
+  inset:0;
+  opacity:.42;
+  background-image:
+    radial-gradient(circle at 8% 20%,rgba(255,255,255,.7) 0 1px,transparent 1.7px),
+    radial-gradient(circle at 40% 72%,rgba(255,255,255,.55) 0 1px,transparent 1.7px),
+    radial-gradient(circle at 78% 36%,rgba(255,255,255,.65) 0 1px,transparent 1.8px),
+    radial-gradient(circle at 94% 62%,rgba(255,255,255,.50) 0 1px,transparent 1.7px);
+  background-size:19px 23px,31px 29px,27px 33px,37px 41px;
+}
+.real-ultrasound .sonar-cone{
+  position:absolute;
+  left:50%;
+  top:28px;
+  transform:translateX(-50%);
+  width:410px;
+  height:315px;
+  clip-path:polygon(50% 0,98% 100%,2% 100%);
+  background:
+    radial-gradient(ellipse at 50% 58%,rgba(255,255,255,.32),rgba(255,255,255,.13) 28%,rgba(255,255,255,.05) 55%,transparent 72%),
+    linear-gradient(90deg,transparent,rgba(180,220,225,.10),transparent);
+}
+.real-ultrasound .sono-baby{
+  position:absolute;
+  left:50%;
+  top:158px;
+  transform:translateX(-50%) rotate(-10deg);
+  width:178px;
+  height:108px;
+  border-radius:52% 48% 48% 52%;
+  border:9px solid rgba(235,245,248,.78);
+  border-left-color:rgba(235,245,248,.52);
+  border-bottom-color:rgba(235,245,248,.46);
+  filter:blur(.2px) drop-shadow(0 0 18px rgba(255,255,255,.16));
+}
+.real-ultrasound .sono-baby::before{
+  content:"";
+  position:absolute;
+  right:-24px;
+  top:-36px;
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  border:8px solid rgba(235,245,248,.72);
+  border-left-color:rgba(235,245,248,.35);
+}
+.real-ultrasound .sono-baby::after{
+  content:"";
+  position:absolute;
+  left:36px;
+  top:44px;
+  width:82px;
+  height:30px;
+  border-radius:999px;
+  border-top:8px solid rgba(235,245,248,.58);
+  transform:rotate(-14deg);
+}
+.real-ultrasound .ultra-sweep-real{
+  position:absolute;
+  left:0;
+  right:0;
+  top:58px;
+  height:9px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.68),transparent);
+  box-shadow:0 0 20px rgba(255,255,255,.22);
+  animation:scanMove 3s infinite ease-in-out;
+}
+
+
+/* Day 20 v4: realistic ultrasound image integrated into the website */
+.ultrasound-photo-visual{
+  position:absolute;
+  inset:0;
+  background:#050505;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+
+.ultrasound-photo-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:contrast(1.08) brightness(.95) grayscale(1);
+}
+
+.ultrasound-photo-visual:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 60% 18%, rgba(255,255,255,.07), transparent 22%),
+    linear-gradient(180deg, rgba(0,0,0,.08), transparent 18%, rgba(0,0,0,.18));
+  mix-blend-mode:screen;
+}
+
+.ultrasound-photo-badge{
+  position:absolute;
+  left:18px;
+  top:16px;
+  z-index:9;
+  padding:8px 12px;
+  border-radius:999px;
+  color:white;
+  font-weight:1000;
+  font-size:12px;
+  letter-spacing:.12em;
+  background:rgba(0,0,0,.42);
+  border:1px solid rgba(255,255,255,.20);
+  backdrop-filter:blur(4px);
+}
+
+.ultrasound-photo-caption{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:16px;
+  z-index:9;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  color:white;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-shadow:0 2px 8px rgba(0,0,0,.65);
+}
+
+.ultrasound-photo-caption span{
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.36);
+  border:1px solid rgba(255,255,255,.16);
+}
+
+/* make the scanner area feel more like a polished preview card */
+.scan-window.ultrasound-mode{
+  border-color:#0f1420 !important;
+  background:#050505 !important;
+  box-shadow:
+    0 18px 38px rgba(0,0,0,.18),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+/* ultrasound detail cards */
+.ultrasound-info-row{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.ultrasound-info-mini{
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  padding:14px;
+  box-shadow:0 12px 22px rgba(26,36,64,.06);
+}
+
+.ultrasound-info-mini strong{
+  display:block;
+  color:var(--dark);
+  margin-bottom:4px;
+}
+
+.ultrasound-info-mini span{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.4;
+}
+
+@media(max-width:900px){
+  .ultrasound-info-row{
+    grid-template-columns:1fr;
+  }
+}
+
+
+/* Day 20 v5: ultrasound matches the website vibe */
+.scan-window.website-ultrasound-mode{
+  background:linear-gradient(135deg,#f5f9ff,#ffffff) !important;
+  border:8px solid #eef4ff !important;
+  box-shadow:
+    0 22px 48px rgba(26,36,64,.16),
+    inset 0 0 0 1px rgba(141,140,255,.10) !important;
+  padding:0 !important;
+  min-height:430px;
+}
+
+.ultrasound-website-visual{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#f8fbff,#ffffff);
+  overflow:hidden;
+}
+
+.ultrasound-website-visual img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* The image already has its own polished ultrasound UI, so hide old overlay styles if present */
+.scan-window.website-ultrasound-mode .ultrasound-photo-badge,
+.scan-window.website-ultrasound-mode .ultrasound-photo-caption{
+  display:none !important;
+}
+
+/* make the focus card match the polished ultrasound panel */
+.scan-button[data-scan="ultrasound"].active,
+.study-button[data-scan="ultrasound"].active{
+  background:linear-gradient(135deg,#8d8cff,#73b8ff,#ef77a3) !important;
+  color:white !important;
+}
+
+@media(max-width:700px){
+  .scan-window.website-ultrasound-mode{
+    min-height:330px;
+  }
+}

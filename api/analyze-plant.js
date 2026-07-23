@@ -6,7 +6,7 @@ export const config = {
   api: {
     bodyParser: false
   },
-  maxDuration: 60
+  maxDuration: 300
 };
 
 const client = new OpenAI({
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
     const imageDataUrl = `data:${mimeType};base64,${imageBuffer.toString("base64")}`;
 
     const plantPlan = await analyzePlantPhoto(imageDataUrl);
-    const weeks = await generateWeekImages(plantPlan);
+    const weeks = await generateWeekImagesInParallel(plantPlan);
 
     res.status(200).json({
       advice: plantPlan.advice,
@@ -53,7 +53,8 @@ export default async function handler(req, res) {
     console.error("Plant AI error:", error);
     res.status(500).json({
       error: "Plant AI backend failed.",
-      detail: error?.message || String(error)
+      detail: error?.message || String(error),
+      stack: process.env.NODE_ENV === "development" ? error?.stack : undefined
     });
   }
 }
@@ -115,7 +116,7 @@ Return JSON exactly like this:
     }
   });
 
-  const rawText = response.output_text || "";
+  const rawText = response.output_text || "{}";
   const parsed = JSON.parse(rawText);
 
   return {
@@ -125,32 +126,37 @@ Return JSON exactly like this:
   };
 }
 
-async function generateWeekImages(plantPlan) {
-  const weeks = [];
+async function generateWeekImagesInParallel(plantPlan) {
+  const imageRequests = plantPlan.imagePrompts.map(async (prompt, index) => {
+    const weekNumber = index + 1;
+    const caption = plantPlan.weekCaptions[index] || `Week ${weekNumber}: keep care steady and watch progress.`;
 
-  for (let i = 0; i < 5; i += 1) {
-    const weekNumber = i + 1;
-    const caption = plantPlan.weekCaptions[i];
-    const prompt = plantPlan.imagePrompts[i];
+    const finalPrompt = `
+${prompt}
+
+This is Week ${weekNumber} of a five-week plant recovery plan.
+Make it a clean, bright, kid-friendly, pastel mint/blue website card image.
+No people. No text in the image. One potted plant only.
+`;
 
     const image = await client.images.generate({
       model: process.env.OPENAI_IMAGE_MODEL || "gpt-image-1",
-      prompt,
+      prompt: finalPrompt,
       size: "1024x1024"
     });
 
     const first = image.data?.[0];
 
-    weeks.push({
+    return {
       week: weekNumber,
       caption,
       imageDataUrl: first?.b64_json
         ? `data:image/png;base64,${first.b64_json}`
         : first?.url || ""
-    });
-  }
+    };
+  });
 
-  return weeks;
+  return Promise.all(imageRequests);
 }
 
 function normalizeArray(value, desiredLength, fallback) {

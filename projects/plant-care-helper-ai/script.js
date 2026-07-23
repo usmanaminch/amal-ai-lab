@@ -61,6 +61,19 @@ function renderWeeks(weeks) {
   });
 }
 
+async function safeJson(response) {
+  const text = await response.text();
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    return {
+      error: "Backend returned a non-JSON error page.",
+      detail: text.slice(0, 500)
+    };
+  }
+}
+
 async function analyzePlant() {
   if (!selectedFile) {
     statusBox.textContent = "Please upload a plant picture first.";
@@ -69,7 +82,7 @@ async function analyzePlant() {
   }
 
   askAIButton.disabled = true;
-  statusBox.textContent = "AI is looking at the plant and generating Week 1–5 pictures. This can take up to a minute.";
+  statusBox.textContent = "AI is looking at the plant and generating Week 1–5 pictures. This can take up to two minutes.";
   statusBox.className = "status-box";
 
   try {
@@ -81,7 +94,7 @@ async function analyzePlant() {
       body: formData
     });
 
-    const result = await response.json();
+    const result = await safeJson(response);
 
     if (!response.ok) {
       throw new Error(result.detail || result.error || `Backend returned ${response.status}`);

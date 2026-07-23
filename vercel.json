@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/analyze-plant.js": {
+      "maxDuration": 300
+    }
+  }
+}

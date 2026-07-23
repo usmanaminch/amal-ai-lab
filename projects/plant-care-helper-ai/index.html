@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Plant Care Helper AI · Real AI</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="page">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">AI Builder Lab · Real AI</p>
+      <h1>Plant Care<br>Helper AI</h1>
+      <p class="subtitle">
+        Upload one plant picture, press one AI button, and get 3-sentence advice plus Week 1 to Week 5 AI-generated recovery pictures.
+      </p>
+      <div class="pill">Educational project · powered by Dad’s Vercel backend</div>
+    </div>
+
+    <article class="hero-card">
+      <p class="eyebrow">How it works</p>
+      <h2>Picture in → AI advice out</h2>
+      <p>
+        The website sends the plant photo to the secure Vercel function. OpenAI looks at the plant and returns advice plus generated pictures.
+      </p>
+    </article>
+  </section>
+
+  <section class="tool-area">
+    <article class="tool-card upload-card">
+      <p class="eyebrow">Step 1</p>
+      <h2>Add plant picture</h2>
+      <label class="upload-box">
+        <input id="plant-photo" type="file" accept="image/*">
+        <div id="photo-preview" class="photo-preview">
+          <span class="upload-emoji">🪴</span>
+          <strong>Choose plant photo</strong>
+          <p>Use a clear picture of the whole plant, leaves, and soil.</p>
+        </div>
+      </label>
+    </article>
+
+    <article class="tool-card ai-card">
+      <p class="eyebrow">Step 2</p>
+      <h2>Ask AI</h2>
+      <p class="helper-text">
+        Press the button and AI will look at your plant picture, then create a short care tip and future pictures.
+      </p>
+      <button id="ask-ai">Analyze my plant with AI</button>
+      <div id="status" class="status-box">Waiting for plant picture.</div>
+      <div id="ai-advice" class="advice-box">
+        Your 3-sentence AI advice will show here.
+      </div>
+    </article>
+  </section>
+
+  <section class="timeline-section">
+    <div class="timeline-header">
+      <p class="eyebrow">AI generated picture plan</p>
+      <h2>Week 1 to Week 5</h2>
+      <p class="timeline-subtitle">The AI-generated future plant pictures will fill these cards.</p>
+    </div>
+
+    <div class="timeline-bar"></div>
+
+    <div class="week-grid">
+      <article class="week-card">
+        <div class="week-badge">Week 1</div>
+        <div class="week-image empty">AI image will appear here</div>
+        <p class="week-text">Week 1 care step will appear here.</p>
+      </article>
+
+      <article class="week-card">
+        <div class="week-badge">Week 2</div>
+        <div class="week-image empty">AI image will appear here</div>
+        <p class="week-text">Week 2 care step will appear here.</p>
+      </article>
+
+      <article class="week-card">
+        <div class="week-badge">Week 3</div>
+        <div class="week-image empty">AI image will appear here</div>
+        <p class="week-text">Week 3 care step will appear here.</p>
+      </article>
+
+      <article class="week-card">
+        <div class="week-badge">Week 4</div>
+        <div class="week-image empty">AI image will appear here</div>
+        <p class="week-text">Week 4 care step will appear here.</p>
+      </article>
+
+      <article class="week-card">
+        <div class="week-badge">Week 5</div>
+        <div class="week-image empty">AI image will appear here</div>
+        <p class="week-text">Week 5 care step will appear here.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

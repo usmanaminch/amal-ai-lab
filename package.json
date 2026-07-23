@@ -1,0 +1,10 @@
+{
+  "name": "amal-ai-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "formidable": "^3.5.2",
+    "openai": "^4.104.0"
+  }
+}

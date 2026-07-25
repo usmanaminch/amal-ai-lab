@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import OpenAI from "openai";
 
 export const config = { api: { bodyParser: false }, maxDuration: 300 };
+
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export default async function handler(req, res) {
@@ -10,7 +11,9 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Use POST with a closetPhoto file." });
 
   try {
-    if (!process.env.OPENAI_API_KEY) return res.status(500).json({ error: "OPENAI_API_KEY is missing in Vercel Environment Variables." });
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(500).json({ error: "OPENAI_API_KEY is missing in Vercel Environment Variables." });
+    }
 
     const { fields, files } = await parseMultipartForm(req);
     const closetFile = Array.isArray(files.closetPhoto) ? files.closetPhoto[0] : files.closetPhoto;
@@ -21,17 +24,17 @@ export default async function handler(req, res) {
     const imageDataUrl = `data:${mimeType};base64,${imageBuffer.toString("base64")}`;
 
     const preferences = {
-      style: readField(fields.style, "stylized magazine lookbook"),
+      style: readField(fields.style, "magazine lookbook"),
       weather: readField(fields.weather, "mixed weather"),
       weekType: readField(fields.weekType, "school and weekend"),
       comfort: readField(fields.comfort, "comfortable but polished"),
-      colors: readField(fields.colors, "use colors visible in the closet"),
-      avoid: readField(fields.avoid, "nothing specific"),
-      specialDay: readField(fields.specialDay, "none")
+      colors: readField(fields.colors, ""),
+      avoid: readField(fields.avoid, ""),
+      specialDay: readField(fields.specialDay, "")
     };
 
-    const lookbook = await analyzeClosetAndPlan(imageDataUrl, preferences);
-    const days = await generateOutfitImagesInParallel(lookbook);
+    const lookbook = await createOutfitPlan(imageDataUrl, preferences);
+    const days = await generateOutfitImages(lookbook.days);
     res.status(200).json({ summary: lookbook.summary, days });
   } catch (error) {
     console.error("Outfit AI error:", error);
@@ -45,71 +48,123 @@ function parseMultipartForm(req) {
     form.parse(req, (error, fields, files) => error ? reject(error) : resolve({ fields, files }));
   });
 }
-function readField(fields, name, fallback) { const value = fields[name]; return Array.isArray(value) ? (value[0] || fallback) : (value || fallback); }
 
-async function analyzeClosetAndPlan(imageDataUrl, preferences) {
-  const prompt = `You are a kid-friendly fashion organizer for a student website.
-Look at the uploaded closet/clothing photo and create a 7-day outfit lookbook.
+function readField(fields, name, fallback) {
+  const value = fields[name];
+  if (Array.isArray(value)) return value[0] || fallback;
+  return value || fallback;
+}
+
+async function createOutfitPlan(imageDataUrl, preferences) {
+  const prompt = `
+You are an AI outfit organizer for a kid-friendly/student website.
+Look at the uploaded closet or clothing photo. Build a 7-day outfit plan.
 
 Rules:
-- Do not identify any person in the photo. If a person appears, ignore identity and focus only on clothing/style.
-- Keep outputs modest, age-appropriate, practical, and school-friendly.
-- Use clothing that seems visible in the photo when possible.
-- If the closet photo is unclear, make reasonable outfit ideas inspired by visible colors/textures.
-- The image generation style is Option C: stylized magazine lookbook.
-- Generated images should be fashion editorial flat-lay lookbook cards.
-- No faces, no people, no body poses, no text inside the image.
+- Do not identify any person in the image.
+- If a person appears, ignore identity and focus only on clothing items.
+- Keep everything school-friendly, modest, age-appropriate, practical, and positive.
+- Use visible clothing colors/items from the photo when possible.
+- Every outfit must be a COMPLETE LOOK.
+
+Every day must include:
+- main clothes
+- shoes
+- purse/bag/backpack or carried item
+- jewelry/accessories
+- optional finishing touch
+- why the outfit works
+- one prompt for a generated image showing the full outfit
+
+Generated image prompts must show the COMPLETE outfit clearly:
+- top
+- bottom/dress/skirt/pants
+- outer layer if needed
+- shoes
+- purse/bag/backpack
+- jewelry/accessories
+- small finishing touches
+- arranged as a stylized magazine lookbook / polished fashion planning board
+- no people, no faces, no models, no mannequins, no logos, no text inside the image
 
 User preferences:
-- Style: ${preferences.style}
-- Weather: ${preferences.weather}
-- Week type: ${preferences.weekType}
-- Comfort: ${preferences.comfort}
-- Favorite colors: ${preferences.colors}
-- Avoid: ${preferences.avoid}
-- Special day: ${preferences.specialDay}
+Style: ${preferences.style}
+Weather: ${preferences.weather}
+Week type: ${preferences.weekType}
+Comfort: ${preferences.comfort}
+Favorite colors: ${preferences.colors || "use colors from closet photo"}
+Avoid: ${preferences.avoid || "nothing specific"}
+Special day: ${preferences.specialDay || "none"}
 
-Return JSON only in this exact shape:
+Return JSON only in this exact format:
 {
-  "summary": "one short sentence about the closet style",
+  "summary": "one short sentence summary",
   "days": [
-    {"day":"Monday","title":"short outfit name","outfit":"what to wear","why":"why it works","imagePrompt":"detailed prompt for a stylized magazine lookbook outfit flat-lay image, no text, no humans"}
+    {
+      "day": "Monday",
+      "title": "short outfit title",
+      "clothes": "main clothes",
+      "shoes": "shoes",
+      "bag": "purse, backpack, or bag",
+      "accessories": "jewelry and accessories",
+      "finishingTouch": "small extra detail",
+      "why": "why the whole outfit works",
+      "imagePrompt": "prompt for one complete outfit image"
+    }
   ]
 }
-Need exactly 7 days: Monday through Sunday.`;
+Need exactly 7 days: Monday through Sunday.
+`;
 
   const response = await client.responses.create({
     model: process.env.OPENAI_VISION_MODEL || "gpt-4.1-mini",
     input: [{ role: "user", content: [{ type: "input_text", text: prompt }, { type: "input_image", image_url: imageDataUrl, detail: "low" }] }],
     text: { format: { type: "json_object" } }
   });
+
   const parsed = JSON.parse(response.output_text || "{}");
-  const names = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-  const sourceDays = Array.isArray(parsed.days) ? parsed.days : [];
-  const days = names.map((name, i) => {
-    const item = sourceDays[i] || {};
+  const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  const rawDays = Array.isArray(parsed.days) ? parsed.days : [];
+
+  const days = dayNames.map((dayName, index) => {
+    const item = rawDays[index] || {};
     return {
-      day: String(item.day || name),
-      title: String(item.title || `${name} Outfit`),
-      outfit: String(item.outfit || "A comfortable outfit inspired by the closet photo."),
-      why: String(item.why || "It balances comfort, color, and a polished look."),
-      imagePrompt: String(item.imagePrompt || "Stylized magazine lookbook flat lay of a comfortable school-friendly outfit inspired by a closet photo, pastel editorial background, no text, no people.")
+      day: String(item.day || dayName),
+      title: String(item.title || `${dayName} Complete Look`),
+      clothes: String(item.clothes || "A comfortable outfit inspired by the closet photo."),
+      shoes: String(item.shoes || "Comfortable matching shoes."),
+      bag: String(item.bag || "A matching purse, backpack, or small bag."),
+      accessories: String(item.accessories || "Simple jewelry or accessories."),
+      finishingTouch: String(item.finishingTouch || "A polished finishing touch."),
+      why: String(item.why || "This outfit works because it is balanced, comfortable, and coordinated."),
+      imagePrompt: String(item.imagePrompt || "A complete school-friendly outfit flat lay with clothing, shoes, bag, jewelry, and accessories, magazine lookbook style, no people, no text.")
     };
   });
-  return { summary: String(parsed.summary || "AI created outfit ideas inspired by your closet photo."), days };
+
+  return { summary: String(parsed.summary || "AI created a complete 7-day lookbook inspired by your closet photo."), days };
 }
 
-async function generateOutfitImagesInParallel(lookbook) {
-  const requests = lookbook.days.map(async (day, index) => {
-    const finalPrompt = `${day.imagePrompt}\n\nCreate one polished stylized magazine lookbook image for ${day.day}. Show clothing items arranged as a tasteful fashion flat lay on a clean pastel editorial background. No person, no face, no body, no model, no mannequin, no text, no logo-heavy layout. Kid-friendly, modest, stylish, bright, organized, and website-card ready.`;
-    const image = await client.images.generate({
-      model: process.env.OPENAI_IMAGE_MODEL || "gpt-image-1",
-      prompt: finalPrompt,
-      size: "1024x1024",
-      quality: "low"
-    });
+async function generateOutfitImages(days) {
+  const requests = days.map(async (day) => {
+    const prompt = `
+${day.imagePrompt}
+
+Create ONE polished image for ${day.day}: ${day.title}.
+Show a COMPLETE outfit plan with:
+- main clothes: ${day.clothes}
+- shoes: ${day.shoes}
+- bag: ${day.bag}
+- jewelry/accessories: ${day.accessories}
+- finishing touch: ${day.finishingTouch}
+
+Style: stylized magazine lookbook, elegant outfit organizer board, soft pastel editorial background.
+No people, no faces, no models, no mannequins, no text, no logos.
+The image must make it obvious what the full outfit is.
+`;
+
+    const image = await client.images.generate({ model: process.env.OPENAI_IMAGE_MODEL || "gpt-image-1", prompt, size: "1024x1024", quality: "low" });
     const first = image.data?.[0];
-    return { day: day.day, title: day.title, outfit: day.outfit, why: day.why, imageDataUrl: first?.b64_json ? `data:image/png;base64,${first.b64_json}` : first?.url || "" };
+    return { ...day, imageDataUrl: first?.b64_json ? `data:image/png;base64,${first.b64_json}` : first?.url || "" };
   });
   return Promise.all(requests);
 }

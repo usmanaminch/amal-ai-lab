@@ -1,12 +1,31 @@
-# Outfit Organizer AI — Real AI Upgrade
+# Outfit Organizer AI v2 — Real AI Complete Looks
 
-Uses the same Vercel + OpenAI setup as Plant Care Helper AI. No new API key needed if OPENAI_API_KEY is already in the Vercel amal-ai-lab project.
+This is the actual website + backend code.
 
-Files added:
-- api/analyze-outfit.js
-- projects/outfit-organizer-ai/
-- vercel.json
-- package.json
+## What it does
 
-Test after deploy:
-https://amal-ai-lab.vercel.app/projects/outfit-organizer-ai/
+- Upload closet photo
+- Pick style details
+- AI looks at the closet photo
+- AI creates 7 complete looks
+- Every look includes:
+  - clothes
+  - shoes
+  - bag/purse/backpack
+  - jewelry/accessories
+  - finishing touch
+  - why it works
+  - generated outfit image
+
+## Uses existing setup
+
+No new API key needed. It uses the same Vercel `OPENAI_API_KEY`.
+
+## Files
+
+```text
+api/analyze-outfit.js
+projects/outfit-organizer-ai/
+package.json
+vercel.json
+```

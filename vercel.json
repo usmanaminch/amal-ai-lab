@@ -1,7 +1,6 @@
 {
   "functions": {
-    "api/analyze-plant.js": {
-      "maxDuration": 300
-    }
+    "api/analyze-plant.js": { "maxDuration": 300 },
+    "api/analyze-outfit.js": { "maxDuration": 300 }
   }
 }

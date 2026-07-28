@@ -3,6 +3,7 @@
     "api/analyze-plant.js": {"maxDuration": 300},
     "api/analyze-outfit.js": {"maxDuration": 300},
     "api/analyze-book.js": {"maxDuration": 300},
-    "api/analyze-decor.js": {"maxDuration": 300}
+    "api/analyze-decor.js": {"maxDuration": 300},
+    "api/analyze-snack.js": {"maxDuration": 300}
   }
 }

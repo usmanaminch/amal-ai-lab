@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Kids Habit Trainer App · Amal AI Lab</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="app">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Day 27 · Real App Builder</p>
+      <h1>Kids Habit<br>Trainer App</h1>
+      <p class="subtitle">
+        Build healthy habits, check them off, earn badges, and get a friendly trainer message as you make progress.
+      </p>
+      <div class="hero-actions">
+        <button id="reset-today" class="ghost-button">Reset Today</button>
+        <button id="clear-all" class="danger-button">Clear All</button>
+      </div>
+    </div>
+
+    <article class="trainer-card">
+      <p class="eyebrow">Habit Trainer</p>
+      <div class="trainer-face">🌟</div>
+      <h2 id="trainer-title">Ready to train?</h2>
+      <p id="trainer-message">Add a habit to start your training journey.</p>
+      <div class="progress-track">
+        <div id="progress-fill"></div>
+      </div>
+      <strong id="score-number">0%</strong>
+    </article>
+  </section>
+
+  <section class="dashboard">
+    <article class="panel form-panel">
+      <p class="eyebrow">Add Habit</p>
+      <h2>Create a training goal</h2>
+
+      <label>
+        Habit name
+        <input id="habit-name" placeholder="Example: Read 20 minutes">
+      </label>
+
+      <label>
+        Category
+        <select id="habit-category">
+          <option>Reading</option>
+          <option>Homework</option>
+          <option>Exercise</option>
+          <option>Water</option>
+          <option>Kindness</option>
+          <option>Chores</option>
+          <option>Creative</option>
+          <option>Prayer / Reflection</option>
+        </select>
+      </label>
+
+      <label>
+        Daily goal
+        <input id="habit-goal" placeholder="Example: 20 minutes, 6 cups, 1 chore">
+      </label>
+
+      <button id="add-habit" class="main-button">Add Habit</button>
+
+      <div class="quick-add">
+        <p class="eyebrow">Quick Start</p>
+        <button class="quick" data-name="Read 20 minutes" data-category="Reading" data-goal="20 minutes">📚 Read</button>
+        <button class="quick" data-name="Drink water" data-category="Water" data-goal="6 cups">💧 Water</button>
+        <button class="quick" data-name="Move your body" data-category="Exercise" data-goal="15 minutes">🏃 Move</button>
+        <button class="quick" data-name="Finish homework" data-category="Homework" data-goal="1 assignment">✏️ Homework</button>
+      </div>
+    </article>
+
+    <article class="panel list-panel">
+      <div class="panel-top">
+        <div>
+          <p class="eyebrow">Training Checklist</p>
+          <h2>Today's habits</h2>
+        </div>
+        <div id="habit-count" class="count-pill">0 habits</div>
+      </div>
+
+      <div id="habit-list" class="habit-list"></div>
+    </article>
+  </section>
+
+  <section class="badges-section">
+    <p class="eyebrow">Badges</p>
+    <h2>Unlock training badges</h2>
+
+    <div class="badges">
+      <article id="badge-first" class="badge locked">
+        <span>✅</span>
+        <h3>First Win</h3>
+        <p>Complete one habit today.</p>
+      </article>
+
+      <article id="badge-half" class="badge locked">
+        <span>⭐</span>
+        <h3>Halfway Hero</h3>
+        <p>Finish at least half your habits.</p>
+      </article>
+
+      <article id="badge-perfect" class="badge locked">
+        <span>🏆</span>
+        <h3>Perfect Day</h3>
+        <p>Complete every habit today.</p>
+      </article>
+
+      <article id="badge-streak" class="badge locked">
+        <span>🔥</span>
+        <h3>Streak Starter</h3>
+        <p>Get any habit to a 3-day streak.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="lesson">
+    <p class="eyebrow">What Amal Learned</p>
+    <h2>This is a real app because it saves data</h2>
+    <div class="lesson-grid">
+      <article>
+        <h3>HTML</h3>
+        <p>Creates the screen, buttons, habit list, and badge cards.</p>
+      </article>
+      <article>
+        <h3>CSS</h3>
+        <p>Makes the app look cute, colorful, and organized.</p>
+      </article>
+      <article>
+        <h3>JavaScript</h3>
+        <p>Makes the app respond when you add, delete, or complete habits.</p>
+      </article>
+      <article>
+        <h3>localStorage</h3>
+        <p>Saves habits in the browser so they stay after refresh.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

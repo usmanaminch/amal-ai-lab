@@ -1,4 +1,5 @@
-const STORAGE_KEY = "habitflowProfessionalV3";
+const STORAGE_KEY = "habitflowProfessionalV4";
+const OLD_STORAGE_KEY = "habitflowProfessionalV3";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const habitName = document.getElementById("habit-name");
@@ -29,7 +30,9 @@ let activeFilter = "all";
 
 function loadHabits() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    const current = localStorage.getItem(STORAGE_KEY);
+    const old = localStorage.getItem(OLD_STORAGE_KEY);
+    return JSON.parse(current || old || "[]");
   } catch {
     return [];
   }
@@ -155,12 +158,7 @@ function renderHabits() {
   const visible = getFilteredHabits();
 
   if (visible.length === 0) {
-    habitList.innerHTML = `
-      <div class="empty-state">
-        <strong>Nothing here yet</strong>
-        <p>Add a habit or change your filter.</p>
-      </div>
-    `;
+    habitList.innerHTML = `<div class="empty-state"><strong>Nothing here yet</strong><p>Add a habit or change your filter.</p></div>`;
     return;
   }
 
@@ -171,7 +169,6 @@ function renderHabits() {
     return `
       <article class="habit-card ${done ? "done" : ""}">
         <button class="check" data-action="toggle" data-id="${habit.id}">${done ? "✓" : ""}</button>
-
         <div class="habit-main">
           <div class="habit-title-row">
             <div>
@@ -180,14 +177,12 @@ function renderHabits() {
             </div>
             <span class="priority ${priorityClass(habit.priority)}">${escapeHtml(habit.priority)}</span>
           </div>
-
           <div class="habit-meta">
             <span>Current streak: ${streak} day${streak === 1 ? "" : "s"}</span>
             <span>Best streak: ${habit.bestStreak || 0}</span>
             <span>${done ? "Complete today" : "Open today"}</span>
           </div>
         </div>
-
         <button class="delete" data-action="delete" data-id="${habit.id}">×</button>
       </article>
     `;
@@ -265,6 +260,16 @@ function renderFilters() {
   });
 }
 
+function switchTab(tabName) {
+  document.querySelectorAll(".tab-button").forEach(button => {
+    button.classList.toggle("active", button.dataset.tab === tabName);
+  });
+
+  document.querySelectorAll(".tab-panel").forEach(panel => {
+    panel.classList.toggle("active", panel.id === `tab-${tabName}`);
+  });
+}
+
 function updateNotificationStatus() {
   if (!("Notification" in window)) {
     notificationStatus.textContent = "This browser does not support notifications.";
@@ -273,13 +278,13 @@ function updateNotificationStatus() {
   }
 
   if (Notification.permission === "granted") {
-    notificationStatus.textContent = "Notifications are enabled while this app is open.";
+    notificationStatus.textContent = "Notifications enabled while app is open.";
     enableNotificationsButton.textContent = "Notifications Enabled";
     enableNotificationsButton.disabled = true;
   } else if (Notification.permission === "denied") {
     notificationStatus.textContent = "Notifications are blocked in browser settings.";
   } else {
-    notificationStatus.textContent = "Enable notifications to receive reminder popups.";
+    notificationStatus.textContent = "Enable reminder popups.";
   }
 }
 
@@ -302,8 +307,7 @@ async function enableNotifications() {
 function checkReminders() {
   if (!("Notification" in window) || Notification.permission !== "granted") return;
 
-  const now = new Date();
-  const currentTime = now.toTimeString().slice(0, 5);
+  const currentTime = new Date().toTimeString().slice(0, 5);
   let changed = false;
 
   habits = habits.map(habit => {
@@ -312,7 +316,7 @@ function checkReminders() {
     const notifiedDates = new Set(habit.notifiedDates || []);
     if (notifiedDates.has(TODAY)) return habit;
 
-    new Notification(`HabitFlow Reminder`, {
+    new Notification("HabitFlow Reminder", {
       body: `${habit.name} · ${habit.goal}`,
       tag: habit.id
     });
@@ -381,6 +385,10 @@ document.querySelectorAll(".filter").forEach(button => {
     activeFilter = button.dataset.filter;
     render();
   });
+});
+
+document.querySelectorAll(".tab-button").forEach(button => {
+  button.addEventListener("click", () => switchTab(button.dataset.tab));
 });
 
 habitList.addEventListener("click", event => {

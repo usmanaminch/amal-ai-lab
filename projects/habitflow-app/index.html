@@ -8,7 +8,7 @@
 </head>
 <body>
 <main class="shell">
-  <aside class="sidebar clean-sidebar">
+  <aside class="sidebar">
     <div class="brand">
       <div class="brand-mark">HF</div>
       <div>
@@ -16,6 +16,12 @@
         <p>Routines, reminders, streaks.</p>
       </div>
     </div>
+
+    <nav class="nav">
+      <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+      <button class="tab-button" data-tab="habits">Habits</button>
+      <button class="tab-button" data-tab="insights">Insights</button>
+    </nav>
 
     <div class="sidebar-card">
       <p class="label">Notifications</p>
@@ -27,105 +33,173 @@
   <section class="content">
     <section class="topbar">
       <div>
-        <p class="eyebrow">Day 28 · App Cleanup</p>
+        <p class="eyebrow">Day 27 · Professional App</p>
         <h2>HabitFlow</h2>
         <p class="subtitle">A clean habit reminder app for routines, goals, notifications, and streaks.</p>
       </div>
       <div class="top-actions">
-        <a class="button-link secondary-button" href="../habitflow-dashboard/index.html" target="_blank">Dashboard Page</a>
-        <a class="button-link secondary-button" href="../habitflow-insights/index.html" target="_blank">Insights Page</a>
         <button id="reset-today" class="secondary-button">Reset Today</button>
         <button id="clear-all" class="danger-button">Clear All</button>
       </div>
     </section>
 
-    <section class="main-grid">
-      <article class="panel form-panel">
-        <div class="panel-header">
-          <div>
-            <p class="label">Create</p>
-            <h3>Add a habit</h3>
+    <section id="tab-dashboard" class="tab-panel active">
+      <div class="section-title">
+        <p class="label">Dashboard</p>
+        <h3>Today’s overview</h3>
+      </div>
+
+      <section class="metrics">
+        <article class="metric-card">
+          <p>Completion</p>
+          <strong id="completion-rate">0%</strong>
+          <div class="progress"><div id="progress-fill"></div></div>
+        </article>
+
+        <article class="metric-card">
+          <p>Done Today</p>
+          <strong id="done-count">0</strong>
+          <span id="done-subtitle">No habits yet</span>
+        </article>
+
+        <article class="metric-card">
+          <p>Longest Streak</p>
+          <strong id="longest-streak">0</strong>
+          <span>days</span>
+        </article>
+
+        <article class="metric-card">
+          <p>Next Reminder</p>
+          <strong id="next-reminder">—</strong>
+          <span id="next-reminder-name">No reminders set</span>
+        </article>
+      </section>
+    </section>
+
+    <section id="tab-habits" class="tab-panel">
+      <div class="section-title">
+        <p class="label">Habits</p>
+        <h3>Add and manage habits</h3>
+      </div>
+
+      <section class="main-grid">
+        <article class="panel form-panel">
+          <div class="panel-header">
+            <div>
+              <p class="label">Create</p>
+              <h3>Add a habit</h3>
+            </div>
           </div>
-        </div>
 
-        <label>Habit name
-          <input id="habit-name" placeholder="Water plants, pray, workout, read...">
-        </label>
-
-        <div class="form-row">
-          <label>Category
-            <select id="habit-category">
-              <option>Home</option>
-              <option>Health</option>
-              <option>Faith</option>
-              <option>Fitness</option>
-              <option>Work</option>
-              <option>Study</option>
-              <option>Reading</option>
-              <option>Family</option>
-              <option>Personal</option>
-            </select>
+          <label>
+            Habit name
+            <input id="habit-name" placeholder="Water plants, pray, workout, read...">
           </label>
 
-          <label>Priority
-            <select id="habit-priority">
-              <option>Medium</option>
-              <option>High</option>
-              <option>Low</option>
-            </select>
-          </label>
-        </div>
+          <div class="form-row">
+            <label>
+              Category
+              <select id="habit-category">
+                <option>Home</option>
+                <option>Health</option>
+                <option>Faith</option>
+                <option>Fitness</option>
+                <option>Work</option>
+                <option>Study</option>
+                <option>Reading</option>
+                <option>Family</option>
+                <option>Personal</option>
+              </select>
+            </label>
 
-        <label>Goal / note
-          <input id="habit-goal" placeholder="Example: 20 minutes, once today, 6 cups">
-        </label>
-
-        <label>Reminder time
-          <input id="reminder-time" type="time">
-        </label>
-
-        <button id="add-habit" class="primary-button">Add Habit</button>
-
-        <div class="templates">
-          <p class="label">Templates</p>
-          <button class="template" data-name="Water my plants" data-category="Home" data-priority="Medium" data-goal="Check soil and water if needed" data-time="09:00">Water plants</button>
-          <button class="template" data-name="Time to pray" data-category="Faith" data-priority="High" data-goal="Pause and pray" data-time="13:30">Pray</button>
-          <button class="template" data-name="Drink water" data-category="Health" data-priority="Medium" data-goal="Drink a glass of water" data-time="11:00">Drink water</button>
-          <button class="template" data-name="Read for 20 minutes" data-category="Reading" data-priority="Low" data-goal="20 minutes" data-time="19:00">Read</button>
-          <button class="template" data-name="Workout or walk" data-category="Fitness" data-priority="Medium" data-goal="15 minutes" data-time="17:00">Move</button>
-          <button class="template" data-name="Focused study session" data-category="Study" data-priority="High" data-goal="1 focused session" data-time="16:00">Study</button>
-        </div>
-      </article>
-
-      <article class="panel habits-panel">
-        <div class="panel-header">
-          <div>
-            <p class="label">Today</p>
-            <h3>Habit list</h3>
+            <label>
+              Priority
+              <select id="habit-priority">
+                <option>Medium</option>
+                <option>High</option>
+                <option>Low</option>
+              </select>
+            </label>
           </div>
-          <span id="habit-total" class="pill">0 habits</span>
-        </div>
 
-        <div class="filter-row">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="open">Open</button>
-          <button class="filter" data-filter="done">Done</button>
-          <button class="filter" data-filter="high">High Priority</button>
-        </div>
+          <label>
+            Goal / note
+            <input id="habit-goal" placeholder="Example: 20 minutes, once today, 6 cups">
+          </label>
 
-        <div id="habit-list" class="habit-list"></div>
-      </article>
+          <label>
+            Reminder time
+            <input id="reminder-time" type="time">
+          </label>
+
+          <button id="add-habit" class="primary-button">Add Habit</button>
+
+          <div class="templates">
+            <p class="label">Templates</p>
+            <button class="template" data-name="Water my plants" data-category="Home" data-priority="Medium" data-goal="Check soil and water if needed" data-time="09:00">Water plants</button>
+            <button class="template" data-name="Time to pray" data-category="Faith" data-priority="High" data-goal="Pause and pray" data-time="13:30">Pray</button>
+            <button class="template" data-name="Drink water" data-category="Health" data-priority="Medium" data-goal="Drink a glass of water" data-time="11:00">Drink water</button>
+            <button class="template" data-name="Read for 20 minutes" data-category="Reading" data-priority="Low" data-goal="20 minutes" data-time="19:00">Read</button>
+            <button class="template" data-name="Workout or walk" data-category="Fitness" data-priority="Medium" data-goal="15 minutes" data-time="17:00">Move</button>
+            <button class="template" data-name="Focused study session" data-category="Study" data-priority="High" data-goal="1 focused session" data-time="16:00">Study</button>
+          </div>
+        </article>
+
+        <article class="panel habits-panel">
+          <div class="panel-header">
+            <div>
+              <p class="label">Today</p>
+              <h3>Habit list</h3>
+            </div>
+            <span id="habit-total" class="pill">0 habits</span>
+          </div>
+
+          <div class="filter-row">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="open">Open</button>
+            <button class="filter" data-filter="done">Done</button>
+            <button class="filter" data-filter="high">High Priority</button>
+          </div>
+
+          <div id="habit-list" class="habit-list"></div>
+        </article>
+      </section>
+    </section>
+
+    <section id="tab-insights" class="tab-panel">
+      <div class="section-title">
+        <p class="label">Insights</p>
+        <h3>Routine summary</h3>
+      </div>
+
+      <section class="panel insight-panel">
+        <div class="insight-grid">
+          <article>
+            <span>Best Category</span>
+            <strong id="best-category">—</strong>
+          </article>
+          <article>
+            <span>Open Tasks</span>
+            <strong id="open-count">0</strong>
+          </article>
+          <article>
+            <span>Trainer Note</span>
+            <strong id="trainer-note">Add a habit to begin.</strong>
+          </article>
+        </div>
+      </section>
     </section>
 
     <section class="lesson">
       <p class="label">What Amal learned</p>
-      <h3>Clean app design removes anything that is not needed</h3>
-      <p>The main app now has a simpler sidebar. Dashboard and Insights still exist as separate pages, but they are opened from buttons instead of extra sidebar links.</p>
+      <h3>Professional apps organize information into focused tabs</h3>
+      <p>
+        Dashboard shows progress, Habits manages tasks, and Insights summarizes patterns. That makes the app easier to use.
+      </p>
     </section>
   </section>
 </main>
 
-<script src="storage.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

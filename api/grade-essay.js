@@ -42,7 +42,7 @@ Return JSON only:
  "whatYouDidWell": ["strength 1", "strength 2", "strength 3"],
  "whatToImprove": ["improvement 1", "improvement 2", "improvement 3"],
  "revisionAdvice": ["step 1", "step 2", "step 3"],
- "teacherComment": "one AI grader comment"
+ "teacherComment": "one AI grader note"
 }` }
       ],
       text: { format: { type: "json_object" } }

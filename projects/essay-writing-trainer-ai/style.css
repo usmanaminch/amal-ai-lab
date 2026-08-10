@@ -50,3 +50,10 @@ li{margin:8px 0}
 .lesson p{color:var(--muted);line-height:1.55}
 @media(max-width:1050px){.hero,.workspace,.results,.controls{grid-template-columns:1fr}}
 @media(max-width:700px){.app{padding:16px}h1{font-size:54px}.feedback-grid{grid-template-columns:1fr}.score-number{font-size:64px}}
+
+.ai-note{
+  margin: -4px 0 18px;
+  color: var(--muted);
+  font-weight: 800;
+  line-height: 1.4;
+}

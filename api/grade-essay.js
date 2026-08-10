@@ -42,7 +42,7 @@ Return JSON only:
  "whatYouDidWell": ["strength 1", "strength 2", "strength 3"],
  "whatToImprove": ["improvement 1", "improvement 2", "improvement 3"],
  "revisionAdvice": ["step 1", "step 2", "step 3"],
- "teacherComment": "one encouraging comment"
+ "teacherComment": "one AI grader comment"
 }` }
       ],
       text: { format: { type: "json_object" } }
@@ -59,7 +59,7 @@ Return JSON only:
       whatYouDidWell: normalizeArray(parsed.whatYouDidWell, 3, "You responded to the prompt."),
       whatToImprove: normalizeArray(parsed.whatToImprove, 3, "Add more specific examples."),
       revisionAdvice: normalizeArray(parsed.revisionAdvice, 3, "Revise one paragraph at a time."),
-      teacherComment: String(parsed.teacherComment || "Keep practicing. Each revision makes your writing stronger."),
+      teacherComment: String(parsed.teacherComment || "AI grading complete. Use the feedback to improve your next draft."),
       characterCount
     });
   } catch (error) {

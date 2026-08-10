@@ -4,6 +4,8 @@
     "api/analyze-outfit.js": {"maxDuration": 300},
     "api/analyze-book.js": {"maxDuration": 300},
     "api/analyze-decor.js": {"maxDuration": 300},
-    "api/analyze-snack.js": {"maxDuration": 300}
+    "api/analyze-snack.js": {"maxDuration": 300},
+    "api/generate-essay-prompt.js": {"maxDuration": 60},
+    "api/grade-essay.js": {"maxDuration": 120}
   }
 }

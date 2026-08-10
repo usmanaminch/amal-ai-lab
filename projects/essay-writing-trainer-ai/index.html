@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Essay Writing Trainer AI · Amal AI Lab</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<main class="app">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Day 29 · Writing Practice AI</p>
+      <h1>Essay Writing<br>Trainer AI</h1>
+      <p class="subtitle">Get a fresh prompt, write up to 2000 characters, submit your essay, and get an AI score, letter grade, rubric, and revision advice.</p>
+      <div class="hero-actions">
+        <button id="new-prompt" class="primary-button">New Prompt</button>
+        <button id="clear-essay" class="secondary-button">Clear Essay</button>
+      </div>
+    </div>
+    <article class="score-card">
+      <p class="eyebrow">Latest Grade</p>
+      <div id="score-number" class="score-number">—</div>
+      <h2 id="letter-grade">Not graded yet</h2>
+      <p id="score-message">Write an essay and submit it for feedback.</p>
+    </article>
+  </section>
+
+  <section class="controls">
+    <label>Writing level
+      <select id="level">
+        <option>Middle School</option>
+        <option>High School</option>
+        <option>Elementary School</option>
+        <option>College Prep</option>
+      </select>
+    </label>
+    <label>Essay type
+      <select id="essay-type">
+        <option>Mixed</option>
+        <option>Argumentative</option>
+        <option>Expository</option>
+        <option>Persuasive</option>
+        <option>Narrative</option>
+        <option>Compare and Contrast</option>
+      </select>
+    </label>
+    <label>Topic preference
+      <input id="topic" placeholder="Optional: technology, school, friendship, books...">
+    </label>
+  </section>
+
+  <section class="workspace">
+    <article class="panel prompt-panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Prompt</p>
+          <h2 id="prompt-title">Click New Prompt</h2>
+        </div>
+        <span id="prompt-type" class="pill">Prompt</span>
+      </div>
+      <p id="prompt-text" class="prompt-text">Press “New Prompt” to get your first essay topic.</p>
+      <div id="skills" class="skills">
+        <span>Skill: thesis</span><span>Skill: evidence</span><span>Skill: organization</span>
+      </div>
+    </article>
+
+    <article class="panel writing-panel">
+      <div class="panel-header">
+        <div>
+          <p class="eyebrow">Essay</p>
+          <h2>Your writing</h2>
+        </div>
+        <span id="character-count" class="pill">0 / 2000 characters</span>
+      </div>
+      <textarea id="essay" maxlength="2000" placeholder="Write your essay here. Try to include an introduction, body paragraphs, examples, and a conclusion."></textarea>
+      <div class="submit-row">
+        <p id="status">Waiting for your essay.</p>
+        <button id="submit-essay" class="primary-button">Submit for AI Grading</button>
+      </div>
+    </article>
+  </section>
+
+  <section class="results">
+    <article class="panel rubric-panel">
+      <p class="eyebrow">Rubric</p>
+      <h2>Score breakdown</h2>
+      <div class="rubric-grid">
+        <div><span>Prompt Response</span><strong id="rubric-prompt">— / 20</strong></div>
+        <div><span>Organization</span><strong id="rubric-organization">— / 20</strong></div>
+        <div><span>Evidence + Details</span><strong id="rubric-evidence">— / 20</strong></div>
+        <div><span>Clarity + Style</span><strong id="rubric-clarity">— / 20</strong></div>
+        <div><span>Grammar</span><strong id="rubric-grammar">— / 20</strong></div>
+      </div>
+    </article>
+
+    <article class="panel feedback-panel">
+      <p class="eyebrow">Feedback</p>
+      <h2>Teacher-style advice</h2>
+      <div class="feedback-grid">
+        <div><h3>What you did well</h3><ul id="strengths"><li>Feedback will show here.</li></ul></div>
+        <div><h3>What to work on</h3><ul id="improvements"><li>Feedback will show here.</li></ul></div>
+        <div><h3>Revision advice</h3><ul id="revision"><li>Feedback will show here.</li></ul></div>
+      </div>
+      <div class="teacher-comment">
+        <strong>Teacher comment:</strong>
+        <p id="teacher-comment">Submit an essay to get a comment.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="lesson">
+    <p class="eyebrow">What Amal learned</p>
+    <h2>AI can be a coach, not a shortcut</h2>
+    <p>This project uses AI to create prompts and grade writing. The student still writes the essay, then AI gives feedback to help improve the next draft.</p>
+  </section>
+</main>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

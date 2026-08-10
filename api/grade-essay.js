@@ -17,15 +17,16 @@ export default async function handler(req, res) {
     const level = String(body.level || "Middle School");
     const essayType = String(body.essayType || "Essay");
     const characterCount = essay.length;
+    const characterLimit = Number(body.characterLimit || getLimitForLevel(level));
 
     if (!essay) return res.status(400).json({ error: "Essay is empty." });
-    if (characterCount > 2000) return res.status(400).json({ error: "Essay is over the 2000 character limit.", characterCount });
+    if (characterCount > characterLimit) return res.status(400).json({ error: `Essay is over the ${characterLimit} character limit for ${level}.`, characterCount, characterLimit });
 
     const response = await client.responses.create({
       model: process.env.OPENAI_TEXT_MODEL || "gpt-4.1-mini",
       input: [
         { role: "system", content: "You are a strict but encouraging essay grader. Grade the student's writing, not their opinion. Do not write the essay for them. Return JSON only." },
-        { role: "user", content: `Grade this essay for ${level}. Essay type: ${essayType}.
+        { role: "user", content: `Grade this essay for ${level}. Essay type: ${essayType}. Character limit for this level: ${characterLimit}.
 
 Prompt:
 ${prompt}
@@ -60,7 +61,8 @@ Return JSON only:
       whatToImprove: normalizeArray(parsed.whatToImprove, 3, "Add more specific examples."),
       revisionAdvice: normalizeArray(parsed.revisionAdvice, 3, "Revise one paragraph at a time."),
       teacherComment: String(parsed.teacherComment || "AI grading complete. Use the feedback to improve your next draft."),
-      characterCount
+      characterCount,
+      characterLimit
     });
   } catch (error) {
     console.error("Essay grading error:", error);
@@ -121,4 +123,15 @@ function normalizeArray(value, count, fallback) {
   items = items.map(item => String(item).trim()).filter(Boolean);
   while (items.length < count) items.push(fallback);
   return items.slice(0, count);
+}
+
+
+function getLimitForLevel(level) {
+  const limits = {
+    "Elementary School": 2000,
+    "Middle School": 3500,
+    "High School": 4500,
+    "College Prep": 6000
+  };
+  return limits[level] || 3500;
 }

@@ -25,16 +25,34 @@ const revisionList = document.getElementById("revision");
 const teacherComment = document.getElementById("teacher-comment");
 
 let currentPrompt = "";
+const CHARACTER_LIMITS = {
+  "Elementary School": 2000,
+  "Middle School": 3500,
+  "High School": 4500,
+  "College Prep": 6000
+};
+
+function getCharacterLimit() {
+  return CHARACTER_LIMITS[levelInput.value] || 3500;
+}
+
 
 function updateCharacterCount() {
   const count = essayInput.value.length;
-  characterCount.textContent = `${count} / 2000 characters`;
-  characterCount.classList.toggle("danger", count > 1900);
+  const limit = getCharacterLimit();
+  essayInput.maxLength = limit;
+
+  characterCount.textContent = `${count} / ${limit} characters`;
+  characterCount.classList.toggle("danger", count > limit * 0.95);
+
   if (count === 0) {
     statusBox.textContent = "Waiting for your essay.";
     statusBox.className = "";
-  } else if (count > 1900) {
-    statusBox.textContent = "Almost at the 2000 character limit.";
+  } else if (count > limit) {
+    statusBox.textContent = `Essay is over the ${limit} character limit for ${levelInput.value}.`;
+    statusBox.className = "error";
+  } else if (count > limit * 0.95) {
+    statusBox.textContent = `Almost at the ${limit} character limit for ${levelInput.value}.`;
     statusBox.className = "warning";
   } else {
     statusBox.textContent = "Essay ready when you are.";
@@ -56,7 +74,7 @@ async function generatePrompt() {
     const response = await fetch(window.ESSAY_PROMPT_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ level: levelInput.value, type: essayTypeInput.value, topic: topicInput.value.trim() })
+      body: JSON.stringify({ level: levelInput.value, type: essayTypeInput.value, topic: topicInput.value.trim(), characterLimit: getCharacterLimit() })
     });
     const result = await safeJson(response);
     if (!response.ok) throw new Error(result.detail || result.error || `Prompt backend returned ${response.status}`);
@@ -81,7 +99,8 @@ async function gradeEssay() {
   const essay = essayInput.value.trim();
   if (!currentPrompt) return setError("Get a prompt first.");
   if (!essay) return setError("Write your essay before submitting.");
-  if (essay.length > 2000) return setError("Essay is over 2000 characters. Shorten it before submitting.");
+  const limit = getCharacterLimit();
+  if (essay.length > limit) return setError(`Essay is over the ${limit} character limit for ${levelInput.value}. Shorten it before submitting.`);
 
   submitEssayButton.disabled = true;
   statusBox.textContent = "AI is grading your essay...";
@@ -90,7 +109,7 @@ async function gradeEssay() {
     const response = await fetch(window.ESSAY_GRADE_API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: currentPrompt, essay, level: levelInput.value, essayType: promptType.textContent })
+      body: JSON.stringify({ prompt: currentPrompt, essay, level: levelInput.value, essayType: promptType.textContent, characterLimit: getCharacterLimit() })
     });
     const result = await safeJson(response);
     if (!response.ok) throw new Error(result.detail || result.error || `Grading backend returned ${response.status}`);
@@ -144,5 +163,6 @@ essayInput.addEventListener("input", updateCharacterCount);
 newPromptButton.addEventListener("click", generatePrompt);
 submitEssayButton.addEventListener("click", gradeEssay);
 clearEssayButton.addEventListener("click", clearEssay);
+levelInput.addEventListener("change", updateCharacterCount);
 updateCharacterCount();
 generatePrompt();

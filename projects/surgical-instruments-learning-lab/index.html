@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Surgical Instruments Learning Lab · Day 21 v3</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Day 30 favicon: A + cupcake + sparkle -->
+  <link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png">
+  <meta name="theme-color" content="#ff8ab8">
+</head>
+<body>
+<main class="page">
+  <section class="hero-room">
+    <div class="room-topbar">
+      <div>
+        <p class="eyebrow">Junior Medical School · Day 21</p>
+        <h1>Surgical Instruments Learning Lab</h1>
+        <p class="lead">
+          Walk into a simulated operating room and study the tool tray.
+          Click each instrument to learn its name and general job.
+        </p>
+      </div>
+      <div class="safety-pill">Educational only · Not real surgical training · Do not use real tools</div>
+    </div>
+
+    <div class="or-room">
+      <div class="surgical-light left">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="surgical-light right">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="wall-monitor">
+        <div class="monitor-screen">
+          <div class="monitor-line"></div>
+          <div class="monitor-bars">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <p>OR ROOM STATUS · READY TO STUDY</p>
+        </div>
+      </div>
+
+      <div class="cabinet cabinet-left">
+        <div class="cabinet-top"></div>
+        <div class="cabinet-door"></div>
+      </div>
+      <div class="cabinet cabinet-right">
+        <div class="cabinet-top"></div>
+        <div class="cabinet-door"></div>
+      </div>
+
+      <div class="tray-station">
+        <div class="tray-stand"></div>
+        <div class="tray-shelf"></div>
+        <div class="tray-label">Sterile Tool Tray</div>
+
+        <button class="tray-tool scalpel active" data-tool="scalpel" aria-label="Scalpel">
+          <span class="shape shape-scalpel"></span>
+          <strong>Scalpel</strong>
+        </button>
+
+        <button class="tray-tool forceps" data-tool="forceps" aria-label="Forceps">
+          <span class="shape shape-forceps"></span>
+          <strong>Forceps</strong>
+        </button>
+
+        <button class="tray-tool clamp" data-tool="clamp" aria-label="Clamp">
+          <span class="shape shape-clamp"></span>
+          <strong>Clamp</strong>
+        </button>
+
+        <button class="tray-tool scissors" data-tool="scissors" aria-label="Scissors">
+          <span class="shape shape-scissors"></span>
+          <strong>Scissors</strong>
+        </button>
+
+        <button class="tray-tool retractor" data-tool="retractor" aria-label="Retractor">
+          <span class="shape shape-retractor"></span>
+          <strong>Retractor</strong>
+        </button>
+
+        <button class="tray-tool needle" data-tool="needle" aria-label="Needle Holder">
+          <span class="shape shape-needle"></span>
+          <strong>Needle Holder</strong>
+        </button>
+      </div>
+
+      <aside class="tool-info">
+        <div class="info-badge">Selected Instrument</div>
+        <div id="tool-visual" class="tool-visual shape-scalpel large"></div>
+        <h2 id="tool-title">Scalpel</h2>
+        <p id="tool-copy">
+          A scalpel is a very sharp cutting instrument used by trained professionals
+          for precise cutting.
+        </p>
+        <div class="info-card">
+          <h3>General job</h3>
+          <p id="tool-job">Used for precise cutting in a controlled medical setting.</p>
+        </div>
+        <div class="info-card">
+          <h3>Study facts</h3>
+          <ul id="tool-facts">
+            <li>Designed for precision.</li>
+            <li>Must stay sterile.</li>
+            <li>Counted carefully for safety.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="tabs-area">
+    <div class="tab-buttons">
+      <button class="tab-button active" data-tab="tool-cards">Tool Cards</button>
+      <button class="tab-button" data-tab="match-lab">Match Lab</button>
+      <button class="tab-button" data-tab="safety">Safety</button>
+      <button class="tab-button" data-tab="study-check">Study Check</button>
+    </div>
+
+    <section class="tab-panel active" id="tool-cards">
+      <div class="section-head">
+        <p class="eyebrow">One tool at a time</p>
+        <h2>Instrument study cards</h2>
+      </div>
+      <div class="cards-grid">
+        <article class="study-card">
+          <div class="study-shape shape-scalpel"></div>
+          <h3>Scalpel</h3>
+          <p>Very sharp cutting tool for precise cuts by trained professionals.</p>
+        </article>
+        <article class="study-card">
+          <div class="study-shape shape-forceps"></div>
+          <h3>Forceps</h3>
+          <p>Used to pick up or hold small items carefully.</p>
+        </article>
+        <article class="study-card">
+          <div class="study-shape shape-clamp"></div>
+          <h3>Clamp</h3>
+          <p>Used to hold something steady or closed.</p>
+        </article>
+        <article class="study-card">
+          <div class="study-shape shape-scissors"></div>
+          <h3>Scissors</h3>
+          <p>Special cutting tool designed for medical settings.</p>
+        </article>
+        <article class="study-card">
+          <div class="study-shape shape-retractor"></div>
+          <h3>Retractor</h3>
+          <p>Helps hold an area open so the team can see better.</p>
+        </article>
+        <article class="study-card">
+          <div class="study-shape shape-needle"></div>
+          <h3>Needle Holder</h3>
+          <p>Helps hold a surgical needle safely during suturing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="match-lab">
+      <div class="section-head">
+        <p class="eyebrow">Practice</p>
+        <h2>Match the tool to the job</h2>
+      </div>
+      <div class="match-layout">
+        <article class="case-box">
+          <p class="case-tag">Learning job</p>
+          <h3 id="case-title">Hold small items carefully</h3>
+          <p id="case-copy">Which tool is generally used to pick up or hold small materials?</p>
+        </article>
+        <div class="choice-box">
+          <button class="match-choice" data-answer="scalpel">Scalpel</button>
+          <button class="match-choice" data-answer="forceps">Forceps</button>
+          <button class="match-choice" data-answer="clamp">Clamp</button>
+          <button class="match-choice" data-answer="retractor">Retractor</button>
+          <p id="match-feedback"></p>
+          <button id="next-case" class="next-btn">Next Match</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="safety">
+      <div class="section-head">
+        <p class="eyebrow">Safety</p>
+        <h2>OR safety ideas</h2>
+      </div>
+      <div class="safety-grid">
+        <article class="safety-card">
+          <span>🧼</span>
+          <h3>Sterile setup</h3>
+          <p>Tools must stay protected from germs.</p>
+        </article>
+        <article class="safety-card">
+          <span>📋</span>
+          <h3>Instrument counts</h3>
+          <p>Teams count instruments before and after procedures.</p>
+        </article>
+        <article class="safety-card">
+          <span>🗣️</span>
+          <h3>Team communication</h3>
+          <p>Staff speak up if something is missing or contaminated.</p>
+        </article>
+        <article class="safety-card">
+          <span>🛡️</span>
+          <h3>Professional use only</h3>
+          <p>Real surgical tools are used only by trained professionals.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="study-check">
+      <div class="section-head">
+        <p class="eyebrow">Review</p>
+        <h2>Day 21 study check</h2>
+      </div>
+      <article class="quiz-box">
+        <p class="quiz-count">Question <span id="quiz-number">1</span>/6</p>
+        <h3 id="quiz-question">Loading...</h3>
+        <div id="quiz-choices" class="quiz-choices"></div>
+        <p id="quiz-feedback"></p>
+        <button id="next-question" class="next-btn">Next Question</button>
+      </article>
+    </section>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

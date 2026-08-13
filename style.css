@@ -908,3 +908,48 @@ section {
     display:none !important;
   }
 }
+
+
+/* Day 31 SUPER FIX: perfectly center Hi, I'm Amal */
+.hero h1,
+.hero-title,
+.home-hero h1,
+.intro-hero h1,
+.hero-section h1,
+.hero-content h1,
+.hero-text h1 {
+  display: block !important;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: 50% !important;
+  margin-right: 0 !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+  position: relative !important;
+  left: 0 !important;
+  right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep the rest of the hero centered too */
+.hero p,
+.home-hero p,
+.intro-hero p,
+.hero-section p,
+.hero-content p,
+.hero-text p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hero-actions,
+.hero-buttons,
+.cta-row,
+.button-row {
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

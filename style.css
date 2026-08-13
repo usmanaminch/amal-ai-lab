@@ -993,3 +993,113 @@ section {
   }
 }
 
+
+/* Day 31: REAL flower-heavy side decor */
+.page-decor {
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+}
+
+.decor {
+  position: fixed !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  line-height: 1 !important;
+}
+
+.flower-big {
+  font-size: 74px !important;
+  opacity: 0.95 !important;
+  filter: drop-shadow(0 14px 22px rgba(255, 128, 190, 0.25)) !important;
+}
+
+.flower-small {
+  font-size: 52px !important;
+  opacity: 0.9 !important;
+  color: #ff8fc8 !important;
+}
+
+.flower-left-top {
+  top: 190px !important;
+  left: 34px !important;
+  transform: rotate(-12deg) !important;
+}
+
+.flower-left-mid {
+  top: 370px !important;
+  left: 76px !important;
+  transform: rotate(10deg) !important;
+}
+
+.flower-left-low {
+  top: 610px !important;
+  left: 28px !important;
+  transform: rotate(-8deg) !important;
+}
+
+.flower-right-top {
+  top: 190px !important;
+  right: 36px !important;
+  transform: rotate(13deg) !important;
+}
+
+.flower-right-mid {
+  top: 390px !important;
+  right: 80px !important;
+  transform: rotate(-10deg) !important;
+}
+
+.flower-right-low {
+  top: 610px !important;
+  right: 32px !important;
+  transform: rotate(8deg) !important;
+}
+
+.flower-extra-left {
+  top: 285px !important;
+  left: 140px !important;
+}
+
+.flower-extra-right {
+  top: 300px !important;
+  right: 145px !important;
+}
+
+.site-shell,
+main,
+.navbar,
+.hero,
+.about-section,
+.projects-section,
+section {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+@media (max-width: 900px) {
+  .flower-big {
+    font-size: 42px !important;
+  }
+
+  .flower-small,
+  .flower-left-mid,
+  .flower-left-low,
+  .flower-right-mid,
+  .flower-right-low {
+    display: none !important;
+  }
+
+  .flower-left-top {
+    top: 155px !important;
+    left: 14px !important;
+  }
+
+  .flower-right-top {
+    top: 205px !important;
+    right: 14px !important;
+  }
+}
+

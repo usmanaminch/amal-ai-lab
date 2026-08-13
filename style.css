@@ -773,3 +773,85 @@ footer {
   align-items: center !important;
 }
 
+
+/* Day 31: cute side decor */
+.page-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decor {
+  position: fixed;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.decor-sparkle-left {
+  top: 180px;
+  left: 28px;
+  font-size: 44px;
+  color: #f6a6d7;
+}
+
+.decor-heart-left {
+  top: 210px;
+  left: 85px;
+  font-size: 54px;
+  color: #ff9ccc;
+}
+
+.decor-flower-right {
+  top: 330px;
+  right: 38px;
+  font-size: 58px;
+  color: #9ed4ff;
+}
+
+.decor-cloud-right {
+  bottom: 110px;
+  right: 26px;
+  font-size: 56px;
+  color: #d6b8ff;
+}
+
+.decor-dot-left {
+  top: 520px;
+  left: 34px;
+  width: 16px;
+  height: 16px;
+  background: #ffd966;
+  border-radius: 999px;
+}
+
+.decor-dot-right {
+  top: 620px;
+  right: 58px;
+  width: 14px;
+  height: 14px;
+  background: #7ee0e8;
+  border-radius: 999px;
+}
+
+/* keep real content above decor */
+.site-shell,
+main,
+.navbar,
+.hero,
+.about-section,
+.projects-section,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .decor-sparkle-left { left: 14px; top: 160px; font-size: 34px; }
+  .decor-heart-left { left: 50px; top: 195px; font-size: 40px; }
+  .decor-flower-right { right: 14px; top: 290px; font-size: 42px; }
+  .decor-cloud-right { right: 12px; bottom: 90px; font-size: 42px; }
+  .decor-dot-left,
+  .decor-dot-right { display: none; }
+}
+

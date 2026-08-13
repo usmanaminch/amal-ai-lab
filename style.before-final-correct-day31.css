@@ -856,12 +856,145 @@ section {
 }
 
 
+/* Day 31: flower-heavy side decor */
+.page-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.decor {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.flower {
+  font-size: 54px;
+  opacity: 0.85;
+  filter: drop-shadow(0 12px 22px rgba(255, 140, 190, 0.22));
+}
+
+.flower-left-1 {
+  top: 170px;
+  left: 32px;
+  color: #ff9fd3;
+  transform: rotate(-12deg);
+}
+
+.flower-left-2 {
+  top: 310px;
+  left: 92px;
+  color: #b7ddff;
+  font-size: 46px;
+  transform: rotate(10deg);
+}
+
+.flower-left-3 {
+  top: 500px;
+  left: 38px;
+  color: #d8b7ff;
+  font-size: 42px;
+  transform: rotate(-8deg);
+}
+
+.flower-left-4 {
+  bottom: 130px;
+  left: 78px;
+  font-size: 44px;
+  opacity: 0.8;
+}
+
+.flower-right-1 {
+  top: 185px;
+  right: 42px;
+  color: #a9dbff;
+  transform: rotate(14deg);
+}
+
+.flower-right-2 {
+  top: 355px;
+  right: 105px;
+  color: #ff9fd3;
+  font-size: 48px;
+  transform: rotate(-10deg);
+}
+
+.flower-right-3 {
+  top: 545px;
+  right: 34px;
+  color: #d8b7ff;
+  font-size: 44px;
+  transform: rotate(8deg);
+}
+
+.flower-right-4 {
+  bottom: 115px;
+  right: 88px;
+  font-size: 46px;
+  opacity: 0.82;
+}
+
+.mini-heart-left {
+  top: 230px;
+  left: 105px;
+  color: #ff9ccc;
+  font-size: 46px;
+  opacity: 0.72;
+}
+
+.mini-sparkle-right {
+  top: 285px;
+  right: 90px;
+  color: #ff9ccc;
+  font-size: 36px;
+  opacity: 0.75;
+}
+
+.site-shell,
+main,
+.navbar,
+.hero,
+.about-section,
+.projects-section,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .flower {
+    font-size: 34px;
+    opacity: 0.65;
+  }
+
+  .flower-left-2,
+  .flower-left-3,
+  .flower-left-4,
+  .flower-right-2,
+  .flower-right-3,
+  .flower-right-4,
+  .mini-heart-left,
+  .mini-sparkle-right {
+    display: none;
+  }
+
+  .flower-left-1 {
+    top: 150px;
+    left: 14px;
+  }
+
+  .flower-right-1 {
+    top: 220px;
+    right: 14px;
+  }
+}
 
 
-
-
-
-/* Day 31 FINAL LOCKED VERSION: small pastel decor + original title font */
+/* Day 31: REAL flower-heavy side decor */
 .page-decor {
   position: fixed !important;
   inset: 0 !important;
@@ -875,97 +1008,66 @@ section {
   pointer-events: none !important;
   user-select: none !important;
   line-height: 1 !important;
-  opacity: 0.78 !important;
-  font-family: Georgia, serif !important;
 }
 
-/* small pastel left side */
-.decor-sparkle-left {
-  top: 165px !important;
+.flower-big {
+  font-size: 74px !important;
+  opacity: 0.95 !important;
+  filter: drop-shadow(0 14px 22px rgba(255, 128, 190, 0.25)) !important;
+}
+
+.flower-small {
+  font-size: 52px !important;
+  opacity: 0.9 !important;
+  color: #ff8fc8 !important;
+}
+
+.flower-left-top {
+  top: 190px !important;
   left: 34px !important;
-  font-size: 42px !important;
-  color: #ff91c8 !important;
+  transform: rotate(-12deg) !important;
 }
 
-.decor-heart-left {
-  top: 155px !important;
-  left: 92px !important;
-  font-size: 56px !important;
-  color: #ff9ccc !important;
+.flower-left-mid {
+  top: 370px !important;
+  left: 76px !important;
+  transform: rotate(10deg) !important;
 }
 
-.decor-flower-left {
+.flower-left-low {
+  top: 610px !important;
+  left: 28px !important;
+  transform: rotate(-8deg) !important;
+}
+
+.flower-right-top {
+  top: 190px !important;
+  right: 36px !important;
+  transform: rotate(13deg) !important;
+}
+
+.flower-right-mid {
+  top: 390px !important;
+  right: 80px !important;
+  transform: rotate(-10deg) !important;
+}
+
+.flower-right-low {
+  top: 610px !important;
+  right: 32px !important;
+  transform: rotate(8deg) !important;
+}
+
+.flower-extra-left {
+  top: 285px !important;
+  left: 140px !important;
+}
+
+.flower-extra-right {
   top: 300px !important;
-  left: 45px !important;
-  font-size: 54px !important;
-  color: #ff8fc8 !important;
-}
-
-.decor-heart-left-2 {
-  top: 365px !important;
-  left: 118px !important;
-  font-size: 62px !important;
-  color: #ff9ccc !important;
-}
-
-.decor-blue-flower-left {
-  top: 495px !important;
-  left: 92px !important;
-  font-size: 48px !important;
-  color: #9edcff !important;
-}
-
-.decor-purple-left {
-  top: 735px !important;
-  left: 35px !important;
-  font-size: 46px !important;
-  color: #cdb0ff !important;
-}
-
-/* small pastel right side */
-.decor-blue-flower-right {
-  top: 335px !important;
-  right: 68px !important;
-  font-size: 56px !important;
-  color: #9edcff !important;
-}
-
-.decor-sparkle-right {
-  top: 450px !important;
-  right: 120px !important;
-  font-size: 42px !important;
-  color: #ff91c8 !important;
-}
-
-.decor-pink-flower-right {
-  top: 555px !important;
   right: 145px !important;
-  font-size: 50px !important;
-  color: #ff8fc8 !important;
 }
 
-.decor-cream-flower-right {
-  top: 750px !important;
-  right: 145px !important;
-  font-size: 46px !important;
-  color: #ffe0c7 !important;
-}
-
-.decor-purple-right {
-  top: 760px !important;
-  right: 62px !important;
-  font-size: 48px !important;
-  color: #cdb0ff !important;
-}
-
-.decor-cloud-right {
-  bottom: 85px !important;
-  right: 35px !important;
-  font-size: 58px !important;
-  color: #d9b8ff !important;
-}
-
-/* keep content above decor */
 .site-shell,
 main,
 .navbar,
@@ -977,32 +1079,39 @@ section {
   z-index: 3 !important;
 }
 
-/* restore original serif homepage title */
-.hero h1,
-.hero-section h1,
-.home-hero h1,
-.hero-grid h1,
-.hero-wrap h1,
-.hero-container h1 {
-  font-family: Georgia, "Times New Roman", serif !important;
+@media (max-width: 900px) {
+  .flower-big {
+    font-size: 42px !important;
+  }
+
+  .flower-small,
+  .flower-left-mid,
+  .flower-left-low,
+  .flower-right-mid,
+  .flower-right-low {
+    display: none !important;
+  }
+
+  .flower-left-top {
+    top: 155px !important;
+    left: 14px !important;
+  }
+
+  .flower-right-top {
+    top: 205px !important;
+    right: 14px !important;
+  }
+}
+
+
+/* Day 31: make homepage title more carefree */
+.hero-text h1,
+.hero-copy h1,
+.hero-content h1,
+.intro-text h1 {
+  font-family: "Marker Felt", "Comic Sans MS", "Bradley Hand", "Trebuchet MS", cursive !important;
   font-weight: 800 !important;
   letter-spacing: -0.04em !important;
   line-height: 0.95 !important;
 }
 
-@media (max-width: 900px) {
-  .decor {
-    opacity: 0.5 !important;
-  }
-
-  .decor-flower-left,
-  .decor-heart-left-2,
-  .decor-blue-flower-left,
-  .decor-purple-left,
-  .decor-pink-flower-right,
-  .decor-cream-flower-right,
-  .decor-purple-right,
-  .decor-cloud-right {
-    display: none !important;
-  }
-}

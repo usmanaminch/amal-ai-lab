@@ -1006,3 +1006,150 @@ section {
     display: none !important;
   }
 }
+
+
+/* Day 31 FINAL LOCKED VERSION: small pastel decor + original title font */
+.page-decor {
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+}
+
+.decor {
+  position: fixed !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  line-height: 1 !important;
+  opacity: 0.78 !important;
+  font-family: Georgia, serif !important;
+}
+
+/* small pastel left side */
+.decor-sparkle-left {
+  top: 165px !important;
+  left: 34px !important;
+  font-size: 42px !important;
+  color: #ff91c8 !important;
+}
+
+.decor-heart-left {
+  top: 155px !important;
+  left: 92px !important;
+  font-size: 56px !important;
+  color: #ff9ccc !important;
+}
+
+.decor-flower-left {
+  top: 300px !important;
+  left: 45px !important;
+  font-size: 54px !important;
+  color: #ff8fc8 !important;
+}
+
+.decor-heart-left-2 {
+  top: 365px !important;
+  left: 118px !important;
+  font-size: 62px !important;
+  color: #ff9ccc !important;
+}
+
+.decor-blue-flower-left {
+  top: 495px !important;
+  left: 92px !important;
+  font-size: 48px !important;
+  color: #9edcff !important;
+}
+
+.decor-purple-left {
+  top: 735px !important;
+  left: 35px !important;
+  font-size: 46px !important;
+  color: #cdb0ff !important;
+}
+
+/* small pastel right side */
+.decor-blue-flower-right {
+  top: 335px !important;
+  right: 68px !important;
+  font-size: 56px !important;
+  color: #9edcff !important;
+}
+
+.decor-sparkle-right {
+  top: 450px !important;
+  right: 120px !important;
+  font-size: 42px !important;
+  color: #ff91c8 !important;
+}
+
+.decor-pink-flower-right {
+  top: 555px !important;
+  right: 145px !important;
+  font-size: 50px !important;
+  color: #ff8fc8 !important;
+}
+
+.decor-cream-flower-right {
+  top: 750px !important;
+  right: 145px !important;
+  font-size: 46px !important;
+  color: #ffe0c7 !important;
+}
+
+.decor-purple-right {
+  top: 760px !important;
+  right: 62px !important;
+  font-size: 48px !important;
+  color: #cdb0ff !important;
+}
+
+.decor-cloud-right {
+  bottom: 85px !important;
+  right: 35px !important;
+  font-size: 58px !important;
+  color: #d9b8ff !important;
+}
+
+/* keep content above decor */
+.site-shell,
+main,
+.navbar,
+.hero,
+.about-section,
+.projects-section,
+section {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* restore original serif homepage title */
+.hero h1,
+.hero-section h1,
+.home-hero h1,
+.hero-grid h1,
+.hero-wrap h1,
+.hero-container h1 {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  line-height: 0.95 !important;
+}
+
+@media (max-width: 900px) {
+  .decor {
+    opacity: 0.5 !important;
+  }
+
+  .decor-flower-left,
+  .decor-heart-left-2,
+  .decor-blue-flower-left,
+  .decor-purple-left,
+  .decor-pink-flower-right,
+  .decor-cream-flower-right,
+  .decor-purple-right,
+  .decor-cloud-right {
+    display: none !important;
+  }
+}

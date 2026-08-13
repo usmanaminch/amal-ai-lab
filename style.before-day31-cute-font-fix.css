@@ -1104,19 +1104,14 @@ section {
 }
 
 
-
-
-/* Day 31: cute rounded font for Hi, I'm Amal only */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap');
-
-.hero h1,
-.hero-section h1,
-.home-hero h1,
-.hero-grid h1,
-.hero-wrap h1,
-.hero-container h1 {
-  font-family: "Baloo 2", "Trebuchet MS", cursive !important;
+/* Day 31: make homepage title more carefree */
+.hero-text h1,
+.hero-copy h1,
+.hero-content h1,
+.intro-text h1 {
+  font-family: "Marker Felt", "Comic Sans MS", "Bradley Hand", "Trebuchet MS", cursive !important;
   font-weight: 800 !important;
-  letter-spacing: -0.03em !important;
-  line-height: 0.9 !important;
+  letter-spacing: -0.04em !important;
+  line-height: 0.95 !important;
 }
+

@@ -855,3 +855,141 @@ section {
   .decor-dot-right { display: none; }
 }
 
+
+/* Day 31: flower-heavy side decor */
+.page-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.decor {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.flower {
+  font-size: 54px;
+  opacity: 0.85;
+  filter: drop-shadow(0 12px 22px rgba(255, 140, 190, 0.22));
+}
+
+.flower-left-1 {
+  top: 170px;
+  left: 32px;
+  color: #ff9fd3;
+  transform: rotate(-12deg);
+}
+
+.flower-left-2 {
+  top: 310px;
+  left: 92px;
+  color: #b7ddff;
+  font-size: 46px;
+  transform: rotate(10deg);
+}
+
+.flower-left-3 {
+  top: 500px;
+  left: 38px;
+  color: #d8b7ff;
+  font-size: 42px;
+  transform: rotate(-8deg);
+}
+
+.flower-left-4 {
+  bottom: 130px;
+  left: 78px;
+  font-size: 44px;
+  opacity: 0.8;
+}
+
+.flower-right-1 {
+  top: 185px;
+  right: 42px;
+  color: #a9dbff;
+  transform: rotate(14deg);
+}
+
+.flower-right-2 {
+  top: 355px;
+  right: 105px;
+  color: #ff9fd3;
+  font-size: 48px;
+  transform: rotate(-10deg);
+}
+
+.flower-right-3 {
+  top: 545px;
+  right: 34px;
+  color: #d8b7ff;
+  font-size: 44px;
+  transform: rotate(8deg);
+}
+
+.flower-right-4 {
+  bottom: 115px;
+  right: 88px;
+  font-size: 46px;
+  opacity: 0.82;
+}
+
+.mini-heart-left {
+  top: 230px;
+  left: 105px;
+  color: #ff9ccc;
+  font-size: 46px;
+  opacity: 0.72;
+}
+
+.mini-sparkle-right {
+  top: 285px;
+  right: 90px;
+  color: #ff9ccc;
+  font-size: 36px;
+  opacity: 0.75;
+}
+
+.site-shell,
+main,
+.navbar,
+.hero,
+.about-section,
+.projects-section,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .flower {
+    font-size: 34px;
+    opacity: 0.65;
+  }
+
+  .flower-left-2,
+  .flower-left-3,
+  .flower-left-4,
+  .flower-right-2,
+  .flower-right-3,
+  .flower-right-4,
+  .mini-heart-left,
+  .mini-sparkle-right {
+    display: none;
+  }
+
+  .flower-left-1 {
+    top: 150px;
+    left: 14px;
+  }
+
+  .flower-right-1 {
+    top: 220px;
+    right: 14px;
+  }
+}
+

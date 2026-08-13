@@ -1103,3 +1103,15 @@ section {
   }
 }
 
+
+/* Day 31: make homepage title more carefree */
+.hero-text h1,
+.hero-copy h1,
+.hero-content h1,
+.intro-text h1 {
+  font-family: "Marker Felt", "Comic Sans MS", "Bradley Hand", "Trebuchet MS", cursive !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  line-height: 0.95 !important;
+}
+

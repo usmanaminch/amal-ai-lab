@@ -848,49 +848,5 @@
   </main>
 
   <script src="script.js"></script>
-
-<!-- Day 31: nuke current mission card -->
-<script>
-(function () {
-  function removeMissionCard() {
-    const targets = Array.from(document.querySelectorAll("aside, article, section, div"))
-      .filter(el => {
-        const text = (el.textContent || "").replace(/\s+/g, " ").trim();
-        return text.includes("CURRENT MISSION") && text.includes("Build useful projects");
-      })
-      .sort((a, b) => a.textContent.length - b.textContent.length);
-
-    if (targets.length) {
-      targets[0].remove();
-    }
-
-    const heroAreas = document.querySelectorAll(".hero, .hero-section, .home-hero, .hero-grid, .hero-wrap, .hero-container");
-    heroAreas.forEach(el => {
-      el.style.gridTemplateColumns = "1fr";
-      el.style.justifyItems = "center";
-      el.style.textAlign = "center";
-    });
-
-    const introAreas = document.querySelectorAll(".hero-text, .hero-copy, .hero-content, .intro-text");
-    introAreas.forEach(el => {
-      el.style.maxWidth = "1100px";
-      el.style.marginLeft = "auto";
-      el.style.marginRight = "auto";
-      el.style.textAlign = "center";
-      el.style.alignItems = "center";
-    });
-
-    const buttons = document.querySelectorAll(".hero-actions, .hero-buttons");
-    buttons.forEach(el => {
-      el.style.justifyContent = "center";
-    });
-  }
-
-  removeMissionCard();
-  document.addEventListener("DOMContentLoaded", removeMissionCard);
-  setTimeout(removeMissionCard, 300);
-})();
-</script>
-
 </body>
 </html>

@@ -717,3 +717,59 @@ footer {
   margin-right: auto;
 }
 
+
+/* Day 31: Put homepage intro in the smack center */
+.hero,
+.hero-section,
+.home-hero,
+.hero-grid,
+.hero-wrap,
+.hero-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.hero-text,
+.hero-copy,
+.hero-content,
+.intro-text {
+  width: 100% !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hero-text h1,
+.hero-copy h1,
+.hero-content h1,
+.intro-text h1,
+.hero-text .eyebrow,
+.hero-copy .eyebrow,
+.hero-content .eyebrow,
+.intro-text .eyebrow {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hero-text p,
+.hero-copy p,
+.hero-content p,
+.intro-text p {
+  max-width: 850px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.hero-actions,
+.hero-buttons {
+  justify-content: center !important;
+  align-items: center !important;
+}
+

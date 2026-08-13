@@ -691,3 +691,29 @@ footer {
   margin-right: auto;
 }
 
+
+/* Day 31: Center homepage hero intro */
+.hero-text,
+.hero-copy,
+.hero-content,
+.intro-text {
+  text-align: center;
+  align-items: center;
+}
+
+.hero-text .hero-actions,
+.hero-copy .hero-actions,
+.hero-content .hero-actions,
+.intro-text .hero-actions,
+.hero-buttons {
+  justify-content: center;
+}
+
+.hero-text p,
+.hero-copy p,
+.hero-content p,
+.intro-text p {
+  margin-left: auto;
+  margin-right: auto;
+}
+

@@ -939,5 +939,38 @@
 })();
 </script>
 
+
+<!-- Day 31 PERFECT title center -->
+<script>
+(function () {
+  function perfectCenterTitle() {
+    const headings = Array.from(document.querySelectorAll("h1"));
+    const title = headings.find(h => (h.textContent || "").includes("Hi, I’m Amal") || (h.textContent || "").includes("Hi, I'm Amal"));
+
+    if (!title) return;
+
+    title.style.position = "relative";
+    title.style.display = "block";
+    title.style.textAlign = "center";
+    title.style.marginLeft = "0";
+    title.style.marginRight = "0";
+    title.style.transform = "translateX(0px)";
+
+    const rect = title.getBoundingClientRect();
+    const titleCenter = rect.left + rect.width / 2;
+    const screenCenter = window.innerWidth / 2;
+    const shift = screenCenter - titleCenter;
+
+    title.style.transform = "translateX(" + shift + "px)";
+  }
+
+  window.addEventListener("load", perfectCenterTitle);
+  window.addEventListener("resize", perfectCenterTitle);
+  document.addEventListener("DOMContentLoaded", perfectCenterTitle);
+  setTimeout(perfectCenterTitle, 100);
+  setTimeout(perfectCenterTitle, 500);
+})();
+</script>
+
 </body>
 </html>

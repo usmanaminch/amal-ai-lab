@@ -3,45 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pickle Simulator · Amal</title>
+  <title>Pickle Jar Simulator · Amal</title>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="pickle-app">
+  <main class="app">
     <a class="back-link" href="/">← Back to Amal’s Website</a>
 
-    <section class="hero-card">
+    <section class="hero">
       <p class="eyebrow">Day 32 · Recipe Simulator</p>
-      <h1>Pickle Simulator 🥒</h1>
+      <h1>Pickle Jar Simulator 🥒</h1>
       <p>
-        Choose your pickle style, build your brine, and follow the simulator
-        to make a cute refrigerator pickle recipe.
+        Make refrigerator pickles step by step: choose, cut, pack the jar,
+        add flavor, pour brine, close the lid, and chill.
       </p>
-      <p class="safety-note">
-        Parent note: this is for refrigerator pickles only, not shelf-stable canning.
-      </p>
+      <p class="note">Ask an adult before using knives, glass jars, vinegar, or hot water.</p>
     </section>
 
-    <section class="sim-card">
-      <div class="progress-bar">
-        <div id="progressFill"></div>
+    <section class="simulator">
+      <div class="top-row">
+        <div>
+          <p class="eyebrow" id="stepLabel">Step 1</p>
+          <h2 id="stepTitle">Choose your pickle type</h2>
+          <p id="stepText">Pick what you want to turn into pickles.</p>
+        </div>
+        <div class="meter">
+          <span id="progressText">0%</span>
+          <div class="meter-track"><div id="meterFill"></div></div>
+        </div>
       </div>
 
-      <div id="stepArea"></div>
+      <div class="workspace">
+        <div class="counter">
+          <div id="ingredient" class="ingredient cucumber">🥒</div>
+          <div id="knife" class="tool knife hidden">🔪</div>
+          <div id="pieces" class="pieces hidden"></div>
+          <div id="spices" class="spices hidden">🧄 🌿 🌶️</div>
+          <div id="brine" class="brine hidden">💧</div>
+          <div id="lid" class="lid hidden">🟡</div>
+        </div>
 
-      <div class="button-row">
-        <button id="backBtn" type="button">Back</button>
-        <button id="nextBtn" type="button">Next</button>
+        <div class="jar-zone">
+          <div class="jar">
+            <div id="jarBrine" class="jar-brine"></div>
+            <div id="jarPieces" class="jar-pieces"></div>
+            <div id="jarSpices" class="jar-spices"></div>
+            <div id="jarLid" class="jar-lid"></div>
+          </div>
+          <p class="jar-label">Pickle Jar</p>
+        </div>
+      </div>
+
+      <div class="choices" id="choices"></div>
+
+      <div class="actions">
+        <button id="resetBtn" type="button">Restart</button>
+        <button id="mainBtn" type="button">Start</button>
       </div>
     </section>
 
-    <section class="recipe-card" id="recipeCard">
-      <p class="eyebrow">Your Pickle Card</p>
-      <h2 id="recipeTitle">Build your pickle recipe</h2>
-      <div id="recipeOutput">
-        Pick your ingredients and the simulator will make your recipe card here.
-      </div>
+    <section class="recipe-card">
+      <p class="eyebrow">Your Recipe Card</p>
+      <h2 id="recipeName">Refrigerator Pickles</h2>
+      <ul id="recipeSteps">
+        <li>Choose a vegetable to pickle.</li>
+      </ul>
     </section>
   </main>
 

@@ -4,137 +4,296 @@
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #3b2038;
-  background:
-    radial-gradient(circle at 8% 18%, rgba(255, 150, 205, 0.35), transparent 24%),
-    radial-gradient(circle at 92% 20%, rgba(158, 220, 255, 0.35), transparent 24%),
-    linear-gradient(135deg, #ffe0f1, #fff5fb 50%, #e8ecff);
   min-height: 100vh;
+  color: #3b2038;
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(255, 155, 205, 0.35), transparent 24%),
+    radial-gradient(circle at 92% 18%, rgba(160, 220, 255, 0.35), transparent 24%),
+    linear-gradient(135deg, #ffe0f1, #fff6fb 50%, #e8ecff);
 }
 
-.pickle-app {
-  width: min(1100px, calc(100% - 32px));
+.app {
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 32px 0 56px;
+  padding: 30px 0 60px;
 }
 
 .back-link {
   display: inline-flex;
+  margin-bottom: 18px;
   text-decoration: none;
   color: #7b4d72;
-  background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(255, 160, 210, 0.45);
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255, 160, 210, 0.5);
   border-radius: 999px;
   padding: 12px 18px;
-  font-weight: 800;
-  margin-bottom: 22px;
+  font-weight: 900;
 }
 
-.hero-card,
-.sim-card,
+.hero,
+.simulator,
 .recipe-card {
-  background: rgba(255,255,255,0.72);
-  border: 1px solid rgba(255, 165, 210, 0.5);
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255, 165, 210, 0.55);
   border-radius: 34px;
   box-shadow: 0 24px 70px rgba(255, 140, 190, 0.18);
-  padding: 34px;
+  padding: 32px;
   margin-bottom: 24px;
 }
 
-.hero-card {
+.hero {
   text-align: center;
 }
 
 .eyebrow {
   margin: 0 0 10px;
   color: #8355ff;
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-family: Arial, sans-serif;
-  font-size: 0.8rem;
 }
 
 h1 {
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(3rem, 8vw, 6.4rem);
   line-height: 0.95;
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1;
-  margin: 0 0 18px;
+  margin: 0 0 12px;
 }
 
-p {
-  font-size: 1.2rem;
-  line-height: 1.7;
+p,
+li {
+  font-size: 1.12rem;
+  line-height: 1.6;
 }
 
-.safety-note {
+.note {
   display: inline-block;
-  font-size: 0.95rem;
   background: #fff0f8;
   border: 1px solid #ffc0df;
   border-radius: 999px;
   padding: 10px 16px;
+  font-size: 0.95rem;
   color: #8c5478;
 }
 
-.progress-bar {
-  width: 100%;
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.meter {
+  min-width: 180px;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  color: #ff3c9b;
+}
+
+.meter-track {
   height: 14px;
   background: #ffe4f2;
   border-radius: 999px;
+  margin-top: 8px;
   overflow: hidden;
-  margin-bottom: 26px;
 }
 
-#progressFill {
-  height: 100%;
+#meterFill {
   width: 0%;
+  height: 100%;
   border-radius: 999px;
   background: linear-gradient(90deg, #ee6bd6, #4fcce8, #ffe36e);
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
-.choice-grid {
+.workspace {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 14px;
-  margin-top: 22px;
+  grid-template-columns: minmax(280px, 1fr) 320px;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.counter,
+.jar-zone {
+  min-height: 360px;
+  background: linear-gradient(135deg, #fff7fc, #f1fbff);
+  border: 2px dashed rgba(255, 135, 195, 0.45);
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.counter::after {
+  content: "Prep Counter";
+  position: absolute;
+  left: 22px;
+  bottom: 18px;
+  color: #9a6b8d;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  opacity: 0.7;
+}
+
+.ingredient {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  font-size: 110px;
+  transition: 0.35s ease;
+}
+
+.ingredient.bounce {
+  animation: bounce 0.5s ease;
+}
+
+.tool {
+  position: absolute;
+  right: 18%;
+  top: 25%;
+  font-size: 78px;
+}
+
+.knife.chop {
+  animation: chop 0.55s ease 3;
+}
+
+.pieces {
+  position: absolute;
+  inset: 70px 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  font-size: 48px;
+}
+
+.piece {
+  animation: popIn 0.35s ease both;
+}
+
+.spices,
+.brine,
+.lid {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  animation: popIn 0.35s ease both;
+}
+
+.jar-zone {
+  display: grid;
+  place-items: center;
+}
+
+.jar {
+  width: 190px;
+  height: 280px;
+  border: 8px solid rgba(120, 100, 130, 0.32);
+  border-top: 0;
+  border-radius: 28px 28px 46px 46px;
+  position: relative;
+  background: rgba(255,255,255,0.55);
+  overflow: hidden;
+}
+
+.jar::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: -2px;
+  height: 16px;
+  border: 8px solid rgba(120, 100, 130, 0.32);
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+}
+
+.jar-brine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0%;
+  background: rgba(170, 230, 255, 0.55);
+  transition: height 0.7s ease;
+}
+
+.jar-pieces,
+.jar-spices {
+  position: absolute;
+  inset: 25px 12px 12px;
+  font-size: 34px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.jar-lid {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: -8px;
+  height: 38px;
+  background: linear-gradient(135deg, #ffe36e, #ffba5f);
+  border-radius: 18px;
+  transform: translateY(-60px);
+  transition: transform 0.5s ease;
+  z-index: 3;
+}
+
+.jar-lid.closed {
+  transform: translateY(0);
+}
+
+.jar-label {
+  position: absolute;
+  bottom: 18px;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  color: #9a6b8d;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
 }
 
 .choice {
   border: 2px solid #ffc0df;
   background: #fff7fc;
   color: #4a2543;
-  border-radius: 22px;
-  padding: 18px;
-  min-height: 110px;
-  font-size: 1rem;
+  border-radius: 999px;
+  padding: 13px 18px;
   font-weight: 900;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
-.choice:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(255, 130, 190, 0.2);
 }
 
 .choice.selected {
-  border-color: #8b5cff;
   background: linear-gradient(135deg, #ffe4f5, #e9f7ff);
+  border-color: #8b5cff;
 }
 
-.button-row {
+.actions {
   display: flex;
   justify-content: center;
   gap: 14px;
-  margin-top: 28px;
+  margin-top: 24px;
   flex-wrap: wrap;
 }
 
@@ -147,60 +306,52 @@ button {
   cursor: pointer;
 }
 
-#backBtn {
+#resetBtn {
   background: #f4e9f1;
   color: #704665;
 }
 
-#nextBtn {
+#mainBtn {
   background: linear-gradient(135deg, #ee6bd6, #7d54ff);
   color: white;
 }
 
-#recipeOutput {
-  font-size: 1.08rem;
-  line-height: 1.7;
+.hidden {
+  display: none !important;
 }
 
-.recipe-list {
+.recipe-card ul {
   margin: 0;
   padding-left: 22px;
 }
 
-.recipe-list li {
-  margin-bottom: 10px;
+@keyframes chop {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-28deg) translateY(18px); }
 }
 
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 18px 0;
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-.badge {
-  background: #fff0f8;
-  border: 1px solid #ffc0df;
-  border-radius: 999px;
-  padding: 9px 13px;
-  font-family: Arial, sans-serif;
-  font-weight: 800;
-  color: #ff3c9b;
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.12); }
 }
 
-@media (max-width: 700px) {
-  .hero-card,
-  .sim-card,
-  .recipe-card {
-    padding: 24px;
-    border-radius: 26px;
+@media (max-width: 800px) {
+  .top-row,
+  .workspace {
+    grid-template-columns: 1fr;
+    display: block;
   }
 
-  .button-row {
-    flex-direction: column;
+  .jar-zone {
+    margin-top: 18px;
   }
 
-  button {
-    width: 100%;
+  .meter {
+    margin-top: 14px;
   }
 }

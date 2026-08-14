@@ -1,75 +1,70 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   min-height: 100vh;
-  color: #3b2038;
   font-family: Georgia, "Times New Roman", serif;
+  color: #3b2038;
   background:
-    radial-gradient(circle at 8% 20%, rgba(255, 155, 205, 0.35), transparent 24%),
-    radial-gradient(circle at 92% 18%, rgba(160, 220, 255, 0.35), transparent 24%),
-    linear-gradient(135deg, #ffe0f1, #fff6fb 50%, #e8ecff);
+    radial-gradient(circle at 10% 18%, rgba(255, 155, 205, 0.32), transparent 25%),
+    radial-gradient(circle at 90% 18%, rgba(160, 220, 255, 0.32), transparent 25%),
+    linear-gradient(135deg, #ffe1f1, #fff7fc 48%, #e8ecff);
 }
 
 .app {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 30px 0 60px;
+  padding: 28px 0 56px;
 }
 
 .back-link {
   display: inline-flex;
   margin-bottom: 18px;
-  text-decoration: none;
-  color: #7b4d72;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(255, 160, 210, 0.5);
-  border-radius: 999px;
   padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #ffc0df;
+  color: #7b4d72;
+  text-decoration: none;
   font-weight: 900;
 }
 
 .hero,
 .simulator,
-.recipe-card {
-  background: rgba(255,255,255,0.75);
+.final-card {
+  background: rgba(255,255,255,0.76);
   border: 1px solid rgba(255, 165, 210, 0.55);
   border-radius: 34px;
-  box-shadow: 0 24px 70px rgba(255, 140, 190, 0.18);
   padding: 32px;
   margin-bottom: 24px;
+  box-shadow: 0 24px 70px rgba(255, 140, 190, 0.18);
 }
 
-.hero {
-  text-align: center;
-}
+.hero { text-align: center; }
 
 .eyebrow {
   margin: 0 0 10px;
   color: #8355ff;
   font-family: Arial, sans-serif;
-  font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 h1 {
-  font-size: clamp(3rem, 8vw, 6.4rem);
-  line-height: 0.95;
   margin: 0 0 16px;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
 }
 
 h2 {
+  margin: 0 0 12px;
   font-size: clamp(2rem, 4vw, 3.2rem);
   line-height: 1;
-  margin: 0 0 12px;
 }
 
-p,
-li {
+p, li {
   font-size: 1.12rem;
   line-height: 1.6;
 }
@@ -80,117 +75,247 @@ li {
   border: 1px solid #ffc0df;
   border-radius: 999px;
   padding: 10px 16px;
-  font-size: 0.95rem;
   color: #8c5478;
+  font-size: 0.95rem;
 }
 
-.top-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.meter {
-  min-width: 180px;
-  font-family: Arial, sans-serif;
-  font-weight: 900;
-  color: #ff3c9b;
-}
-
-.meter-track {
+.progress {
   height: 14px;
   background: #ffe4f2;
   border-radius: 999px;
-  margin-top: 8px;
   overflow: hidden;
+  margin-bottom: 24px;
 }
 
-#meterFill {
+#progressFill {
   width: 0%;
   height: 100%;
-  border-radius: 999px;
   background: linear-gradient(90deg, #ee6bd6, #4fcce8, #ffe36e);
-  transition: width 0.4s ease;
+  transition: width 0.45s ease;
 }
 
-.workspace {
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 22px 0;
+}
+
+.choice {
+  border: 2px solid #ffc0df;
+  background: #fff7fc;
+  border-radius: 999px;
+  padding: 13px 18px;
+  color: #4a2543;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.choice.selected {
+  background: linear-gradient(135deg, #ffe4f5, #e9f7ff);
+  border-color: #8b5cff;
+}
+
+.scene {
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) 320px;
+  grid-template-columns: 1fr 330px;
   gap: 24px;
-  margin-top: 26px;
+  margin-top: 22px;
 }
 
 .counter,
-.jar-zone {
-  min-height: 360px;
-  background: linear-gradient(135deg, #fff7fc, #f1fbff);
+.jar-area {
+  min-height: 390px;
+  position: relative;
   border: 2px dashed rgba(255, 135, 195, 0.45);
   border-radius: 30px;
-  position: relative;
+  background: linear-gradient(135deg, #fff7fc, #f1fbff);
   overflow: hidden;
 }
 
-.counter::after {
-  content: "Prep Counter";
+.zone-label {
   position: absolute;
   left: 22px;
-  bottom: 18px;
-  color: #9a6b8d;
+  bottom: 16px;
+  margin: 0;
   font-family: Arial, sans-serif;
   font-weight: 900;
-  opacity: 0.7;
+  color: #9a6b8d;
+  opacity: 0.72;
 }
 
-.ingredient {
+.pickle-board {
   position: absolute;
   left: 50%;
-  top: 42%;
+  top: 43%;
   transform: translate(-50%, -50%);
-  font-size: 110px;
-  transition: 0.35s ease;
-}
-
-.ingredient.bounce {
-  animation: bounce 0.5s ease;
-}
-
-.tool {
-  position: absolute;
-  right: 18%;
-  top: 25%;
-  font-size: 78px;
-}
-
-.knife.chop {
-  animation: chop 0.55s ease 3;
-}
-
-.pieces {
-  position: absolute;
-  inset: 70px 40px 60px;
+  width: 360px;
+  height: 190px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   place-items: center;
-  font-size: 48px;
+}
+
+.pickle-shape {
+  position: relative;
+  width: 275px;
+  height: 78px;
+  border-radius: 999px;
+  box-shadow: inset -18px -14px 0 rgba(0,0,0,0.08);
+}
+
+.pickle-shape.cucumber {
+  background: linear-gradient(135deg, #8edb63, #2f9f51);
+}
+
+.pickle-shape.carrot {
+  background: linear-gradient(135deg, #ffb35b, #f47b36);
+}
+
+.pickle-shape.onion {
+  background: linear-gradient(135deg, #f5a1d6, #b55ce2);
+}
+
+.pickle-shape.mixed {
+  background: linear-gradient(135deg, #8edb63, #ffb35b 55%, #f5a1d6);
+}
+
+.cut-line {
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  width: 0;
+  border-left: 4px dashed rgba(255,255,255,0.95);
+}
+
+.line-1 { left: 28%; }
+.line-2 { left: 50%; }
+.line-3 { left: 72%; }
+
+.cut-line.hit {
+  border-left-color: #8b5cff;
+  animation: glow 0.45s ease;
+}
+
+.knife {
+  position: absolute;
+  left: 34px;
+  top: 36px;
+  width: 150px;
+  height: 44px;
+  cursor: grab;
+  z-index: 5;
+}
+
+.knife:active { cursor: grabbing; }
+
+.knife-blade {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 95px;
+  height: 28px;
+  background: linear-gradient(135deg, #ffffff, #bfc7d6);
+  clip-path: polygon(0 0, 100% 15%, 92% 100%, 0 100%);
+  border-radius: 8px;
+}
+
+.knife-handle {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  width: 62px;
+  height: 23px;
+  background: #5a3554;
+  border-radius: 999px;
+}
+
+.knife.dragging {
+  opacity: 0.75;
+  transform: scale(1.05);
+}
+
+.cut-pieces {
+  position: absolute;
+  inset: 85px 40px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 12px;
 }
 
 .piece {
-  animation: popIn 0.35s ease both;
+  width: 46px;
+  height: 42px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #8edb63, #2f9f51);
+  border: 4px solid rgba(255,255,255,0.8);
+  box-shadow: 0 8px 18px rgba(80, 160, 100, 0.2);
+  cursor: grab;
 }
 
-.spices,
-.brine,
-.lid {
+.piece.carrot { background: linear-gradient(135deg, #ffb35b, #f47b36); }
+.piece.onion { background: linear-gradient(135deg, #f5a1d6, #b55ce2); }
+
+.spice-bowl,
+.brine-cup {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 44%;
   transform: translate(-50%, -50%);
-  font-size: 80px;
-  animation: popIn 0.35s ease both;
+  text-align: center;
+  cursor: grab;
+  z-index: 5;
 }
 
-.jar-zone {
+.bowl {
+  width: 120px;
+  height: 62px;
+  background: linear-gradient(135deg, #ffc6e5, #f48bc5);
+  border-radius: 18px 18px 55px 55px;
+  border: 4px solid rgba(255,255,255,0.7);
+}
+
+.spice-dots::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 20px;
+  margin: -54px auto 34px;
+  background:
+    radial-gradient(circle, #8ac75a 0 4px, transparent 5px) 0 0 / 24px 20px,
+    radial-gradient(circle, #ff5b8f 0 4px, transparent 5px) 12px 6px / 26px 20px,
+    radial-gradient(circle, #f0c24a 0 4px, transparent 5px) 5px 11px / 28px 20px;
+}
+
+.brine-cup {
+  width: 112px;
+  height: 150px;
+  border: 5px solid rgba(120,100,130,0.35);
+  border-radius: 18px 18px 30px 30px;
+  background: rgba(255,255,255,0.65);
+  overflow: hidden;
+}
+
+.cup-water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70%;
+  background: rgba(120, 220, 245, 0.65);
+}
+
+.brine-cup p,
+.spice-bowl p {
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  margin-top: 10px;
+  color: #7b4d72;
+}
+
+.jar-area {
   display: grid;
   place-items: center;
 }
@@ -202,20 +327,25 @@ li {
   border-top: 0;
   border-radius: 28px 28px 46px 46px;
   position: relative;
-  background: rgba(255,255,255,0.55);
   overflow: hidden;
+  background: rgba(255,255,255,0.58);
 }
 
 .jar::before {
   content: "";
   position: absolute;
+  top: -2px;
   left: 24px;
   right: 24px;
-  top: -2px;
   height: 16px;
   border: 8px solid rgba(120, 100, 130, 0.32);
   border-bottom: 0;
   border-radius: 18px 18px 0 0;
+}
+
+.jar.drop-ready {
+  outline: 5px solid rgba(139, 92, 255, 0.35);
+  outline-offset: 8px;
 }
 
 .jar-brine {
@@ -231,15 +361,36 @@ li {
 .jar-pieces,
 .jar-spices {
   position: absolute;
-  inset: 25px 12px 12px;
-  font-size: 34px;
+  inset: 34px 12px 14px;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
   justify-content: center;
   gap: 4px;
-  z-index: 2;
 }
+
+.jar-piece {
+  width: 34px;
+  height: 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #8edb63, #2f9f51);
+  border: 3px solid rgba(255,255,255,0.8);
+}
+
+.jar-piece.carrot { background: linear-gradient(135deg, #ffb35b, #f47b36); }
+.jar-piece.onion { background: linear-gradient(135deg, #f5a1d6, #b55ce2); }
+
+.spice-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #ff5b8f;
+  margin: 3px;
+}
+
+.spice-dot:nth-child(2n) { background: #8ac75a; }
+.spice-dot:nth-child(3n) { background: #f0c24a; }
 
 .jar-lid {
   position: absolute;
@@ -254,39 +405,14 @@ li {
   z-index: 3;
 }
 
-.jar-lid.closed {
-  transform: translateY(0);
-}
+.jar-lid.closed { transform: translateY(0); }
 
-.jar-label {
+.mini-action {
   position: absolute;
-  bottom: 18px;
-  font-family: Arial, sans-serif;
-  font-weight: 900;
-  color: #9a6b8d;
-}
-
-.choices {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 24px;
-  justify-content: center;
-}
-
-.choice {
-  border: 2px solid #ffc0df;
-  background: #fff7fc;
-  color: #4a2543;
-  border-radius: 999px;
-  padding: 13px 18px;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.choice.selected {
-  background: linear-gradient(135deg, #ffe4f5, #e9f7ff);
-  border-color: #8b5cff;
+  bottom: 22px;
+  right: 22px;
+  background: #ffe36e;
+  color: #3b2038;
 }
 
 .actions {
@@ -301,8 +427,8 @@ button {
   border: 0;
   border-radius: 999px;
   padding: 14px 24px;
-  font-weight: 900;
   font-size: 1rem;
+  font-weight: 900;
   cursor: pointer;
 }
 
@@ -311,47 +437,66 @@ button {
   color: #704665;
 }
 
-#mainBtn {
+#nextBtn {
   background: linear-gradient(135deg, #ee6bd6, #7d54ff);
   color: white;
 }
 
-.hidden {
-  display: none !important;
+.finished-display {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  align-items: center;
 }
 
-.recipe-card ul {
-  margin: 0;
-  padding-left: 22px;
+.finished-jar {
+  width: 190px;
+  height: 280px;
+  border: 8px solid rgba(120, 100, 130, 0.32);
+  border-top: 0;
+  border-radius: 28px 28px 46px 46px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,0.58);
 }
 
-@keyframes chop {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-28deg) translateY(18px); }
+.finished-brine {
+  position: absolute;
+  inset: 28% 0 0;
+  background: rgba(170, 230, 255, 0.55);
 }
 
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+.finished-lid {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: -8px;
+  height: 38px;
+  background: linear-gradient(135deg, #ffe36e, #ffba5f);
+  border-radius: 18px;
+  z-index: 4;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.12); }
+.finished-pieces {
+  position: absolute;
+  inset: 36px 14px 14px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hidden { display: none !important; }
+
+@keyframes glow {
+  50% { transform: scaleY(1.08); filter: drop-shadow(0 0 10px #8b5cff); }
 }
 
 @media (max-width: 800px) {
-  .top-row,
-  .workspace {
+  .scene,
+  .finished-display {
     grid-template-columns: 1fr;
-    display: block;
-  }
-
-  .jar-zone {
-    margin-top: 18px;
-  }
-
-  .meter {
-    margin-top: 14px;
   }
 }

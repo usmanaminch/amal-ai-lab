@@ -12,63 +12,89 @@
     <a class="back-link" href="/">← Back to Amal’s Website</a>
 
     <section class="hero">
-      <p class="eyebrow">Day 32 · Recipe Simulator</p>
-      <h1>Pickle Jar Simulator 🥒</h1>
+      <p class="eyebrow">Day 32 · Hands-On Recipe Simulator</p>
+      <h1>Pickle Jar Simulator</h1>
       <p>
-        Make refrigerator pickles step by step: choose, cut, pack the jar,
-        add flavor, pour brine, close the lid, and chill.
+        Choose a pickle, drag the knife to the dotted lines, pack the jar,
+        add spices, pour brine, close the lid, and see your finished pickles.
       </p>
-      <p class="note">Ask an adult before using knives, glass jars, vinegar, or hot water.</p>
+      <p class="note">Ask an adult before using real knives, glass jars, vinegar, or hot water.</p>
     </section>
 
     <section class="simulator">
-      <div class="top-row">
-        <div>
-          <p class="eyebrow" id="stepLabel">Step 1</p>
-          <h2 id="stepTitle">Choose your pickle type</h2>
-          <p id="stepText">Pick what you want to turn into pickles.</p>
-        </div>
-        <div class="meter">
-          <span id="progressText">0%</span>
-          <div class="meter-track"><div id="meterFill"></div></div>
-        </div>
-      </div>
+      <div class="progress"><div id="progressFill"></div></div>
 
-      <div class="workspace">
+      <p class="eyebrow" id="stepLabel">Step 1</p>
+      <h2 id="stepTitle">Choose your pickle</h2>
+      <p id="stepText">Pick what you want to turn into pickles.</p>
+
+      <div id="choices" class="choices"></div>
+
+      <div class="scene">
         <div class="counter">
-          <div id="ingredient" class="ingredient cucumber">🥒</div>
-          <div id="knife" class="tool knife hidden">🔪</div>
-          <div id="pieces" class="pieces hidden"></div>
-          <div id="spices" class="spices hidden">🧄 🌿 🌶️</div>
-          <div id="brine" class="brine hidden">💧</div>
-          <div id="lid" class="lid hidden">🟡</div>
+          <p class="zone-label">Prep Counter</p>
+
+          <div id="pickleBoard" class="pickle-board">
+            <div id="pickleShape" class="pickle-shape cucumber">
+              <span class="cut-line line-1"></span>
+              <span class="cut-line line-2"></span>
+              <span class="cut-line line-3"></span>
+            </div>
+          </div>
+
+          <div id="knife" class="knife" draggable="true" title="Drag me to the dotted lines">
+            <div class="knife-blade"></div>
+            <div class="knife-handle"></div>
+          </div>
+
+          <div id="cutPieces" class="cut-pieces hidden"></div>
+
+          <div id="spiceBowl" class="spice-bowl hidden" draggable="true">
+            <div class="bowl"></div>
+            <div class="spice-dots"></div>
+            <p>Spices</p>
+          </div>
+
+          <div id="brineCup" class="brine-cup hidden" draggable="true">
+            <div class="cup-water"></div>
+            <p>Brine</p>
+          </div>
         </div>
 
-        <div class="jar-zone">
-          <div class="jar">
+        <div class="jar-area">
+          <p class="zone-label">Pickle Jar</p>
+
+          <div id="jar" class="jar">
             <div id="jarBrine" class="jar-brine"></div>
             <div id="jarPieces" class="jar-pieces"></div>
             <div id="jarSpices" class="jar-spices"></div>
             <div id="jarLid" class="jar-lid"></div>
           </div>
-          <p class="jar-label">Pickle Jar</p>
+
+          <button id="lidButton" class="mini-action hidden" type="button">Close the Jar</button>
         </div>
       </div>
 
-      <div class="choices" id="choices"></div>
-
       <div class="actions">
         <button id="resetBtn" type="button">Restart</button>
-        <button id="mainBtn" type="button">Start</button>
+        <button id="nextBtn" type="button">Next</button>
       </div>
     </section>
 
-    <section class="recipe-card">
-      <p class="eyebrow">Your Recipe Card</p>
-      <h2 id="recipeName">Refrigerator Pickles</h2>
-      <ul id="recipeSteps">
-        <li>Choose a vegetable to pickle.</li>
-      </ul>
+    <section id="finalCard" class="final-card hidden">
+      <p class="eyebrow">Finished Jar</p>
+      <h2 id="finalTitle">Your pickles are ready!</h2>
+      <div class="finished-display">
+        <div class="finished-jar">
+          <div class="finished-brine"></div>
+          <div id="finishedPieces" class="finished-pieces"></div>
+          <div class="finished-lid"></div>
+        </div>
+        <div>
+          <p id="finalText">You made refrigerator pickles. Let them chill for at least 24 hours with adult help.</p>
+          <ul id="recipeList"></ul>
+        </div>
+      </div>
     </section>
   </main>
 

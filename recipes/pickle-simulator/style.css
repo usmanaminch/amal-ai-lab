@@ -500,3 +500,66 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* SUPER EASY CUT START */
+
+/* make the knife bigger */
+.knife {
+  width: 220px !important;
+  height: 80px !important;
+  z-index: 50 !important;
+}
+
+.knife-blade {
+  width: 140px !important;
+  height: 34px !important;
+}
+
+.knife-handle {
+  width: 82px !important;
+  height: 32px !important;
+  border-radius: 18px !important;
+}
+
+/* make cut targets HUGE */
+.cut-line {
+  position: absolute !important;
+  width: 140px !important;
+  height: 240px !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  border-left: 6px dashed rgba(255,255,255,0.98) !important;
+  background: rgba(255,255,255,0.06) !important;
+  border-radius: 28px !important;
+  pointer-events: auto !important;
+  z-index: 30 !important;
+}
+
+/* keep the visible dotted line centered */
+.cut-line::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 6px dashed rgba(255,255,255,0.98);
+}
+
+/* optional glow so it feels easier to aim */
+.cut-line:hover {
+  background: rgba(255,255,255,0.12) !important;
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.08) inset;
+}
+
+/* allow the board area to show oversized targets */
+.prep-counter,
+.prep-board,
+.cut-stage,
+.cut-area,
+.simulator-stage {
+  overflow: visible !important;
+}
+
+/* SUPER EASY CUT END */

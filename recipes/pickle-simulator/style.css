@@ -563,3 +563,24 @@ button {
 }
 
 /* SUPER EASY CUT END */
+
+/* Day 32: auto-cut makes pickle cutting easier */
+.pickle-board,
+.pickle-shape {
+  cursor: pointer !important;
+}
+
+.pickle-board::after {
+  content: "Drop knife anywhere on the pickle to cut";
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #9a6b8d;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+

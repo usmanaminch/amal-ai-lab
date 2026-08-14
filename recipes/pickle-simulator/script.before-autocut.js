@@ -51,31 +51,6 @@ const finalText = document.getElementById("finalText");
 const finishedPieces = document.getElementById("finishedPieces");
 const recipeList = document.getElementById("recipeList");
 
-
-function autoCutPickle() {
-  if (state.step !== 1) return;
-
-  const lines = Array.from(document.querySelectorAll(".cut-line"));
-  lines.forEach(line => line.classList.add("hit"));
-
-  state.cuts = 3;
-  makePieces();
-
-  setTimeout(() => {
-    state.step = 2;
-    
-pickleBoard.addEventListener("click", () => {
-  if (state.step === 1) autoCutPickle();
-});
-
-pickleShape.addEventListener("click", () => {
-  if (state.step === 1) autoCutPickle();
-});
-
-render();
-  }, 450);
-}
-
 function render() {
   const [title, text] = steps[state.step];
   stepLabel.textContent = state.step === steps.length - 1 ? "Done" : `Step ${state.step + 1}`;
@@ -172,29 +147,6 @@ function updateRecipe() {
     <li>Chill in the fridge for at least 24 hours with adult help.</li>
   `;
 }
-
-
-pickleBoard.addEventListener("dragover", e => {
-  if (state.step === 1) e.preventDefault();
-});
-
-pickleBoard.addEventListener("drop", e => {
-  e.preventDefault();
-  if (e.dataTransfer.getData("text/plain") === "knife") {
-    autoCutPickle();
-  }
-});
-
-pickleShape.addEventListener("dragover", e => {
-  if (state.step === 1) e.preventDefault();
-});
-
-pickleShape.addEventListener("drop", e => {
-  e.preventDefault();
-  if (e.dataTransfer.getData("text/plain") === "knife") {
-    autoCutPickle();
-  }
-});
 
 knife.addEventListener("dragstart", e => {
   e.dataTransfer.setData("text/plain", "knife");

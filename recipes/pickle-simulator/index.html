@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pickle Simulator · Amal</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="pickle-app">
+    <a class="back-link" href="/">← Back to Amal’s Website</a>
+
+    <section class="hero-card">
+      <p class="eyebrow">Day 32 · Recipe Simulator</p>
+      <h1>Pickle Simulator 🥒</h1>
+      <p>
+        Choose your pickle style, build your brine, and follow the simulator
+        to make a cute refrigerator pickle recipe.
+      </p>
+      <p class="safety-note">
+        Parent note: this is for refrigerator pickles only, not shelf-stable canning.
+      </p>
+    </section>
+
+    <section class="sim-card">
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+
+      <div id="stepArea"></div>
+
+      <div class="button-row">
+        <button id="backBtn" type="button">Back</button>
+        <button id="nextBtn" type="button">Next</button>
+      </div>
+    </section>
+
+    <section class="recipe-card" id="recipeCard">
+      <p class="eyebrow">Your Pickle Card</p>
+      <h2 id="recipeTitle">Build your pickle recipe</h2>
+      <div id="recipeOutput">
+        Pick your ingredients and the simulator will make your recipe card here.
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

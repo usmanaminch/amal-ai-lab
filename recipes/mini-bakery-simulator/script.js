@@ -1,24 +1,33 @@
 const state = {
+  screen: "entrance",
   step: 0,
   treat: "cupcake",
   ingredients: new Set(),
   mixed: false,
+  trayInOven: false,
   baked: false,
-  decor: []
+  decorations: []
 };
 
 const steps = [
   ["Choose your treat", "Pick what you want to bake today."],
-  ["Mix ingredients", "Add flour, sugar, egg, and milk into the mixing bowl."],
-  ["Make the treat", "Turn your batter into a treat tray."],
-  ["Bake it", "Put it in the warm oven and bake it."],
-  ["Decorate it", "Choose frosting, drizzle, sprinkles, or a cherry."],
+  ["Drag ingredients", "Drag flour, sugar, egg, and milk into the bowl."],
+  ["Whisk batter", "Click the whisk button to mix the batter."],
+  ["Drag tray to oven", "Move your treat tray into the warm oven."],
+  ["Bake it", "Click bake and watch the timer."],
+  ["Decorate it", "Choose decorations for your treat."],
   ["Bakery reveal", "See your finished bakery special."]
 ];
 
-const entranceScreen = document.getElementById("entranceScreen");
-const simulatorScreen = document.getElementById("simulatorScreen");
-const finalScreen = document.getElementById("finalScreen");
+const treatNames = {
+  cupcake: "Cupcake",
+  cookie: "Cookie",
+  donut: "Donut"
+};
+
+const entrance = document.getElementById("entrance");
+const simulator = document.getElementById("simulator");
+const final = document.getElementById("final");
 
 const enterBtn = document.getElementById("enterBtn");
 const stepLabel = document.getElementById("stepLabel");
@@ -26,115 +35,149 @@ const stepTitle = document.getElementById("stepTitle");
 const stepText = document.getElementById("stepText");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
+const choices = document.getElementById("choices");
 
-const choiceArea = document.getElementById("choiceArea");
-const mixingBowl = document.getElementById("mixingBowl");
 const ingredients = document.getElementById("ingredients");
+const bowl = document.getElementById("bowl");
 const batter = document.getElementById("batter");
-const mixBtn = document.getElementById("mixBtn");
-const treatTray = document.getElementById("treatTray");
+const bowlText = document.getElementById("bowlText");
+const whiskBtn = document.getElementById("whiskBtn");
+const tray = document.getElementById("tray");
 const rawTreat = document.getElementById("rawTreat");
+const oven = document.getElementById("oven");
 const ovenTreat = document.getElementById("ovenTreat");
 const bakeBtn = document.getElementById("bakeBtn");
-const bakeTimer = document.getElementById("bakeTimer");
+const timer = document.getElementById("timer");
 const timerFill = document.getElementById("timerFill");
-const decorateArea = document.getElementById("decorateArea");
-const nextBtn = document.getElementById("nextBtn");
-const resetBtn = document.getElementById("resetBtn");
+const decorate = document.getElementById("decorate");
 
-const finalTreat = document.getElementById("finalTreat");
+const nextBtn = document.getElementById("nextBtn");
+const restartBtn = document.getElementById("restartBtn");
+const againBtn = document.getElementById("againBtn");
+
 const finalTitle = document.getElementById("finalTitle");
+const finalTreat = document.getElementById("finalTreat");
 const specialName = document.getElementById("specialName");
 const specialText = document.getElementById("specialText");
 const specialList = document.getElementById("specialList");
-const makeAnotherBtn = document.getElementById("makeAnotherBtn");
-
-const treatOptions = [
-  ["cupcake", "Cupcake"],
-  ["cookie", "Cookie"],
-  ["donut", "Donut"]
-];
 
 function render() {
+  entrance.classList.toggle("hidden", state.screen !== "entrance");
+  simulator.classList.toggle("hidden", state.screen !== "simulator");
+  final.classList.toggle("hidden", state.screen !== "final");
+
+  if (state.screen !== "simulator") return;
+
   const [title, text] = steps[state.step];
   stepLabel.textContent = `Step ${state.step + 1}`;
   stepTitle.textContent = title;
   stepText.textContent = text;
 
   const percent = Math.round((state.step / (steps.length - 1)) * 100);
-  progressText.textContent = `${percent}%`;
-  progressFill.style.width = `${percent}%`;
+  progressText.textContent = percent + "%";
+  progressFill.style.width = percent + "%";
 
-  choiceArea.innerHTML = "";
-  mixingBowl.classList.toggle("hidden", state.step !== 1);
+  choices.innerHTML = "";
   ingredients.classList.toggle("hidden", state.step !== 1);
-  mixBtn.classList.toggle("hidden", state.step !== 1);
-  treatTray.classList.toggle("hidden", state.step !== 2);
-  bakeBtn.classList.toggle("hidden", state.step !== 3);
-  bakeTimer.classList.toggle("hidden", state.step !== 3);
-  decorateArea.classList.toggle("hidden", state.step !== 4);
+  bowl.classList.toggle("hidden", state.step < 1 || state.step > 2);
+  whiskBtn.classList.toggle("hidden", state.step !== 2);
+  tray.classList.toggle("hidden", state.step !== 3);
+  bakeBtn.classList.toggle("hidden", state.step !== 4);
+  timer.classList.toggle("hidden", state.step !== 4);
+  decorate.classList.toggle("hidden", state.step !== 5);
 
   if (state.step === 0) renderTreatChoices();
-  if (state.step === 2) renderRawTreat();
-  if (state.step === 3) renderOvenTreat();
 
-  nextBtn.textContent = state.step === 4 ? "Reveal Treat" : "Next";
+  rawTreat.className = `raw-treat ${state.treat}`;
+  ovenTreat.className = `oven-treat ${state.trayInOven ? "visible" : ""} ${state.treat}`;
+
+  nextBtn.textContent = state.step === 5 ? "Reveal Treat" : "Next";
 }
 
 function renderTreatChoices() {
-  treatOptions.forEach(([key, label]) => {
+  ["cupcake", "cookie", "donut"].forEach(treat => {
     const btn = document.createElement("button");
     btn.className = "choice";
-    if (state.treat === key) btn.classList.add("selected");
-    btn.textContent = label;
+    if (state.treat === treat) btn.classList.add("selected");
+    btn.textContent = treatNames[treat];
     btn.onclick = () => {
-      state.treat = key;
+      state.treat = treat;
       renderTreatChoices();
     };
-    choiceArea.appendChild(btn);
+    choices.appendChild(btn);
   });
 }
 
-function renderRawTreat() {
-  rawTreat.className = `raw-treat ${state.treat}`;
-}
+enterBtn.onclick = () => {
+  state.screen = "simulator";
+  render();
+};
 
-function renderOvenTreat() {
-  ovenTreat.className = `oven-treat visible ${state.treat}`;
-}
-
-document.querySelectorAll(".ingredient").forEach(btn => {
-  btn.addEventListener("click", () => {
-    state.ingredients.add(btn.dataset.ingredient);
-    btn.classList.add("added");
-    batter.style.height = `${22 + state.ingredients.size * 12}px`;
+document.querySelectorAll(".ingredient").forEach(item => {
+  item.addEventListener("dragstart", e => {
+    e.dataTransfer.setData("text/plain", item.dataset.item);
   });
 });
 
-mixBtn.addEventListener("click", () => {
-  if (state.ingredients.size < 4) {
-    alert("Add all four ingredients first!");
-    return;
+bowl.addEventListener("dragover", e => {
+  e.preventDefault();
+  bowl.classList.add("drop-ready");
+});
+
+bowl.addEventListener("dragleave", () => bowl.classList.remove("drop-ready"));
+
+bowl.addEventListener("drop", e => {
+  e.preventDefault();
+  bowl.classList.remove("drop-ready");
+  const item = e.dataTransfer.getData("text/plain");
+
+  if (state.step !== 1 || !item) return;
+
+  state.ingredients.add(item);
+  document.querySelector(`[data-item="${item}"]`).classList.add("used");
+  batter.style.height = `${18 + state.ingredients.size * 14}px`;
+  bowlText.textContent = `${state.ingredients.size}/4 ingredients`;
+
+  if (state.ingredients.size === 4) {
+    setTimeout(() => {
+      state.step = 2;
+      render();
+    }, 300);
   }
+});
+
+whiskBtn.onclick = () => {
   state.mixed = true;
   batter.classList.add("mixed");
+  setTimeout(() => {
+    state.step = 3;
+    render();
+  }, 700);
+};
+
+tray.addEventListener("dragstart", e => {
+  e.dataTransfer.setData("text/plain", "tray");
 });
 
-document.querySelectorAll(".decor-choice").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const item = btn.dataset.decor;
-    if (state.decor.includes(item)) {
-      state.decor = state.decor.filter(d => d !== item);
-      btn.classList.remove("selected");
-    } else {
-      state.decor.push(item);
-      btn.classList.add("selected");
-    }
-  });
+oven.addEventListener("dragover", e => {
+  e.preventDefault();
+  oven.classList.add("drop-ready");
 });
 
-bakeBtn.addEventListener("click", () => {
-  bakeTimer.classList.remove("hidden");
+oven.addEventListener("dragleave", () => oven.classList.remove("drop-ready"));
+
+oven.addEventListener("drop", e => {
+  e.preventDefault();
+  oven.classList.remove("drop-ready");
+  if (state.step !== 3 || e.dataTransfer.getData("text/plain") !== "tray") return;
+
+  state.trayInOven = true;
+  state.step = 4;
+  render();
+});
+
+bakeBtn.onclick = () => {
+  timerFill.style.transition = "none";
   timerFill.style.width = "0%";
 
   setTimeout(() => {
@@ -144,80 +187,82 @@ bakeBtn.addEventListener("click", () => {
 
   setTimeout(() => {
     state.baked = true;
-    alert("Ding! Your treat is baked.");
-  }, 1700);
+    state.step = 5;
+    render();
+  }, 1800);
+};
+
+document.querySelectorAll(".decor-choice").forEach(btn => {
+  btn.onclick = () => {
+    const decor = btn.dataset.decor;
+    if (state.decorations.includes(decor)) {
+      state.decorations = state.decorations.filter(d => d !== decor);
+      btn.classList.remove("selected");
+    } else {
+      state.decorations.push(decor);
+      btn.classList.add("selected");
+    }
+  };
 });
 
-nextBtn.addEventListener("click", () => {
-  if (state.step === 1 && !state.mixed) {
-    alert("Mix your batter first!");
+nextBtn.onclick = () => {
+  if (state.step === 0) {
+    state.step = 1;
+    render();
     return;
   }
 
-  if (state.step === 3 && !state.baked) {
-    alert("Bake your treat first!");
-    return;
-  }
-
-  if (state.step === 4) {
+  if (state.step === 5) {
     showFinal();
     return;
   }
 
-  state.step++;
-  render();
-});
+  alert("Complete the bakery action first!");
+};
 
-resetBtn.addEventListener("click", reset);
-makeAnotherBtn.addEventListener("click", reset);
-
-enterBtn.addEventListener("click", () => {
-  entranceScreen.classList.add("hidden");
-  simulatorScreen.classList.remove("hidden");
-  render();
-});
+restartBtn.onclick = reset;
+againBtn.onclick = reset;
 
 function showFinal() {
-  simulatorScreen.classList.add("hidden");
-  finalScreen.classList.remove("hidden");
+  state.screen = "final";
 
-  finalTreat.className = `final-treat ${state.treat} ${state.decor.join(" ")}`;
-  const label = treatOptions.find(([key]) => key === state.treat)[1];
+  const treat = treatNames[state.treat];
+  finalTitle.textContent = `Your ${treat} is ready!`;
+  finalTreat.className = `final-treat ${state.treat}`;
+  specialName.textContent = `Amal’s ${treat} Bakery Special`;
+  specialText.textContent = "Sweet score: 10/10 · Fresh from the pastel oven.";
 
-  finalTitle.textContent = `Your ${label} is ready!`;
-  specialName.textContent = `Amal’s ${label} Bakery Special`;
-  specialText.textContent = "Sweet score: 10/10 · Freshly baked in the simulator.";
-
-  const decorations = state.decor.length
-    ? state.decor.map(d => d.replace("-", " ")).join(", ")
-    : "simple bakery style";
+  const decors = state.decorations.length ? state.decorations.join(", ") : "simple bakery style";
 
   specialList.innerHTML = `
-    <li>Treat: ${label}</li>
-    <li>Decorations: ${decorations}</li>
-    <li>Bakery vibe: pastel, cozy, and sweet</li>
+    <li>Treat: ${treat}</li>
+    <li>Decorations: ${decors}</li>
+    <li>Bakery vibe: cozy, pastel, and sweet</li>
   `;
+
+  render();
 }
 
 function reset() {
+  state.screen = "entrance";
   state.step = 0;
   state.treat = "cupcake";
   state.ingredients = new Set();
   state.mixed = false;
+  state.trayInOven = false;
   state.baked = false;
-  state.decor = [];
+  state.decorations = [];
 
-  document.querySelectorAll(".ingredient").forEach(btn => btn.classList.remove("added"));
-  document.querySelectorAll(".decor-choice").forEach(btn => btn.classList.remove("selected"));
+  document.querySelectorAll(".ingredient").forEach(i => i.classList.remove("used"));
+  document.querySelectorAll(".decor-choice").forEach(i => i.classList.remove("selected"));
 
   batter.classList.remove("mixed");
-  batter.style.height = "22px";
+  batter.style.height = "18px";
+  bowlText.textContent = "Drop ingredients here";
   timerFill.style.transition = "none";
   timerFill.style.width = "0%";
 
-  finalScreen.classList.add("hidden");
-  simulatorScreen.classList.remove("hidden");
-  entranceScreen.classList.add("hidden");
-
   render();
 }
+
+render();

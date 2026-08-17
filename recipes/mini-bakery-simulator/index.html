@@ -11,27 +11,24 @@
   <main class="bakery-app">
     <a class="back-link" href="/">← Back to Amal’s Website</a>
 
-    <section id="entranceScreen" class="bakery-entrance">
+    <section id="entrance" class="entrance">
       <div class="awning"></div>
       <p class="eyebrow">Day 36 · Bakery Simulator</p>
       <h1>Amal’s Mini Bakery</h1>
-      <p class="welcome">
-        Step inside a cozy pastel bakery, choose a treat, mix the batter,
-        bake it, decorate it, and reveal your bakery special.
-      </p>
+      <p>Walk into the bakery, pick a treat, drag ingredients, mix batter, bake it, decorate it, and reveal your bakery special.</p>
 
       <div class="display-case">
+        <div class="treat-preview cupcake"></div>
+        <div class="treat-preview cookie"></div>
+        <div class="treat-preview donut"></div>
         <div class="shelf"></div>
-        <div class="display-treat cupcake-preview"></div>
-        <div class="display-treat cookie-preview"></div>
-        <div class="display-treat donut-preview"></div>
       </div>
 
-      <button id="enterBtn" class="main-button">Enter Bakery</button>
+      <button id="enterBtn">Enter Bakery</button>
     </section>
 
-    <section id="simulatorScreen" class="simulator hidden">
-      <div class="top-bar">
+    <section id="simulator" class="simulator hidden">
+      <div class="top-row">
         <div>
           <p class="eyebrow" id="stepLabel">Step 1</p>
           <h2 id="stepTitle">Choose your treat</h2>
@@ -43,81 +40,80 @@
         </div>
       </div>
 
-      <div id="choiceArea" class="choice-area"></div>
+      <div id="choices" class="choices"></div>
 
-      <div class="bakery-scene">
+      <div class="scene">
         <div class="counter">
           <p class="zone-label">Bakery Counter</p>
 
-          <div id="mixingBowl" class="mixing-bowl hidden">
-            <div id="batter" class="batter"></div>
-          </div>
-
           <div id="ingredients" class="ingredients hidden">
-            <button class="ingredient" data-ingredient="flour">Flour</button>
-            <button class="ingredient" data-ingredient="sugar">Sugar</button>
-            <button class="ingredient" data-ingredient="egg">Egg</button>
-            <button class="ingredient" data-ingredient="milk">Milk</button>
+            <div class="ingredient flour" draggable="true" data-item="flour">Flour</div>
+            <div class="ingredient sugar" draggable="true" data-item="sugar">Sugar</div>
+            <div class="ingredient egg" draggable="true" data-item="egg">Egg</div>
+            <div class="ingredient milk" draggable="true" data-item="milk">Milk</div>
           </div>
 
-          <button id="mixBtn" class="mini-button hidden">Mix Batter</button>
+          <div id="bowl" class="bowl hidden">
+            <div id="batter" class="batter"></div>
+            <p id="bowlText">Drop ingredients here</p>
+          </div>
 
-          <div id="treatTray" class="treat-tray hidden">
-            <div id="rawTreat" class="raw-treat"></div>
+          <button id="whiskBtn" class="mini-button hidden">Whisk Batter</button>
+
+          <div id="tray" class="tray hidden" draggable="true">
+            <div id="rawTreat" class="raw-treat cupcake"></div>
+            <p>Drag tray to oven</p>
           </div>
         </div>
 
-        <div class="oven-area">
+        <div class="oven-zone">
           <p class="zone-label">Warm Oven</p>
-          <div class="oven">
+          <div id="oven" class="oven">
             <div class="oven-window">
               <div id="ovenTreat" class="oven-treat"></div>
             </div>
-            <div class="oven-knobs">
-              <span></span><span></span><span></span>
-            </div>
+            <div class="oven-knobs"><span></span><span></span><span></span></div>
           </div>
-          <button id="bakeBtn" class="mini-button hidden">Bake It</button>
-          <div id="bakeTimer" class="bake-timer hidden">
-            <div id="timerFill"></div>
-          </div>
+
+          <button id="bakeBtn" class="mini-button hidden">Bake</button>
+          <div id="timer" class="timer hidden"><div id="timerFill"></div></div>
         </div>
       </div>
 
-      <div id="decorateArea" class="decorate-area hidden">
+      <div id="decorate" class="decorate hidden">
         <h3>Decorate your treat</h3>
-        <div class="decor-buttons">
-          <button class="decor-choice" data-decor="pink-frosting">Pink Frosting</button>
+        <div class="decor-grid">
+          <button class="decor-choice" data-decor="pink">Pink Frosting</button>
           <button class="decor-choice" data-decor="chocolate">Chocolate Drizzle</button>
-          <button class="decor-choice" data-decor="sprinkles">Rainbow Sprinkles</button>
-          <button class="decor-choice" data-decor="cherry">Cherry Topper</button>
+          <button class="decor-choice" data-decor="sprinkles">Sprinkles</button>
+          <button class="decor-choice" data-decor="cherry">Cherry</button>
         </div>
       </div>
 
       <div class="actions">
-        <button id="resetBtn">Restart</button>
+        <button id="restartBtn">Restart</button>
         <button id="nextBtn">Next</button>
       </div>
     </section>
 
-    <section id="finalScreen" class="final-screen hidden">
-      <p class="eyebrow">Bakery Display Reveal</p>
-      <h2 id="finalTitle">Your bakery treat is ready!</h2>
+    <section id="final" class="final hidden">
+      <p class="eyebrow">Bakery Reveal</p>
+      <h2 id="finalTitle">Your treat is ready!</h2>
 
-      <div class="final-display">
-        <div class="bakery-sign">Freshly Baked</div>
+      <div class="final-layout">
         <div class="final-case">
-          <div id="finalTreat" class="final-treat"></div>
-          <div class="case-shelf"></div>
+          <div id="finalTreat" class="final-treat cupcake"></div>
+          <div class="shelf"></div>
         </div>
-        <div class="final-card">
+
+        <div class="receipt">
           <h3 id="specialName">Amal’s Bakery Special</h3>
           <p id="specialText">Sweet score: 10/10</p>
           <ul id="specialList"></ul>
         </div>
       </div>
 
-      <button id="makeAnotherBtn" class="main-button">Make Another Treat</button>
+      <button id="againBtn">Make Another Treat</button>
     </section>
   </main>
 

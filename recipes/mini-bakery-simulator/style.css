@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -8,16 +6,15 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   color: #3f2635;
   background:
-    radial-gradient(circle at 10% 20%, rgba(255, 170, 210, 0.38), transparent 24%),
-    radial-gradient(circle at 88% 14%, rgba(255, 226, 139, 0.38), transparent 24%),
-    radial-gradient(circle at 92% 75%, rgba(181, 220, 255, 0.36), transparent 24%),
-    linear-gradient(135deg, #ffe1f1, #fff8ef 48%, #ecf1ff);
+    radial-gradient(circle at 10% 18%, rgba(255, 170, 210, .35), transparent 25%),
+    radial-gradient(circle at 88% 16%, rgba(255, 226, 139, .35), transparent 25%),
+    linear-gradient(135deg, #ffe1f1, #fff8ef 50%, #ecf1ff);
 }
 
 .bakery-app {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 30px 0 60px;
+  padding: 28px 0 56px;
 }
 
 .back-link {
@@ -25,42 +22,30 @@ body {
   margin-bottom: 18px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(255, 170, 210, 0.7);
+  background: rgba(255,255,255,.85);
+  border: 1px solid #ffc0df;
   color: #7b4d72;
   text-decoration: none;
   font-weight: 900;
 }
 
-.bakery-entrance,
-.simulator,
-.final-screen {
-  position: relative;
-  overflow: hidden;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(255, 170, 210, 0.6);
+.entrance, .simulator, .final {
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255, 170, 210, .6);
   border-radius: 36px;
   padding: 34px;
-  margin-bottom: 24px;
-  box-shadow: 0 28px 80px rgba(255, 140, 190, 0.2);
+  box-shadow: 0 28px 80px rgba(255, 140, 190, .2);
+  overflow: hidden;
 }
 
-.bakery-entrance {
-  text-align: center;
-  min-height: 720px;
-}
+.entrance { text-align: center; }
 
 .awning {
-  height: 95px;
+  height: 92px;
   margin: -34px -34px 28px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #ff91c8 0 70px,
-      #fff2fb 70px 140px
-    );
-  border-bottom: 8px solid rgba(255, 180, 215, 0.8);
   border-radius: 36px 36px 22px 22px;
+  background: repeating-linear-gradient(90deg, #ff91c8 0 70px, #fff2fb 70px 140px);
+  border-bottom: 8px solid rgba(255, 180, 215, .85);
 }
 
 .eyebrow {
@@ -68,52 +53,58 @@ body {
   color: #8355ff;
   font-family: Arial, sans-serif;
   font-weight: 900;
-  letter-spacing: 0.18em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: .8rem;
 }
 
 h1 {
   margin: 0 0 16px;
   font-size: clamp(3.5rem, 9vw, 7rem);
-  line-height: 0.9;
+  line-height: .9;
 }
 
 h2 {
   margin: 0 0 12px;
   font-size: clamp(2.3rem, 5vw, 4rem);
-  line-height: 0.95;
+  line-height: .95;
 }
 
-h3 {
-  font-size: 1.8rem;
-  margin: 0 0 12px;
-}
-
-p,
-li {
+p, li {
   font-size: 1.12rem;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-.welcome {
-  max-width: 760px;
-  margin: 0 auto 30px;
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
 }
 
-.display-case {
+#enterBtn, #nextBtn, #againBtn {
+  background: linear-gradient(135deg, #ee6bd6, #7d54ff);
+  color: white;
+}
+
+#restartBtn {
+  background: #f4e9f1;
+  color: #704665;
+}
+
+.display-case, .final-case {
   position: relative;
   width: min(760px, 100%);
-  height: 280px;
+  height: 270px;
   margin: 28px auto;
-  border: 8px solid rgba(120, 100, 130, 0.22);
+  border: 8px solid rgba(120, 100, 130, .22);
   border-radius: 32px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,245,252,0.8));
-  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,245,252,.85));
 }
 
-.shelf,
-.case-shelf {
+.shelf {
   position: absolute;
   left: 8%;
   right: 8%;
@@ -121,79 +112,81 @@ li {
   height: 16px;
   border-radius: 999px;
   background: #d39a70;
-  box-shadow: 0 14px 22px rgba(150, 95, 60, 0.18);
 }
 
-.display-treat {
+.treat-preview {
   position: absolute;
-  bottom: 76px;
+  bottom: 78px;
 }
 
-.cupcake-preview {
-  left: 18%;
-  width: 90px;
-  height: 105px;
-  background: #ff9fd3;
-  border-radius: 46px 46px 22px 22px;
+.cupcake { left: 18%; }
+.cookie { left: 44%; }
+.donut { right: 18%; }
+
+.treat-preview.cupcake,
+.raw-treat.cupcake,
+.oven-treat.cupcake,
+.final-treat.cupcake {
+  width: 110px;
+  height: 130px;
+  position: relative;
 }
 
-.cupcake-preview::after {
+.treat-preview.cupcake::before,
+.raw-treat.cupcake::before,
+.oven-treat.cupcake::before,
+.final-treat.cupcake::before {
   content: "";
   position: absolute;
   left: 12px;
   right: 12px;
-  bottom: -32px;
-  height: 48px;
-  background: repeating-linear-gradient(90deg, #ffd789 0 10px, #ffc46b 10px 20px);
-  border-radius: 8px 8px 18px 18px;
+  top: 0;
+  height: 72px;
+  border-radius: 44px 44px 18px 18px;
+  background: #ff9fd3;
 }
 
-.cookie-preview {
-  left: 44%;
-  width: 110px;
-  height: 110px;
+.treat-preview.cupcake::after,
+.raw-treat.cupcake::after,
+.oven-treat.cupcake::after,
+.final-treat.cupcake::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  height: 64px;
+  border-radius: 10px 10px 22px 22px;
+  background: repeating-linear-gradient(90deg, #ffd789 0 10px, #ffc46b 10px 20px);
+}
+
+.treat-preview.cookie,
+.raw-treat.cookie,
+.oven-treat.cookie,
+.final-treat.cookie {
+  width: 118px;
+  height: 118px;
   border-radius: 999px;
   background:
-    radial-gradient(circle, #7d4a31 0 7px, transparent 8px) 20px 30px / 38px 38px,
+    radial-gradient(circle, #7d4a31 0 7px, transparent 8px) 22px 28px / 38px 38px,
     radial-gradient(circle, #7d4a31 0 7px, transparent 8px) 55px 55px / 42px 42px,
     #d99a5d;
 }
 
-.donut-preview {
-  right: 18%;
+.treat-preview.donut,
+.raw-treat.donut,
+.oven-treat.donut,
+.final-treat.donut {
   width: 120px;
   height: 120px;
   border-radius: 999px;
-  background: radial-gradient(circle, transparent 0 28px, #ff91c8 29px 52px, #d69258 53px);
+  background: radial-gradient(circle, transparent 0 29px, #ff91c8 30px 54px, #d69258 55px);
 }
 
-.main-button,
-button {
-  border: 0;
-  border-radius: 999px;
-  padding: 15px 26px;
-  font-size: 1rem;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.main-button,
-#nextBtn {
-  background: linear-gradient(135deg, #ee6bd6, #7d54ff);
-  color: white;
-  box-shadow: 0 14px 28px rgba(120, 80, 220, 0.18);
-}
-
-#resetBtn {
-  background: #f4e9f1;
-  color: #704665;
-}
-
-.top-bar {
+.top-row {
   display: flex;
   justify-content: space-between;
   gap: 22px;
-  align-items: flex-start;
 }
 
 .progress-wrap {
@@ -215,11 +208,10 @@ button {
   width: 0%;
   height: 100%;
   background: linear-gradient(90deg, #ee6bd6, #4fcce8, #ffe36e);
-  transition: width 0.45s ease;
+  transition: width .45s ease;
 }
 
-.choice-area,
-.decor-buttons {
+.choices, .decor-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -227,36 +219,28 @@ button {
   margin: 24px 0;
 }
 
-.choice,
-.decor-choice,
-.ingredient {
+.choice, .decor-choice {
   border: 2px solid #ffc0df;
   background: #fff7fc;
   color: #4a2543;
-  border-radius: 999px;
-  padding: 13px 18px;
-  font-weight: 900;
 }
 
-.choice.selected,
-.decor-choice.selected,
-.ingredient.added {
-  background: linear-gradient(135deg, #ffe4f5, #e9f7ff);
+.choice.selected, .decor-choice.selected {
   border-color: #8b5cff;
+  background: linear-gradient(135deg, #ffe4f5, #e9f7ff);
 }
 
-.bakery-scene {
+.scene {
   display: grid;
   grid-template-columns: 1fr 350px;
   gap: 24px;
   margin-top: 22px;
 }
 
-.counter,
-.oven-area {
-  min-height: 420px;
+.counter, .oven-zone {
+  min-height: 430px;
   position: relative;
-  border: 2px dashed rgba(255, 135, 195, 0.45);
+  border: 2px dashed rgba(255, 135, 195, .45);
   border-radius: 30px;
   background: linear-gradient(135deg, #fff7fc, #fdf3e4);
   overflow: hidden;
@@ -270,51 +254,75 @@ button {
   font-family: Arial, sans-serif;
   font-weight: 900;
   color: #9a6b8d;
-  opacity: 0.72;
-}
-
-.mixing-bowl {
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-  width: 220px;
-  height: 120px;
-  background: linear-gradient(135deg, #ffc6e5, #f48bc5);
-  border: 6px solid rgba(255,255,255,0.78);
-  border-radius: 28px 28px 90px 90px;
-  overflow: hidden;
-}
-
-.batter {
-  position: absolute;
-  left: 15px;
-  right: 15px;
-  bottom: 12px;
-  height: 22px;
-  border-radius: 999px;
-  background: #f6c887;
-  transition: height 0.3s ease;
-}
-
-.batter.mixed {
-  height: 70px;
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.45) 0 5px, transparent 6px) 18px 16px / 42px 35px,
-    #f4b875;
-  animation: wiggle 0.55s ease 3;
+  opacity: .72;
 }
 
 .ingredients {
   position: absolute;
-  left: 50%;
-  bottom: 78px;
-  transform: translateX(-50%);
+  top: 28px;
+  left: 28px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  width: min(520px, 90%);
+  gap: 12px;
+}
+
+.ingredient {
+  width: 92px;
+  height: 70px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  color: #4a2543;
+  cursor: grab;
+  border: 2px solid rgba(255,255,255,.85);
+  box-shadow: 0 12px 24px rgba(120, 70, 90, .1);
+}
+
+.flour { background: #fff8e7; }
+.sugar { background: #ffe4f5; }
+.egg { background: #ffe36e; }
+.milk { background: #dff6ff; }
+
+.ingredient.used {
+  opacity: .35;
+  transform: scale(.92);
+}
+
+.bowl {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 126px;
+  background: linear-gradient(135deg, #ffc6e5, #f48bc5);
+  border: 6px solid rgba(255,255,255,.8);
+  border-radius: 28px 28px 90px 90px;
+  text-align: center;
+  padding-top: 38px;
+}
+
+.bowl.drop-ready {
+  outline: 6px solid rgba(139, 92, 255, .25);
+  outline-offset: 10px;
+}
+
+.batter {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 12px;
+  height: 18px;
+  border-radius: 999px;
+  background: #f4b875;
+  transition: height .25s ease;
+}
+
+.batter.mixed {
+  height: 72px;
+  animation: wiggle .55s ease 3;
 }
 
 .mini-button {
@@ -325,78 +333,34 @@ button {
   color: #3b2038;
 }
 
-.treat-tray {
+.tray {
   position: absolute;
   left: 50%;
-  top: 48%;
+  top: 52%;
   transform: translate(-50%, -50%);
-  width: 260px;
-  height: 160px;
+  width: 270px;
+  height: 170px;
   border-radius: 24px;
   background: #c7b1a0;
   display: grid;
   place-items: center;
+  cursor: grab;
 }
 
-.raw-treat,
-.oven-treat,
-.final-treat {
-  width: 120px;
-  height: 120px;
+.tray p {
+  position: absolute;
+  bottom: -48px;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  color: #7b4d72;
+}
+
+.raw-treat, .oven-treat, .final-treat {
   position: relative;
+  transform: scale(.85);
 }
 
-.raw-treat.cupcake,
-.oven-treat.cupcake,
-.final-treat.cupcake {
-  width: 120px;
-  height: 145px;
-}
-
-.raw-treat.cupcake::before,
-.oven-treat.cupcake::before,
-.final-treat.cupcake::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  top: 6px;
-  height: 82px;
-  border-radius: 48px 48px 22px 22px;
-  background: #f7b1d7;
-}
-
-.raw-treat.cupcake::after,
-.oven-treat.cupcake::after,
-.final-treat.cupcake::after {
-  content: "";
-  position: absolute;
-  left: 22px;
-  right: 22px;
-  bottom: 0;
-  height: 70px;
-  border-radius: 10px 10px 24px 24px;
-  background: repeating-linear-gradient(90deg, #ffd789 0 10px, #ffc46b 10px 20px);
-}
-
-.raw-treat.cookie,
-.oven-treat.cookie,
-.final-treat.cookie {
-  border-radius: 999px;
-  background:
-    radial-gradient(circle, #7d4a31 0 7px, transparent 8px) 22px 28px / 38px 38px,
-    radial-gradient(circle, #7d4a31 0 7px, transparent 8px) 55px 55px / 42px 42px,
-    #d99a5d;
-}
-
-.raw-treat.donut,
-.oven-treat.donut,
-.final-treat.donut {
-  border-radius: 999px;
-  background: radial-gradient(circle, transparent 0 29px, #ff91c8 30px 54px, #d69258 55px);
-}
-
-.oven-area {
+.oven-zone {
   display: grid;
   place-items: center;
 }
@@ -407,7 +371,11 @@ button {
   border-radius: 28px;
   background: linear-gradient(135deg, #6b4d62, #3f2635);
   padding: 22px;
-  box-shadow: inset 0 -18px 30px rgba(0,0,0,0.2);
+}
+
+.oven.drop-ready {
+  outline: 6px solid rgba(139, 92, 255, .28);
+  outline-offset: 10px;
 }
 
 .oven-window {
@@ -420,9 +388,8 @@ button {
 }
 
 .oven-treat {
-  transform: scale(0.7);
   opacity: 0;
-  transition: 0.4s ease;
+  transition: .3s ease;
 }
 
 .oven-treat.visible {
@@ -443,7 +410,7 @@ button {
   background: #ffe1f1;
 }
 
-.bake-timer {
+.timer {
   position: absolute;
   left: 30px;
   right: 30px;
@@ -460,75 +427,29 @@ button {
   background: linear-gradient(90deg, #ff91c8, #ffe36e);
 }
 
-.decorate-area {
+.decorate {
   margin-top: 24px;
   text-align: center;
-  background: rgba(255, 247, 252, 0.8);
+  background: rgba(255,247,252,.8);
   border: 1px solid #ffc0df;
   border-radius: 28px;
   padding: 22px;
 }
 
-.final-treat.pink-frosting::before {
-  background: #ff91c8;
-}
-
-.final-treat.chocolate::before {
-  background: #8a5738;
-}
-
-.final-treat.sprinkles {
-  filter: drop-shadow(0 0 0 transparent);
-}
-
-.final-treat.sprinkles::before {
-  background:
-    radial-gradient(circle, #fff 0 3px, transparent 4px) 14px 20px / 28px 24px,
-    radial-gradient(circle, #7d54ff 0 3px, transparent 4px) 25px 8px / 32px 26px,
-    #ff91c8;
-}
-
-.final-treat.cherry::before {
-  box-shadow: 34px -12px 0 -22px #e53965;
-}
-
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-top: 24px;
-  flex-wrap: wrap;
-}
-
-.final-display {
+.final-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 24px;
-  align-items: center;
 }
 
-.bakery-sign {
-  grid-column: 1 / -1;
-  justify-self: center;
-  background: #ffe36e;
-  color: #3f2635;
-  padding: 12px 20px;
-  border-radius: 999px;
-  font-family: Arial, sans-serif;
-  font-weight: 900;
+.final-treat {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%) scale(1.05);
 }
 
-.final-case {
-  position: relative;
-  min-height: 300px;
-  border: 8px solid rgba(120, 100, 130, 0.22);
-  border-radius: 32px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,245,252,0.8));
-  display: grid;
-  place-items: center;
-}
-
-.final-card {
+.receipt {
   background: #fff7fc;
   border: 1px solid #ffc0df;
   border-radius: 28px;
@@ -545,15 +466,11 @@ button {
 }
 
 @media (max-width: 850px) {
-  .top-bar,
-  .bakery-scene,
-  .final-display {
+  .top-row, .scene, .final-layout {
     display: block;
   }
 
-  .progress-wrap,
-  .oven-area,
-  .final-card {
+  .oven-zone, .receipt {
     margin-top: 20px;
   }
 }

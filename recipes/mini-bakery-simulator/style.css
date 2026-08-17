@@ -474,3 +474,39 @@ button {
     margin-top: 20px;
   }
 }
+
+/* Fix Day 36 bakery treat positioning */
+.cupcake,
+.cookie,
+.donut {
+  left: auto !important;
+  right: auto !important;
+}
+
+/* Only entrance display-case treats should be positioned like this */
+.display-case .treat-preview.cupcake {
+  left: 18% !important;
+}
+
+.display-case .treat-preview.cookie {
+  left: 44% !important;
+}
+
+.display-case .treat-preview.donut {
+  right: 18% !important;
+}
+
+/* Keep simulator and final treats inside their own areas */
+.raw-treat,
+.oven-treat,
+.final-treat {
+  left: auto !important;
+  right: auto !important;
+}
+
+.final-case .final-treat {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) scale(1.05) !important;
+}
+

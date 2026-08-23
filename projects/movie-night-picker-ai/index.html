@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Night Picker AI · Amal</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <a class="back-link" href="/">← Back to Amal’s Website</a>
+
+    <section class="hero">
+      <p class="eyebrow">Day 37 · AI Movie Helper</p>
+      <h1>Movie Night Picker AI 🎬</h1>
+      <p>
+        Upload a picture of your TV setup, tell me the movie-night vibe,
+        add your snacks, and get 5 movie ideas that match the night.
+      </p>
+    </section>
+
+    <section class="card form-card">
+      <form id="movieForm">
+        <label>
+          Upload your TV or movie-night setup photo
+          <input id="photo" name="photo" type="file" accept="image/*" required>
+        </label>
+
+        <div id="previewWrap" class="preview-wrap hidden">
+          <img id="preview" alt="Movie night setup preview">
+        </div>
+
+        <label>
+          What type of movie night is it?
+          <select name="movieNightType" required>
+            <option value="">Choose one</option>
+            <option>Family movie night</option>
+            <option>Cozy night</option>
+            <option>Sleepover</option>
+            <option>Funny movie night</option>
+            <option>Animated movie night</option>
+            <option>Adventure night</option>
+            <option>Scary but not too scary</option>
+            <option>Action night</option>
+          </select>
+        </label>
+
+        <label>
+          What snacks are you eating?
+          <input name="snacks" type="text" placeholder="Popcorn, candy, pizza, chips, ice cream..." required>
+        </label>
+
+        <label>
+          Who is watching? What ages?
+          <input name="ages" type="text" placeholder="Example: kids 10–13 and parents" required>
+        </label>
+
+        <label>
+          What mood do you want?
+          <select name="mood" required>
+            <option value="">Choose one</option>
+            <option>Funny and light</option>
+            <option>Cozy and calm</option>
+            <option>Exciting and adventurous</option>
+            <option>Emotional but sweet</option>
+            <option>Mysterious but safe</option>
+            <option>Big fun family energy</option>
+          </select>
+        </label>
+
+        <label>
+          Anything to avoid?
+          <input name="avoid" type="text" placeholder="Too scary, sad endings, bad language, violence...">
+        </label>
+
+        <label>
+          How long should the movie be?
+          <select name="length">
+            <option>Any length is fine</option>
+            <option>Under 90 minutes</option>
+            <option>90–120 minutes</option>
+            <option>Long movie is okay</option>
+          </select>
+        </label>
+
+        <label>
+          What streaming services do you have?
+          <input name="streaming" type="text" placeholder="Netflix, Disney+, Prime, Hulu, Max, YouTube...">
+        </label>
+
+        <button id="submitBtn" type="submit">Get 5 Movie Picks</button>
+      </form>
+    </section>
+
+    <section id="loading" class="card loading hidden">
+      <div class="popcorn-loader">🍿</div>
+      <h2>Picking your movies...</h2>
+      <p>Movie Night Picker AI is looking at the setup and matching the vibe.</p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="card">
+        <p class="eyebrow">Setup Vibe</p>
+        <h2 id="setupVibe">Your movie night setup</h2>
+        <p><strong>Best pick:</strong> <span id="bestPick"></span></p>
+        <p id="movieNightTip"></p>
+      </div>
+
+      <div id="recommendations" class="movie-grid"></div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

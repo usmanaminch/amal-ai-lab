@@ -1039,3 +1039,130 @@ textarea {
   border-color: #111 !important;
 }
 
+
+/* HARD RESET: remove all pink from Glow Guide */
+:root {
+  --pink: #111 !important;
+  --soft-pink: #f5f5f5 !important;
+  --hot-pink: #111 !important;
+  --rose: #222 !important;
+  --accent: #111 !important;
+  --accent-2: #666 !important;
+}
+
+body {
+  background:
+    linear-gradient(135deg, #050505, #171717 55%, #0b0b0b) !important;
+  color: #111 !important;
+}
+
+.hero,
+.chat-shell,
+.form-card,
+.loading-card,
+.before-after,
+.advice-card,
+.next-plan {
+  background: #f7f7f7 !important;
+  border: 4px solid #111 !important;
+  box-shadow:
+    0 0 0 6px #d9d9de,
+    0 18px 40px rgba(0,0,0,0.22) !important;
+}
+
+/* remove pink stripes/bars */
+.hero::before,
+.hero::after,
+.advice-card::before,
+.next-plan::before,
+.before-after::before {
+  background: linear-gradient(90deg, #111 0 25%, #d9d9de 25% 50%, #fff 50% 75%, #888 75% 100%) !important;
+  border-color: #111 !important;
+  color: #111 !important;
+  box-shadow: none !important;
+}
+
+/* buttons */
+button,
+#submitBtn,
+#generateAfterBtn,
+.back-link {
+  background: linear-gradient(135deg, #111, #666) !important;
+  color: #fff !important;
+  border: 3px solid #111 !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.22) !important;
+}
+
+/* pills / bubbles / icon circles */
+.avatar,
+.bubble,
+.preview,
+.compare-card {
+  background: #fff !important;
+  border: 3px solid #111 !important;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.12) !important;
+}
+
+/* inputs */
+input,
+select,
+textarea {
+  background: #fff !important;
+  border: 3px solid #111 !important;
+  color: #111 !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 4px solid rgba(120,120,120,0.28) !important;
+  border-color: #555 !important;
+}
+
+/* all pink text/borders forced off */
+* {
+  border-color: inherit;
+}
+
+.hero,
+.chat-shell,
+.form-card,
+.loading-card,
+.before-after,
+.advice-card,
+.next-plan,
+.bubble,
+.preview,
+.compare-card,
+input,
+select,
+textarea,
+.back-link,
+button {
+  border-image: none !important;
+}
+
+/* kill any leftover pink glow */
+.hero *,
+.chat-shell *,
+.form-card *,
+.loading-card *,
+.before-after *,
+.advice-card *,
+.next-plan * {
+  box-shadow: none;
+}
+
+/* add back only neutral shadows where needed */
+.hero,
+.chat-shell,
+.form-card,
+.loading-card,
+.before-after,
+.advice-card,
+.next-plan {
+  box-shadow:
+    0 0 0 6px #d9d9de,
+    0 18px 40px rgba(0,0,0,0.22) !important;
+}
+

@@ -726,3 +726,202 @@ button:hover {
   }
 }
 
+
+/* Day 39: stronger beauty-store / Sephora-inspired vibe */
+body {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.04) 0 8px, transparent 8px 38px),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.20), transparent 28%),
+    radial-gradient(circle at 15% 18%, rgba(255, 0, 130, 0.25), transparent 26%),
+    radial-gradient(circle at 85% 20%, rgba(255, 0, 130, 0.18), transparent 26%),
+    linear-gradient(135deg, #050505, #151015 50%, #050505) !important;
+  color: #111 !important;
+}
+
+/* black and white stripe store entrance */
+.hero {
+  background:
+    linear-gradient(rgba(255,255,255,0.94), rgba(255,255,255,0.94)),
+    repeating-linear-gradient(
+      90deg,
+      #000 0 34px,
+      #fff 34px 68px
+    ) !important;
+  border: 4px solid #fff !important;
+  box-shadow:
+    0 0 0 8px #000,
+    0 0 0 12px #ff2d9b,
+    0 35px 90px rgba(0,0,0,0.45) !important;
+  color: #111 !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.hero::before {
+  content: "GLOW GUIDE BEAUTY STORE";
+  display: inline-flex;
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #ff2d9b !important;
+  box-shadow: 0 0 22px rgba(255, 45, 155, 0.45);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  margin-bottom: 18px;
+}
+
+.hero::after {
+  content: "✦ BEAUTY COUNTER ✦";
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  color: #ff2d9b;
+  letter-spacing: 0.14em;
+  font-size: 0.8rem;
+}
+
+.hero h1 {
+  color: #111 !important;
+  text-shadow: 4px 4px 0 rgba(255, 45, 155, 0.18) !important;
+}
+
+.hero p {
+  color: #222 !important;
+}
+
+/* all main cards look like clean beauty counters */
+.chat-shell,
+.form-card,
+.loading-card,
+.before-after,
+.advice-card,
+.next-plan {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,246,251,0.98)) !important;
+  color: #111 !important;
+  border: 3px solid #fff !important;
+  box-shadow:
+    0 0 0 4px #000,
+    0 0 0 7px rgba(255,45,155,0.9),
+    0 28px 75px rgba(0,0,0,0.38) !important;
+}
+
+/* chat bubble as beauty consultant */
+.avatar {
+  background: #000 !important;
+  border: 3px solid #ff2d9b !important;
+  color: #fff !important;
+}
+
+.bubble {
+  background: #fff !important;
+  border: 2px solid #000 !important;
+  box-shadow: 8px 8px 0 rgba(255,45,155,0.18) !important;
+  color: #111 !important;
+}
+
+/* form like product display labels */
+label {
+  color: #111 !important;
+  font-family: Arial, sans-serif !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  font-size: 0.9rem !important;
+}
+
+input,
+select,
+textarea {
+  background: #fff !important;
+  color: #111 !important;
+  border: 3px solid #000 !important;
+  border-radius: 12px !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 4px solid rgba(255,45,155,0.30) !important;
+  border-color: #ff2d9b !important;
+}
+
+/* hot pink beauty-store buttons */
+button,
+#submitBtn,
+#generateAfterBtn {
+  background: linear-gradient(135deg, #ff2d9b, #000) !important;
+  border: 2px solid #fff !important;
+  color: #fff !important;
+  box-shadow:
+    0 0 0 3px #000,
+    0 12px 28px rgba(255,45,155,0.30) !important;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* preview cards feel like makeup mirrors */
+.preview,
+.compare-card {
+  background: #fff !important;
+  border: 3px solid #000 !important;
+  border-radius: 18px !important;
+  box-shadow:
+    8px 8px 0 rgba(255,45,155,0.20),
+    0 18px 40px rgba(0,0,0,0.14) !important;
+}
+
+.preview img,
+.compare-card img {
+  border: 3px solid #ff2d9b !important;
+}
+
+/* advice cards like shelf tags */
+.eyebrow {
+  color: #ff2d9b !important;
+  font-family: Arial, sans-serif !important;
+}
+
+.advice-card::before,
+.next-plan::before,
+.before-after::before {
+  content: "";
+  display: block;
+  height: 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0 28px,
+    #fff 28px 56px,
+    #ff2d9b 56px 84px
+  );
+  border: 2px solid #000;
+}
+
+/* add a store-floor glow */
+.app::after {
+  content: "";
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(900px, 85vw);
+  height: 130px;
+  background: radial-gradient(circle, rgba(255,45,155,0.28), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.back-link {
+  background: #fff !important;
+  color: #000 !important;
+  border: 3px solid #000 !important;
+  box-shadow: 6px 6px 0 #ff2d9b !important;
+}
+

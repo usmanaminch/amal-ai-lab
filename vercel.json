@@ -26,6 +26,9 @@
     },
     "api/analyze-glow-guide.js": {
       "maxDuration": 120
+    },
+    "api/generate-glow-after.js": {
+      "maxDuration": 300
     }
   }
 }

@@ -98,3 +98,59 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+
+
+// Day 39: AI before/after preview
+const beforeAfterSection = document.getElementById("beforeAfterSection");
+const beforeImage = document.getElementById("beforeImage");
+const afterImage = document.getElementById("afterImage");
+const afterLoading = document.getElementById("afterLoading");
+const generateAfterBtn = document.getElementById("generateAfterBtn");
+
+lookPhoto.addEventListener("change", () => {
+  const file = lookPhoto.files[0];
+  if (!file) return;
+
+  beforeImage.src = URL.createObjectURL(file);
+  beforeAfterSection.classList.remove("hidden");
+  afterImage.classList.add("hidden");
+  afterImage.removeAttribute("src");
+});
+
+generateAfterBtn.addEventListener("click", async () => {
+  const file = lookPhoto.files[0];
+
+  if (!file) {
+    alert("Upload your final makeup look photo first.");
+    return;
+  }
+
+  const formData = new FormData(form);
+
+  afterLoading.classList.remove("hidden");
+  afterImage.classList.add("hidden");
+  generateAfterBtn.disabled = true;
+  generateAfterBtn.textContent = "Creating preview...";
+
+  try {
+    const response = await fetch("/api/generate-glow-after", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Could not create after preview.");
+    }
+
+    afterImage.src = data.afterImage;
+    afterImage.classList.remove("hidden");
+  } catch (error) {
+    alert(error.message || "Glow Guide could not create the after preview.");
+  } finally {
+    afterLoading.classList.add("hidden");
+    generateAfterBtn.disabled = false;
+    generateAfterBtn.textContent = "Create AI After Preview";
+  }
+});

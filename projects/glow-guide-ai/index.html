@@ -98,6 +98,30 @@
       </form>
     </section>
 
+
+    <section id="beforeAfterSection" class="before-after hidden">
+      <p class="eyebrow">AI Before / After Preview</p>
+      <h2>Glow Guide After Look</h2>
+      <p class="preview-note">
+        This preview keeps your photo natural and only shows gentle makeup-improvement ideas.
+      </p>
+
+      <div class="before-after-grid">
+        <div class="compare-card">
+          <h3>Before</h3>
+          <img id="beforeImage" alt="Before makeup look">
+        </div>
+
+        <div class="compare-card">
+          <h3>After Idea</h3>
+          <div id="afterLoading" class="after-loading hidden">✨ Creating after preview...</div>
+          <img id="afterImage" class="hidden" alt="AI after makeup preview">
+        </div>
+      </div>
+
+      <button id="generateAfterBtn" type="button">Create AI After Preview</button>
+    </section>
+
     <section id="loading" class="loading-card hidden">
       <div class="sparkle-loader">✨</div>
       <h2>Glow Guide is thinking...</h2>

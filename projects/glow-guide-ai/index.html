@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glow Guide AI · Amal</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <a class="back-link" href="/">← Back to Amal’s Website</a>
+
+    <section class="hero">
+      <p class="eyebrow">Day 39 · AI Beauty Helper</p>
+      <h1>Glow Guide AI ✨</h1>
+      <p>
+        Upload your makeup products, describe your routine, upload your final look,
+        and get kind advice on what to improve next time.
+      </p>
+    </section>
+
+    <section class="chat-shell">
+      <div class="chat-message ai">
+        <div class="avatar">✨</div>
+        <div class="bubble">
+          Hi, I’m Glow Guide AI. Show me your products, tell me your routine, and I’ll help you make your makeup look even better.
+        </div>
+      </div>
+
+      <form id="glowForm" class="form-card">
+        <label>
+          Product photo
+          <input id="productPhoto" name="productPhoto" type="file" accept="image/*">
+        </label>
+
+        <label>
+          Final makeup look photo
+          <input id="lookPhoto" name="lookPhoto" type="file" accept="image/*">
+        </label>
+
+        <div class="preview-grid">
+          <div id="productPreviewWrap" class="preview hidden">
+            <p>Products</p>
+            <img id="productPreview" alt="Product preview">
+          </div>
+          <div id="lookPreviewWrap" class="preview hidden">
+            <p>Final Look</p>
+            <img id="lookPreview" alt="Final look preview">
+          </div>
+        </div>
+
+        <label>
+          Tell Glow Guide your makeup routine
+          <textarea name="routine" required placeholder="Example: I used moisturizer, concealer, blush, mascara, lip gloss..."></textarea>
+        </label>
+
+        <label>
+          What is your makeup goal?
+          <select name="goal" required>
+            <option value="">Choose one</option>
+            <option>Natural everyday glow</option>
+            <option>Soft glam</option>
+            <option>Party makeup</option>
+            <option>School-friendly makeup</option>
+            <option>Clean girl look</option>
+            <option>Colorful fun look</option>
+          </select>
+        </label>
+
+        <label>
+          What style do you like?
+          <select name="style" required>
+            <option value="">Choose one</option>
+            <option>Soft and simple</option>
+            <option>Glowy and dewy</option>
+            <option>Pink and cute</option>
+            <option>Bold and dramatic</option>
+            <option>Neat and polished</option>
+          </select>
+        </label>
+
+        <label>
+          What do you want help with?
+          <input name="concerns" type="text" placeholder="Blending, blush placement, lip color, mascara, routine order...">
+        </label>
+
+        <label>
+          Makeup experience level
+          <select name="experience">
+            <option>Beginner</option>
+            <option>Getting better</option>
+            <option>Pretty confident</option>
+          </select>
+        </label>
+
+        <button id="submitBtn" type="submit">Ask Glow Guide</button>
+      </form>
+    </section>
+
+    <section id="loading" class="loading-card hidden">
+      <div class="sparkle-loader">✨</div>
+      <h2>Glow Guide is thinking...</h2>
+      <p>Checking your routine, products, and final look.</p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="chat-message ai">
+        <div class="avatar">✨</div>
+        <div class="bubble">
+          <h2 id="openingMessage">Here’s your glow advice!</h2>
+          <p id="productRead"></p>
+          <p id="confidenceNote"></p>
+        </div>
+      </div>
+
+      <div class="advice-grid">
+        <article class="advice-card">
+          <p class="eyebrow">What Looks Good</p>
+          <ul id="whatLooksGood"></ul>
+        </article>
+
+        <article class="advice-card">
+          <p class="eyebrow">Improve Next Time</p>
+          <ul id="improvements"></ul>
+        </article>
+
+        <article class="advice-card">
+          <p class="eyebrow">Routine Order</p>
+          <ol id="routineOrder"></ol>
+        </article>
+
+        <article class="advice-card">
+          <p class="eyebrow">Product Ideas</p>
+          <ul id="productSuggestions"></ul>
+        </article>
+      </div>
+
+      <article class="next-plan">
+        <p class="eyebrow">Next Time Plan</p>
+        <h2 id="nextTimePlan"></h2>
+      </article>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

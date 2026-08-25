@@ -23,6 +23,9 @@
     },
     "api/analyze-movie-night.js": {
       "maxDuration": 120
+    },
+    "api/analyze-glow-guide.js": {
+      "maxDuration": 120
     }
   }
 }

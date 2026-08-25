@@ -925,3 +925,117 @@ button:hover {
   box-shadow: 6px 6px 0 #ff2d9b !important;
 }
 
+
+/* Day 39: remove pink from beauty-store layout */
+body {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.04) 0 8px, transparent 8px 38px),
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.22), transparent 28%),
+    radial-gradient(circle at 15% 18%, rgba(220,220,230,0.18), transparent 26%),
+    radial-gradient(circle at 85% 20%, rgba(255,255,255,0.14), transparent 26%),
+    linear-gradient(135deg, #050505, #171717 50%, #050505) !important;
+}
+
+/* Replace pink accents with silver/black */
+.hero {
+  box-shadow:
+    0 0 0 8px #000,
+    0 0 0 12px #d8d8df,
+    0 35px 90px rgba(0,0,0,0.45) !important;
+}
+
+.hero::before {
+  border-color: #d8d8df !important;
+  box-shadow: 0 0 22px rgba(255,255,255,0.28) !important;
+}
+
+.hero::after {
+  color: #111 !important;
+}
+
+.hero h1 {
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.10) !important;
+}
+
+.chat-shell,
+.form-card,
+.loading-card,
+.before-after,
+.advice-card,
+.next-plan {
+  box-shadow:
+    0 0 0 4px #000,
+    0 0 0 7px rgba(216,216,223,0.95),
+    0 28px 75px rgba(0,0,0,0.38) !important;
+}
+
+.avatar {
+  border-color: #d8d8df !important;
+  background: linear-gradient(135deg, #000, #555) !important;
+}
+
+.bubble {
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.12) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 4px solid rgba(216,216,223,0.45) !important;
+  border-color: #777 !important;
+}
+
+button,
+#submitBtn,
+#generateAfterBtn {
+  background: linear-gradient(135deg, #111, #666) !important;
+  box-shadow:
+    0 0 0 3px #000,
+    0 12px 28px rgba(0,0,0,0.28) !important;
+}
+
+.preview,
+.compare-card {
+  box-shadow:
+    8px 8px 0 rgba(0,0,0,0.14),
+    0 18px 40px rgba(0,0,0,0.14) !important;
+}
+
+.preview img,
+.compare-card img {
+  border-color: #111 !important;
+}
+
+.eyebrow {
+  color: #555 !important;
+}
+
+.advice-card::before,
+.next-plan::before,
+.before-after::before {
+  background: repeating-linear-gradient(
+    90deg,
+    #000 0 28px,
+    #fff 28px 56px,
+    #d8d8df 56px 84px
+  ) !important;
+}
+
+.app::after {
+  background: radial-gradient(circle, rgba(255,255,255,0.20), transparent 70%) !important;
+}
+
+.back-link {
+  box-shadow: 6px 6px 0 #d8d8df !important;
+}
+
+/* Remove leftover pink borders/backgrounds */
+.preview,
+.compare-card,
+.bubble,
+input,
+select,
+textarea {
+  border-color: #111 !important;
+}
+

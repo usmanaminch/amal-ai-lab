@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import formidable from "formidable";
 import fs from "fs";
+import { toFile } from "openai/uploads";
 
 export const config = {
   api: { bodyParser: false },
@@ -78,9 +79,30 @@ Do not sexualize the image.
 Keep it kind, realistic, and natural.
 `;
 
+    const originalName = lookPhoto.originalFilename || "makeup-look.png";
+    const lowerName = originalName.toLowerCase();
+
+    let mimeType = lookPhoto.mimetype;
+
+    if (!mimeType || mimeType === "application/octet-stream") {
+      if (lowerName.endsWith(".jpg") || lowerName.endsWith(".jpeg")) {
+        mimeType = "image/jpeg";
+      } else if (lowerName.endsWith(".webp")) {
+        mimeType = "image/webp";
+      } else {
+        mimeType = "image/png";
+      }
+    }
+
+    const imageFile = await toFile(
+      fs.createReadStream(lookPhoto.filepath),
+      originalName,
+      { type: mimeType }
+    );
+
     const result = await openai.images.edit({
       model: "gpt-image-1",
-      image: fs.createReadStream(lookPhoto.filepath),
+      image: imageFile,
       prompt,
       size: "1024x1024"
     });

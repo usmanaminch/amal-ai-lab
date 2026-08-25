@@ -141,7 +141,10 @@ generateAfterBtn.addEventListener("click", async () => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.error || "Could not create after preview.");
+      const message = data.details
+        ? `${data.error || "Could not create after preview."}\n\nDetails: ${data.details}`
+        : (data.error || "Could not create after preview.");
+      throw new Error(message);
     }
 
     afterImage.src = data.afterImage;

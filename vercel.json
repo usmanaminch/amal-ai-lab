@@ -29,6 +29,12 @@
     },
     "api/generate-glow-after.js": {
       "maxDuration": 300
+    },
+    "api/analyze-painting-fixer.js": {
+      "maxDuration": 120
+    },
+    "api/generate-painting-preview.js": {
+      "maxDuration": 300
     }
   }
 }

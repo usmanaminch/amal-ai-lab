@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painting Fixer AI · Amal</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <a class="back-link" href="/">← Back to Amal’s Website</a>
+
+    <section class="hero">
+      <div class="paint-dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <p class="eyebrow">Day 40 · AI Art Studio</p>
+      <h1>Painting Fixer AI</h1>
+      <p>
+        Upload your painting, tell the studio what you were trying to make,
+        and get kind feedback plus an improved preview.
+      </p>
+    </section>
+
+    <section class="studio-card">
+      <form id="paintingForm">
+        <label>
+          Upload your painting
+          <input id="painting" name="painting" type="file" accept="image/*" required>
+        </label>
+
+        <div id="previewWrap" class="upload-preview hidden">
+          <p>Your Painting</p>
+          <img id="paintingPreview" alt="Uploaded painting preview">
+        </div>
+
+        <label>
+          What kind of painting is it?
+          <select name="artType" required>
+            <option value="">Choose one</option>
+            <option>Watercolor landscape</option>
+            <option>Watercolor flowers</option>
+            <option>Watercolor animal</option>
+            <option>Watercolor portrait</option>
+            <option>Still life</option>
+            <option>Abstract painting</option>
+            <option>Other painting</option>
+          </select>
+        </label>
+
+        <label>
+          What were you trying to create?
+          <textarea name="goal" required placeholder="Example: I wanted to paint a sunset over water with soft colors."></textarea>
+        </label>
+
+        <label>
+          What part feels hard or unfinished?
+          <input name="struggle" type="text" placeholder="Example: shading, colors, details, blending, background...">
+        </label>
+
+        <label>
+          What style do you want?
+          <select name="style">
+            <option>Soft watercolor</option>
+            <option>Bright and colorful</option>
+            <option>Calm and dreamy</option>
+            <option>Detailed and polished</option>
+            <option>Loose and artsy</option>
+          </select>
+        </label>
+
+        <button id="submitBtn" type="submit">Fix My Painting</button>
+      </form>
+    </section>
+
+    <section id="loading" class="loading hidden">
+      <div class="brush-loader">🖌️</div>
+      <h2>Looking at your painting...</h2>
+      <p>The watercolor studio is making feedback and an improved preview.</p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <article class="studio-message">
+        <p class="eyebrow">Studio Notes</p>
+        <h2 id="studioMessage">Here’s your painting feedback.</h2>
+        <div class="score-badge"><span id="score">--</span>/100</div>
+      </article>
+
+      <section class="compare-section">
+        <p class="eyebrow">Before / Improved Preview</p>
+        <h2>See what your painting could look like</h2>
+
+        <div class="compare-grid">
+          <div class="compare-card">
+            <h3>Before</h3>
+            <img id="beforeImage" alt="Original painting">
+          </div>
+
+          <div class="compare-card">
+            <h3>Improved Preview</h3>
+            <div id="previewLoading" class="preview-loading">🎨 Creating improved preview...</div>
+            <img id="afterImage" class="hidden" alt="Improved painting preview">
+          </div>
+        </div>
+      </section>
+
+      <div class="advice-grid">
+        <article class="advice-card">
+          <p class="eyebrow">What Works</p>
+          <ul id="whatWorks"></ul>
+        </article>
+
+        <article class="advice-card">
+          <p class="eyebrow">What To Improve</p>
+          <ul id="whatToImprove"></ul>
+        </article>
+
+        <article class="advice-card">
+          <p class="eyebrow">Color Advice</p>
+          <p id="colorAdvice"></p>
+        </article>
+
+        <article class="advice-card">
+          <p class="eyebrow">Composition Advice</p>
+          <p id="compositionAdvice"></p>
+        </article>
+      </div>
+
+      <article class="next-steps">
+        <p class="eyebrow">Next Brush Steps</p>
+        <ol id="nextBrushSteps"></ol>
+      </article>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

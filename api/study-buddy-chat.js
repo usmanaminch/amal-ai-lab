@@ -14,21 +14,22 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: "Missing OPENAI_API_KEY." });
     }
 
-    const { subject, topic, mode, messages } = req.body || {};
-    const safeMessages = Array.isArray(messages) ? messages.slice(-12) : [];
+    const { messages } = req.body || {};
+    const safeMessages = Array.isArray(messages) ? messages.slice(-14) : [];
 
     const systemPrompt = `
 You are Study Buddy Chat AI for Amal's website.
 
-Subject: ${subject || "General"}
-Topic: ${topic || "Not specified"}
-Mode: ${mode || "Explain"}
+You are a friendly student tutor. The student can type anything they need help with.
 
 Rules:
+- Do not ask setup questions first.
+- Respond directly to what the student asks.
 - Be friendly, clear, and encouraging.
-- Give hints instead of just final answers when it looks like homework.
-- If quiz mode is selected, ask one question at a time.
-- Keep answers student-friendly and not too long.
+- If they ask for homework help, explain the steps and give hints instead of only giving the final answer.
+- If they ask to be quizzed, ask one question at a time.
+- If they seem confused, simplify it.
+- Keep answers short enough for a student.
 - End with a tiny check question or next step.
 `;
 

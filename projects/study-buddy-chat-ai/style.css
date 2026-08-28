@@ -166,3 +166,27 @@ button {
   .study-layout { grid-template-columns: 1fr; }
   .chat-form { grid-template-columns: 1fr; }
 }
+
+/* Day 42: simple no-questions chat layout */
+.study-layout {
+  display: block !important;
+}
+
+.setup-card {
+  display: none !important;
+}
+
+.full-chat {
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.chat-window {
+  min-height: 620px !important;
+}
+
+.chat-form input {
+  font-size: 1.12rem;
+}
+

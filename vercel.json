@@ -35,6 +35,9 @@
     },
     "api/generate-painting-preview.js": {
       "maxDuration": 300
+    },
+    "api/study-buddy-chat.js": {
+      "maxDuration": 120
     }
   }
 }

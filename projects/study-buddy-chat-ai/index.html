@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Buddy Chat AI · Amal</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <a class="back-link" href="/">← Back to Amal’s Website</a>
+
+    <section class="hero">
+      <p class="eyebrow">Day 42 · AI Study Helper</p>
+      <h1>Study Buddy Chat AI</h1>
+      <p>
+        Chat with a friendly study buddy. Ask questions, get hints, learn step by step,
+        or turn your topic into a mini quiz.
+      </p>
+    </section>
+
+    <section class="study-panel">
+      <div class="setup-card">
+        <label>
+          Subject
+          <select id="subject">
+            <option>Math</option>
+            <option>Science</option>
+            <option>Reading</option>
+            <option>Writing</option>
+            <option>History</option>
+            <option>Vocabulary</option>
+            <option>General Study</option>
+          </select>
+        </label>
+
+        <label>
+          What are you learning?
+          <input id="topic" type="text" placeholder="Example: fractions, cells, essay intros, ancient Egypt...">
+        </label>
+
+        <label>
+          Study mode
+          <select id="mode">
+            <option>Explain it</option>
+            <option>Quiz me</option>
+            <option>Give me hints</option>
+            <option>Check my answer</option>
+            <option>Make a study plan</option>
+          </select>
+        </label>
+
+        <button id="startBtn">Start Study Chat</button>
+      </div>
+
+      <div class="chat-card">
+        <div id="chatWindow" class="chat-window">
+          <div class="message ai">
+            <div class="avatar">📚</div>
+            <div class="bubble">
+              Hi, I’m your Study Buddy. Pick a subject and topic, then ask me anything.
+            </div>
+          </div>
+        </div>
+
+        <form id="chatForm" class="chat-form">
+          <input id="userInput" type="text" placeholder="Type your study question..." required>
+          <button id="sendBtn" type="submit">Send</button>
+        </form>
+
+        <div class="quick-actions">
+          <button type="button" data-prompt="Explain this topic in a simple way.">Explain</button>
+          <button type="button" data-prompt="Quiz me with one question at a time.">Quiz Me</button>
+          <button type="button" data-prompt="Give me a hint, not the full answer.">Hint</button>
+          <button type="button" data-prompt="Make me a tiny study plan for this topic.">Study Plan</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

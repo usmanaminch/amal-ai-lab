@@ -14,16 +14,12 @@
     <section class="hero">
       <p class="eyebrow">Day 42 · AI Study Helper</p>
       <h1>Study Buddy Chat AI</h1>
-      <p>
-        Chat with a friendly study buddy. Ask questions, get hints, learn step by step,
-        or turn your topic into a mini quiz.
-      </p>
+      <p>Ask questions, get hints, quiz yourself, and learn step by step with a friendly study buddy.</p>
     </section>
 
-    <section class="study-panel">
-      <div class="setup-card">
-        <label>
-          Subject
+    <section class="study-layout">
+      <aside class="setup-card">
+        <label>Subject
           <select id="subject">
             <option>Math</option>
             <option>Science</option>
@@ -35,13 +31,11 @@
           </select>
         </label>
 
-        <label>
-          What are you learning?
-          <input id="topic" type="text" placeholder="Example: fractions, cells, essay intros, ancient Egypt...">
+        <label>Topic
+          <input id="topic" placeholder="fractions, cells, essay intros..." />
         </label>
 
-        <label>
-          Study mode
+        <label>Mode
           <select id="mode">
             <option>Explain it</option>
             <option>Quiz me</option>
@@ -52,30 +46,28 @@
         </label>
 
         <button id="startBtn">Start Study Chat</button>
-      </div>
+      </aside>
 
-      <div class="chat-card">
+      <section class="chat-card">
         <div id="chatWindow" class="chat-window">
           <div class="message ai">
             <div class="avatar">📚</div>
-            <div class="bubble">
-              Hi, I’m your Study Buddy. Pick a subject and topic, then ask me anything.
-            </div>
+            <div class="bubble">Hi! I’m your Study Buddy. Pick a subject and topic, then ask me anything.</div>
           </div>
         </div>
 
         <form id="chatForm" class="chat-form">
-          <input id="userInput" type="text" placeholder="Type your study question..." required>
+          <input id="userInput" placeholder="Type your study question..." required />
           <button id="sendBtn" type="submit">Send</button>
         </form>
 
         <div class="quick-actions">
-          <button type="button" data-prompt="Explain this topic in a simple way.">Explain</button>
-          <button type="button" data-prompt="Quiz me with one question at a time.">Quiz Me</button>
+          <button type="button" data-prompt="Explain this topic simply.">Explain</button>
+          <button type="button" data-prompt="Quiz me one question at a time.">Quiz Me</button>
           <button type="button" data-prompt="Give me a hint, not the full answer.">Hint</button>
-          <button type="button" data-prompt="Make me a tiny study plan for this topic.">Study Plan</button>
+          <button type="button" data-prompt="Make me a tiny study plan.">Study Plan</button>
         </div>
-      </div>
+      </section>
     </section>
   </main>
 
